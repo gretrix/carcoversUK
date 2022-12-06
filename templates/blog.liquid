@@ -1,0 +1,159 @@
+{% render 'breadcrumbs' %} 
+<div id ="margin-container">
+  
+<div id="blog-container">
+
+<aside class="sidenav">
+   <h2><a class="blog-dropdown" onclick="toggleArticleCategories()">&#9660</a> Categories</h2>
+  <span id="categories-dropdown">
+  <ul class="carcovers-styled-list">
+   {% assign blog_handles = "car-cover-articles,seasonal-weather-car-care-tips,press,car-covers-news-and-press,car-cover-reviews,automotive-ownership,why-car-covers,automotive-care-and-maintenance,car-cover-guides,motorcycle-articles,other-vehicles,luxury-cars,car-news-and-facts" | split: "," %}
+
+   {% for handle in blog_handles %}
+    	<li><a href="#" class="show_hide">{{ blogs[handle].title }} ({{ blogs[handle].articles_count }})</a>
+    		<div class="carcovers-collapse">
+            {% for article in blogs[handle].articles %}
+                <p><a href="{{ article.url }}">{{ article.title }}</a></p>
+            {% endfor %}
+            </div>
+    	</li>
+  {% endfor %}
+  </ul>
+  </span>
+   <h2><a class="blog-dropdown" onclick="toggleArticleSearch()">&#9660</a> Search Articles</h2>
+   <span class="article-search-sidenav" id="search-articles-dropdown">
+    <form action="{{ routes.search_url | blogs }}">
+  		<input id="blog-search" aria-label="search through blog articles" placeholder="Title, keyword, etc." type="text"
+    placeholder="Search"
+    name="q"
+    value="{{ search.terms | escape }}">
+  		<input type="submit" value="Search" id="blog-search-btn">
+	</form>
+   </span>
+   <h2><a class="blog-dropdown"  >&#9660</a> Tags</h2>
+  <ul class="article-tags-sidenav" id="article-tags-dropdown">
+    {% capture all_tags %}
+    {% for tag in blog.all_tags %}
+    	{{ tag }}::
+    {% endfor %}
+    {% endcapture %}
+    {% assign tags_unique = all_tags | split: '::' | uniq %}
+    {% for tag in tags_unique | limit: 13 %}
+    	{% if forloop.last == false %}
+    	<p class="blog-tags-list"><a href="/search?q={{ tag | strip | strip_newlines | strip_html | replace: "  ", "" | replace: "	", "" }}">{{ tag }}</a></p>
+    	{% endif%}
+    {% endfor %}
+      
+  </ul>
+   <h2><a class="blog-dropdown" onclick="toggleArticleRecentComments()">&#9660</a> Recent Comments</h2>
+   <span class="recent-comments-sidenav" id="recent-comments-dropdown">
+     {% assign cmt_it = 0 %}
+     	{% for article in blog.articles %}
+     		{% if article.comments_count > 0 %}
+     			{% for comment in article.comments %}
+     				{% if cmt_it == 5 %}{% break %}{% endif %}	
+     				<div class="blog-recent-comment">
+                      <span class="blog-recent-comment-content">{{ comment.content }}</span>
+                      <p class="blog-recent-comment-date">{{ comment.created_at | date: "%B, %d %Y" }}</p>
+                      <p class="blog-recent-comment-author"><img src="https://img.icons8.com/external-bearicons-glyph-bearicons/64/000000/external-User-essential-collection-bearicons-glyph-bearicons.png" height="30px" width="30px" style="
+    vertical-align: middle;
+"> {{ comment.author }}</p>
+     				</div>
+     				{% assign cmt_it = cmt_it | plus: 1 %}
+     			{% endfor %}
+     		{% endif %}
+     	{% endfor %}
+   </span>
+   <h2><a class="blog-dropdown" onclick="toggleArticleRecentPosts()">&#9660</a> Recent Posts</h2>
+   <span class="recent-posts-sidenav" id="recent-posts-dropdown">
+	{% assign cmt_it = 0 %}
+    	{% for article in blog.articles %}
+     		{% if cmt_it == 5 %}{% break %}{% endif %}
+     		{% assign index_plus = forloop.index | plus: 1 %}
+     		<div class="blog-recent-comment">
+     		{% if article.created_at < blog.articles[index_plus].created_at %}
+              	<p class="blog-recent-comment-content">{{ article.title }}</p>
+               	<span class="blog-recent-article-excerpt">{{ article.excerpt | strip_html | truncate: 100, "..." }}</span>
+              	<p class="blog-recent-comment-date">{{ article.created_at | date: "%B, %d %Y" }}</p>
+            {% else %}
+              	<p class="blog-recent-comment-content">{{ blog.articles[index_plus].title }}</p>
+               	<span class="blog-recent-article-excerpt">{{ blog.articles[index_plus].excerpt | strip_html | truncate: 100, "..." }}</span>
+              	<p class="blog-recent-comment-date">{{ blog.articles[index_plus].created_at | date: "%B, %d %Y" }}</p>
+              	{% assign forloop.index = forloop.index | plus: 1 %}
+     		{% endif %}
+     		</div>
+     		{% assign cmt_it = cmt_it | plus: 1 %}
+    	{% endfor %}
+   </span>
+</aside>
+  
+<div id="article-list-page-container">
+<h1 class="blog-title">Articles</h1> 
+<hr class="article-hr">
+  <div id="article-list-container">
+{%- paginate blog.articles by 10 -%}
+{% for article in blogs.car-cover-articles.articles  %}
+    <h1 class="blog-list-article-title"><a href="{{ article.url }}">{{article.title}}</a></p>
+	<span class="blog-time-and-views">
+    	<span class="article-time">
+         {{ article.created_at | date: "%B, %d %Y" }}
+        </span>
+    </span>
+
+   <span class="blog-article-content">{{ article.content | truncatewords: 65, "..." }}<a class="blog-read-more-link" href="{{ article.url}}">Read More >></a>
+    </span>
+{% endfor %}
+{%- endpaginate -%} 
+    
+  </div>
+<!-- Dropdown JS for sidenav -->
+<script>
+  function toggleArticleCategories() {
+  var x = document.getElementById("categories-dropdown");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+function toggleArticleSearch() {
+    var x = document.getElementById("search-articles-dropdown");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+function toggleArticleTags() {
+    var x = document.getElementById("article-tags-dropdown");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+function toggleArticleRecentComments() {
+    var x = document.getElementById("recent-comments-dropdown");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+function toggleArticleRecentPosts() {
+    var x = document.getElementById("recent-posts-dropdown");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+  
+  
+$(document).ready(function(){
+    $('.show_hide').click(function(){
+        $(this).next('.carcovers-collapse').slideToggle();
+         return false;
+    });
+});
+</script>

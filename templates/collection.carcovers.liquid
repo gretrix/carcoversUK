@@ -1,0 +1,468 @@
+{{ 'section-product-selector-page.css' | asset_url | stylesheet_tag }}
+{% render 'breadcrumbs' %} 
+
+<script>
+$.ajax({
+  url: "https://api.carcovers.com/getCovers.php?type={{ product.options_by_name['Vehicle Type'].values }}",
+  type: "GET",
+  dataType: "json",
+  success: function (data) {
+    console.log(data);
+  }
+});
+</script>
+
+    {% section 'best-seller-collections' %}
+
+
+<!-- Ultimate -->
+<div class="prod-sel-nb-container ultimate-covers" style="display:none">
+    <span class="prod-sel-nb-subcontainer" id="ultimate-shield-car-cover-container">
+        <h3 class="prod-sel-nb-header"><a href="">Ultimate Shield Car Cover for <span class="vehicle-title"></a></span></h3>
+        <hr class="prod-sel-nb-hr">
+        <span class="prod-sel-nb-star">
+            <span title='5 star svg'><img src = "{{ ' 5Star_individualproductpage.svg ' | asset_url }}" alt="5 stars"></span> <span title='review length' class="prod-sel-nb-review-len"></span> <span class="prod-sel-nb-review">26909 Verified Reviews | Platinum Shield Car Cover</span>
+        </span>
+        <span class="prod-sel-nb-body-container-ult prod-sel-nb-body-container">
+            <span class="prod-sel-nb-body-image-container-ult">
+                <span class="prod-sel-nb-body-upsell-container">
+                    <span class="prod-sel-nb-body-upsell">
+                        Great Value
+                    </span>
+                </span>
+                <span id="prod-sel-comment-ult-mobile-only">
+                    <p class="prod-sel-nb-main-comment" title="[single review -from writer]">
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                        <br>
+                        -Howard B.
+                    </p>
+                </span>
+                <img class="prod-sel-nb-body-image" src = "{{ ' CarUltimate_individualproductpage.png ' | asset_url }}" alt="Ultimate Shield Car Cover">
+                <h6 class="prod-sel-nb-body-image-desc">Exceptional Year Round Protection</h6>
+            </span>
+          <!--ULTIMATE COVERS PRODUCT INFO
+          <!-- 
+            <span class="prod-sel-body-text-container">
+                <span id="prod-sel-comment-ult">
+                    <p class="prod-sel-nb-main-comment" title="[single review -from writer]">
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                        <br>
+                        -Howard B.
+                    </p>
+                </span>
+                <p class="prod-sel-nb-main-text">
+                    Ultimate Shield Car Covers provides complete protection against all the elements including rain, snow, wind, UV / Sun rays, and more.</span>
+                    <span class="prod-sel-nb-main-comparison">* Comparable to 5L covers *</span>
+                </p>
+                <span class="prod-sel-nb-main-star-chart">
+                    <div class="prod-sel-nb-main-star-chart-container">
+                        <span class="prod-sel-nb-main-star-chart-subcontainer">
+                            <span class="prod-sel-nb-main-star-chart-item">Water</span> <img class="prod-sel-nb-main-star-chart-stars" src = {{ ' 5Star_individualproductpage.svg ' | asset_url }} alt="5 stars">
+                        </span>
+                    </div>
+                    <div class="prod-sel-nb-main-star-chart-container">
+                        <span class="prod-sel-nb-main-star-chart-subcontainer">
+                            <span class="prod-sel-nb-main-star-chart-item">Cover Fit</span> <img class="prod-sel-nb-main-star-chart-stars" src = {{ ' 5Star_individualproductpage.svg ' | asset_url }} alt="5 stars">
+                        </span>
+                    </div>
+                    <div class="prod-sel-nb-main-star-chart-container">
+                        <span class="prod-sel-nb-main-star-chart-subcontainer">
+                            Snow <img class="prod-sel-nb-main-star-chart-stars-ext" src = "{{ ' 5Star_individualproductpage.svg ' | asset_url }}" alt="5 stars">
+                        </span>
+                    </div>
+                    <div class="prod-sel-nb-main-star-chart-container">
+                        <span class="prod-sel-nb-main-star-chart-subcontainer">
+                            Durability <img class="prod-sel-nb-main-star-chart-stars" src = "{{ ' 5Star_individualproductpage.svg ' | asset_url }}" alt="5 stars">
+                        </span>
+                    </div>
+                    <div class="prod-sel-nb-main-star-chart-container">
+                        <span class="prod-sel-nb-main-star-chart-subcontainer">
+                            <span class="prod-sel-nb-main-star-chart-item">UV Rays</span> <img class="prod-sel-nb-main-star-chart-stars" src = "{{ ' 5Star_individualproductpage.svg ' | asset_url }}" alt="5 stars">
+                        </span>
+                    </div>
+                    <div class="prod-sel-nb-main-star-chart-subcontainer-last">
+                        Warranty <span class="prod-sel-nb-main-star-chart-warranty-ult">10 Years</span>
+                    </div>
+                    <span id="prod-sel-comment-ult"><a href="#">More Details >></a></span>
+                </span>
+            </span>
+            <span class="prod-sel-media-container-ult">
+
+
+-->
+                <img class ="prod-sel-media-container-ult-hide" src = "{{ 'recommendedBadge_individualproductpage.svg' | asset_url }}" width="70px" height="70px">
+                <img src = "{{ ' interiorfleecelining_individualproductpage.png ' | asset_url }}" alt="Interior Fleece Lining" width="100px" height="60px">
+                     <video width="100px" height="60px" 
+                    class="prod-sel-nb-main-media-video"
+                    controls="controls"> 
+                    <source src = 
+                        type="video/mp4">                  
+                </video>
+                <span class="prod-sel-info-video-desc"><a href="#">Play Product Demo Video</a></span>  
+                <span class="prod-sel-more-details-link-mobile-only" ><a href="#">More Details >></a></span>
+            </span>
+			
+
+
+
+            <hr class="prod-sel-nb-main-hr-ult">
+           
+          
+          
+            <!-- <hr class="prod-sel-nb-main-hr"> -->
+            <span class="prod-sel-nb-main-price-container">
+                <span class="prod-sel-mobile-container-ult">
+                <span class="prod-sel-mobile-price-container-ult">
+                <h2 class="prod-sel-nb-main-price-head"><span></span>
+                  <span class="prod-sel-nb-main-price">000.00</span>
+                </h2>
+                <span class="prod-sel-nb-main-reg-price-head-ult">Regular Price <span>
+                  <span class="prod-sel-nb-main-reg-price">000.00</span>
+                </span>
+                  </span>
+            </span>
+                  <a class="add-to-cart-btn" href=""><img class="prod-sel-nb-main-cart-btn-ult" src = "{{ ' addo-to-cart-button_individualproductpage.png ' | asset_url }}" alt="add to cart"></a>
+             </span>
+                <!-- <button style="background-color: #ff9933; border: 1px solid lightgray; border-radius: 4px; color: white; padding: 12px 15px;"><img src = {{ ' _individualproductpage ' | asset_url }} | asset_url }./cart-icon.svg" alt="cart"> Add To Cart</button> -->
+                <span class="prod-sel-nb-main-guarantee-container-ult">
+                    <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg ' | asset_url }}" alt="check mark"> <span class="prod-sel-nb-main-guarantee-stand">Guaranteed</span>&nbsp; Fit</span>
+                    <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg ' | asset_url }}" alt="check mark"> 30 Day Returns</span>
+                    <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg ' | asset_url }}" alt="check mark"> <span class="prod-sel-nb-main-guarantee-stand">Free</span>&nbsp; Shipping</span>
+                    <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg ' | asset_url }}" alt="check mark"> <span class="prod-sel-nb-main-guarantee-stand">In</span>&nbsp; Stock</span>
+                    <span class="prod-sel-nb-main-guarantee-check-last"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg ' | asset_url }}" alt="check mark"> Ships <span class="prod-sel-nb-main-guarantee-stand">Next</span> Business Day</span>
+                </span>
+            </span>
+        </span>
+    </span>
+    <span class="prod-sel-bonus-item-section">
+        <img class="prod-sel-bonus-item-section-image" src = "{{ ' FreeCarCoverCareKit_individualproductpage.png ' | asset_url }}" >
+        <img class="prod-sel-bonus-item-section-image-mobile" src = "{{ ' FreeCarCoverCareKit_mobile_individualproductpage.png ' | asset_url }}" >
+    </span>
+</div>
+
+<!-- Deluxe  -->
+<div class="prod-sel-nb-container deluxe-covers" style="display:none">
+    <span class="prod-sel-nb-subcontainer" id="deluxe-shield-car-cover-container">
+      <h3 class="prod-sel-nb-header"><a href="">Deluxe Shield Car Cover for <span class="vehicle-title"></span></a></h3>
+        <hr class="prod-sel-nb-hr">
+        <span class="prod-sel-nb-star">
+            <span title='5 star svg'><img src = "{{ ' 5Star_individualproductpage.svg ' | asset_url }}"  alt="5 Stars"></span> <span title='review length' class="prod-sel-nb-review-len"></span> <span class="prod-sel-nb-review">26909 Verified Reviews | Platinum Shield Car Cover</span>
+        </span>
+      
+      
+      
+        <span class="prod-sel-body-text-container">
+            <span class="prod-sel-nb-body-image-container">
+                <img class="prod-sel-nb-body-image" src = "{{ ' CarDeluxe_individualproductpage.png ' | asset_url }}" alt="Deluxe Shield Car Cover">
+                <h6 class="prod-sel-nb-body-image-desc">Reliable Indoor / Outdoor Protection</h6>
+            </span>
+          <!-- Deluxe COVERS PRODUCT INFO
+	  <!--
+            <span class="prod-sel-nb-main-container">
+                <p class="prod-sel-nb-main-text">
+                    Deluxe Shield Car Covers are great outdoor covers. They offer amazing protection against rain and the elements. Perfect for high moisture areas.</span>
+                    <span class="prod-sel-nb-main-comparison">&nbsp;</span>
+                </p>
+                <span class="prod-sel-nb-main-star-chart">
+                    <div class="prod-sel-nb-main-star-chart-container">
+                        <span class="prod-sel-nb-main-star-chart-subcontainer">
+                            <span class="prod-sel-nb-main-star-chart-item">Water</span> <img class="prod-sel-nb-main-star-chart-stars" src = "{{ ' 5Star_individualproductpage.svg ' | asset_url }}"  alt="5 stars">
+                        </span>
+                    </div>
+                    <div class="prod-sel-nb-main-star-chart-container">
+                        <span class="prod-sel-nb-main-star-chart-subcontainer">
+                            <span class="prod-sel-nb-main-star-chart-item">Cover Fit</span> <img class="prod-sel-nb-main-star-chart-stars" src = "{{ ' 5Star_individualproductpage.svg ' | asset_url }}"  alt="5 stars">
+                        </span>
+                    </div>
+                    <div class="prod-sel-nb-main-star-chart-container">
+                        <span class="prod-sel-nb-main-star-chart-subcontainer">
+                            Snow <img class="prod-sel-nb-main-star-chart-stars-ext" src = "{{ ' 3Star_individualproductpage.svg ' | asset_url }}"  alt="3 stars">
+                        </span>
+                    </div>
+                    <div class="prod-sel-nb-main-star-chart-container">
+                        <span class="prod-sel-nb-main-star-chart-subcontainer">
+                            Durability <img class="prod-sel-nb-main-star-chart-stars" src = "{{ ' 4Star_individualproductpage.svg ' | asset_url }}"  alt="4 stars">
+                        </span>
+                    </div>
+                    <div class="prod-sel-nb-main-star-chart-container">
+                        <span class="prod-sel-nb-main-star-chart-subcontainer">
+                            <span class="prod-sel-nb-main-star-chart-item">UV Rays</span> <img class="prod-sel-nb-main-star-chart-stars" src = "{{ ' 4Star_individualproductpage.svg ' | asset_url }}"  alt="4 stars">
+                        </span>
+                    </div>
+                    <div class="prod-sel-nb-main-star-chart-subcontainer-last">
+                        Warranty <span class="prod-sel-nb-main-star-chart-warranty">5 Years</span>
+                    </div>
+                    <span class="prod-sel-more-details-link" ><a href="#">More Details >></a></span>
+                </span>
+            </span>
+            <span class="prod-sel-nb-main-media-container-deluxe">
+                <span class="prod-sel-nb-main-media-subcontainer">
+                    <span class="prod-sel-image-container-deluxe">
+                    <img src = "{{ ' nonabrasivelining_individualproductpage.png ' | asset_url }}" alt="Interior Fleece Lining">
+                    <span class="prod-sel-more-details-link-mobile-only" ><a href="#">More Details >></a></span>
+                </span>
+                </span>
+            </span>
+            <hr class="prod-sel-nb-main-hr">
+            <span class="prod-sel-nb-main-price-container">
+            <span class="prod-sel-mobile-container">
+            <span class="prod-sel-mobile-price-container">
+                <h2 class="prod-sel-nb-main-price-head"><span></span>
+                  <span class="prod-sel-nb-main-price">000.00<span>
+                </h2>
+                <span class="prod-sel-nb-main-reg-price-head">Regular Price <span>
+                  <span class="prod-sel-nb-main-reg-price">000.00</span>
+                </span>
+                  </span>
+               </span>
+              <a class="add-to-cart-btn" href=""><img class="prod-sel-nb-main-cart-btn" src = "{{ ' addo-to-cart-button_individualproductpage.png ' | asset_url }}" alt="add to cart"></a>
+            </span>   
+			-->
+      
+      
+                <!-- <button style="background-color: #ff9933; border: 1px solid lightgray; border-radius: 4px; color: white; padding: 12px 15px;"><img src = {{ ' _individualproductpage. ' | asset_url }} ./cart-icon.svg" alt="cart"> Add To Cart</button> -->
+                <span class="prod-sel-nb-main-guarantee-container">
+                    <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg ' | asset_url }}" alt="check mark"> <span class="prod-sel-nb-main-guarantee-stand">Guaranteed</span>&nbsp; Fit</span>
+                    <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg ' | asset_url }}" alt="check mark"> 30 Day Returns</span>
+                    <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg' | asset_url }}" alt="check mark"> <span class="prod-sel-nb-main-guarantee-stand">Free</span>&nbsp;  Shipping</span>
+                    <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg ' | asset_url }}" alt="check mark"> <span class="prod-sel-nb-main-guarantee-stand">In</span>&nbsp;  Stock</span>
+                    <span class="prod-sel-nb-main-guarantee-check-last"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg ' | asset_url }}" alt="check mark"> Ships <span class="prod-sel-nb-main-guarantee-stand">Next</span> Business Day</span>
+                </span>
+            </span>
+        </span>
+    </span>
+</div>
+
+
+<!-- Basic -->
+<div class="prod-sel-nb-container basic-covers" style="display:none">
+    <span class="prod-sel-nb-subcontainer" id="basic-shield-car-cover-container">
+      <h3 class="prod-sel-nb-header"><a href="">Basic Shield Car Cover for <span class="vehicle-title"></span></a></h3>
+        <hr class="prod-sel-nb-hr">
+        <span class="prod-sel-nb-star">
+            <span title='5 star svg'><img src = "{{ ' 5Star_individualproductpage.svg ' |  asset_url }}" alt="5 Stars"></span> <span title='review length' class="prod-sel-nb-review-len"></span> <span class="prod-sel-nb-review">26909 Verified Reviews | Platinum Shield Car Cover</span>
+        </span>
+      	<!-- Basic Covers Product Info
+		<!--      
+        <span class="prod-sel-body-text-container">
+            <span class="prod-sel-nb-body-image-container">
+                <img class="prod-sel-nb-body-image" src = "{{ '  CarBasic_individualproductpage.png ' |  asset_url }}" alt="Basic Shield Car Cover">
+                <h6 class="prod-sel-nb-body-image-desc">Indoor / Light Outdoor</h6>
+            </span>
+            <span class="prod-sel-nb-main-container">
+                <p class="prod-sel-nb-main-text">
+                    Basic Shield Car Covers are great for indoor use. They provide needed protection against dirt and dust! This is for basic protection at a great price.</span>
+                    <span class="prod-sel-nb-main-comparison">&nbsp;</span>
+                </p>
+                <span class="prod-sel-nb-main-star-chart">
+                    <div class="prod-sel-nb-main-star-chart-container">
+                        <span class="prod-sel-nb-main-star-chart-subcontainer">
+                            <span class="prod-sel-nb-main-star-chart-item">Water</span> <img class="prod-sel-nb-main-star-chart-stars" src = "{{ '  2Star_individualproductpage.svg' | asset_url }}" alt="2 stars">
+                        </span>
+                    </div>
+                    <div class="prod-sel-nb-main-star-chart-container">
+                        <span class="prod-sel-nb-main-star-chart-subcontainer">
+                            <span class="prod-sel-nb-main-star-chart-item">Cover Fit</span> <img class="prod-sel-nb-main-star-chart-stars" src = "{{ '  5Star_individualproductpage.svg ' |  asset_url }}" alt="5 stars">
+                        </span>
+                    </div>
+                    <div class="prod-sel-nb-main-star-chart-container">
+                        <span class="prod-sel-nb-main-star-chart-subcontainer">
+                            Snow <img class="prod-sel-nb-main-star-chart-stars-ext" src = "{{ '  2Star_individualproductpage.svg ' |  asset_url }}" alt="2 stars">
+                        </span>
+                    </div>
+                    <div class="prod-sel-nb-main-star-chart-container">
+                        <span class="prod-sel-nb-main-star-chart-subcontainer">
+                            Durability <img class="prod-sel-nb-main-star-chart-stars" src = "{{ '  3Star_individualproductpage.svg ' |  asset_url }}"  alt="3 stars">
+                        </span>
+                    </div>
+                    <div class="prod-sel-nb-main-star-chart-container">
+                        <span class="prod-sel-nb-main-star-chart-subcontainer">
+                            <span class="prod-sel-nb-main-star-chart-item">UV Rays</span> <img class="prod-sel-nb-main-star-chart-stars" src = "{{ '  3Star_individualproductpage.svg ' |  asset_url }}" alt="3 stars">
+                        </span>
+                    </div>
+                    <div class="prod-sel-nb-main-star-chart-subcontainer-last">
+                        Warranty <span class="prod-sel-nb-main-star-chart-warranty">3 Years</span>
+                    </div>
+                    <span class="prod-sel-more-details-link" ><a href="#">More Details >></a></span>       
+                </span>
+            </span>
+            <span class="prod-sel-image-container">
+                <img src = "{{ '  ultrasoftmaterial_individualproductpage.png ' |  asset_url }}" alt="Interior Fleece Lining">
+                <span class="prod-sel-more-details-link-mobile-only" ><a href="#">More Details >></a></span>
+            </span>
+            <hr class="prod-sel-nb-main-hr">
+            
+            <span class="prod-sel-nb-main-guarantee-container-basic">
+                <span class="prod-sel-mobile-container">
+                <span class="prod-sel-mobile-price-container">
+                <h2 class="prod-sel-nb-main-price-head"><span></span>
+                  <span class="prod-sel-nb-main-price">000.00</span>
+                </h2>
+                <span class="prod-sel-nb-main-reg-price-head">Regular Price <span>
+                  <span class="prod-sel-nb-main-reg-price">000.00</span>
+                </span>
+                  </span>
+            </span>
+                  <a class="add-to-cart-btn" href=""><img class="prod-sel-nb-main-cart-btn" src = "{{ '  addo-to-cart-button_individualproductpage.png ' |  asset_url }}" alt="add to cart"></a>
+            </span>
+
+				<--
+
+
+                <!-- <button style="background-color: #ff9933; border: 1px solid lightgray; border-radius: 4px; color: white; padding: 12px 15px;"><img src = {{ '  _individualproductpage.png ' |  asset_url }} /cart-icon.svg" alt="cart"> Add To Cart</button> -->
+                <span class="prod-sel-nb-main-guarantee-container">
+                    <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ '  greenCheck_individualproductpage.svg ' |  asset_url }}" alt="check mark"> <span class="prod-sel-nb-main-guarantee-stand">Guaranteed</span>&nbsp;Fit</span>
+                    <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ '  greenCheck_individualproductpage.svg ' |  asset_url }}" alt="check mark"> 30 Day Returns</span>
+                    <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ '  greenCheck_individualproductpage.svg ' |  asset_url }}" alt="check mark"> <span class="prod-sel-nb-main-guarantee-stand">Free</span>&nbsp;Shipping</span>
+                    <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ '  greenCheck_individualproductpage.svg ' |  asset_url }}" alt="check mark"> <span class="prod-sel-nb-main-guarantee-stand">In</span>&nbsp;Stock</span>
+                    <span class="prod-sel-nb-main-guarantee-check-last"><img class="prod-sel-nb-main-guarantee-check" src = "{{ '  greenCheck_individualproductpage.svg ' |  asset_url }}" alt="check mark"> Ships <span class="prod-sel-nb-main-guarantee-stand">Next</span> Business Day</span>
+                </span>
+            </span>
+        </span>
+	</span>
+</div>
+<div class="prod-sel-nb-container overall-rating">        
+	<span><img class ="prod-sel-overall-rating" src = "{{ 'overall-rating.png' | asset_url }}"></span>
+</div>
+<div class="prod-sel-nb-container">
+	<hr class="prod-sel-ratings-hr">
+	<span class="prod-sel-reviews">
+     	<span class="prod-sel-body-stars">
+           <span title='5 star svg'><img  src = "{{ ' 5Star_individualproductpage.svg ' | asset_url }}" alt="5 Stars"></span>  	   
+           <span class="prod-sel-verified-buyer"><img class="customer-photo" src="{{ 'user-icon-prod-sel.jpg' | asset_url }}"<small>&nbsp; Verified Buyer</small></span>
+  		</span>       
+       <small>November 1, 2021 by Thomas M. (KS, United States)</small>
+       <p>"2nd cover I have purchased, will be purchasing one more soon."
+       
+       <hr class="prod-sel-ratings-hr">
+      
+       <span class="prod-sel-body-stars">
+       <span title='5 star svg'><img  src = "{{ ' 5Star_individualproductpage.svg ' | asset_url }}" alt="5 Stars"></span>  	   
+       <span class="prod-sel-verified-buyer"><img class="customer-photo" src="{{ 'user-icon-prod-sel.jpg' | asset_url }}"<small>&nbsp; Verified Buyer</small></span></span>       
+	   <small>October 31, 2021 by Rick T. (KS, United States)</small>
+       <p>"Second time ordering covers, great covers for my cars!! Hope it's the same for the camper!"
+      
+       <hr class="prod-sel-ratings-hr">
+       
+       <span class="prod-sel-body-stars">
+       <span title='5 star svg'><img  src = "{{ ' 5Star_individualproductpage.svg ' | asset_url }}" alt="5 Stars"></span>  	   
+       <span class="prod-sel-verified-buyer"><img class="customer-photo" src="{{ 'user-icon-prod-sel.jpg' | asset_url }}"<small>&nbsp; Verified Buyer</small></span></span>       
+       <small>October 29, 2021 by Marqwell C. (MS, United States)</small>
+       <p>"Had a cover before with them and it was awesome. I've decided again with Car Covers."
+       
+       <hr class="prod-sel-ratings-hr">
+       
+          <span class="prod-sel-body-stars">
+       <span title='5 star svg'><img  src = "{{ ' 5Star_individualproductpage.svg ' | asset_url }}" alt="5 Stars"></span>  	   
+       <span class="prod-sel-verified-buyer"><img class="customer-photo" src="{{ 'user-icon-prod-sel.jpg' | asset_url }}"<small>&nbsp; Verified Buyer</small></span></span>         
+       <small>October 29, 2021 by David P. (TX, United States)</small>
+       <p>"Great service, great products"
+
+       <hr class="prod-sel-ratings-hr">
+
+  	</span>
+</div>
+<div class="prod-sel-nb-container">
+  <div class="prod-sel-page-sel"> 
+    <div class="prod-sel-nav-pagination">
+      <a href="#">1</a>
+      <a class="prod-sel-nav-pagination-active" href="#">2</a>
+      <a href="#">3</a>
+      <a href="#" style="color: blue">&raquo;</a>
+      <span class="prod-sel-nav-pagination-dropdown"><p>Display Options<p>
+        <form style="margin-left: 2px;">
+        <select name="display-options" id="display-options" style="outline:0px;outline-offset:0;box-shadow:none;">
+        <option value="" selected="selected">Featured Reviews</option>
+        <option value="">Top Reviews</option>
+        <option value="">Most Recent</option>
+        </select>
+        </form>
+      </span>	
+    </div>  
+  <img src ="{{ 'shopper-approved-prod-sel.svg' | asset_url }}">
+  </div>
+</div>
+
+<!-- Page Level CSS -->
+<style>
+  .customer-photo{
+  	width: 30px;
+  }
+  .overall-rating{
+   	display: block;
+    text-align: center; 
+  }
+  .vehicle-title{
+   	text-transform:capitalize 
+  }
+  .prod-sel-body-header a, .prod-sel-nb-header a.nostyle:link {
+    text-decoration: inherit;
+    color: inherit;
+  }
+
+  .prod-sel-body-header a, .prod-sel-nb-header a.nostyle:visited {
+      text-decoration: inherit;
+      color: inherit;
+  }
+</style>
+
+
+<!-- Page Level JS -->
+<script>
+  	cartData = {{ cart | json }};
+  
+  	productsObject = {{ collections.[collection.handle].products | json }};
+  
+  	urlVehicleInfo = window.location.pathname.match(/-covers\/([^-]*)-([^-]*)-([^-]*)-*([^-]*)/);
+  	urlVehicleInfoPath = window.location.pathname.match(/-covers\/([^-]*-[^-]*-[^-]*-*[^-]*)/)[1];
+
+    vehicleInfo = {
+        "make": urlVehicleInfo[1].replace(/_/g, " "),
+        "model": urlVehicleInfo[2],
+        "year": urlVehicleInfo[3],
+        "bodytype": urlVehicleInfo[4] ? urlVehicleInfo[4].replace(/_/g, " ") : ""
+    }
+    
+    vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.bodytype;
+    
+
+  
+  	{% for product in collections.[collection.handle].products %}
+  		covers = "{{ product.tags | join: "," }}";
+        covers = covers.split(",");
+  		
+  		for (let i = 0; i < covers.length; i++) {
+          element = document.querySelector("."+ covers[i]);
+          if(element != null)
+          {
+            element.querySelector(".add-to-cart-btn").addEventListener("click", function(event){
+                event.preventDefault();
+
+                data = {
+                    items: 
+                    [
+                      {
+                        quantity: 1,
+                        id: {{ product.variants[0].id }},
+                        properties: {
+                          "vehicle-info": vehicleInfoString
+                        }
+                      }
+                    ]
+                }
+
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", window.Shopify.routes.root + 'cart/add.js', true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.send(JSON.stringify(data));
+            });
+            
+           	element.style.display = "block";
+            element.querySelector(".prod-sel-body-header a, .prod-sel-nb-header a").href = "{{ product.url }}/"+urlVehicleInfoPath;
+            element.querySelector(".vehicle-title").innerText = vehicleInfoString;
+            element.querySelector(".prod-sel-nb-main-price").innerText = "$"+({{ product.variants[0].price}}/100);
+            element.querySelector(".prod-sel-nb-main-reg-price").innerText = "$"+({{ product.variants[0].compare_at_price}}/100);
+          }
+        }
+	{% endfor %}
+</script>

@@ -1,0 +1,276 @@
+<html>
+  <head>
+    <meta name="title" content="Golf Cart Covers, Golf Cart Rain Covers | CarCovers.com"/>
+    <meta name="description" content="Get fast, free shipping on a golf cart winter cover at CarCovers.com. We&amp;#039;ve got custom-made golf cart covers for any sized cart. Backed by a lifetime warranty!"/>
+    <meta name="keywords" content="Car Covers,Truck Covers,SUV covers,Van Covers,Hummer Covers"/>
+  </head>
+  {% render 'breadcrumbs' %} 
+<div class="product-select">
+  <video autoplay muted loop>
+    <source src="{{ 'car-select-background.mp4' | asset_url }}" type="video/mp4" />
+  </video>
+  <div class="container">
+    <h3 class="text-center">VIEW GOLF CART COVERS FOR YOUR VEHICLE</h3>
+    <div>
+      <form method="POST" id="carform">
+
+        <div class="vehicle-select grid-four">
+          <input type="hidden" id="type" name="type" value="Golf Cart">
+          <div>
+            <img src="{{ 'start-here.png' | asset_url}}">
+            <select id="year" name="year" class="desktop-only">
+              <option selected disabled>Select your vehicle year...</option>
+            </select>
+            <a href="#" class="opop mobile-only">
+              <select style="pointer-events:none;">
+                <option selected>Select your vehicle type...</option>
+                <option value="Car">Car Covers</option>
+                <option value="Van">Van Covers</option>
+                <option value="Truck">Truck Covers</option>
+                <option value="SUV">SUV Covers</option>
+              </select>  
+            </a>
+          </div>
+
+          <select id="make" name="make" class="desktop-only" disabled style="display:none;">
+            <option selected id="make-year" disabled>Select your vehicle make...</option>
+          </select>
+
+          <select id="model" name="model" class="desktop-only" disabled style="display:none;">
+            <option selected disabled>Select your model...</option>
+          </select>
+          
+          <select id="body" name="body" class="desktop-only" disabled style="display:none;">
+            <option selected disabled>Select your body type...</option>
+            <option>All body types</option>
+          </select>
+        </div>
+
+        <a id="link" href="#" class="submit-btn">View All Available Covers</a>
+      </form>
+    </div>
+    <div class="grid-four badges mobile-grid-four">
+      <img src="{{ 'top-rated-badge.png' | asset_url }}">
+      <img src="{{ 'hassle-free-badge.png' | asset_url }}">
+      <img src="{{ 'cover-fit-badge.png' | asset_url }}">
+      <img src="{{ 'satisfaction-badge.png' | asset_url }}">
+    </div>
+  </div>
+  <div class="reviews text-center">
+    <img src="{{ 'triangle.png' | asset_url}}">
+    <div class="grid-four">
+      <img src="{{ 'stars.png' | asset_url }}">
+      <img src="{{ 'shopper-approved.png' | asset_url }}">
+      <img src="{{ 'lifetime-warranty.png' | asset_url }}">
+      <img src="{{ 'protection.png' | asset_url }}">
+    </div>
+  </div>
+</div>
+
+<div class="pops">
+  <div class="pops-header text-center">
+    <a href="#" class="cls-pop">Back</a>Select Vehicle
+  </div>
+
+  <div id="pops-options">
+    <div data-value="Car" data-form="#type">Car Covers</div>
+    <div data-value="Van" data-form="#type">Van Covers</div>
+    <div data-value="Truck" data-form="#type">Truck Covers</div>
+    <div data-value="SUV" data-form="#type">SUV Covers</div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+    $('.opop').click(function(){
+        $('.pops').fadeIn();
+    });
+    $('.cls-pop').click(function(){
+        $('.pops').fadeOut();
+    });
+});
+
+/* When someone clicks the popup, reset its values */
+$("a.cls-pop").click(function () {
+    setTimeout(function () {
+		$("#pops-options").html('<div data-value="Car" data-form="#type">Car Covers</div><div data-value="Van" data-form="#type">Van Covers</div><div data-value="Truck" data-form="#type">Truck Covers</div><div data-value="SUV" data-form="#type">SUV Covers</div>');
+    }, 1000);
+});
+  
+ 
+function initializePopupOptions() {
+	$("#pops-options > div").click(function (event) {
+      var products = promise.then(function (result) {
+          document.getElementById("pops-options").innerHTML = '';
+          if (event.currentTarget.attributes[1].value == '#type') {
+            $("#type").value = event.currentTarget.attributes[0].value;
+            carTypeChange(result.products, event.currentTarget.attributes[0].value);
+          } else if (event.currentTarget.attributes[1].value == '#year') {
+            carYearChange(result.products, event.currentTarget.attributes[0].value);
+          } else if (event.currentTarget.attributes[1].value == '#make') {
+            carMakeChange(result.products, event.currentTarget.attributes[0].value);
+          } else if (event.currentTarget.attributes[1].value == '#model') {
+            carModelChange(result.products, event.currentTarget.attributes[0].value);
+          }
+      });
+  });
+}
+initializePopupOptions();
+  
+// Car type change
+  $.ajax({
+    url: "https://api.carcovers.com/getCars.php?type=golf cart",
+    type: "GET",
+    dataType: "json",
+    success: function (data) {
+      console.log(data);
+      carTypeChange(data);
+    }
+  });
+function carTypeChange(years) {    
+    years.forEach(function (year) {
+        var opt = document.createElement("option");
+        opt.value = year;
+        opt.innerHTML = year;
+        document.getElementById("year").appendChild(opt);
+      
+      	var opt = document.createElement("div");
+      	$(opt).attr("data-value", year);
+      	$(opt).attr("data-form", "#year");
+      	opt.innerHTML = year;
+      	document.getElementById("pops-options").appendChild(opt);
+      	initializePopupOptions();
+    });
+}
+
+// Car year change
+$("#year").change(function() {
+    var selected = $(this).val();
+    $("#make-year").text("Select your " + selected + " make");
+    
+    removeOptions("make");
+    removeOptions("model");
+//     removeOptions("body");
+  	$("#make").prop("disabled", false);
+  	$("#make").attr("style", "display:block;");
+    
+    $.ajax({
+      url: "https://api.carcovers.com/getCars.php?type=" + $("#type").val().toLowerCase() + "&year=" + selected,
+      type: "GET",
+      dataType: "json",
+      success: function (data) {
+        console.log(data);
+        carYearChange(data);
+      }
+    });
+});
+function carYearChange(makes) {
+    makes.forEach(function (make) {
+        var opt = document.createElement("option");
+        opt.value = make;
+        opt.innerHTML = make;
+        document.getElementById("make").appendChild(opt);
+      	
+        var opt = document.createElement("div");
+        $(opt).attr("data-value", make);
+        $(opt).attr("data-form", "#make");
+        opt.innerHTML = make;
+        document.getElementById("pops-options").appendChild(opt);
+        initializePopupOptions();
+    });
+}
+
+// Car make change
+$("#make").change(function() {
+    var selected = $(this).val().toLowerCase();
+    
+    removeOptions("model");
+//     removeOptions("body");
+  	$("#model").prop("disabled", false);
+  	$("#model").attr("style", "display:block;");
+    
+    $.ajax({
+      url: "https://api.carcovers.com/getCars.php?type=" + $("#type").val().toLowerCase() + "&year=" + $("#year").val() + "&make=" + selected,
+      type: "GET",
+      dataType: "json",
+      success: function (data) {
+        console.log(data);
+        carMakeChange(data);
+      }
+    });
+});
+function carMakeChange(models, thisYear, thisMake) {    
+    models.forEach(function (model) {
+        var opt = document.createElement("option");
+        opt.value = model;
+        opt.innerHTML = model;
+        document.getElementById("model").appendChild(opt);
+    });
+}
+
+// Car model change
+$("#model").change(function() {
+    var selected = $(this).val().toLowerCase();
+    removeOptions("body");
+
+    $("#body").prop("disabled", false);
+  	$("#body").attr("style", "display:block;");
+    
+	$.ajax({
+      url: "https://api.carcovers.com/getBodies.php?type=" + $("#type").val().toLowerCase() + "&year=" + $("#year").val() + "&make=" + $("#make").val().toLowerCase() + "&model=" + selected,
+      type: "GET",
+      dataType: "json",
+      success: function (data) {
+        console.log("carmodelchange");
+        console.log(data);
+        carModelChange(data);
+      }
+    });
+});
+function carModelChange(bodies) {  
+  if (bodies[0] == 'none') {
+    var opt = document.createElement("option");
+    $.ajax({
+      url: "https://api.carcovers.com/getHandle.php?type=" + $("#type").val().toLowerCase() + "&year=" + $("#year").val() + "&make=" + $("#make").val().toLowerCase() + "&model=" + $("#model").val().toLowerCase(),
+      type: "GET",
+      dataType: "json",
+      success: function (data) {
+        opt.value = data[0];
+      }
+    });
+    opt.innerHTML = "All body types";
+    document.getElementById("body").appendChild(opt);
+  } else {
+    bodies.forEach(function (body) {
+        var opt = document.createElement("option");
+      	opt.value = body['bodyhandle'];
+      	opt.innerHTML = body['bodytitle'];
+        document.getElementById("body").appendChild(opt);
+    });
+  }
+}
+
+$("#body").change(function() {
+    var selected = $(this).val().toLowerCase();
+    
+  	let url = window.location.origin + "/products/" + selected;
+  	$("#link").attr("href", url);
+  	$(".submit-btn").css("background-color", "rgb(25 127 207)");
+  	window.location.href = url;
+});
+
+function removeOptions(element) {
+    var select = document.getElementById(element);
+
+    for (i = select.length - 1; i >= 1; i--) {
+      select.remove(i);
+    }
+}
+</script>
+
+{% section 'reviews-slider' %}
+{% section 'covers-buttons' %}
+{% section 'why-buy' %}
+{% section 'comparison-chart' %}
+{% section 'shopper-approved' %}
+</html>

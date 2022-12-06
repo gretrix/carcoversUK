@@ -1,0 +1,120 @@
+{% render 'breadcrumbs' %} 
+
+<h1 class="text-primary">Car Covers Resources</h1>
+<div class="resources-grid">
+   {% assign handle = "resources" %}
+   {% for article in blogs[handle].articles %}
+   <div class="resources-item">
+     <div class="not-button">
+      {% assign featured_image = article.excerpt_or_content | escape %}
+      {% if featured_image contains '&lt;img' %}
+      {% assign featured_image = featured_image | split: 'src=&quot;' %}
+      {% assign featured_image = featured_image[1] | split: '&quot;' %}
+      {% assign featured_image = featured_image[0] | remove: '//cdn' %}
+      {% assign featured_image = featured_image | remove: 'http:'; %}
+      {% assign featured_image = featured_image | remove: 'https:' %}    
+      {{ featured_image | img_tag}}
+      {% endif %}
+      <h3 class="article-title">{{ article.title }}</h3>
+      <div class="excerpt">
+         <p>{{ article.excerpt | strip_html}}</p>
+      </div>
+     </div>
+     <button onclick="window.location.href='{{article.url}}';" type="button" class="view-button">View</button>
+   </div>
+   {% endfor %}
+</div>
+
+<style>
+   .resources-grid {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   grid-auto-rows: 325px;
+   grid-gap: 50px;
+   margin: auto;
+   max-width: 1250px;
+   }
+   .resources-item {
+   background: #FFF;
+   border: 1px solid #7d7d7d;
+   box-shadow: 2px 2px 5px rgb(128 128 140 / 54%);
+   border-radius: 5px;
+   position: relative;
+   overflow: hidden;
+   box-sizing: border-box;
+   }
+   .article-title {
+   font-size: 15px ;
+   color: #0684cc;
+   font-weight: 700;
+   margin: auto;
+   padding: 0;
+   }
+   p {
+   color: #414142;
+   font-size: 14px;
+     line-height: 1.6;
+   }
+   .excerpt {
+   white-space: wrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   position: inherit;
+   height: 40%;
+   }
+   .resources-item > .not-button > img {
+   width: 100%;
+   height: 50%;
+   margin: 0;
+   padding: 0;
+   }
+  .not-button {
+    height: 90%;
+    padding: 20px;
+  }
+  .view-button {
+    text-align: right;
+    padding: 0 20px 0 0;
+    width: 100%;
+    height: 10%;
+    background-color:#FFF;
+    /* background: none;*/
+	border: none;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+	z-index: 2;
+}
+  .view-button:hover {
+      background-color:#008cba;
+    	color: #FFF;
+      transition: 0.3s;
+  }
+  
+  @media (max-width: 1200px) {
+    .resources-grid {
+     grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+  
+  @media (max-width: 800px) {
+    .resources-grid {
+     grid-template-columns: 1fr 1fr;;
+    }
+  }
+  
+  @media (max-width: 800px) {
+    .resources-grid {
+     grid-template-columns: 1fr 1fr;;
+    }
+  }
+  
+  @media (max-width: 430px) {
+    .resources-grid {
+     grid-template-columns: 1fr;
+     grid-gap: 25px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+</style>
