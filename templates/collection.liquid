@@ -1,0 +1,414 @@
+<!-- Below are variables for the primary product -->
+{% assign main_product_singular = 'Snowmobile' %}
+{% assign main_product_plural = 'Snowmobiles' %}
+{% assign main_product_website = 'SnowmobileCover.com' %}
+{{ 'section-product-selector-page.css' | asset_url | stylesheet_tag }}
+
+<!-- Start API call to Car Covers API - GET vehicle types -->
+<script>
+$.ajax({
+  url: "https://api.carcovers.com/getCovers.php?type={{ product.options_by_name['Vehicle Type'].values }}",
+  type: "GET",
+  dataType: "json",
+  success: function (data) {
+    console.log(data);
+  }
+});
+</script>
+<!-- End API call to Car Covers API - GET vehicle types -->
+
+<!-- Start JS function to sort products by price -->
+<script>
+  {% assign products_by_price = collections.[collection.handle].products | sort: "price" %}
+  {% assign reverse_sorted = products_by_price | reverse %}
+  {% assign ch = collection.handle %}
+  productDatas = {{reverse_sorted | json}};
+  products_by_price = {{products_by_price | json}}
+  cartData = {{ cart | json }};
+  
+  console.log("CHECK PRODUCTS_BY_PRICE", "{{ch}}" )
+  productObject = [];
+  {% for product in reverse_sorted %}
+  
+  	tempObj = {{ product | json }};
+    //need to add remaining metafields in order to access metafield data on page
+    tempObj["collection_content"] = {{ product.metafields.customField.collection_content.value | json }};
+    //added remaining metafields
+    tempObj["360Product-video"] = {{product.metafields.customField.Product_Page_Product_360_Youtube_Video_ID}}
+    tempObj["tutorial-video"] = {{product.metafields.customField.Product_Page_Tutorial_Youtube_Video_ID}}
+      tempObj["ratings_content"] = {{product.metafields.customField.ratings_content.value | json}}
+      tempObj["metaBanner"] = {{product.metafields.customField.metaBanner.value | json}}
+      tempObj["metaMobileBanner" ]= {{product.metafields.customField.mobileMetaBanner.value | json}}
+  	console.log("tempObj test", tempObj)
+  	productObject.push(tempObj);
+  	
+  {% endfor %}
+</script>
+
+<!-- End sort by price function -->
+
+<!--{% render 'breadcrumbs' %} -->
+
+{% section 'best-seller-collections' %}
+
+<!-- Start HTML for product collection section -->
+<div class="collection-block">
+  
+  <!-- Ultimate -->
+  <div class="prod-sel-nb-container ultimate-covers" style="display:none">
+      <span class="prod-sel-nb-subcontainer" id="ultimate-shield-car-cover-container">
+          <h3 class="prod-sel-nb-header"><a href=""> <span class="vehicle-title"></a></span></h3>
+          <hr class="prod-sel-nb-hr">
+          <span class="prod-sel-nb-star">
+              <span title='5 star svg'><img src = "{{ ' 5Star_individualproductpage.svg ' | asset_url }}" alt="5 stars"></span> <span title='review length' class="prod-sel-nb-review-len"></span> <span class="prod-sel-nb-review">26909 Verified Reviews | <span class="vehicle-title"></span></span>
+          </span>
+          <span class="prod-sel-nb-body-container-ult prod-sel-nb-body-container">
+              <span class="prod-sel-nb-body-image-container-ult">
+                  <span class="prod-sel-nb-body-upsell-container">
+                      <span class="prod-sel-nb-body-upsell">
+                          Great Value
+                      </span>
+                  </span>
+                  <span id="prod-sel-comment-ult-mobile-only">
+                      <p class="prod-sel-nb-main-comment" title="[single review -from writer]">
+                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                          <br>
+                          -Howard B.
+                      </p>
+                  </span>
+
+               <div class="image-link">
+                <a href="">  
+                  <img class="prod-sel-nb-body-image" src = "{{ product | image_url: width: 300 }}" alt="Platinum {{main_product_singular}} Cover" title="Platinum {{main_product_singular}} Cover"> 
+                </a>
+              </div>
+                <p class="prod-sel-nb-body-image-desc-coll">Exceptional Year Round Protection</p>
+              </span>
+              <span class="prod-sel-body-text-container">
+                  <!-- Shopify Metafield Collection Content will be loaded here via JS -->
+              </span>
+              <span class="prod-sel-media-container-ult">
+                  <img class ="prod-sel-media-container-ult-hide" src = "{{ 'recommendedBadge_individualproductpage.svg' | asset_url }}" width="70px" height="70px">
+                  <img src = "{{ ' interiorfleecelining_individualproductpage.png ' | asset_url }}" alt="Interior Fleece Lining" width="100px" height="60px">
+                       <video width="100px" height="60px" 
+                      class="prod-sel-nb-main-media-video"
+                      controls="controls"> 
+                      <source src = 
+                          type="video/mp4">                  
+                  </video>
+                  <span class="prod-sel-info-video-desc"><a href="#">Play Product Demo Video</a></span>  
+                  <span class="prod-sel-more-details-link-mobile-only" ><a href=">More Details >></a></span>
+              </span>
+              <hr class="prod-sel-nb-main-hr-ult">
+
+              <!-- <hr class="prod-sel-nb-main-hr"> -->
+              <span class="prod-sel-nb-main-price-container">
+                  <span class="prod-sel-mobile-container-ult">
+                  <span class="prod-sel-mobile-price-container-ult">
+                  <h2 class="prod-sel-nb-main-price-head"><span></span>
+                    <span class="prod-sel-nb-main-price">000.00</span>
+                  </h2>
+                  <span class="prod-sel-nb-main-reg-price-head-ult">Regular Price <span>
+                    <span class="prod-sel-nb-main-reg-price">000.00</span>
+                  </span>
+                    </span>
+              </span>
+                    <a class="add-to-cart-btn" href=""><img class="prod-sel-nb-main-cart-btn-ult" src = "{{ ' addo-to-cart-button_individualproductpage.png ' | asset_url }}" alt="add to cart"></a>
+               </span>
+                  <!-- <button style="background-color: #ff9933; border: 1px solid lightgray; border-radius: 4px; color: white; padding: 12px 15px;"><img src = {{ ' _individualproductpage ' | asset_url }} | asset_url }./cart-icon.svg" alt="cart"> Add To Cart</button> -->
+                  <span class="prod-sel-nb-main-guarantee-container-ult">
+                      <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg ' | asset_url }}" title="check mark" alt="check mark"> <span class="prod-sel-nb-main-guarantee-stand">Guaranteed</span>&nbsp; Fit</span>
+                      <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg ' | asset_url }}" title="check mark"alt="check mark"> 30 Day Returns</span>
+                      <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg ' | asset_url }}" title="check mark"alt="check mark"> <span class="prod-sel-nb-main-guarantee-stand">Free</span>&nbsp; Shipping</span>
+                      <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg ' | asset_url }}" title="check mark" alt="check mark"> <span class="prod-sel-nb-main-guarantee-stand">In</span>&nbsp; Stock</span>
+                      <span class="prod-sel-nb-main-guarantee-check-last"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg ' | asset_url }}" title="check mark"alt="check mark">Ships <span class="prod-sel-nb-main-guarantee-stand">Next</span> Business Day</span>
+                  </span>
+              </span>
+          </span>
+      </span>
+      <span class="prod-sel-bonus-item-section">
+          <img class="prod-sel-bonus-item-section-image" src >
+          <img class="prod-sel-bonus-item-section-image-mobile" src = "{{ ' free-banner-lg.jpg ' | asset_url }}" >
+      </span>
+  </div>
+
+  <!-- Deluxe  -->
+  <div class="prod-sel-nb-container deluxe-covers" style="display:none">
+      <span class="prod-sel-nb-subcontainer" id="deluxe-shield-car-cover-container">
+        <h3 class="prod-sel-nb-header"><a href=""><span class="vehicle-title"></span></a></h3>
+          <hr class="prod-sel-nb-hr">
+          <span class="prod-sel-nb-star">
+              <span title='5 star svg'><img src = "{{ ' 5Star_individualproductpage.svg ' | asset_url }}"  alt="5 Stars"></span> <span title='review length' class="prod-sel-nb-review-len"></span> <span class="prod-sel-nb-review">26909 Verified Reviews | <span class="vehicle-title"></span></span>
+          </span>
+          <span class="prod-sel-nb-body-container">
+              <span class="prod-sel-nb-body-image-container">
+                
+                
+              <div class="image-link">
+                <a href="">  
+                  <img class="prod-sel-nb-body-image" src = "{{ product | image_url: width: 300 }}" alt="Platinum {{main_product_singular}} Cover" title="Platinum {{main_product_singular}} Cover"> 
+                </a>
+              </div>
+                
+                  <p class="prod-sel-nb-body-image-desc-coll">Reliable Indoor / Outdoor Protection</p>
+              </span>
+              <span class="prod-sel-body-text-container">
+                  <!-- Shopify Metafield Collection Content will be loaded here via JS -->
+              </span>
+              <span class="prod-sel-nb-main-media-container-deluxe">
+                  <span class="prod-sel-nb-main-media-subcontainer">
+                      <span class="prod-sel-image-container-deluxe">
+                      <img src = "{{ ' nonabrasivelining_individualproductpage.png ' | asset_url }}" alt="Interior Fleece Lining" title="Interior Fleece Lining">
+                      <span class="prod-sel-more-details-link-mobile-only" ><a href="#">More Details >></a></span>
+                  </span>
+                  </span>
+              </span>
+              <hr class="prod-sel-nb-main-hr">
+              <span class="prod-sel-nb-main-price-container">
+              <span class="prod-sel-mobile-container">
+              <span class="prod-sel-mobile-price-container">
+                  <h2 class="prod-sel-nb-main-price-head"><span></span>
+                    <span class="prod-sel-nb-main-price">000.00<span>
+                  </h2>
+                  <span class="prod-sel-nb-main-reg-price-head">Regular Price <span>
+                    <span class="prod-sel-nb-main-reg-price">000.00</span>
+                  </span>
+                    </span>
+                 </span>
+                <a class="add-to-cart-btn" href=""><img class="prod-sel-nb-main-cart-btn" src = "{{ ' addo-to-cart-button_individualproductpage.png ' | asset_url }}" alt="add to cart"></a>
+              </span>       
+                  <!-- <button style="background-color: #ff9933; border: 1px solid lightgray; border-radius: 4px; color: white; padding: 12px 15px;"><img src = {{ ' _individualproductpage. ' | asset_url }} ./cart-icon.svg" alt="cart"> Add To Cart</button> -->
+                  <span class="prod-sel-nb-main-guarantee-container">
+                      <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg ' | asset_url }}" alt="check mark"> <span class="prod-sel-nb-main-guarantee-stand">Guaranteed</span>&nbsp; Fit</span>
+                      <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg ' | asset_url }}" alt="check mark"> 30 Day Returns</span>
+                      <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg' | asset_url }}" alt="check mark"> <span class="prod-sel-nb-main-guarantee-stand">Free</span>&nbsp;  Shipping</span>
+                      <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg ' | asset_url }}" alt="check mark"> <span class="prod-sel-nb-main-guarantee-stand">In</span>&nbsp;  Stock</span>
+                      <span class="prod-sel-nb-main-guarantee-check-last"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg ' | asset_url }}" alt="check mark"> Ships <span class="prod-sel-nb-main-guarantee-stand">Next</span> Business Day</span>
+                  </span>
+              </span>
+          </span>
+      </span>
+  </div>
+
+
+  <!-- Basic -->
+  <div class="prod-sel-nb-container basic-covers" style="display:none">
+      <span class="prod-sel-nb-subcontainer" id="basic-shield-car-cover-container">
+        <h3 class="prod-sel-nb-header"><a href=""> <span class="vehicle-title"></span> </a></h3>
+          <hr class="prod-sel-nb-hr">
+          <span class="prod-sel-nb-star">
+              <span title='5 star svg'><img src = "{{ ' 5Star_individualproductpage.svg ' |  asset_url }}" alt="5 Stars"></span> <span title='review length' class="prod-sel-nb-review-len"></span> <span class="prod-sel-nb-review">26909 Verified Reviews | <span class="vehicle-title"></span></span>
+          </span>
+          <span class="prod-sel-nb-body-container">
+              <span class="prod-sel-nb-body-image-container">
+                
+                <div class="image-link">
+                <a href="">  
+                  <img class="prod-sel-nb-body-image" src = "{{ product | image_url: width: 300 }}" alt="Platinum {{main_product_singular}} Cover" title="Platinum {{main_product_singular}} Cover"> 
+                </a>
+              </div>
+                
+                
+                  <p class="prod-sel-nb-body-image-desc-coll">Indoor / Light Outdoor</p>
+              </span>
+              <span class="prod-sel-body-text-container">
+                  <!-- Shopify Metafield Collection Content will be loaded here via JS -->
+              </span>
+              <span class="prod-sel-image-container">
+                  <img src = "{{ '  ultrasoftmaterial_individualproductpage.png ' |  asset_url }}" alt="Interior Fleece Lining">
+                  <span class="prod-sel-more-details-link-mobile-only" ><a href="#">More Details >></a></span>
+              </span>
+              <hr class="prod-sel-nb-main-hr">
+
+              <span class="prod-sel-nb-main-guarantee-container-basic">
+                  <span class="prod-sel-mobile-container">
+                  <span class="prod-sel-mobile-price-container">
+                  <h2 class="prod-sel-nb-main-price-head"><span></span>
+                    <span class="prod-sel-nb-main-price">000.00</span>
+                  </h2>
+                  <span class="prod-sel-nb-main-reg-price-head">Regular Price <span>
+                    <span class="prod-sel-nb-main-reg-price">000.00</span>
+                  </span>
+                    </span>
+              </span>
+                    <a class="add-to-cart-btn" href=""><img class="prod-sel-nb-main-cart-btn" src = "{{ '  addo-to-cart-button_individualproductpage.png ' |  asset_url }}" alt="add to cart"></a>
+              </span>
+                  <!-- <button style="background-color: #ff9933; border: 1px solid lightgray; border-radius: 4px; color: white; padding: 12px 15px;"><img src = {{ '  _individualproductpage.png ' |  asset_url }} /cart-icon.svg" alt="cart"> Add To Cart</button> -->
+                  <span class="prod-sel-nb-main-guarantee-container">
+                      <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ '  greenCheck_individualproductpage.svg ' |  asset_url }}" alt="check mark"> <span class="text-primary">Guaranteed</span>&nbsp;Fit</span>
+                      <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ '  greenCheck_individualproductpage.svg ' |  asset_url }}" alt="check mark"> 30 Day Returns</span>
+                      <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ '  greenCheck_individualproductpage.svg ' |  asset_url }}" alt="check mark"> <span class="text-primary">Free</span>&nbsp;Shipping</span>
+                      <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ '  greenCheck_individualproductpage.svg ' |  asset_url }}" alt="check mark"> <span class="text-primary">In</span>&nbsp;Stock</span>
+                      <span class="prod-sel-nb-main-guarantee-check-last"><img class="prod-sel-nb-main-guarantee-check" src = "{{ '  greenCheck_individualproductpage.svg ' |  asset_url }}" alt="check mark"> Ships <span class="text-primary">Next</span> Business Day</span>
+                  </span>
+              </span>
+          </span>
+      </span>
+  </div>
+
+  <!--Other covers -->
+<div class="other-block">
+<div class="prod-sel-container other-covers" style="display:none">
+   
+   
+    <span class="prod-sel-body-card">
+      <h3 class="prod-sel-body-header"><a href=""> <span class="vehicle-title"></span></a></h3>
+        <hr class="prod-sel-body-hr">
+        <span class="prod-sel-body-stars">
+          <div class="individual-product-reviews-link individual-product-reviews-link-ultimate" style="font-weight: 700"><span class="star-insert"></span> | <span class="vehicle-title"></span></div>
+        </span>
+        <span class="prod-sel-body-main">
+            <span class="prod-sel-body-recommend-card">
+                <span class="prod-sel-body-recommend">
+                 
+                    
+                   
+                </span>
+              
+                <span id="prod-sel-comment-ult-mobile-only">
+                    <p class="prod-sel-nb-main-comment" title="[single review -from writer]">
+                        "I received my <span class="veh-instance"></span> cover in record time, it fit like a glove, and the cover is high quality. I will definitely order from this {{main_product_website}} again!"
+                        <br>
+                        -Howard B.
+                    </p>
+                </span>
+              <div class="image-link">
+
+                <a href="">  
+                  <img class="prod-sel-nb-body-image" src = "{{ product | image_url: width: 300 }}" alt="AllGuard Weatherproof MAX {{main_product_singular}} Cover" title="AllGuard Weatherproof MAX {{main_product_singular}} Cover"> 
+                </a>
+              </div>
+               
+              
+                <!--old spot-->
+            </span>
+            <span class="prod-sel-body-text-container">
+                <!-- Shopify Metafield Collection Content will be loaded here via JS -->
+            </span>
+        
+            <span class="prod-sel-media-container-ult">
+               
+          
+                <!--<img src = "{{ ' interiorfleecelining_individualp<div class="description-banner primary">Great Value</div>roductpage.png ' | asset_url }}" alt="Interior Fleece Lining" title="Interior Fleece Lining" width="100px" height="60px">-->  
+                     <!--<video width="100px" height="60px" 
+                    class="prod-sel-nb-main-media-video"
+                    controls="controls"> 
+                    <source src = 
+                        type="video/mp4">                  
+                </video>-->  
+                <!--<span class="prod-sel-info-video-desc"><a href="#">Play Product Demo Video</a></span>-->
+               
+            </span>
+            <hr class="prod-sel-info-hr">
+            <span class="prod-sel-price-container">
+                <span class="prod-sel-mobile-container-bs-other">
+                <span class="prod-sel-mobile-price-container-bs-other">
+                <p class="prod-sel-price-head-new">
+                  <span class="prod-sel-nb-main-price">{{product.price | money}}</span>
+                </p>
+                <span class="prod-sel-price-old-container">Regular Price <span>
+                  <span class="prod-sel-nb-main-reg-price">{{product.variants[0].compare_at_price|money}}</span>
+                </span>
+                  </span>
+                </span>
+                 <a name="add" class="add-to-cart-btn button-outer" >
+                 <p class="button-inner">&#x1F6D2; ADD TO CART</p>
+                  </a>
+                </span>
+                <!-- <button class="background-color: #ff9933; border: 1px solid lightgray; border-radius: 4px; color: white; padding: 12px 15px;"><img src = {{ ' _individualproductpage. ' | asset_url }}/cart-icon.svg" alt="cart"> Add To Cart</button> -->
+                <span class="prod-sel-nb-main-guarantee-container-ult">
+                    <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg ' | asset_url }}" alt="check mark" title="check mark"> <span class="text-primary">Guaranteed</span>&nbsp; Fit</span>
+                    <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg ' | asset_url }}" alt="check mark" title="check mark"> 30 Day Returns</span>
+                    <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg ' | asset_url }}" alt="check mark" title="check mark"> <span class="text-primary">Free</span>&nbsp; Shipping</span>
+                    <span class="prod-sel-nb-main-guarantee-container-item"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg ' | asset_url }}" alt="check mark" title="check mark"> <span class="text-primary">In</span>&nbsp; Stock</span>
+                    <span class="prod-sel-nb-main-guarantee-check-last"><img class="prod-sel-nb-main-guarantee-check" src = "{{ ' greenCheck_individualproductpage.svg ' | asset_url }}" alt="check mark" title="check mark"> Ships <span class="text-primary">Next</span> Business Day</span>
+                </span>
+              <img class ="prod-sel-media-container-ult-hide" src = "{{' recommendedBadge_individualproductpage.svg ' | asset_url }}" width="70px" height="70px" alt="recommended badge" title="recommended badge">
+            </span>
+        </span>
+    </span>
+    <span class="prod-sel-bonus-item-section" style="">
+        <img class="prod-sel-bonus-item-section-image" src  >
+        <img class="prod-sel-bonus-item-section-image-mobile" src = "{{ ' free-banner-lg.jpg ' | asset_url }}" >
+    </span>
+</div>
+</div>
+<!-- End HTML for product collection section -->
+    <hr>
+
+<!--Start Stamped.io Auto Installation-->
+
+<div id="stamped-main-widget" 
+     class="stamped-main-widget" 
+     data-widget-style="standard" 
+     data-product-id="{{ product.id }}" 
+     data-name="{{ product.title | escape }}" 
+     data-url="{{ shop.url }}{{ product.url }}" 
+     data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" 
+     data-description="{{ product.description | escape }}" data-product-sku="{{product.handle}}" 
+     data-product-type="{{product.type}}" 
+     data-widget-language="{{shop.locale}}">{{ product.metafields.stamped.reviews }}
+</div>
+<style>
+.stamped-review-header .stamped-verified-badge, .stamped-review-header .verified, .stamped-review-header .verified .fa-check-circle-o, .stamped-review-header .verified .stamped-fa-check-circle-o, .stamped-review-header .verified-badge, .stamped-review-header .verified-badge .fa-check-circle-o, .stamped-review-header .verified-badge .stamped-fa-check-circle-o, .stamped-verified-badge {
+    color: var(--color-mid);
+}
+  .stamped-review-avatar {
+    background: var(--color-light);
+    color: white !important;
+}
+  .stamped-review-avatar:before {
+    color: var(--color-mid) !important;
+}
+</style>
+<!--End Stamped.io Auto Installation-->
+
+
+
+
+<!-- Page Level CSS -->
+    
+<style>
+  .customer-photo{
+  	width: 30px;
+  }
+  .overall-rating{
+   	display: block;
+    text-align: center; 
+  }
+  .vehicle-title{
+   	text-transform:capitalize 
+  }
+  .prod-sel-body-header a, .prod-sel-nb-header a.nostyle:link {
+    text-decoration: inherit;
+    color: inherit;
+  }
+
+  .prod-sel-body-header a, .prod-sel-nb-header a.nostyle:visited {
+      text-decoration: inherit;
+      color: inherit;
+  }
+  html,body{
+    overflow-x: hidden;
+}
+  
+    /* jestski mobile centered */
+@media screen and (max-width: 430px){
+
+  
+  .button-inner-help {
+    width: 170px; 
+  }
+  .button-outer-help {
+    margin: auto;
+    margin-top: -20px;
+  }
+  .mobile-pad-reverse {
+    padding-right: 0;
+  }
+  
+}
+    
+  
+</style>
+

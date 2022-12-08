@@ -1,0 +1,388 @@
+{{ 'component-cart.css' | asset_url | stylesheet_tag }}
+{{ 'component-cart-items.css' | asset_url | stylesheet_tag }}
+{{ 'component-totals.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+{{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
+
+<script>
+  cartData = {{ cart | json }};
+  
+  cart.lineItems.sort(function(a, b) {
+   return a.title.toLowerCase().localeCompare(b.title.toLowerCase());
+});
+</script>
+<cart-items class="page-width{% if cart == empty %} is-empty{% endif %}">
+  	{%- if cart != empty -%}
+  	
+    {% assign bonusitems = false %}
+  	{% assign bonusitemsAmt = 0 %}
+  
+    {% assign microfiber1 = false %}
+  	{% assign microfiber1Amt = 0 %}
+  
+    {% assign microfiber2 = false %}
+  	{% assign microfiber2Amt = 0 %}
+  
+  	{% assign platinum = false %}
+  	{% assign platinumAmt = 0 %}
+  
+    {% assign ultimate = false %}
+  	{% assign ultimateAmt = 0 %}	
+  
+  	{% assign hascover = false %}
+  	{% assign covers = 0 %}
+  	{% for item in cart.items %}
+  		{% if item.product.title contains "Platinum" %}
+  			{% unless item.product.tags[0] == "Accessories" %}
+  				{% assign platinum = true %}
+  				{% assign platinumAmt = platinumAmt | plus: item.quantity %}
+  			{% endunless %}
+  		{% endif %}
+  		{% if item.product.title contains "Ultimate" %}
+  			{% unless item.product.tags[0] == "Accessories" %}	
+				{% assign ultimate = true %}
+  				{% assign ultimateAmt = ultimateAmt | plus: item.quantity %}
+  			{% endunless %}
+  		{% endif %}
+  		{% if item.product.id == 7190301311128 %}
+  			{% assign bonusitems = true %}
+  			{% assign bonusitemsAmt = bonusitemsAmt | plus: item.quantity %}
+  		{% endif %}
+  		{% if item.product.id == 7190303342744 %}
+  			{% assign microfiber1 = true %}
+  			{% assign microfiber1Amt = microfiber1Amt | plus: item.quantity %}
+  		{% endif %}
+  		{% if item.product.id == 7190303178904 %}
+  			{% assign microfiber2 = true %}
+  			{% assign microfiber2Amt = microfiber2Amt | plus: item.quantity %}
+  		{% endif %}
+  		{% if item.product.title contains "Cover" %}
+  			{% unless item.product.tags[0] == "Accessories" %}
+  				{% assign hascover = true %}
+  				{% assign covers = covers | plus: item.quantity %}
+  			{% endunless %}
+  		{% endif %}
+  	{% endfor %}
+<!--   <p>plt: {{ platinumAmt }}</p>
+  <p>ult: {{ ultimateAmt }}</p>
+  <p>cov: {{ covers }}</p>
+  <p>bon: {{ bonusitemsAmt }}</p>
+  <p>mf1: {{ microfiber1Amt }}</p>
+  <p>mf2: {{ microfiber2Amt }}</p> -->
+  	{% if hascover == true %}
+  	<script>
+      var formData = {
+        'items': []
+      };
+    </script>
+  	{% else %}
+  	<script>
+      var hasRemovedItems = false;
+      var itemsToRemove = [];
+  	</script>
+  	{% endif %}
+  	{% assign ultAndPlat = 0 %}
+  	{% assign ultAndPlat = ultAndPlat | plus: platinumAmt %}
+  	{% assign ultAndPlat = ultAndPlat | plus: ultimateAmt %}
+<!--   	<p>u&amp;p: {{ ultAndPlat }}</p> -->
+  	{% if platinum == true or ultimate == true %}
+  	{% assign hasUltOrPlat = true %}
+  	{% else %}
+  	{% assign hasUltOrPlat = false %}
+  	{% endif %}
+<!--   	<p>ult+plat: {{ ultAndPlat }}</p> -->
+<!-- 	<p><br>bonusitems < ultandplat: {{ bonusitemsAmt }} < {{ ultAndPlat }}</p> -->
+  	{% if hasUltOrPlat == true and bonusitems == false and bonusitemsAmt < ultAndPlat %}
+  	bonusitemst
+  	{% assign amt = 0 %}
+  	{% assign amt = amt | plus: platinumAmt %}
+  	{% assign amt = amt | plus: ultimateAmt %}
+  	{% assign amt = amt | minus: bonusitemsAmt %}
+    <script>
+      formData.items.push({
+        'id': 41518878490776,
+        'quantity': {{ amt }}
+      });
+    </script>
+  	{% endif %}
+  	{% if bonusitems == true and hascover == false %}
+  	<script>
+      itemsToRemove.push('updates[41518878490776]=0');
+    </script>
+    {% endif %}
+<!--   	<p><br>microfiber1Amt < platinumAmt: {{ microfiber1Amt }} < {{ platinumAmt }}</p> -->
+    {% if platinum == true and microfiber1 == false or microfiber1Amt < platinumAmt %}
+    microfiber1
+  	{% assign amt = 0 %}
+  	{% assign amt = amt | plus: platinumAmt %}
+  	{% assign amt = amt | minus: microfiber1Amt %}
+  	<script>
+      formData.items.push({
+        'id': 41518883274904,
+        'quantity': {{ amt }}
+      });
+  	</script>
+  	{% endif %}
+  	{% if microfiber1 == true and hascover == false %}
+  	<script>
+      itemsToRemove.push('updates[41518883274904]=0');
+    </script>
+  	{% endif %}
+<!--   	<p><br>microfiber2Amt < covers: {{ microfiber2Amt }} < {{ covers }}</p> -->
+  	{% if hascover == true and microfiber2 == false %}
+	{% assign hasCoverOrMf2 = true %}
+  	{% else %}
+  	{% assign hasCoverOrMf2 = false %}
+  	{% endif %}
+  
+  	{% if hasCoverOrMf2 == true or microfiber2Amt < covers %}
+<!--       microfiber2 -->
+  	{% assign amt = 0 %}
+  	{% assign amt = amt | plus: covers %}
+  	{% assign amt = amt | minus: microfiber2Amt %}
+  	<script>
+      	formData.items.push({
+          'id': 41518883078296,
+          'quantity': {{ amt }}
+        });
+    </script>
+  	{% else if hasCoverOrMf2 == true and microfiber2Amt > covers %}
+  	{% assign amt = 0 %}
+  	{% assign amt = amt | plus: covers %}
+  	<script>
+      itemsToRemove.push('updates[41518883078296]={{ amt }}');
+    </script>
+  	{% endif %}
+  	{% if microfiber2 == true and hascover == false %}
+  	<script>
+      itemsToRemove.push('updates[41518883078296]=0');
+    </script>
+  	{% endif %}
+  	{% if hascover == true %}
+  	<script>
+      if (formData.items.length > 0) {
+        console.log(formData);
+         fetch('/cart/add.js', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+          })
+          .then(response => {
+           console.log("attempted to add to cart");
+//             $("button[name='Refresh Cart']").click();
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          }); 
+      }
+  	</script>
+  	{% else %}
+  	<script>
+      if (itemsToRemove.length > 0) {
+        console.log("else");
+        let items = itemsToRemove.join("&");
+        jQuery.post('/cart/update.js', items);
+//         window.setTimeout(function() { window.location.href = "/cart"; }, 1000);
+      }
+  	</script>
+  	{% endif %}
+    <section class="cart">
+        <div class="cart-top">
+            <p class="color-grey mb-0"><strong>CARCOVERS.COM PROMISE:</strong> Price Match Guarantee <span class="color-red">|</span> Hassle Free Guarantee <span class="color-red">|</span> Shipping Insurance</p>
+            <hr>
+        </div>
+        <form action="{{ routes.cart_url }}" method="post">
+        <div class="cart-grid">
+            <div class="line-items">
+                <div class="line-item-grid header">
+                    <p>PRODUCT</p>
+                    <p>&nbsp;</p>
+                    <p>PRICE</p>
+                    <p class="text-center">QTY</p>
+                    <p>TOTAL</p>
+                </div>
+              	{% assign items = cart.items | sort: 'price' | reverse %}
+                {% for item in items %}              	
+                <div class="line-item-grid">
+                    <div class="cart-img">
+                      	{% comment %}
+                      	{% assign coverimg = "" %}
+                      	{% if item.product.title contains "Car Cover" %}
+                      		{% assign coverimg = "https://cdn.shopify.com/s/files/1/0594/7172/4696/t/1/assets/car-covers.png" %}
+                      	{% endif %}
+                      	
+                      	{% if coverimg == "" %}
+                        	<img src="{{ item.image | img_url: '300x' }}">
+                      	{% else %}
+							<img src="{{ coverimg }}">                      
+                      	{% endif %}
+                      	{% endcomment %}
+                      	<img src="{{ item.image | img_url: '300x' }}">
+                    </div>
+                    <div>
+                      	<p class="product-title">{{ item.product.title | escape }}</p>
+                        {%- if item.product.has_only_default_variant == false or item.properties.size != 0 or item.selling_plan_allocation != nil -%}
+                            {%- if item.product.has_only_default_variant == false -%}
+                                <p>{%- for option in item.options_with_values -%}
+                                    <span class="product-option">
+                                    {{ option.name }}: {{ option.value }}
+                                    </span>
+                                {%- endfor -%}</p>
+                      			
+                            {%- endif -%}
+                        {%- endif -%}
+
+                        {%- for discount in item.discounts -%}
+                            <p>{{ discount.title }}</p>
+                        {%- endfor -%}
+                      <a href ="/products/{{item.title | handleize}}/{{item.properties["vehicle-info"] | handleize | replace: "-", "&"}}"><p class="product-description">{{ item.properties["vehicle-info"] }}</p></a>
+						
+                    </div>
+                    <div class="item-price">
+                        {%- if item.original_line_price != item.final_line_price -%}
+                            <p class="discounted">{{ item.original_line_price | money }}</p>
+                            <p>{{ item.final_price | money }}</p>
+                        {%- else -%}
+                            <p>{{ item.original_price | money }}</p>
+                        {%- endif -%}
+                    </div>
+                    <div class="item-quantity">
+                        <input type="text" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" max="{{ item.variant.inventory_quantity }}">
+                      	<p><input type="submit" value="Update"></p>
+                        <p><a href="{{ item.url_to_remove }}">Remove</a></p>
+                    </div>
+                    <p class="total">{{ item.final_line_price | money }}</p>
+                  
+                    <div class="line-item grid line-item-info">
+                      
+
+                      <ul>
+                      <li>Ships Next Business Day</li>
+                      <li>Guaranteed Fit</li>
+                      <li>30 Day Returns</li>
+                      </ul>
+                  	</div>  
+              </div>
+                {% endfor %}
+           
+			</div>
+<script>
+jQuery('[max]').change(function() {
+  var max = parseInt(jQuery(this).attr('max'), 10) || 10000;
+  var value = parseInt(jQuery(this).val(), 10) || 0;
+  if (value > max) { jQuery(this).val(max); }
+});
+</script>
+            <div class="checkout-options">
+                <div class="panel">
+                  	<form>
+                  	<input type="submit" class="zp-cart__btn--flex zp-cart__btn--checkout zp-cart__btn--high" name="checkout" value="Checkout Now" data-ocu-checkout="true">
+                  	</form>
+                    <button class="checkout-button" type="submit" name="checkout"><img src="{{ 'lock-checkout.png' | asset_url }}">BEGIN SECURE CHECKOUT</button>
+                    <p class="text-center">- Or -</p>
+                    {{ content_for_additional_checkout_buttons }}
+<!--                     <p class="text-center">- Or -</p> -->
+<!--                     <a class="checkout-paypal-credit" ><img src="{{ 'paypal-credit.png' | asset_url }}" style="display:block;width:90%;margin: auto;"></a> -->
+                    <a href="#"><img src="{{ 'payment-cards.png' | asset_url }}" style="display:block;margin: 20px auto;"></a>
+                  <button type="submit" name="Refresh Cart" class="btn btn--loader" href={{ cart }} data-cart-submit style="display:none;">
+              Update Cart
+              <span class="btn--loader-balls"></span>
+            </button>
+                    <img src="{{ 'paypal-new-sharp.png' | asset_img_url: "master"  }}" style="width:100%;image-rendering: -moz-crisp-edges;image-rendering: -o-crisp-edges;image-rendering: -webkit-optimize-contrast;image-rendering: crisp-edges;-ms-interpolation-mode: nearest-neighbor;">
+                    <div class="panel-cont">
+                        <div class="summary-grid">
+                            <p class="summary-heading">ORDER SUMMARY</p>
+                            <p>{{ cart.item_count }} {{ cart.item_count | pluralize: 'ITEM', 'ITEMS' }}</p>
+                        </div>
+                        <hr>
+                        <div class="summary-grid">
+                            <p>SUB TOTAL</p>
+                            <p>{{ cart.items_subtotal_price | money }}</p>
+                            <p>SHIPPING &#38; HANDLING</p>
+                            <p>FREE</p>
+                            <p>{{ shipping_method.price | money }}</p>
+                            <p><strong>GRAND TOTAL</strong></p>
+                            <p><strong>{{ cart.total_price | money }}</strong></p>
+                        </div>
+                        <p class="disclaimer"><em>Grand total does not include tax. Tax is calculated after shipping address is entered on payment screen.</em></p>
+                      <p class="toggle-checkout-promo-container"><a onclick="toggleCheckoutPromoCode()">>> Have a promotional code?</a></p>
+                    		<div id="checkout-promo-container">
+                              <form id="checkout-promo-form">
+                                <input type="text" name="checkout-promo-input" id="checkout-promo-input" placeholder="ENTER PROMOTIONAL CODE">
+                                <small>Only 1 promotional code will be accepted per order.</small>
+								<button name="checkout-promo-button" id="checkout-promo-button">APPLY</button>
+                              </form><br>
+                              <script>
+                                jQuery("#checkout-promo-button").click(function(e) {
+                                  e.preventDefault();
+                                  let discountCode = $("#checkout-promo-input").val();
+                                  console.log(discountCode);
+                                  window.location.href = "/discount/" + discountCode + "?redirect=/cart";
+                                  return false;
+                                });
+                                
+                                jQuery(".checkout-paypal-credit").click(function (e) {
+                                  e.preventDefault();
+                                  console.log("trying to click");
+                                  $("#paypal-animation-content > div.paypal-button-container.paypal-button-layout-horizontal.paypal-button-shape-rect.paypal-button-branding-branded.paypal-button-number-single.paypal-button-env-production.paypal-should-focus > div").click(); 
+                                  console.log($("#paypal-animation-content > div.paypal-button-container.paypal-button-layout-horizontal.paypal-button-shape-rect.paypal-button-branding-branded.paypal-button-number-single.paypal-button-env-production.paypal-should-focus > div"));
+                                });
+                              </script>
+                      		</div>
+                </div>
+            </div>
+        </div> 
+
+    <p class="mt-0"><a class="special" href="/">>> Continue Shopping</a></p>
+   
+    {%- else -%}
+    <p class="text-center">Your cart is empty, <a href="/">continue shopping!</a></p>
+    {%- endif -%}
+
+</section>
+</cart-items>
+{% schema %}
+{
+  "name": "t:sections.main-cart-items.name",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "t:sections.main-cart-items.settings.show_vendor.label"
+    }
+  ]
+}
+{% endschema %}
+
+      
+<script>
+ function toggleCheckoutPromoCode() {
+    var x = document.getElementById("checkout-promo-container");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+</script>
+
+<script>
+  var url = 'https://www.paypal.com/checkoutnow?locale.x=en_US&fundingSource=paypal&sessionID=uid_17510ca4b7_mty6mtg6mji&buttonSessionID=uid_88bcd20129_mty6mji6mdy&env=production&fundingOffered=paypal&logLevel=warn&sdkMeta=eyJ1cmwiOiJodHRwczovL3d3dy5wYXlwYWxvYmplY3RzLmNvbS9hcGkvY2hlY2tvdXQubWluLmpzIn0&uid=3103267b76&version=min&token=EC-6U842439F5319563M&xcomponent=1);window.open(https://www.paypal.com/checkoutnow?locale.x=en_US&fundingSource=paypal&sessionID=uid_17510ca4b7_mty6mtg6mji&buttonSessionID=uid_88bcd20129_mty6mji6mdy&env=production&fundingOffered=paypal&logLevel=warn&sdkMeta=eyJ1cmwiOiJodHRwczovL3d3dy5wYXlwYWxvYmplY3RzLmNvbS9hcGkvY2hlY2tvdXQubWluLmpzIn0&uid=3103267b76&version=min&token=EC-6U842439F5319563M&xcomponent=1'
+  function paypalCreditBtn() {
+  	alert();
+    window.open(url, '_blank').focus();
+    //location.href=''
+  }
+</script>
+      
+<style>
+	.product-description{
+     	text-transform: capitalize 
+    }
+</style>

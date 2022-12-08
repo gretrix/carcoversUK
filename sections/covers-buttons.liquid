@@ -1,0 +1,197 @@
+<!-- Below are variables for the primary product -->
+{% assign main_product_singular = 'Snowmobile' %}
+{% assign main_product_plural = 'Snowmobiles' %}
+{% assign main_product_website = 'SnowmobileCover.com' %}
+{{ 'section-product-selector-page.css' | asset_url | stylesheet_tag }}
+<section class="covers-buttons">
+  <div class="covers-grid">
+    <a href="/pages/cover-subpage/car" class="cover">
+      <img onclick={cover_btn('car')} src="https://cdn.shopify.com/s/files/1/0594/7172/4696/files/car-covers_1.png?v=1670352099">
+      <p>CAR COVERS</p>
+    </a>
+    <a href="/pages/cover-subpage/truck" class="cover">
+      <img onclick={cover_btn('truck')} class="cover-img" src="https://cdn.shopify.com/s/files/1/0594/7172/4696/files/truck-covers_1.png?v=1670352083">
+      <p>TRUCK COVERS</p>
+    </a>
+    <a href="/pages/cover-subpage/van" class="cover">
+      <img onclick={cover_btn('van')} class="cover-img" src="https://cdn.shopify.com/s/files/1/0594/7172/4696/files/van-covers_1.png?v=1670352045">
+      <p>VAN COVERS</p>
+    </a>
+
+    <a href="/pages/cover-subpage/suv" class="cover">
+      <img onclick={cover_btn('suv')} class="cover-img" src="https://cdn.shopify.com/s/files/1/0594/7172/4696/files/suv-covers_1.png?v=16703520291">
+      <p>SUV COVERS</p>
+    </a>
+    <a href="/pages/cover-subpage/suv&hummer" class="cover">
+      <img onclick={cover_btn('hummer')} class="cover-img" src="https://cdn.shopify.com/s/files/1/0594/7172/4696/files/hummer-covers_1.png?v=1670351950">
+      <p>HUMMER COVERS</p>
+    </a>
+    <a href="/pages/cover-subpage/rv" class="cover">
+      <img onclick={cover_btn('rv')} class="cover-img" src="https://cdn.shopify.com/s/files/1/0594/7172/4696/files/rv-covers_1.png?v=1670351932">
+      <p>RV COVERS</p>
+    </a>
+
+    <a href="/pages/cover-subpage/motorcycle" class="cover">
+      <img onclick={cover_btn('motorcycle')} class="cover-img" src="https://cdn.shopify.com/s/files/1/0594/7172/4696/files/motorcycle-covers_1.png?v=1670351906">
+      <p>MOTORCYCLE COVERS</p>
+    </a>
+    <a href="/pages/cover-subpage/scooter" class="cover">
+      <img onclick={cover_btn('scooter')} class="cover-img" src="https://cdn.shopify.com/s/files/1/0594/7172/4696/files/scooter-covers_1.png?v=1670351888">
+      <p>SCOOTER COVERS</p>
+    </a>
+    <a href="/pages/cover-subpage/golfcart" class="cover">
+      <img onclick={cover_btn('golf cart')} class="cover-img" src="https://cdn.shopify.com/s/files/1/0594/7172/4696/files/golf-cart-covers_1.png?v=1670351865">
+      <p>GOLF CART COVERS</p>
+    </a>
+
+    <a href="/pages/cover-subpage/atv" class="cover">
+      <img onclick={cover_btn('ATV and UTV')} class="cover-img" src="https://cdn.shopify.com/s/files/1/0594/7172/4696/files/utv-atv-covers_1.png?v=1670351812">
+      <p>ATV COVERS</p>
+    </a>
+    <a href="/pages/cover-subpage/utv" class="cover">
+      <img onclick={cover_btn('ATV and UTV')} class="cover-img" src="https://cdn.shopify.com/s/files/1/0594/7172/4696/files/utv-atv-covers_1.png?v=1670351812">
+      <p>UTV COVERS</p>
+    </a>
+    <a href="/pages/cover-subpage/jet_ski" class="cover">
+      <img onclick={cover_btn('jet ski')} class="cover-img" src="https://cdn.shopify.com/s/files/1/0594/7172/4696/files/jetski-covers_1.png?v=1670351783">
+      <p>JET SKI COVERS</p>
+    </a>
+    <a href="/pages/cover-subpage/snowmobile" class="cover">
+      <img onclick={cover_btn('snowmobile')} class="cover-img" src="https://cdn.shopify.com/s/files/1/0594/7172/4696/files/snowmobile-covers_1.png?v=1670351716">
+      <p>SNOWMOBILE COVERS</p>
+    </a>
+
+    <a href="/collections/limo-covers" class="cover">
+      <img onclick={cover_btn('limo')} class="cover-img" src="https://cdn.shopify.com/s/files/1/0594/7172/4696/files/limo-covers_1.png?v=1670351690">
+      <p>LIMO COVERS</p>
+    </a>
+    <a href="/collections/accessories" class="cover">
+      <img onclick={cover_btn('accessories')} class="cover-img" style="position: relative; top: 2px;" src="https://cdn.shopify.com/s/files/1/0594/7172/4696/files/accessories-for-covers_1.png?v=1670351595">
+      <p>ACCESSORIES FOR COVERS</p>
+    </a>
+    <a href="#" class="cover">
+      <img onclick={cover_btn('disposable-covers')} class="cover-img" src="https://cdn.shopify.com/s/files/1/0594/7172/4696/files/disposable-covers_1.png?v=1670351637">
+      <p>DISPOSABLE COVERS</p>
+    </a>
+  </div>
+  <p class="text-center"><a href="/pages/cant-find-your-snowmobile" title="Cant Find Your {{main_product_singular}}?">Can't Find Your <span class="veh-instance"></span>? Click Here</a>
+    
+    <style>
+      
+/*Covers Buttons CSS*/
+.covers-grid .veh-instance{
+  text-transform: uppercase;
+}
+.covers-grid {
+  justify-items: center;
+}
+#shopify-section-covers-buttons {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+      
+section.covers-buttons .covers-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 15px;
+  row-gap: 15px;
+    }
+
+section.covers-buttons .cover {
+  border: 2px solid #333;
+  text-decoration: none;
+  max-width: 38rem;
+}
+section.covers-buttons .cover img {
+  width: 100%;
+  object-fit: scale-down;
+}
+section.covers-buttons .cover p {
+  background: #333;
+  padding: 6px;
+  color: white;
+  margin-top: -9px;
+  margin-bottom: -2px;
+  font-weight: 600;
+}
+section.covers-buttons .cover:hover p {
+  background: var(--color-mid);
+}
+section.covers-buttons .cover:hover {
+  text-decoration: none; 
+  border: 2px solid var(--color-mid);
+}
+section.covers-buttons > p > a {
+  color: #333;
+  text-decoration: none;
+  
+}
+section.covers-buttons > p > a:hover {
+  color: #878;
+}
+      
+
+    
+@media (max-width: 700px) {
+    section.covers-buttons .covers-grid {
+    grid-template-columns: 1fr 1fr; 
+  }
+} 
+
+@media (max-width: 750px) {
+    section.covers-buttons .covers-grid {
+      display: grid;
+    grid-template-columns: 1fr; 
+    row-gap: 25px;
+}
+}
+  /*
+@media (min-width: 1200px) {
+    section.covers-buttons .covers-grid {
+    grid-template-columns: 1fr 1fr 1fr; 
+    column-gap: 50px;
+    row-gap: 50px;
+  }
+}
+*/
+
+
+    </style>
+   
+<!--Covers buttons Javascript-->
+    
+  <script>
+    function cover_btn(veh_type) {
+      localStorage.setItem('vehicle_type', veh_type)
+     
+    }  
+  </script>
+  
+    {% for article in blog.articles %}
+    <h2>{{ article.title }}</h2>
+{% endfor %}
+
+    
+  </p>
+</section>
+{% schema %}
+  {
+    "name": "Covers Buttons",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+  <!---btns = document.getElementsByClassName("cover-img");--->
+    function cover_btn(veh_type) {
+          <!---for (var i = 0; i < btns.length; i++) {
+          btns[i].addEventListener("click", function () {
+              //Add function here
+            location.href = `https://carcoverscom-dev.myshopify.com/pages/${veh_type}`;
+          });--->
+      }
+	}
+{% endjavascript %}

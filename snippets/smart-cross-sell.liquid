@@ -1,0 +1,36 @@
+{% comment %}
+                    ============= Warning: PLEASE DO NOT EDIT THIS SNIPPET! =============
+                    Editing this file could break Cross Sell app functionality. 
+                    This file might be overwritten.
+                    ============= Warning: PLEASE DO NOT EDIT THIS SNIPPET! =============
+                    {% endcomment %}
+                    
+{% if template contains "product" %}
+  {% assign currentPage = "product" %}
+{% endif %}
+{% if template == "cart" %}
+  {% assign currentPage = "cart" %}
+{% endif %}
+<style>
+    .smart-clearfix:after {
+      content: ".";
+      visibility: hidden;
+      display: block;
+      height: 0;
+      clear: both;
+    }
+</style>
+<div class="smart-clearfix"></div>
+<div id="smart-cross-sell"></div>
+<div class="smart-clearfix"></div>
+{% assign cartitems = ""%}
+{% for item in cart.items %}
+  {% if forloop.first == true %}
+    {% capture cartitems %}{{ item.product.handle }}{% endcapture %}
+  {% else %}
+    {% capture cartitems %}{{ cartitems }},{{ item.product.handle }}{% endcapture %}
+  {% endif %}
+{% endfor %}
+<script type="text/javascript" charset="utf-8">
+var currentPage = "{{ currentPage }}";
+</script>

@@ -1,0 +1,590 @@
+<!-- Below are variables for the primary product -->
+{% assign main_product_singular = 'Snowmobile' %}
+{% assign main_product_plural = 'Snowmobile' %}
+{% assign main_product_website = 'Snowmobile.com' %}
+
+{{ 'section-individual-product-basic.css' | asset_url | stylesheet_tag }}
+{{ 'individual-product-template-page-data.js' | asset_url | script_tag }}
+
+
+
+	<!--Start container for product pages-->
+<div class="individual-product-pagetitle">
+  <div class="extra-div">
+      
+        <span class="main-header">{% if product.title contains "Cover" %}
+                                    {{ product.title }}
+                                  {% else %}
+                                    {{ product.title }}
+                                    
+                                  {% endif %}
+        </span>
+
+  </div>
+</div>
+    <div class="ipp-container top-container-space">
+      <div class="mock-header"></div>
+      <!--{% render 'breadcrumbs' %} -->
+      <div id="ipp-row" class="bottom-container-space">
+      <div class="ipp-row">
+        <div class="ipp-column ipp-image-container">
+          <div class="individual-product-main-image-conatiner">
+            <span id="umain-image"><img class="individual-product-main-image" src="{{ product.featured_image | product_img_url: ‘large’ }}" alt="{{ product.title | escape }}"title="{{ product.title | escape }}"></span>
+          </div>
+          <div class="ipp-grid ipp-sub-image-container">
+            <span id="usub-image"><img class="individual-product-sub-image" src="{{ product.featured_image | product_img_url: ‘100x100’ }}" alt="{{ product.title | escape }}" title="{{ product.title | escape }}"></span>
+            <img class="individual-product-sub-image prod-sub-image-4" src="{{ 'Ultimate_Patch.png' | asset_url }}"alt="{{ product.title | escape }}" title="{{ product.title | escape }}" />
+            <img class="individual-product-sub-image prod-sub-image-4" src="{{ 'Ultimate_Bag.jpeg' | asset_url }}" alt="{{ product.title | escape }}" title="{{ product.title | escape }}"/>
+            <img class="individual-product-sub-image prod-sub-image-4" src="{{ 'Lock_Set.jpeg' | asset_url }}" alt="{{ product.title | escape }}" title="{{ product.title | escape }}"/>
+          </div>
+        </div>
+        
+	<!--Start container for individual product details-->
+ 
+        <div class="individual-product-details-container">
+          <div class="ipp-column">
+            
+            <div
+              style="
+                height: 0.25px;
+                background-color: rgba(128, 128, 128, 0.211);
+                margin-right: 25px;
+              "
+            ></div>
+            <div class="ipp-row">
+              
+              <div class="individual-product-reviews-link individual-product-reviews-link-ultimate" style="font-weight: bold;">
+               <span class="stamped-product-reviews-badge stamped-main-badge" 
+                 data-id="{{product.id}}" 
+                 data-product-title="{{product.title}}" 
+                 data-product-type="{{product.type}}" 
+                 ></span> | <span class="vehicle-title"></span>
+              </div>
+            </div>
+            <p class="product-review"> <p>
+          </div>
+          <div class="ipp-row">
+            <div class="ipp-column">
+              <div class="individual-product-price">
+                  <p class="individual-product-price-new" id="pnew">{{ product.variants[0].price| money}}</p>
+              </div>
+              <div class="ipp-row individual-product-old-price">
+                Regular Price:
+                <div class="reg-price-amnt">
+                      &nbsp;<span style="text-decoration: line-through; color: red" id='pold'>{{ product.variants[0].compare_at_price | money}}</span>
+                </div>
+              </div>
+              <div class="ipp-add-to-cart-button ipp-row">
+                <a name="add" class="add-to-cart-btn button-outer" >
+                 <p class="button-inner">&#x1F6D2; ADD TO CART</p>
+                </a>
+              </div>
+              <div id="ipp-hide-on-mobile">
+              <div class="ipp-row ipp-guarantee-top-section">
+                <span class="ipp-checkmark">✓</span>
+                <div class="ipp-guarantees"><span class="text-primary">Guaranteed</span> Fit</div>
+              </div>
+              <div class="ipp-row">
+                <span class="ipp-checkmark">✓</span>
+                <div class="ipp-guarantees">30 Day Returns</div>
+              </div>
+              <div class="ipp-row">
+                <span class="ipp-checkmark">✓</span>
+                <div class="ipp-guarantees"><span class="text-primary">Free</span> Shipping</div>
+                </div>
+              <div class="ipp-row">
+                <span class="ipp-checkmark">✓</span>
+                <div class="ipp-guarantees"><span class="text-primary">In</span> Stock</div>
+              </div>
+              <div class="ipp-row">
+                <span class="ipp-checkmark">✓</span>
+                <div class="ipp-guarantees">Ships <span class="text-primary">Next</span> Business Day</div>
+              </div>
+            </div>
+          </div>
+            
+            
+              <!-- Mobile View Only -->
+            
+              <div class="ipp-mobile-only">
+                <div>
+                <p><span style="color:green;">✓</span><span class="text-primary">Guaranteed </span>Fit</p>
+                </div>             
+                <div>
+                <p><span style="color:green;">✓</span>30 Day Returns</p>
+                </div>
+                <div>
+                <p><span style="color:green;">✓</span><span class="text-primary">Free </span>Shipping</p>
+                </div>
+                <div>
+                <p><span style="color:green;">✓</span><span class="text-primary">In </span>Stock</p>
+                </div>
+                <div>
+                <p><span style="color:green;">✓</span> Ships <span class="text-primary"> Next </span>Business Day</p>
+                </div>
+              </div> 
+
+            <div class="ipp-column ipp-description-container greatValue">
+           
+             
+              
+            </div>
+          </div>
+        </div>
+        </div>
+        
+        <!--End container for individual product details-->
+        
+        
+        
+      </div>
+    </div>
+	<div class="colorbleed-tan">
+	<img class="free-prod-banner banner-container-extra" >
+    </div>
+      
+      <!--Start container for individual product icons-->
+      
+      <div class="colorbleed">
+      <div class="icon-container icon-container-extra">
+      
+      </div>
+      </div>
+      
+      <!--End container for individual product icons-->
+      
+      
+      <!--Start function: If there is no product description, display contact support message. Otherwise, no not display message.-->
+      <div class="ipp-container top-container-space">
+      
+      <div class="ipp-text-paragraph">
+        {% if product.description == '' %}
+        	Product Description is not filled out. Please contact support.
+        {% else %}
+        	{{ product.description }}
+        {% endif %}
+        
+      </div>
+      
+      
+      <!--End function-->
+      
+      
+      <!--Start FAQ section container-->
+      
+      
+
+      <div class="ipp-text-paragraph product-subtext">
+    
+      </div>
+      
+      <!--End FAQ section container-->
+      
+      
+  
+      
+      
+      <!--Start product detail image container-->
+      
+     <!--REMOVED THIS SECTION 7/13/22-->
+      <!--<div class="detail-shots">
+        
+        <div class="ipp-section-title">Product Detail Shots</div>
+        
+        <div class="ipp-row ipp-product-detail-row">
+       
+        </div>
+        
+      </div>-->
+      
+      
+      <!--End product detail image container-->
+      
+      
+
+      
+      <!--Start 360 video container-->
+      
+      
+      <div id="360-video-container">
+              
+
+      <div class="ipp-section-title">Product 360 Degree Video</div>
+      <div class="ipp-iframe-container">
+        <iframe
+         id="360-video" 
+                src="https://www.youtube.com/embed/{{product.metafields.customField.tutorial_youtube_video | json}}"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          class="ipp-iframe"
+        ></iframe>
+      </div>
+        
+        
+        <!--End 360 video container-->
+        
+
+      </div>
+      
+      
+      <!--Start product comparison container-->
+      
+      
+      
+       {% section 'comparison-chart' %}
+   
+      
+      
+      <!--End product comparison container-->
+
+      
+      <!--Start tutorial video container-->
+      
+      
+      <div id="tutorial-video-container">
+      <div class="ipp-section-title">Why Buy From Us?</div>
+      <div class="ipp-iframe-container">
+        <iframe
+          id="tutorial-video"      
+          src="https://www.youtube.com/embed/"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          class="ipp-iframe"
+        ></iframe>
+      </div>
+        
+        
+      <!--End tutorial video container-->
+        
+        
+   
+	  </div>
+      
+      
+      <!--Start guarantee container-->
+      
+      
+      <div class="ipp-section-title">Hassle Free Guarantee</div>
+       {% section 'comforts' %}
+
+      
+
+      
+      
+      <!--End guarantee container-->
+      
+      
+      <!--Start free shipping container-->
+      
+      <div class="shipping-container">
+    
+      </div>
+      <!--End free shipping container-->
+      
+        
+      
+      
+      <!--Start cleaning instructions container-->
+      
+      <div class="cleaning-container">
+  
+      </div>
+      
+      <!--End cleaning instructions container-->
+      
+      
+    
+      <div class="return-policy">
+       
+      </div>
+      
+      <!--End customer service/return shipping/return policy -->
+      
+      
+    
+      
+      
+      <!--Start how do I order container-->
+      
+      <div class="order-container">
+
+      </div> 
+      <!--Start warranty container-->
+      
+      <div class="warranty-container">
+
+      </div>
+      
+      <!--End warranty container-->
+      
+    
+      
+      
+      <!--Start customer reviews container-->
+      
+     
+
+	  <!--End customer review container-->
+
+ </div>
+<div id="stamped-main-widget" 
+     class="stamped-main-widget" 
+     data-widget-style="standard" 
+     data-product-id="{{ product.id }}" 
+     data-name="{{ product.title | escape }}" 
+     data-url="{{ shop.url }}{{ product.url }}" 
+     data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" 
+     data-description="{{ product.description | escape }}" data-product-sku="{{product.handle}}" 
+     data-product-type="{{product.type}}" 
+     data-widget-language="{{shop.locale}}">{{ product.metafields.stamped.reviews }}
+</div>
+<!--Start inline CSS and media queries-->
+<style>
+html,body{
+    overflow-x: hidden;
+}
+  .extraTop {
+	margin-top: 6px;  
+  }
+  .extraRight {
+    margin-right: 6px;
+  }
+  .extraLeft {
+    margin-left: 6px;
+  }
+  .extraPlus {
+	margin-top: 6px;
+  }
+  .top-container-space {
+    margin-top: 10px;
+  }
+  .bottom-container-space {
+    margin-bottom: 10px;
+  }
+  .colorbleed {
+    width: 100%;
+    background: #333333;
+  }
+  .colorbleed-tan {
+    width: 100%;
+    background: #E1DAD0;
+  }
+  .icon-container-extra {
+    margin: auto;
+    max-width: 1600px;
+  }
+ .banner-container-extra {
+   width:100%; 
+   margin: auto;
+    max-width: 1600px;
+    display: table;
+   margin-bottom: 2px;
+  }
+  
+  .button-outer {
+  
+  }
+  
+  .button-inner {
+    font-size:20px;
+    font-family:calibri;
+    background-color: orange;
+    color:transparent; 
+    text-shadow:0 0 0 white;
+    border-radius: 5px;
+    padding: 5px 15px;
+    text-align: center;
+  }
+  
+  @media screen and (max-width: 430px) {
+  
+    .extraPlus {
+	margin-top: 0px;
+    margin-bottom: 3px;
+  }
+    .button-inner {
+      width: 150px;
+      font-size: 14px;
+  }
+    
+    .star-ratings {
+    	width: 110%;
+    }
+  }
+  
+</style>
+
+
+<!--End inline style and media queries-->
+
+<!--Start inline JavaScript-->
+
+
+<script>
+ 
+  productData = {{ product | json }};
+  mainVideoData = {{product.metafields.custom_field.product_page_360_video| json}};
+  tutorialVideoData = {{product.metafields.customField.tutorial_youtube_video | json}}
+  ratings_content = {{product.metafields.customField.ratings_content.value | json}}
+  productMediaData = {{ product.media | json }};
+  promo_banner = {{product.metafields.customField.metaBanner.value | json}}
+  mobile_banner = {{product.metafields.customField.mobileMetaBanner.value | json}}
+  product_customerReview = {{product.metafields.customField.product_customer-review.value | json}}
+  product_greatValueBanner = {{product.metafields.customField.greatValue-banner.value | json}}
+  product_subtext = {{product.metafields.customField.product_details_content.value | json}}
+  product_icon = {{product.metafields.customField.product_icons.value | json}}
+  product_material_images = {{product.metafields.customField.product_material_images.value | json}}
+  product_shipping = {{product.metafields.customField.shipping_container.value | json}}
+  product_cleaning = {{product.metafields.customField.cleaning_instructions.value | json}}
+    product_return = {{product.metafields.customField.return_container.value | json}}
+    product_warranty = {{product.metafields.customField.warranty_container.value | json}}
+    product_order = {{product.metafields.customField.order_container.value | json}}
+    console.log("TEST PRODUCTS HERE ZACHARY,",productData)
+    console.log('test1')
+ 	let metaTitle = document.querySelector("title");
+	let metaDescription = document.getElementsByTagName('meta')["description"];
+ 	let title = document.getElementsByTagName('title')[0];
+ 	product_greatValueBanner?  
+     ( document.querySelector('.greatValue').innerHTML = product_greatValueBanner,document.querySelector(".star-ratings").innerHTML = ratings_content)  
+ : $('.greatValue').hide();
+       console.log('test3')
+       console.log('test2')
+    product_customerReview?
+      document.querySelector('.product-review').innerHTML = product_customerReview : $('.product-review').hide();
+   
+   
+       console.log('test3')
+ 	product_return ? 
+      document.querySelector(".return-policy").innerHTML= product_return: $('.return-policy').hide();
+  //product_order 
+  product_order ? 
+     document.querySelector(".order-container").innerHTML= product_order: $('.order-container').hide();
+       console.log('test4')
+  //product warranty
+  	product_warranty ? 
+      document.querySelector(".warranty-container").innerHTML= product_warranty: $('.warranty-container').hide();
+       console.log('test5')
+  	//product cleaning 
+  	product_cleaning ? 
+      document.querySelector(".cleaning-container").innerHTML= product_cleaning: $('.cleaning-container').hide();
+       console.log('test6',product_material_images)
+  	//product material images
+  //We remove this from the webpage for the time being
+      // product_material_images ? 
+   	  // document.querySelector(".ipp-product-detail-row").innerHTML= product_material_images: $('.detail-shots').hide();
+      //  console.log('test7')
+	
+  //product shipping container
+  product_shipping? 
+    document.querySelector(".shipping-container").innerHTML = product_shipping : $(".shipping-container").hide();
+   console.log('test8')
+    //product icon container
+   
+   product_icon? 
+     document.querySelector(".icon-container").innerHTML= product_icon: $('.icon-container').hide();
+   console.log('test9')
+  	//promo product_subtext
+   
+  	product_subtext ? 
+      document.querySelector(".product-subtext").innerHTML= product_subtext : $('.product-subtext').hide();
+   console.log('test10')
+    //promo banner
+    if(promo_banner && $(window).width() >= 480){
+      document.querySelector(".free-prod-banner").src= promo_banner
+       
+    } else{
+      document.querySelector(".free-prod-banner").src= mobile_banner 
+       
+    }
+    
+  
+    window.location.pathname.split("")[3].length === 0 ? metaTitle.content = `${productData.title} | Guaranteed Fit | Free Shipping`:metaTitle.content = `${vehicleInfoString + productData.title} | Guaranteed Fit | Free Shipping`
+    console.log('test11')
+    
+    metaDescription.content = `${vehicleInfoString + productData.title}. Guaranteed Fit CarCovers.com > ${vehicleInfo.vehtype} Covers. Lifetime Warranty. Over 75294 Reviews. Up to 50% off and Free Shipping.`
+    $("#page-title").text(`${vehicleInfoString + productData.title}`).hide();
+    title.innerText = metaTitle.content; 
+   console.log('test12')
+  
+    abbreviatedTitle = productData.title.split("Cover")[0] + " Cover"
+    document.querySelectorAll(".vehicle-title").forEach((title,index) => {
+          title.innerText = abbreviatedTitle;
+                                   
+          });
+      document.querySelector(".main-header") && vehicleInfoString.length >0?
+  	document.querySelector(".main-header").innerText = document.querySelector(".main-header").innerText + " for " + (vehicleInfoString): console.log("NOT AN ACCESSORY");
+  
+    console.log('test13')
+  	mainVideoData? $('#360-video').attr("src",`https://www.youtube.com/embed/${mainVideoData}`) : $("#360-video-container").hide() 
+    console.log('test14')
+    tutorialVideoData? $('#tutorial-video').attr("src", `https://www.youtube.com/embed/${tutorialVideoData}`): $("#tutorial-video-container").hide() 
+  console.log("test window path",window.location.pathname) 
+  if(window.location.pathname.includes("accessories")){
+  document.querySelector(".free-prod-banner").display = "none";
+      $(".stamped-main-widget").hide();
+     $(".stamped-main-badge").hide()
+      $(".stamped-badge").hide()
+
+  } else{
+    console.log("TEST FAILED")
+  }
+    //this is needed for breadcrumbs we are removing from microsites there is no need. 
+  	//document.querySelector(".breadcrumb-product").innerText = document.querySelector(".breadcrumb-product").innerText + " " + vehicleInfoString;
+    console.log("Test Finding Add to Cart1")
+  	
+  	document.querySelector(".individual-product-price").innerText = "$"+({{ product.variants[0].price }}/100);
+    document.querySelector(".reg-price-amnt span").innerText = "$"+({{ product.variants[0].compare_at_price }}/100);
+                                                                         
+    window.dataLayer = window.dataLayer || [];  
+    window.dataLayer.push({event:"ViewSingleItem", ecommerce: { view: {item: {product: productData, vehicle: vehicleInfoString}}}})                                                   
+  
+    console.log("Test Finding Add to Cart", document.querySelector(".add-to-cart-btn, .add-to-cart-btn img"));    
+    document.querySelector(".add-to-cart-btn, .add-to-cart-btn img").addEventListener("click", function(event){
+		console.log("Test Attempting to Add to Cart");    
+
+      data = {
+        items: 
+        [
+          {
+            quantity: 1,
+            id: productData.variants[0].id,
+            properties: {
+            "vehicle-info": vehicleInfoString
+          }
+          }
+        ]
+     }
+      
+    // On page load, perform following function
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+
+        // Process our return data
+        if (xhr.status >= 200 && xhr.status < 300) {
+          // Runs when the request is successful
+          window.location.href = "/cart";
+        } else {
+          // Runs when it's not
+          console.log(xhr.responseText);
+        }
+
+      };
+    xhr.open("POST", window.Shopify.routes.root + 'cart/add.js', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify(data));
+  });
+
+  window.location.pathname.split("/")[3] === "" ? $(".chart-container").hide() : console.log("SHOW COMP CHART") 
+  
+</script>
+
+<!--End inline JavaScript-->
+
+<!--Start Stamped.io Auto Installation-->
+
+
+<!--End Stamped.io Auto Installation-->

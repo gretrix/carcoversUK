@@ -1,0 +1,330 @@
+{% schema %} { "name": "landing_product", "settings": [] } {% endschema %} {%
+stylesheet %} {% endstylesheet %}
+
+<div class="landing-block">
+  <div class="prod-sel-container landing-covers secondary-border">
+    <div class="prod-sel-header secondary">
+      Our Best Seller <span class="veh-instance"></span> Cover For OUTDOOR Use
+    </div>
+    <span class="prod-sel-text-container">
+      <p style="padding-left: 20px; margin-top: -10px" class="prod-sel-text">
+        For outdoors we recommend our top selling cover! This is the most
+        durable cover for outdoor use. It is designed to hold up in all types of
+        extreme weather from rain, snow, high UV and sun exposure, and more!
+      </p>
+    </span>
+    <span class="prod-sel-body-card">
+      <h3 class="prod-sel-body-header">
+        <a href=""> <span class=""></span></a>
+      </h3>
+      <hr class="prod-sel-body-hr" />
+      <span class="prod-sel-body-stars">
+        <div
+          class="individual-product-reviews-link individual-product-reviews-link-ultimate"
+          style="font-weight: 700"
+        >
+          <span class="star-insert"></span> |
+          <span class="vehicle-title"></span>
+        </div>
+      </span>
+      <span class="prod-sel-body-main">
+        <span class="prod-sel-body-recommend-card">
+          <span class="prod-sel-body-recommend">
+            <span class="prod-sel-body-best primary"> #1 Best Seller </span>
+
+            <span class="prod-sel-body-top tertiary text-primary">
+              Top Quality
+            </span>
+          </span>
+          <p class="prod-sel-body-image-desc-coll">top level protection</p>
+
+          <div class="image-link">
+            <a href="">
+              <img
+                class="prod-sel-nb-body-image"
+                src="{{ shopifyProduct | image_url: width:300 }}"
+                alt="AllGuard Weatherproof MAX Jetski Cover"
+                title="AllGuard Weatherproof MAX Jetski Cover"
+              />
+            </a>
+          </div>
+
+          <!--old spot-->
+        </span>
+        <span class="prod-sel-body-text-container">
+          {{ shopifyProduct.metafields.customField.collection_content.value }}
+        </span>
+
+        <span class="prod-sel-media-container-ult">
+          <!--<img src = "{{ ' interiorfleecelining_individualp<div class="description-banner primary">Great Value</div>roductpage.png ' | asset_url }}" alt="Interior Fleece Lining" title="Interior Fleece Lining" width="100px" height="60px">-->
+          <!--<video width="100px" height="60px" 
+                    class="prod-sel-nb-main-media-video"
+                    controls="controls"> 
+                    <source src = 
+                        type="video/mp4">                  
+                </video>-->
+          <!--<span class="prod-sel-info-video-desc"><a href="#">Play Product Demo Video</a></span>-->
+        </span>
+        <hr class="prod-sel-info-hr" />
+        <span class="prod-sel-price-container">
+          <span class="prod-sel-mobile-container-bs-landing">
+            <span class="prod-sel-mobile-price-container-bs-landing">
+              <p class="prod-sel-price-head-new">
+                <span class="prod-sel-nb-main-price">{{
+                  shopifyProduct.price | money
+                }}</span>
+              </p>
+              <span class="prod-sel-price-old-container"
+                >Regular Price
+                <span>
+                  <span class="prod-sel-nb-main-reg-price">{{
+                    shopifyProduct.variants[0].compare_at_price | money
+                  }}</span>
+                </span>
+              </span>
+            </span>
+            <a name="add" class="add-to-cart-btn button-outer">
+              <p class="button-inner">&#x1F6D2; ADD TO CART</p>
+            </a>
+          </span>
+          <!-- <button class="background-color: #ff9933; border: 1px solid lightgray; border-radius: 4px; color: white; padding: 12px 15px;"><img src = {{ ' _individualproductpage. ' | asset_url }}/cart-icon.svg" alt="cart"> Add To Cart</button> -->
+          <span class="prod-sel-nb-main-guarantee-container-ult">
+            <span class="prod-sel-nb-main-guarantee-container-item"
+              ><img
+                class="prod-sel-nb-main-guarantee-check"
+                src="{{ ' greenCheck_individualproductpage.svg ' | asset_url }}"
+                alt="check mark"
+                title="check mark"
+              />
+              <span class="text-primary">Guaranteed</span>&nbsp; Fit</span
+            >
+            <span class="prod-sel-nb-main-guarantee-container-item"
+              ><img
+                class="prod-sel-nb-main-guarantee-check"
+                src="{{ ' greenCheck_individualproductpage.svg ' | asset_url }}"
+                alt="check mark"
+                title="check mark"
+              />
+              30 Day Returns</span
+            >
+            <span class="prod-sel-nb-main-guarantee-container-item"
+              ><img
+                class="prod-sel-nb-main-guarantee-check"
+                src="{{ ' greenCheck_individualproductpage.svg ' | asset_url }}"
+                alt="check mark"
+                title="check mark"
+              />
+              <span class="text-primary">Free</span>&nbsp; Shipping</span
+            >
+            <span class="prod-sel-nb-main-guarantee-container-item"
+              ><img
+                class="prod-sel-nb-main-guarantee-check"
+                src="{{ ' greenCheck_individualproductpage.svg ' | asset_url }}"
+                alt="check mark"
+                title="check mark"
+              />
+              <span class="text-primary">In</span>&nbsp; Stock</span
+            >
+            <span class="prod-sel-nb-main-guarantee-container-item"
+              ><img
+                class="prod-sel-nb-main-guarantee-check"
+                src="{{ ' greenCheck_individualproductpage.svg ' | asset_url }}"
+                alt="check mark"
+                title="check mark"
+              />
+              <span class="text-primary">Ships</span>Next Business Day</span
+            >
+          </span>
+
+          <!-- <img
+            class="prod-sel-media-container-ult-hide"
+            src="{{
+              ' recommendedBadge_individualproductpage.svg ' | asset_url
+            }}"
+            width="70px"
+            height="70px"
+            alt="recommended badge"
+            title="recommended badge"
+          /> -->
+        </span>
+      </span>
+    </span>
+    <span class="prod-sel-bonus-item-section" style="">
+      <img class="prod-sel-bonus-item-section-image" src="" />
+      <img
+        class="prod-sel-bonus-item-section-image-mobile"
+        src="{{
+          ' FreeCarCoverCareKit_mobile_platinum_individualproductpage.png '
+            | asset_url
+        }}"
+      />
+    </span>
+  </div>
+</div>
+<!-- ////////////////////Gretrix Addon CSS///////////////// -->
+<style>
+  
+  .landing-block {
+    width: 100%;
+  }
+
+  .ipp-container {
+    border: 2px solid blue;
+    width: 100%;
+  }
+
+  .product-selector-area {
+    width: 100%;
+    display: flex;
+    height: 20%;
+    border: 3px solid lightgray;
+  }
+
+  .prod-sel-header {
+    color: var(--color-mid);
+    padding: 0 auto;
+  }
+
+  .car-subpage-container {
+    width: 100%;
+    border: 2px solid pink;
+  }
+
+  #car-subpage-container-section {
+    width: 100%;
+  }
+
+  .product-selector-subpage-container {
+    width: 100%;
+  }
+
+  .button-inner{
+    background-color: orange;
+    width:100%
+  }
+  
+  @media (max-width: 749px) {
+    #margin-container {
+      width: 100%;
+    }
+
+    .product-selector-area {
+      flex-direction: column;
+    }
+
+    .prod-sel-header {
+      width: 100%;
+      text-align: center;
+      padding: 0 5px;
+    }
+
+    .prod-sel-text-container {
+      margin-top: 2rem;
+    }
+
+    .prod-sel-body-header {
+      margin-top: 2rem;
+    }
+
+
+
+    .prod-sel-price-container {
+      width: 100%;
+    }
+
+    .prod-sel-mobile-container-bs-landing {
+      display: flex;
+      justify-content: space-evenly;
+      
+      flex-direction: column;
+    }
+
+    .prod-sel-nb-main-guarantee-container-ult {
+      margin-top: 1rem;
+    }
+  }
+</style>
+<!-- ////////////////////////////Gretrix Addon CSS//////////////// -->
+<script>
+  //document.querySelector(".prod-sel-body-text-container").innerHTML = elementCollectionContent ? elementCollectionContent : "Collection Content Metafield in the product configuration is not filled out. Please go to the respective product and fill out the collection content at the bottom of this product.";
+
+  {% assign allProducts = collections.all.products %}
+  landingObject = [];
+  {% for product in allProducts %}
+
+    tempObj = {{ product | json }};
+    //need to add remaining metafields in order to access metafield data on page
+    tempObj["collection_content"] = {{ product.metafields.customField.collection_content.value | json }};
+    //added remaining metafields
+    tempObj["360Product-video"] = {{product.metafields.customField.Product_Page_Product_360_Youtube_Video_ID}}
+    tempObj["tutorial-video"] = {{product.metafields.customField.Product_Page_Tutorial_Youtube_Video_ID}}
+    tempObj["ratings_content"] = {{product.metafields.customField.ratings_content.value | json}}
+    tempObj["metaBanner"] = {{product.metafields.customField.metaBanner.value | json}}
+    tempObj["metaMobileBanner" ]= {{product.metafields.customField.mobileMetaBanner.value | json}}
+    console.log("tempObj test", tempObj)
+    landingObject.push(tempObj);
+
+  {% endfor %}
+
+  windowSKU = urlVehicleInfoPath.split("=")[1]
+  landingProduct = landingObject.find(prodObj => prodObj.variants[0].sku === windowSKU);
+  productUrl = `/products/${landingProduct.handle}/${vehicleInfo.make.replace(/ /g, "_")}&${vehicleInfo.model.replace(/ /g, "_")}&${vehicleInfo.year}`
+  console.log("landing product data VERY IMPORTANT",landingProduct)
+  //sets Landing Product image
+  //$('.prod-sel-nb-body-image').attr('src', landingProduct.images[0])
+  // sets Landing Product Collection
+  $(".prod-sel-body-text-container").html(landingProduct.collection_content)
+  //Sets all links on the single product landing page. NOT SET FOR COLLECTIONS UNDER
+  //Loading multiple into 1 querySelector was causing an error for some reason.
+  document.querySelector(".image-link a").href = productUrl;
+  //document.querySelector(".prod-sel-nb-header a").href = productUrl;
+
+  //set title for Landing Product
+  document.querySelector(".prod-sel-body-header a").innerText = landingProduct.title + ' for ' + vehicleInfoString;
+  //document.querySelector(".prod-sel-info-video-desc a").href = productUrl;
+  document.querySelector(".prod-sel-body-header a").href = productUrl;
+  document.querySelector(".add-to-cart-btn p").setAttribute("shopify-product-id", landingProduct.variants[0].id);
+  //set price for Landing Product
+  document.querySelector(".prod-sel-nb-main-price").innerText = "$" + (landingProduct.variants[0].price / 100);
+  document.querySelector(".prod-sel-nb-main-reg-price").innerText = "$" + (landingProduct.variants[0].compare_at_price / 100);
+  document.querySelector(".prod-sel-nb-body-image").src = landingProduct.featured_image;
+  if(document.querySelector(".star-ratings")){
+    document.querySelector(".star-ratings").innerHTML = landingProduct.ratings_content;
+  }
+  moreDetailsElement = document.querySelector(".prod-sel-more-details-link a");
+  if(document.querySelector(".prod-sel-bonus-item-section-image") && $(window).width() >= 480 ){
+    landingProduct.metaBanner?
+      document.querySelector(".prod-sel-bonus-item-section-image").src= landingProduct.metaBanner:
+      document.querySelector(".prod-sel-bonus-item-section").style.display = "block"
+  }
+  else if($(window).width() <= 480 && document.querySelector(".prod-sel-bonus-item-section-image") ){
+     landingProduct.mobileMetaBanner?
+      document.querySelector(".prod-sel-bonus-item-section-image").src= landingProduct.mobileMetaBanner:
+      document.querySelector(".prod-sel-bonus-item-section").style.display = "block"
+  }
+  else {
+
+   document.querySelector('.prod-sel-bonus-item-section') ? document.querySelector('.prod-sel-bonus-item-section').hide() : "";
+  }
+  if(moreDetailsElement !== null)
+                  {
+
+                		moreDetailsElement.href = "/products/" + landingProduct.handle + "/" + urlVehicleInfoPath;
+                  }
+  document.querySelector(".add-to-cart-btn").addEventListener("click", (evt) => addToCart(landingProduct, evt));
+  stampedBadgeIcon =    ` <span class="stamped-product-reviews-badge stamped-main-badge"
+    data-id="${landingProduct.id}"
+    data-product-title="${landingProduct.title}"
+    data-product-type="${landingProduct.type}"
+    style="display: block;"></span>`
+   document.querySelector(".star-insert") ?
+   document.querySelector(".star-insert").outerHTML = stampedBadgeIcon: console.log("YOU HAVE A MAJOR ERROR ZACHARY");
+   document.querySelectorAll(".vehicle-title").forEach((title,index) => {
+    index === 0 ?
+      title.innerText = landingProduct.title + ' for ' + vehicleInfoString:
+      title.innerText = landingProduct.title
+
+
+
+  });
+</script>

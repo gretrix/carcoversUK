@@ -1,0 +1,90 @@
+
+{% unless template == 'index' or template == 'cart' or template == 'list-collections' %}
+
+
+<nav style="padding-left: 25px;" class="breadcrumb" role="navigation" aria-label="breadcrumbs">
+
+  <a href="/" title="Home">HOME</a>
+
+  {% if template contains 'page' %}
+
+    <span aria-hidden="true">&rsaquo;</span>
+
+    <span style="text-transform: uppercase;" id="breadcrumb-page-title">{{ page.title }}</span>
+
+  {% elsif template contains 'product' %}
+
+    {% if collection.url %}
+      <span aria-hidden="true">&rsaquo;</span>
+
+      {{ collection.title | upcase |link_to: collection.url}}
+  {{}}
+  		
+
+    {% endif %}
+
+    <span aria-hidden="true">&rsaquo;</span>
+
+    <span style="text-transform: uppercase;" class="breadcrumb-product">{{ product.title }}</span>
+
+  {% elsif template contains 'collection' and collection.handle %}
+
+    <span aria-hidden="true">&rsaquo;</span>
+  	
+
+    {% if current_tags %}
+  	
+      
+      {% capture url %}/pages/cover-subpage/snowmobile{% endcapture %}
+
+      {{ collection.title | upcase | link_to: url }}
+
+      <span aria-hidden="true">&rsaquo;</span>
+
+      <span style="text-transform: uppercase;" >{{ current_tags |join: "" | replace: "&amp;", " " | replace: "_", " " }}</span>
+
+    {% else %}
+
+      <span style="text-transform: uppercase;" >{{ collection.title }}</span>
+
+    {% endif %}
+
+  {% elsif template == 'blog' %}
+
+    <span aria-hidden="true">&rsaquo;</span>
+
+    {% if current_tags %}
+
+      {{ blog.title | upcase | link_to: blog.url }}
+
+      <span aria-hidden="true">&rsaquo;</span>
+
+      <span style="text-transform: uppercase;" >{{ current_tags | join: " + " }}</span>
+
+    {% else %}
+
+    <span style="text-transform: uppercase;" >{{ blog.title }}</span>
+
+    {% endif %}
+
+  {% elsif template == 'article' %}
+
+    <span aria-hidden="true">&rsaquo;</span>
+
+    {{ blog.title | upcase | link_to: blog.url }}
+
+    <span aria-hidden="true">&rsaquo;</span>
+
+    <span style="text-transform: uppercase;" >{{ article.title }}</span>
+
+  {% else %}
+
+   <span aria-hidden="true">&rsaquo;</span>
+
+   <span style="text-transform: uppercase;" >{{ page_title }}</span>
+
+  {% endif %}
+
+</nav>
+
+{% endunless %} 

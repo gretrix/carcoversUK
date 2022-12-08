@@ -1,0 +1,809 @@
+{% comment %} <!-- Below are variables for the primary product -->
+{% assign main_product_singular = 'Snowmobile' %}
+{% assign main_product_plural = 'Snowmobiles' %}
+{% assign main_product_website = 'SnowmobileCover.com' %}
+<!-- header-cc.liquid Beginning -->
+ {% endcomment %}
+<script>
+ 
+  // If you are on collection page urlVehicleInfo is derived this way notice -covers is plural
+  if(window.location.pathname.split("/").length > 3 && window.location.pathname.includes("collections"))
+    {
+        urlVehicleInfo = window.location.pathname.match(/-covers\/([^&]*)&([^&]*)&([^&]*)&*([^&]*)/);
+        urlVehicleInfoPath = window.location.pathname.match(/-covers\/([^&]*&[^&]*&[^&]*&*[^&]*)/)[1];
+	
+
+        vehicleInfo = {
+          "vehtype": "car",
+            "make": urlVehicleInfo[1].replace(/_/g, " "),
+            "model": urlVehicleInfo[2].replace(/_/g, " "),
+            "year": urlVehicleInfo[3].replace(/_/g, " "),
+            "bodytype": urlVehicleInfo[4] ? urlVehicleInfo[4].replace(/_/g, " ") : ""
+        }
+    
+       console.log("THIS IS SNOWMOBILE VEHTYPE CHECK", vehicleInfo)
+    vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.bodytype;
+        
+    }
+  //If you are on product page UrlVehicleInfo is derived this way notice -cover is singular
+    else if(window.location.pathname.includes("products") && window.location.pathname.split("/")[3].length > 0)
+    {
+        urlVehicleInfo = window.location.pathname.split("/")[3].split("&")
+       
+	
+
+        vehicleInfo = {
+          "vehtype": window.location.pathname.split("/")[2].split("-")[window.location.pathname.split("/")[2].split("-").length-2],
+            "make": urlVehicleInfo[0].replace(/_/g, " "),
+            "model": urlVehicleInfo[1].replace(/_/g, " "),
+            "year": urlVehicleInfo[2].replace(/_/g, " "),
+            "bodytype": urlVehicleInfo[4] ? urlVehicleInfo[4].replace(/_/g, " ") : ""
+        }
+        
+        vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.bodytype;
+        
+    }
+//If you are on subpage urlVehilceInfo is derived this way notice cover-subpage
+  	else if(window.location.pathname.includes("subpage"))
+    {
+       
+     	urlVehicleInfo = window.location.pathname.match(/pages\/cover-subpage\/([^&]*)&*([^&]*)&*([^&]*)&*([^&]*)/);
+        pageInfo = window.location.pathname.split("/")[3].replace(/_/g, " ");
+        
+        
+
+         vehicleInfo = {
+           //tweaked this to account for inserted & for spacing in the url
+           "vehtype": urlVehicleInfo[1].replace(/_/g, " "),
+              "make": urlVehicleInfo[2].replace(/_/g, " "),
+              "model": urlVehicleInfo[3] ? urlVehicleInfo[3].replace(/_/g, " ") : "",
+              "year": urlVehicleInfo[4] ? urlVehicleInfo[4].replace(/_/g, " ") : "",
+              "bodytype": ""
+          }
+		vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.bodytype 
+ 
+         // allows for dynamic data in these subpages without breaking the api call. API CALL NEEDS BOTH ATVANDUTV
+         window.location.pathname.split("/")[3].split('&')[0] === "atv" || window.location.pathname.split("/")[3].split('&')[0] === "utv" ?  vehicleInfo.vehtype = "atv and utv" : vehicleInfo.vehtype
+         vehicleInfo.vehtype === "golfcart" ? vehicleInfo.vehtype = "golf cart" : vehicleInfo.vehtype;
+		
+    }
+  //sets vehicle info empty when on any other page.
+        else if(window.location.pathname.includes("landingpage")){
+  
+      urlVehicleInfo = window.location.pathname.match(/landingpage\/([^&]*)&*([^&]*)&*([^&]*)&*([^&]*)/);
+      urlVehicleInfoPath = window.location.pathname.match(/landingpage\/([^&]*)&*([^&]*)&*([^&]*)&*([^&]*)/)[1];
+      landingPagePath = window.location.pathname.match(/vehicle=([^&]*)&*([^&]*)&*([^&]*)/)
+    
+      
+      
+      
+
+       vehicleInfo = {
+         //tweaked this to account for inserted & for spacing in the url
+         "vehtype": "car",
+            "make": landingPagePath[1] ? landingPagePath[1].replace(/_/g, " "): "",
+            "model": landingPagePath[2] ? landingPagePath[2].replace(/_/g, " ") : "",
+            "year": landingPagePath[3] ? landingPagePath[3].replace(/_/g, " ") : "",
+            "bodytype": ""
+        }
+  vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.bodytype 
+
+    }
+    else
+    
+    {
+      //SET MICROSITE TYPE CHANGE vehtype to respctive sites desire example? see below:
+      
+     
+      	urlVehicleInfoPath = "";
+     	vehicleInfo = {
+          "vehtype": "car",
+            "make": "",
+            "model": "",
+            "year": "",
+            "bodytype": ""
+        } 
+        vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.bodytype;
+      
+      $(".free-prod-banner").hide()
+    }
+    
+  	
+    
+ 	
+ 	vehicleInfoString = vehicleInfoString.replace(/\s+/g,' ').trim();
+  	pageInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.bodytype + " Covers";
+  
+  	function capitalizeWords(arr) {
+  return arr.map(element => {
+    return element.charAt(0).toUpperCase() + element.substring(1).toLowerCase();
+  }).filter(element => element != "");
+      
+     
+   
+}
+
+ document.addEventListener('DOMContentLoaded', function () {
+  $(".veh-instance").text("Car")
+  $(".veh-instance-caps").text("Car")
+  
+}, false); 
+
+</script>
+
+<link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
+{%- if settings.predictive_search_enabled -%}
+  <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'component-loading-overlay.css' | asset_url }}" media="print" onload="this.media='all'">
+{%- endif -%}
+
+<noscript>{{ 'component-list-menu.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-search.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-menu-drawer.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-cart-notification.css' | asset_url | stylesheet_tag }}</noscript>
+
+<script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
+
+<script src="{{ 'countDownClock.js' | asset_url }}"></script>
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    {% if section.settings.logo %}
+      {% assign image_size = section.settings.logo.width | append: 'x' %}
+      "logo": {{ section.settings.logo | img_url: image_size | prepend: "https:" | json }},
+    {% endif %}
+    "sameAs": [
+      {{ settings.social_twitter_link | json }},
+      {{ settings.social_facebook_link | json }},
+      {{ settings.social_pinterest_link | json }},
+      {{ settings.social_instagram_link | json }},
+      {{ settings.social_tiktok_link | json }},
+      {{ settings.social_tumblr_link | json }},
+      {{ settings.social_snapchat_link | json }},
+      {{ settings.social_youtube_link | json }},
+      {{ settings.social_vimeo_link | json }}
+    ],
+    "url": {{ shop.url | append: page.url | json }}
+  }
+</script>
+
+{%- if request.page_type == 'index' -%}
+  {% assign potential_action_target = shop.url | append: routes.search_url | append: "?q={search_term_string}" %}
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": {{ shop.name | json }},
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {{ potential_action_target | json }},
+        "query-input": "required name=search_term_string"
+      },
+      "url": {{ shop.url | append: page.url | json }}
+    }
+  </script>
+{%- endif -%}
+
+<!--Desktop header-->
+
+<header class="desktop-only">
+
+    <div class="middle-bar">
+      <div class="header-section-container middle-bar-grid">
+      	<h1 style="margin:auto 0;">
+          
+
+          	<a href="/" onclick=set_veh_type('Snowmobile') title= '{{main_product_singular}} Cover Homepage'>
+              <span class="vehicle-title" ></span><img alt= "{{main_product_singular}} Cover Logo" src="https://cdn.shopify.com/s/files/1/0594/7172/4696/files/carcoversLogo_300x_1.png?v=1670342156">
+          	</a>
+        </h1>
+        <div class="text-center" id="top-center">
+          <p class="sale"><b>WINTER SALE</b> <em>UP TO 50% OFF</em></p>
+          <p class="arrives text-primary bold">Free Shipping arrives in 1 to 4 days for the contiguous United States</p>
+          
+        </div>
+       
+        <div class="text-right phone-number">
+          <p class="text-primary bold" style="mix-blend-mode: darken;vertical-align:top">
+         
+            <a href="tel:8003853603" class=" bold phone-number"> <span class="telephone-logo telephone-logo-2">&#x2706</span>800-385-3603</a>
+          </p>
+          <p style="color:black">Order Online 24/7 or via Phone</p>
+        </div>
+      </div>
+    </div>
+      <div class="top-bar">
+      <div class="header-section-container header-grid-three">
+        <div><p><b>Serving +500,000</b> {{main_product_singular}} customers since 2008</p></div>
+        <div style="margin-left: 110px; font-size: 12px; margin-top: 4px; width: 100px;"><p>Sale ends in:</p></div>
+        
+        
+
+          <!-- READ THE COMMENT BELOW FOR COUNTDOWN TIMER TIME CHANGE -->
+          <!-- the date variable below with the large integer number needs 
+              to be changed to the future date for countdown timer in milliseconds. 
+
+                  For now go to the link: https://www.epochconverter.com/ 
+
+					and change the 'Human Date to Timestamp' section and copy the 'timestamp in MILLISECONDS' 
+						you see pop up below the section. Finally, replace the integer value for the date key, save 
+							and it will reflect on the browser. -->
+        <script>
+          	 var date = 1665982800000; // Monday Oct 17 2022 00:00:00
+             while (date < Date.now()) {
+                date += 604800000; // plus 7 days in milliseconds
+              }
+        </script>
+        
+        <div class="CountDownContainer"></div>
+        <script>
+            var countDownClock = new Countdown({
+                cont: document.querySelector('.CountDownContainer'),
+                date: date,
+                outputTranslation: {
+                    year: 'Years',
+                    week: 'custom_string_Weeks',
+                    day: 'Days',
+                    hour: 'Hours',
+                    minute: 'Minutes',
+                    second: 'Seconds',
+                },
+                endCallback: null,
+                outputFormat: 'day|hour|minute|second',
+            });
+            countDownClock.start();
+        
+        </script>
+       
+        
+        
+     <div class="text-right-new">
+          <p title="Help" class="bold" style="margin: auto 0;"> 
+            <a href="/pages/faq"> <img alt="Snowmobile Cover Help" src="{{ 'Chat.png' | asset_img_url: '300x' }}">HELP </a>
+            <a title="Track order" href="/apps/tracktor">
+              <img alt="Location icon" src="{{ 'Location.png' | asset_img_url: '300x' }}">TRACK ORDER </a> 
+            <a title="snowmobile cart" href="/cart" id="cart-icon-bubble">
+              <img alt="Shopping cart icon" id="cart-notif-icon" src="{{ 'cart-icon-vector.svg' | asset_url }}">
+              <span class="cart-item-badge primary ">{{ cart.item_count }}</span>
+              MY CART
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="shipping-info">
+      <div class="header-section-container">
+        <p><b>Free</b> Shipping <span class="text-primary-pipe">|</span> 
+        <b>Guaranteed</b> Cover Fit <span class="text-primary-pipe">|</span> 
+        <b>Lifetime</b> Warranty <span class="text-primary-pipe">|</span> 
+        <b>30-Day</b> Return Policy <span class="text-primary-pipe">|</span> 
+        <b>Secure</b> Shopping</p>
+      </div>
+    </div>
+    <div class="makes-bar" style="border-bottom: 1px solid white;">
+      <ul class="header-section-container covers-options header-items">
+ 
+   
+ 
+        
+         <ul class="header-section-container covers-options header-items">
+        <li onclick="set_veh_type('Car')">
+          <a href="/pages/cover-subpage/car" title="Car Covers">
+                <p>Car<br> Covers</p>
+          </a>
+        </li>
+        <li onclick="set_veh_type('SUV')">
+            <a href="/pages/cover-subpage/suv" title="Suv Covers">
+                <p>SUV<br> Covers</p>
+            </a>
+        </li>
+        <li onclick="set_veh_type('Truck')">
+            <a href="/pages/cover-subpage/truck" title="Truck Covers">
+                <p>Truck<br> Covers</p>
+            </a>
+        </li>
+        <li onclick="set_veh_type('Van')">
+            <a href="/pages/cover-subpage/van" title="Van Covers">
+                <p>Van<br> Covers</p>
+            </a>
+        </li>
+        <li onclick="set_veh_type('Motorcycle')">
+            <a href="/pages/cover-subpage/motorcycle" title="Motorcycle Covers">
+                <p>Motorcycle<br> Covers</p>
+            </a>
+        </li>
+        <li onclick="set_veh_type('Scooter')">
+            <a href="/pages/cover-subpage/scooter" title="Scooter Covers">
+
+                <p>Scooter<br> Covers</p>
+            </a>
+        </li>
+        <li onclick="set_veh_type('ATV and UTV')">
+            <a href="/pages/cover-subpage/atv" title="ATV Covers">
+                <p>ATV<br> Covers</p>
+            </a>
+        </li>
+        <li onclick="set_veh_type('ATV and UTV')">
+            <a href="/pages/cover-subpage/utv" title="UTV Covers">
+                <p>UTV<br> Covers</p>
+            </a>
+        </li>
+        <li onclick="set_veh_type('Jet Ski')">
+            <a href="/pages/cover-subpage/jet_ski" title="Jet Ski Covers">
+                <p style="margin-top: 14px;">Jet Ski<br> Covers</p>
+            </a>
+        </li>
+        <li onclick="set_veh_type('Snowmobile')">
+            <a href="/pages/cover-subpage/snowmobile" title="Snowmobile Covers">
+
+                <p style="margin-top: 14px;">Snowmobile<br> Covers</p>
+            </a>
+        </li>
+        <li onclick="set_veh_type('Golf Cart')">
+            <a href="/pages/cover-subpage/golfcart" title="Golf Cart Covers">
+
+                <p>Golf Cart<br> Covers</p>
+            </a>
+        </li>
+        <li onclick="set_veh_type('RV')">
+            <a href="/pages/cover-subpage/rv" title="RV Covers">
+
+                <p style="margin-top: 16px;">RV<br> Covers</p>
+            </a>
+        </li>
+        <li onclick="set_veh_type('Limo')">
+            <a href="/pages/cover-subpage/limo" title="Limo Covers">
+
+                <p>Limo<br> Covers</p>
+            </a>
+        </li>
+        <li onclick="set_veh_type('SUV')">
+            <a href="/pages/cover-subpage/suv&hummer" title="Hummer Covers">
+
+                <p>Hummer<br> Covers</p>
+            </a>
+        </li>
+        <li class="header-last-link" onclick="set_veh_type('Accessories')">
+            <a href="/collections/accessories" title="Car Covers Accessories">
+                <p>Accessories</p>
+            </a>
+        </li>
+      </ul>
+    </div>
+</header>
+
+<!--Mobile header-->
+
+<div class="mobilenav mobilenav-top mobile-only">
+    <div>
+        <div class="fall-sale-div">FALL<br><span class="text-primary">SALE</span></div>
+        <p>Sale ends in:</p>
+    </div>
+    <div>
+        <div class="CountDownContainerMobile"></div>
+        <script>
+            var countDownClock = new Countdown({
+                cont: document.querySelector('.CountDownContainerMobile'),
+                date: date,
+                outputTranslation: {
+                    year: 'Years',
+                    week: 'custom_string_Weeks',
+                    day: 'Days',
+                    hour: 'Hours',
+                    minute: 'Minutes',
+                    second: 'Seconds',
+                },
+                endCallback: null,
+                outputFormat: 'day|hour|minute|second',
+            });
+            countDownClock.start();         
+        </script>
+    </div>
+    <a href="/cart" class="icon">
+        <img alt="{{main_product_singular}}cover.com cart" src="{{ 'cart-icon.png' | asset_url }}" width="36">
+        <p>Cart</p>
+    </a>
+</div>
+<div class="mobilenav mobile-only" id="second-nav">
+    <a href="javascript:void(0);" class="icon" onclick="mobileLinksToggle()">
+        <img alt="{{main_product_singular}} Cover menu button" src="{{ 'menu-button.png' | asset_url }}">
+        <p>Menu</p>
+    </a>
+
+    <a href="/" class="active"><img src="https://cdn.shopify.com/s/files/1/0613/2124/8956/files/Snowmobile-Logo-Color.png?v=1663949782"></a>
+    <a href="tel:8004760341" class="icon" id="phone-icon">
+
+        <!-- <img alt="Phone icon" src="{{ 'Phone.png' | asset_img_url: '300x' }}" width="60"> -->
+      <span class="telephone-logo telephone-logo-mobile">&#x2706</span>
+    </a>
+</div>
+<div id="mobilenav-links" class="mobile-only" style="background: #333;">
+     
+          
+      		<a href="/pages/cover-subpage/{{main_product_singular}}&Ski-Doo" title="Ski-Doo {{main_product_singular}} Covers" style='background: #00314f; font-family: "Tahoma", "Arial", sans-serif; border-bottom: 1px white solid;'>
+                <p class="header-title bold">Ski-Doo </p> <span class="veh-instance"></span> Covers
+            </a>
+        
+      
+            <a href="/pages/cover-subpage/{{main_product_singular}}&Yamaha" title="Yamaha {{main_product_singular}} Covers" style='background: #00314f; font-family: "Tahoma", "Arial", sans-serif; border-bottom: 1px white solid;'>
+                <p class="header-title bold">Yamaha</p> <span class="veh-instance"></span> Covers
+            </a>
+       
+        	<a href="/pages/cover-subpage/{{main_product_singular}}&Arctic_Cat" title="Arctic Cat {{main_product_singular}} Covers" style='background: #00314f; font-family: "Tahoma", "Arial", sans-serif; border-bottom: 1px white solid;'>
+                <p class="header-title bold">Arctic Cat</p> <span class="veh-instance"></span> Covers
+            </a>
+  
+  
+            <a href="/pages/cover-subpage/{{main_product_singular}}&Polaris" title="Polaris {{main_product_singular}} Covers" style='background: #00314f; font-family: "Tahoma", "Arial", sans-serif; border-bottom: 1px white solid;'>
+                <p class="header-title bold">Polaris</p> <span class="veh-instance"></span> Covers
+            </a>
+      
+      
+            <a href="/collections/accessories" title="Accessories for {{main_product_singular}} Covers" style='background: #00314f; font-family: "Tahoma", "Arial", sans-serif;'>
+                <p class="header-title bold">Care Accessories </p>
+            </a>
+
+      
+     
+</div>
+
+<script>
+function mobileLinksToggle() {
+  var x = document.getElementById("mobilenav-links");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+  
+function set_veh_type(veh_type){
+    localStorage.setItem('vehicle_type', veh_type)
+}
+  vehicleInfoString === "" ? $('.vehicle-title').text("Snowmobile Cover") : $('.vehicle-title').text(vehicleInfoString + " Snowmobile Cover");
+
+$('.vehicle-title').hide();
+  function addToCart(passedProduct, event) {
+  event.preventDefault();
+  var shopifyProductId = event.target.getAttribute("shopify-product-id");
+  
+
+  data = {
+      items:
+      [{
+              quantity: 1,
+              id: shopifyProductId,
+              
+              properties: {
+                  "vehicle-info": vehicleInfoString,
+                  "oprice" : passedProduct.variants[0].compare_at_price
+              }
+          }
+      ]
+  }
+
+  var xhr = new XMLHttpRequest();
+
+  xhr.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        
+        
+          window.location.href = "/cart";
+      }
+  };
+
+  xhr.open("POST", window.Shopify.routes.root + 'cart/add.js', true);
+
+  xhr.setRequestHeader('Content-Type', 'application/json');
+
+  xhr.send(JSON.stringify(data));
+
+
+}
+</script>
+
+<!--Header CSS-->
+
+<style>  
+
+.telephone-logo-2 {
+  margin-right: 5px;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.telephone-logo-mobile {
+  color: #00314f;
+  font-size: 8rem;
+  font-weight: bold;
+  line-height: 1.0;
+}
+  
+.fall-sale-div {
+	font-size: 26px;
+    color: #333;
+    line-height: 20px;
+    margin: 0;
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    letter-spacing: .06rem;
+}
+  
+.countDown__interval_cont.countDown__interval_cont_day {
+    position: relative;
+}
+
+.countDown__interval_cont.countDown__interval_cont_day::before {
+    content: "Days";
+    color: black;
+    font-size: 12px;
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    font-weight: bolder;
+}
+  
+.countDown__interval_cont.countDown__interval_cont_hour {
+  position: relative;
+}
+.countDown__interval_cont.countDown__interval_cont_hour::before {
+  	content: "Hours";
+    color: black;
+    font-size: 12px;
+    position: absolute;
+    top: -20px;
+    left: 6px;
+    font-weight: bolder;
+}
+  
+.countDown__interval_cont.countDown__interval_cont_minute {
+  position: relative;
+}
+.countDown__interval_cont.countDown__interval_cont_minute::before {
+  	content: "Minutes";
+    color: black;
+    font-size: 12px;
+    position: absolute;
+    top: -20px;
+    left: 1px;
+    font-weight: bolder;
+}
+  
+.countDown__interval_cont.countDown__interval_cont_second {
+  position: relative;
+}
+.countDown__interval_cont.countDown__interval_cont_second::before {
+  	content: "Seconds";
+    color: black;
+    font-size: 12px;
+    position: absolute;
+    top: -20px;
+    font-weight: bolder;
+}
+  
+.countDown__cont {
+    font-family: Lato, Arial, Gadget, sans-serif;
+    font-size: 5px;
+    display: flex;
+    color: white;
+    margin-top:25px;
+  	/*margin-left:100px;*/
+}
+.countDown__interval_cont {
+    display: flex;
+    justify-content: space-around;
+    width: auto;
+}
+/* colons */
+.countDown__interval_cont::after {
+    content: '\003A';
+    font-size: 35px;
+    color: black;
+    position: relative;
+    bottom: 13px;
+    /* margin-left: 10px; */
+}
+/* remove last colon */
+.countDown__interval_cont_second::after {
+    display: none;
+}
+/* hide description text below  */
+.countDown__interval_basic_cont_description {
+    display: none;
+}
+
+.countDown__digit_cont {
+    perspective: 1.6em * 2;
+    box-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.2);
+    width: 1em;
+    height: 1.6em;
+    position: relative;
+    line-height: 1.6em;
+    font-size: 5em;
+    font-weight: 700;
+    border-radius: 0.08em;
+}
+/* puts space between cards in each flip section */
+.countDown__digit_cont:nth-child(n + 1):not(:last-child) {
+    margin-right: 0.05em;
+}
+/* organizes the digits in each flip card */
+.countDown__digit_last_placeholder,
+.countDown__digit_new_placeholder {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    text-align: center;
+    overflow: hidden;
+}
+/* bottom flip card digit (non flip) */
+.countDown__digit_last_placeholder {
+    bottom: 0;
+    background: rgb(24, 24, 24);
+    border-radius: 0 0 0.08em 0.08em;
+    border-bottom: 1px solid black;
+}
+.countDown__digit_last_placeholder_inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 50%;
+    position: absolute;
+}
+/* top flip card digit (non flip) */
+.countDown__digit_new_placeholder {
+    top: 0;
+    background: rgb(24, 24, 24);
+    border-radius: 0.08em 0.08em 0 0;
+    border-bottom: 1px solid black;
+}
+/* flip style from top to bottom */
+.countDown__digit_last_rotate,
+.countDown__digit_new_rotate {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+    font-weight: 700;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    animation-duration: 0.4s;
+    animation-timing-function: linear;
+    border-radius: 0.08em 0.08em 0 0;
+    animation-fill-mode: forwards;
+    transform-origin: 100% 100%;
+}
+.countDown__digit_last_rotate:after,
+.countDown__digit_new_rotate:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom: 0.01em solid rgba(0, 0, 0, 0.1);
+}
+/* top flip down */
+.countDown__digit_last_rotate {
+    animation-name: countDown_flip_1;
+    background: rgb(38, 38, 38);
+    border-bottom: 1px solid black;
+}
+/* bottom flip down */
+.countDown__digit_new_rotate {
+    animation-name: countDown_flip_2;
+    background: rgb(24, 24, 24);
+    border-bottom: 1px solid black;
+}
+.countDown__digit_new_rotated {
+    transform: rotateX(180deg);
+    width: 100%;
+    height: 100%;
+}
+.countDown__digit_new_rotated_inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 50%;
+    position: absolute;
+}
+
+
+/* ///////////////////Gretrix Addon CSS////////////////////// */
+
+
+.middle-bar{
+  background-color: #e4e4e4;
+}
+.text-primary-pipe{
+  color: var(--color-mid)
+}
+
+#top-center{
+  color: var(--color-mid);
+}
+.text-center{
+  color: white;
+}
+
+.text-right{
+  color: var(--color-mid);
+  font-weight: bold;
+}
+
+.phone-number{
+  font-weight: 600;
+  color: var(--color-mid)
+}
+
+
+.arrives{
+  color: var(--color-mid);
+
+}
+
+.makes-bar{
+  background-color: black;
+}
+
+.cart-item-badge{
+  color: var(--color-mid);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+@media (max-width: 749px){
+  a .logo-mobile{
+    display: hidden;
+  }
+}
+
+/* ///////////////////End Gretrix Addon CSS////////////////////// */
+
+
+@keyframes countDown_flip_1 {
+    0% {
+        transform: rotateX(0);
+        z-index: 1;
+    }
+    100% {
+        transform: rotateX(-180deg);
+        z-index: 0;
+    }
+}
+@keyframes countDown_flip_2 {
+    0% {
+        transform: rotateX(0);
+        z-index: 0;
+    }
+    100% {
+        transform: rotateX(-180deg);
+        z-index: 1;
+    }
+}
+  @media (max-width: 1250px) {
+  .countDown__cont {
+    
+  	margin-left: auto;
+}
+  }
+</style>
+
+<!-- header-cc.liquid Ending -->

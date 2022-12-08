@@ -1,0 +1,307 @@
+<div class="product-select">
+  <video autoplay muted loop>
+    <source src="{{ 'car-select-background.mp4' | asset_url }}" type="video/mp4" />
+  </video>
+  <div class="container">
+    <h3 class="text-center">{{- collection.title | escape -}}</h3>
+    <div>
+      <form method="POST" id="carform">
+
+        <div class="vehicle-select grid-four">
+          <div>
+            <img src="{{ 'start-here.png' | asset_url}}">
+            <select id="year" name="year" class="desktop-only">
+              <option selected>Select your vehicle year...</option>
+            </select>
+            <a href="#" style="display: none;"> <!-- class="opop mobile-only" -->
+              <select id="year" name="year" style="pointer-events:none;">
+                <option selected>Select your vehicle year...</option>
+              </select>  
+            </a>
+          </div>
+
+          <select id="make" name="make" disabled>
+            <option selected id="make-year">Select your vehicle make...</option>
+          </select>
+
+          <select id="model" name="model" class="desktop-only" disabled>
+            <option selected id="make-model">Select your vehicle model...</option>
+          </select>
+
+          <select id="body" name="body" class="desktop-only" disabled>
+            <option selected id="make-body">Select your body...</option>
+          </select>
+          
+          <input id="url" type="hidden" name="url" value="" />
+        </div>
+
+        <a id="link" href="#" class="submit-btn">View All Available Covers</a>
+      </form>
+    </div>
+    <div class="grid-four badges mobile-grid-four">
+      <img src="{{ 'top-rated-badge.png' | asset_url }}">
+      <img src="{{ 'hassle-free-badge.png' | asset_url }}">
+      <img src="{{ 'cover-fit-badge.png' | asset_url }}">
+      <img src="{{ 'satisfaction-badge.png' | asset_url }}">
+    </div>
+  </div>
+  <div class="reviews text-center">
+    <img src="{{ 'triangle.png' | asset_url}}">
+    <div class="grid-four">
+      <img src="{{ 'stars.png' | asset_url }}">
+      <img src="{{ 'shopper-approved.png' | asset_url }}">
+      <img src="{{ 'lifetime-warranty.png' | asset_url }}">
+      <img src="{{ 'protection.png' | asset_url }}">
+    </div>
+  </div>
+</div>
+
+<div class="pops">
+  <div class="pops-header text-center">
+    <a href="#" class="cls-pop">Back</a>Select Vehicle
+  </div>
+
+  <div id="pops-options">
+    <div data-value="Car" data-form="#type">Car Covers</div>
+    <div data-value="Van" data-form="#type">Van Covers</div>
+    <div data-value="Truck" data-form="#type">Truck Covers</div>
+    <div data-value="SUV" data-form="#type">SUV Covers</div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+    $('.opop').click(function(){
+        $('.pops').fadeIn();
+    });
+    $('.cls-pop').click(function(){
+        $('.pops').fadeOut();
+    });
+});
+
+/* When someone clicks the popup, reset its values */
+$("a.cls-pop").click(function () {
+    setTimeout(function () {
+		$("#pops-options").html('<div data-value="Car" data-form="#type">Car Covers</div><div data-value="Van" data-form="#type">Van Covers</div><div data-value="Truck" data-form="#type">Truck Covers</div><div data-value="SUV" data-form="#type">SUV Covers</div>');
+    }, 1000);
+});
+  
+/* Initially get the product array */
+var promise = fetch("/products.json?limit=250").then(response => response.json()).then(data => { console.log(data); return data });
+
+function initializePopupOptions() {
+	$("#pops-options > div").click(function (event) {
+      var products = promise.then(function (result) {
+          document.getElementById("pops-options").innerHTML = '';
+          if (event.currentTarget.attributes[1].value == '#type') {
+            $("#type").value = event.currentTarget.attributes[0].value;
+            carTypeChange(result.products, event.currentTarget.attributes[0].value);
+          } else if (event.currentTarget.attributes[1].value == '#year') {
+            carYearChange(result.products, event.currentTarget.attributes[0].value);
+          } else if (event.currentTarget.attributes[1].value == '#make') {
+            carMakeChange(result.products, event.currentTarget.attributes[0].value);
+          } else if (event.currentTarget.attributes[1].value == '#model') {
+            carModelChange(result.products, event.currentTarget.attributes[0].value);
+          }
+      });
+  });
+}
+initializePopupOptions();
+  
+var products = promise.then(function (result) {
+	carTypeChange(result.products);
+});
+// Car type change
+$("#type").change(function() {
+    var selected = $(this).val();
+    
+    removeOptions("year");
+    removeOptions("make");
+    removeOptions("model");
+  	$("#year").prop("disabled", false);
+    
+    var products = promise.then(function (result) {
+        carTypeChange(result.products);
+    });
+});
+function carTypeChange(products) {
+    var years = [];
+    
+    products.forEach(function (product) {
+        let year = product.options[2].values[0];
+      	if (years.indexOf(year) === -1) {
+        	years.push(year);
+      	}
+    });
+
+    years.sort(function(a, b){return b-a});
+    
+    years.forEach(function (year) {
+        var opt = document.createElement("option");
+        opt.value = year;
+        opt.innerHTML = year;
+        document.getElementById("year").appendChild(opt);
+      
+      	var opt = document.createElement("div");
+      	$(opt).attr("data-value", year);
+      	$(opt).attr("data-form", "#year");
+      	opt.innerHTML = year;
+      	document.getElementById("pops-options").appendChild(opt);
+      	initializePopupOptions();
+    });
+}
+
+// Car year change
+$("#year").change(function() {
+    var selected = $(this).val();
+    $("#make-year").text("Select your " + selected + " make");
+    
+    removeOptions("make");
+    removeOptions("model");
+  	$("#make").prop("disabled", false);
+    
+    var products = promise.then(function (result) {
+      console.log(result.products);
+        carYearChange(result.products, $("#year").val());
+    });
+});
+function carYearChange(products, yr) {
+    var makes = [];
+    
+    products.forEach(function (product) {
+        let make = product.vendor;
+        let type = product.options[0].values[0];
+        let year = product.options[2].values[0];
+        let selectedYear = yr;
+
+      	if (selectedYear == year) { year = true; } else { year = false; }
+      
+      	if (year) {
+            if (makes.indexOf(make) === -1) {
+                makes.push(make);
+            }
+        }
+    });
+
+    makes.sort(function(a, b){return b-a});
+    
+    makes.forEach(function (make) {
+        var opt = document.createElement("option");
+        opt.value = make;
+        opt.innerHTML = make;
+        document.getElementById("make").appendChild(opt);
+      	
+        var opt = document.createElement("div");
+        $(opt).attr("data-value", make);
+        $(opt).attr("data-form", "#make");
+        opt.innerHTML = make;
+      	console.log(opt);
+        document.getElementById("pops-options").appendChild(opt);
+        initializePopupOptions();
+    });
+}
+
+// Car make change
+$("#make").change(function() {
+    var selected = $(this).val();
+    
+    removeOptions("model");
+  	$("#model").prop("disabled", false);
+    
+    var products = promise.then(function (result) {
+        carMakeChange(result.products, $("#year").val(), $("#make").val());
+    });
+});
+function carMakeChange(products, thisYear, thisMake) {
+    var models = [];
+    
+    products.forEach(function (product) {
+        let type = product.options[0].values[0];
+        let model = product.options[1].values[0];
+        let year = product.options[2].values[0];
+        let selectedYear = thisYear;
+        let make = product.vendor;
+        let selectedMake = thisMake;
+
+        if (selectedYear == year) { year = true; } else { year = false; }
+      
+        if ((year) && (make == selectedMake)) {
+            if (models.indexOf(model) === -1) {
+                models.push(model);
+            }
+        }
+    });
+
+    models.sort(function(a, b){return b-a});
+    
+    models.forEach(function (model) {
+        var opt = document.createElement("option");
+        opt.value = model;
+        opt.innerHTML = model;
+        document.getElementById("model").appendChild(opt);
+    });
+}
+
+// Car model change
+$("#model").change(function() {
+    var selected = $(this).val().toLowerCase();
+
+  	removeOptions("body");
+  	$("#body").prop("disabled", false);
+  
+    jQuery.getJSON('/products.json?limit=250', function (products) {
+        let year = $("#year").val().toLowerCase();
+        let make = $("#make").val().toLowerCase();
+      	
+		console.log(products);
+      	products.products.forEach(function (product) {
+          	let title = product.title.toLowerCase();
+//           console.log("Product Title: " + product.title + ", Year: " + year + ", Make" + make + ", Selected: " + selected);
+        	if ((title.includes(year)) && (title.includes(make)) && (title.includes(selected))) {
+            	console.log("Yes!");
+              console.log(product);
+              	var opt = document.createElement("option");
+                opt.value = "All Body Types";
+                opt.innerHTML = "All Body Types";
+                document.getElementById("body").appendChild(opt);
+              	$("#url").val("/products/" + product.handle);
+//                 let url = window.location.origin + "/collections/" + collection.handle;
+//                 $("#link").attr("href", url);
+//               	$(".submit-btn").css("background-color", "rgb(25 127 207)");
+//                 window.location.href = url;
+            }
+      	});
+    });
+});
+
+$("#body").change(function() {
+	window.location.href = $("#url").val(); 
+});
+function removeOptions(element) {
+    var select = document.getElementById(element);
+
+    for (i = select.length - 1; i >= 1; i--) {
+      select.remove(i);
+    }
+}
+  
+  if(localStorage.getItem('vehicle_type') == 'Accessories'){
+    
+   document.getElementsByClassName("product-select")[0].style.display = "none";
+  }
+</script>
+
+{% schema %}
+  {
+    "name": "vehicle-select",
+	"tag": "section",
+	"class": "spaced-section",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

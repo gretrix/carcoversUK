@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="114" height="30" viewBox="0 0 114 30">
+  <defs>
+    <clipPath id="clip-_3_Star">
+      <rect width="114" height="30"/>
+    </clipPath>
+  </defs>
+  <g id="_3_Star" data-name="3 Star" clip-path="url(#clip-_3_Star)">
+    <g id="Group_284" data-name="Group 284" transform="translate(6 6)">
+      <path id="Union_6" data-name="Union 6" d="M9.485,13.926,3.337,18.421l2.885-7.16L0,7.494H7.16L9.481.029V0l0,.014L9.49,0V.029l2.321,7.465h7.159l-6.223,3.766,2.886,7.16Z" fill="#f93"/>
+      <path id="Union_7" data-name="Union 7" d="M9.485,13.926,3.337,18.421l2.885-7.16L0,7.494H7.16L9.481.029V0l0,.014L9.49,0V.029l2.321,7.465h7.159l-6.223,3.766,2.886,7.16Z" transform="translate(21)" fill="#f93"/>
+      <path id="Union_8" data-name="Union 8" d="M9.485,13.926,3.337,18.421l2.885-7.16L0,7.494H7.16L9.481.029V0l0,.014L9.49,0V.029l2.321,7.465h7.159l-6.223,3.766,2.886,7.16Z" transform="translate(42)" fill="#f93"/>
+      <path id="Union_9" data-name="Union 9" d="M9.485,13.926,3.337,18.421l2.885-7.16L0,7.494H7.16L9.481.029V0l0,.014L9.49,0V.029l2.321,7.465h7.159l-6.223,3.766,2.886,7.16Z" transform="translate(63)" fill="#999"/>
+      <path id="Union_10" data-name="Union 10" d="M9.485,13.926,3.337,18.421l2.885-7.16L0,7.494H7.16L9.481.029V0l0,.014L9.49,0V.029l2.321,7.465h7.159l-6.223,3.766,2.886,7.16Z" transform="translate(84)" fill="#999"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,209 @@
+{
+  "current": {
+    "colors_solid_button_labels": "#FFFFFF",
+    "colors_accent_1": "#121212",
+    "colors_accent_2": "#334FB4",
+    "colors_text": "#121212",
+    "colors_outline_button_labels": "#121212",
+    "colors_background_1": "#FFFFFF",
+    "colors_background_2": "#F3F3F3",
+    "type_header_font": "assistant_n4",
+    "type_body_font": "assistant_n4",
+    "page_width": "1600",
+    "favicon": "shopify:\/\/shop_images\/Snowmobile-Icon-sm.png",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "blocks": {
+          "announcement-bar-0": {
+            "type": "announcement",
+            "disabled": true,
+            "settings": {
+              "text": "Welcome to our store",
+              "color_scheme": "background-1",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "announcement-bar-0"
+        ],
+        "settings": {
+        }
+      },
+      "header-cc": {
+        "type": "header-cc",
+        "settings": {
+        }
+      },
+      "footer-cc": {
+        "type": "footer-cc",
+        "settings": {
+        }
+      },
+      "car-select": {
+        "type": "car-select",
+        "settings": {
+        }
+      },
+      "reviews-slider": {
+        "type": "reviews-slider",
+        "settings": {
+        }
+      },
+      "covers-buttons": {
+        "type": "covers-buttons",
+        "settings": {
+        }
+      },
+      "why-buy": {
+        "type": "why-buy",
+        "settings": {
+        }
+      },
+      "comparison-chart": {
+        "type": "comparison-chart",
+        "settings": {
+          "content": "Enter text here"
+        }
+      },
+      "shopper-approved": {
+        "type": "shopper-approved",
+        "settings": {
+        }
+      },
+      "main-product": {
+        "type": "main-product",
+        "blocks": {
+          "f981d584-85e9-4b10-b958-6bb4c578f142": {
+            "type": "title",
+            "settings": {
+            }
+          },
+          "e7ae53a1-57ef-4faf-ba5f-38c5a6c59b6f": {
+            "type": "description",
+            "settings": {
+            }
+          },
+          "8f7fe43f-2a58-4bbf-a584-c090282be1a5": {
+            "type": "price",
+            "settings": {
+            }
+          },
+          "6036cf7a-9ffb-4fb2-95b7-c504b6975c8b": {
+            "type": "quantity_selector",
+            "settings": {
+            }
+          },
+          "50799070-9754-4d58-a54b-e301187ae4d5": {
+            "type": "buy_buttons",
+            "settings": {
+              "show_dynamic_checkout": true
+            }
+          }
+        },
+        "block_order": [
+          "f981d584-85e9-4b10-b958-6bb4c578f142",
+          "e7ae53a1-57ef-4faf-ba5f-38c5a6c59b6f",
+          "8f7fe43f-2a58-4bbf-a584-c090282be1a5",
+          "6036cf7a-9ffb-4fb2-95b7-c504b6975c8b",
+          "50799070-9754-4d58-a54b-e301187ae4d5"
+        ],
+        "settings": {
+          "enable_sticky_info": true,
+          "hide_variants": false,
+          "enable_video_looping": false
+        }
+      },
+      "review-page-widget": {
+        "type": "review-page-widget",
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+
+    ],
+    "blocks": {
+      "855628211100114053": {
+        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "10605408327587305396": {
+        "type": "shopify:\/\/apps\/easygift-auto-add-to-cart\/blocks\/app-embed\/0f7d4f74-1e89-4820-aec4-6564d7e535d2",
+        "disabled": false,
+        "settings": {
+          "version": "v3"
+        }
+      }
+    }
+  },
+  "presets": {
+    "Default": {
+      "colors_solid_button_labels": "#FFFFFF",
+      "colors_accent_1": "#121212",
+      "colors_accent_2": "#334FB4",
+      "colors_text": "#121212",
+      "colors_outline_button_labels": "#121212",
+      "colors_background_1": "#FFFFFF",
+      "colors_background_2": "#F3F3F3",
+      "type_header_font": "assistant_n4",
+      "type_body_font": "assistant_n4",
+      "sections": {
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "blocks": {
+            "announcement-bar-0": {
+              "type": "announcement",
+              "settings": {
+                "color_scheme": "background-1"
+              }
+            }
+          },
+          "block_order": [
+            "announcement-bar-0"
+          ],
+          "settings": {
+          }
+        }
+      }
+    },
+    "Craft": {
+      "colors_solid_button_labels": "#EFECEC",
+      "colors_accent_1": "#2A332F",
+      "colors_accent_2": "#476154",
+      "colors_text": "#1C1A1A",
+      "colors_outline_button_labels": "#7B8382",
+      "colors_background_1": "#EFECEC",
+      "colors_background_2": "#C1BCAE",
+      "type_header_font": "americana_n4",
+      "type_body_font": "quattrocento_sans_n4",
+      "sections": {
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "menu": {
+              "type": "link_list",
+              "settings": {
+              }
+            },
+            "text": {
+              "type": "text",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "menu",
+            "text"
+          ],
+          "settings": {
+            "color_scheme": "accent-1"
+          }
+        }
+      }
+    }
+  }
+}

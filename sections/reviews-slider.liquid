@@ -1,0 +1,385 @@
+{% assign main_product_singular = 'Snowmobile' %} {% assign main_product_plural
+= 'Snowmobiles' %} {% assign main_product_website = 'Snowmobilecover.com' %}
+<!-- Slideshow container -->
+<div class="slideshow-container">
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides fade">
+    <div class="review-slide">
+      <div style="align-self: center">
+        <img
+          class="reviews-image"
+          src="{{ 'Review1.png' | asset_url }}"
+          alt="Cover Reviews"
+        />
+      </div>
+      <div>
+        <p
+          style="
+            letter-spacing: 1px;
+            margin: 0px;
+            color: var(--color-dark);
+            font-size: 30px;
+          "
+        >
+          &#9733;&#9733;&#9733;&#9733;&#9733;
+        </p>
+        <p class="review">
+          "COVER CAME IN REASONABLE TIME, GROUND SHIPPING. IT FITS WELL, LOOKS
+          GOOD AND I EXPECT IT TO STAND UP FOR A LONG TIME."
+        </p>
+        <p class="attributed">
+          <span class="name">- BRUCE W. (MASSACHUSETTS, US)</span> JANUARY 12,
+          2016
+        </p>
+        <a
+          class="read-more"
+          href="https://{{ main_pr }}/pages/reviews"
+          title="Read More Reviews"
+          >Read more reviews &gt;&gt;</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="review-slide">
+      <div style="align-self: center">
+        <img
+          class="reviews-image"
+          src="{{ 'Review2.png' | asset_url }}"
+          alt="Cover Reviews"
+        />
+      </div>
+      <div>
+        <p
+          style="
+            letter-spacing: 1px;
+            margin: 0px;
+            color: var(--color-dark);
+            font-size: 30px;
+          "
+        >
+          &#9733;&#9733;&#9733;&#9733;&#9733;
+        </p>
+        <p class="review">
+          “WAS VERY SATISFIED WITH THE PRODUCT. DELIVERY TIME WAS JUST A FEW
+          DAYS. WAS GLAD THAT I DECIDED TO BUY FROM THIS COMPANY.”
+        </p>
+        <p class="attributed">
+          <span class="name">- LUTHER (PENNSYLVANIA, US)</span> JULY 3, 2015
+        </p>
+        <a
+          href="https://{{ main_product_website }}/pages/reviews"
+          title="Read More Reviews"
+          >Read more reviews &gt;&gt;</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="review-slide">
+      <div style="align-self: center">
+        <img
+          class="reviews-image"
+          src="{{ 'Review3.png' | asset_url }}"
+          alt="Cover Reviews"
+        />
+      </div>
+      <div>
+        <p
+          style="
+            letter-spacing: 1px;
+            margin: 0px;
+            color: var(--color-dark);
+            font-size: 30px;
+          "
+        >
+          &#9733;&#9733;&#9733;&#9733;&#9733;
+        </p>
+        <p class="review">“JUST FINE. NICE TIGHT FIT. VERY PLEASED.”</p>
+        <p class="attributed">
+          <span class="name">- WILLIAM C. (COLORADO, US) </span> OCTOBER 19,
+          2015
+        </p>
+        <a
+          href="https://{{ main_product_website }}/pages/reviews"
+          title="Read More Reviews"
+          >Read more reviews &gt;&gt;</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" title="Previous Slide" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" title="Next Slide" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br />
+
+<!--
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div> -->
+
+<style>
+  /*Reviews Slider CSS*/
+  /* Slideshow container */
+
+  .read-more {
+    color: var(--color-light);
+  }
+
+  .reviews-image {
+    border: 1px solid var(--color-dark);
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+  }
+
+  .slideshow-container {
+    background-color: #666;
+    position: relative;
+    margin: auto;
+  }
+
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+    background-color: #ccc;
+    padding: 15px 0;
+  }
+  .mySlides .review-slide {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .mySlides .review-slide p.review {
+    font-family: "Calibri";
+    line-height: 17px;
+    text-transform: uppercase;
+    font-style: italic;
+    color: #000;
+    font-size: 15px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  .mySlides .review-slide p.attributed {
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-top: 0px;
+    margin-bottom: -5px;
+  }
+  .mySlides .review-slide p.attributed .name {
+    color: #333;
+    font-weight: 600;
+  }
+  .mySlides .review-slide a {
+    color: var(--color-dark);
+    font-size: 12px;
+    text-decoration: none;
+  }
+
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    /*top: 54.95em;*/
+    width: auto;
+    margin-top: -115px;
+    padding: 16px;
+    color: var(--color-dark);
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    text-decoration: none;
+  }
+
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+
+  .active,
+  .dot:hover {
+    background-color: #717171;
+  }
+
+  /* Fading animation */
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  @-webkit-keyframes fade {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @media (min-width: 1000px) {
+    .mySlides .review-slide {
+      grid-template-columns: 1fr 4fr;
+      text-align: left;
+    }
+    .mySlides .review-slide p.attributed {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .prev,
+    .next {
+      margin-top: -150px;
+    }
+  }
+
+  @media (max-width: 430px) {
+    .prev,
+    .next {
+      margin-top: -200px;
+    }
+  }
+</style>
+
+{% schema %} { "name": "Reviews slider", "settings": [] } {% endschema %} {%
+stylesheet %} {% endstylesheet %}
+
+<script>
+  var slideIndex = 1;
+
+  var myTimer;
+
+  var slideshowContainer;
+
+  window.addEventListener("load", function () {
+    showSlides(slideIndex);
+    myTimer = setInterval(function () {
+      plusSlides(1);
+    }, 4000);
+
+    //COMMENT OUT THE LINE BELOW TO KEEP ARROWS PART OF MOUSEENTER PAUSE/RESUME
+    slideshowContainer = document.getElementsByClassName("slideshow-inner")[0];
+
+    //UNCOMMENT OUT THE LINE BELOW TO KEEP ARROWS PART OF MOUSEENTER PAUSE/RESUME
+    // slideshowContainer = document.getElementsByClassName('slideshow-container')[0];
+
+    //slideshowContainer.addEventListener('mouseenter', pause)
+    //slideshowContainer.addEventListener('mouseleave', resume)
+  });
+
+  // NEXT AND PREVIOUS CONTROL
+  function plusSlides(n) {
+    clearInterval(myTimer);
+    if (n < 0) {
+      showSlides((slideIndex -= 1));
+    } else {
+      showSlides((slideIndex += 1));
+    }
+
+    //COMMENT OUT THE LINES BELOW TO KEEP ARROWS PART OF MOUSEENTER PAUSE/RESUME
+
+    if (n === -1) {
+      myTimer = setInterval(function () {
+        plusSlides(n + 2);
+      }, 4000);
+    } else {
+      myTimer = setInterval(function () {
+        plusSlides(n + 1);
+      }, 4000);
+    }
+  }
+
+  //Controls the current slide and resets interval if needed
+  function currentSlide(n) {
+    clearInterval(myTimer);
+    myTimer = setInterval(function () {
+      plusSlides(n + 1);
+    }, 4000);
+    showSlides((slideIndex = n));
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    if (n > slides.length) {
+      slideIndex = 1;
+    }
+    if (n < 1) {
+      slideIndex = slides.length;
+    }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slides[slideIndex - 1].style.display = "block";
+  }
+  /*
+pause = () => {
+  clearInterval(myTimer);
+}
+
+resume = () =>{
+  clearInterval(myTimer);
+  myTimer = setInterval(function(){plusSlides(slideIndex)}, 4000);
+}
+*/
+</script>

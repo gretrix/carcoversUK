@@ -1,0 +1,190 @@
+{% comment %} <!-- Below are variables for the primary product -->
+{% assign main_product_singular = 'Snowmobile' %} {% assign main_product_plural
+= 'Snowmobiles' %} {% assign main_product_website = 'Snowmobilecover.com' %}
+ {% endcomment %}
+<!-- Start HTML for product selection section -->
+<div class="product-select">
+  <video autoplay muted loop>
+    <source src="https://cdn.shopify.com/videos/c/o/v/98b6631c7ddd49b79c3740a451de3887.mp4" type="video/mp4" />
+  </video>
+  <div class="container">
+    <!-- THIS IS HARDCODED NEED TO CHANGE IN EVERY MICROSITE !!!!!!!! -->
+    <h2 class="top-rated-h2" class="text-center" style="margin-bottom: 20px">
+      TOP-RATED CAR COVERS, SUV COVERS, TRUCK COVERS, JET SKI COVERS, UTV COVERS AND MORE!
+    </h2>
+    <div class="text-center" style="font-family: arial, helvetica, sans-serif">
+      FADE RESISTANT WEATHERPROOF MATERIALS WITH LIFETIME WARRANTIES
+    </div>
+    <!-- THIS IS HARDCODED NEED TO CHANGE IN EVERY MICROSITE !!!!!!!! -->
+
+    <div style="height: 260px">
+      <form method="POST" id="carform">
+        <div style="width: 100%; margin-bottom: -20px">
+          <img
+            src="{{ 'start-here.png' | asset_url }}"
+            alt="start here"
+            class="center_image"
+          />
+        </div>
+        <div class="vehicle-select grid-four primary">
+          <select id="year" name="year">
+            <option selected>Select your vehicle year...</option>
+          </select>
+
+          <select id="make" name="make" style="display: none">
+            <option selected id="make-year">Select your vehicle make...</option>
+          </select>
+
+          <select id="model" name="model" style="display: none">
+            <option selected>Select your model...</option>
+          </select>
+
+          <select id="body" name="body" style="display: none">
+            <option selected>Select your body type...</option>
+          </select>
+
+          <div class="body-selector" style="display: none">
+            <div class="truck-panel">
+              <div class="truck-panel-header">
+                SELECT BODY STYLE
+                <span class="panel-close" onclick="$('.body-selector').hide();"
+                  >&times;</span
+                >
+              </div>
+              <div class="truck-panel-grid" id="truck-panel-grid"></div>
+            </div>
+          </div>
+        </div>
+
+        <a id="link" href="#" class="submit-btn">View All Available Covers</a>
+      </form>
+    </div>
+    <div class="grid-four badges mobile-grid-four">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0594/7172/4696/files/top-rated-badge_1.png?v=1670350290"
+        alt="top rated car covers"
+      />
+      <img
+        src="{{ 'hassle-free-badge.png' | asset_url }}"
+        alt="hassle free guarantee"
+      />
+      <img
+        src="{{ 'cover-fit-badge.png' | asset_url }}"
+        alt="cover fit guarantee"
+      />
+      <img
+        src="{{ 'satisfaction-badge.png' | asset_url }}"
+        alt="satisfaction guarantee"
+      />
+    </div>
+  </div>
+  <div class="reviews text-center">
+    <div class="shape"></div>
+    <img class="img-triangle" src="https://cdn.shopify.com/s/files/1/0594/7172/4696/files/triangle_1.png?v=1670350513" />
+    <div class="grid-four grid-extra">
+      <!-- <img src="{{ 'stars.png' | asset_url }}"> -->
+      <img class="stamped-logo1" src="{{ 'stamped.png' | asset_url }}" />
+      <img src="{{ '10-year-warranty.png' | asset_url }}" />
+      <!-- <img src="{{ 'protection.png' | asset_url }}"> -->
+    </div>
+  </div>
+</div>
+<div class="pops">
+  <div class="pops-header text-center primary">
+    <a href="#" class="cls-pop">Back</a>Make Your Selection:
+  </div>
+
+  <div id="pops-options"></div>
+</div>
+<!-- End HTML for product selection section -->
+
+<style>
+  .reviews {
+    position: relative;
+  }
+
+  .shape {
+    position: absolute;
+    width: 150px;
+    height: 50px;
+    background-color: var(--color-dark);
+    color: var(--color-dark);
+    z-index: 99;
+    margin-left: 44%;
+    margin-top: -3rem;
+    clip-path: polygon(100% 0, 0 0, 50% 100%);
+  }
+
+  .grid-extra {
+    padding-top: 2rem;
+/*     background-color: var(--color-mid); */
+    border-top: 1px solid var(--color-dark);
+  }
+
+  .top-rated-h2 {
+    font-size: 36px;
+    font-family: "arial", "helvetica", sans-serif;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    max-width: 888px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 130px;
+  }
+
+  h2,
+  .h2 {
+    font-size: 2rem;
+  }
+
+  .stamped-logo1 {
+    width: 250px;
+    padding: 0;
+  }
+
+  /*///////////////////////Gretrix Addon CSS///////////////////////*/
+
+  .product-select .reviews {
+    background-color: #666;
+    border-top: 1px solid var(--color-mid);
+  }
+
+  .product-select .vehicle-select {
+    background-color: var(--color-mid);
+  }
+
+  .img-triangle {
+    margin-top: -10px;
+    padding-top: 0;
+  }
+
+  .vehicle-select .grid-four {
+    background-color: var(--color-mid);
+  }
+
+  /* ///////////////////////End Gretrix Addon CSS/////////////////////// */
+
+  .center_image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media only screen and (min-width: 750px) {
+    h2,
+    .h2 {
+      font-size: 2.4rem;
+    }
+  }
+</style>
+
+<script>
+  var vehicle_type = "Snowmobile";
+</script>
+
+{{ "global-selector.js" | asset_url | script_tag }}
+
+{% schema %} { "name": "vehicle-select", "tag": "section", "class":
+"spaced-section", "settings": [] } {% endschema %} {% stylesheet %} {%
+endstylesheet %} {% javascript %} {% endjavascript %}

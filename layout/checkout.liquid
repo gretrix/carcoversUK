@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="{{ locale }}" dir="{{ direction }}" class="{{ checkout_html_classes }}">
+  <head>
+    
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NQ4BCDC');</script>
+<!-- End Google Tag Manager -->
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0">
+    <meta name="referrer" content="origin">
+
+    <title>{{ page_title }}</title>
+
+    {{ content_for_header }}
+
+    {{ checkout_stylesheets }}
+    {{ checkout_scripts }}
+  
+
+
+
+
+
+<!-- GSSTART Slider code start. Do not change -->{% if product.id > 1 %}
+<script type="text/javascript" src="https://gravity-software.com/js/shopify/slider_shop35812.js?v=44fa92d1868222de2513452b8d8c46ec"></script> 
+ {% if product.variants.size > 1 %}<script>
+gsSliderDefaultV = "{{ product.selected_or_first_available_variant.id }}";
+var variantImagesByVarianName = {};
+var variantImagesByVarianNameMix = {};
+ var variantImagesGS = {},
+    thumbnails,
+    variant,
+    variantImage,
+    optionValue,
+    cntImages;
+    productOptions = [];
+    cntImages = 0;
+    {% for variant in product.variants %}
+       variant = {{ variant | json }};
+       if ( typeof variant.featured_image !== 'undefined' && variant.featured_image !== null ) {
+         variantImage =  variant.featured_image.src.split('?')[0].replace(/http(s)?:/,'');
+         variantImagesGS[variant.id] = variantImage;
+         variantImagesByVarianName[variant.option1] = variantImage;
+var variantMixName = "";
+if(variant.option1 != null) {
+variantMixName = variant.option1;
+}
+	 if(variant.option2 != null) {
+		variantImagesByVarianName[variant.option2] = variantImage;
+		variantMixName = variantMixName + ";gs;" + variant.option2;
+	 }
+         if(variant.option3 != null) {
+                variantImagesByVarianName[variant.option3] = variantImage;
+		variantMixName = variantMixName + ";gs;" + variant.option3;
+         }
+
+if(variantMixName != "") {
+variantImagesByVarianNameMix[variantMixName] = variantImage;
+}
+
+         cntImages++;
+       }
+    {% endfor %}
+                if(cntImages == 0) {
+          variantImagesGS = undefined;
+                }
+</script> {% endif %}
+<script>
+
+var imageDimensionsWidth = {};
+var imageDimensionsHeight = {};
+var imageSrcAttr = {};
+var altTag = {};  
+
+var mediaGS = [];  
+  var productImagesGS = [];
+var productImagesGSUrls = [];
+{% for image in product.images %}
+  var productImageUrl = "{{ image.src }}";
+  var dotPosition = productImageUrl.lastIndexOf(".");
+  productImageUrl = productImageUrl.substr(0, dotPosition);
+  productImagesGS.push(productImageUrl);
+  imageDimensionsWidth[{{ image.id }}] = "{{ image.width }}";
+  imageDimensionsHeight[{{ image.id }}] = "{{ image.height }}";
+  altTag[{{ image.id }}] = "{{ image.alt | replace: '\"', '"' | replace: '"', '\"' | strip | strip_newlines }}";
+  imageSrcAttr[{{ image.id }}] = "{{ image.src }}";
+  productImagesGSUrls.push("{{ image.src | img_url: '240x' }}");
+{% endfor %}
+
+{%- for media in product.media -%}
+    {% case media.media_type %}
+	{% when "image" %}                           
+                           var mediaObjectGS ={id: "{{ media.image.id  }}", mediaType:"{{ media.media_type }}", previewImgURL:"{{ media.image.src | img_url: "240x" }}", previewImg:"{{ media.image.src }}", tag:"{{ media.image.src | img_url: "240x" }}"};  
+            mediaGS.push(mediaObjectGS);
+    {% when "video" %}
+              var productImageUrl = "{{ media.preview_image }}";
+  var dotPosition = productImageUrl.lastIndexOf(".");
+  productImageUrl = productImageUrl.substr(0, dotPosition);                     
+  var mediaObjectGS ={id: "{{ media.id }}", mediaType:"{{ media.media_type }}", width: "{{ media.preview_image.width }}", height: "{{ media.preview_image.height }}", previewImgURL:"{{ media.preview_image | img_url: "500x" }}", previewImg:"" + productImageUrl +  "", tag:'{{ media | video_tag: controls: true }}'};                                  
+            mediaGS.push(mediaObjectGS);                                
+	{% when "external_video" %}                
+              var productImageUrl = "{{ media.preview_image }}";
+  var dotPosition = productImageUrl.lastIndexOf(".");
+  productImageUrl = productImageUrl.substr(0, dotPosition);                     
+            var mediaObjectGS ={id: "{{ media.id }}", mediaType:"{{ media.media_type }}", width: "{{ media.preview_image.width }}", height: "{{ media.preview_image.height }}", previewImgURL:"{{ media.preview_image | img_url: "500x" }}", previewImg:"" + productImageUrl +  "", tag:'{{ media | external_video_tag }}'};                                  
+            mediaGS.push(mediaObjectGS);
+    {% endcase %}
+{%- endfor -%}      
+                    
+
+</script>
+
+{% endif %}<!-- Slider code end. Do not change GSEND --></head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WF2H4LL"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    {{ skip_to_content_link }}
+
+    <header class="banner" data-header role="banner">
+      <div class="wrap">
+        {{ content_for_logo }}
+      </div>
+    </header>
+    
+    {{ order_summary_toggle }}
+    <div class="content" data-content>
+      <div class="wrap">
+        <div class="main">
+          <header class="main__header" role="banner">
+            {{ content_for_logo }}
+            {{ breadcrumb }}
+            {{ alternative_payment_methods }}
+          </header>
+          <main class="main__content" role="main">
+            {{ content_for_layout }}
+          </main>
+          <footer class="main__footer" role="contentinfo">
+            {{ content_for_footer }}
+          </footer>
+        </div>
+        <aside class="sidebar" role="complementary">
+          <div class="sidebar__header">
+            {{ content_for_logo }}
+          </div>
+          <div class="sidebar__content">
+            {{ content_for_order_summary }}
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    {{ tracking_code }}
+  <link rel="stylesheet" href="https://gravity-software.com/js/shopify/rondell/jquery.rondellf85.css?v=123"/></body>
+</html>

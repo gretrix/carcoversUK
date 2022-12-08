@@ -1,0 +1,803 @@
+<!-- Below are variables for the primary product -->
+{% assign main_product_singular = 'Snowmobile' %}
+{% assign main_product_plural = 'Snowmobiles' %}
+{% assign main_product_website = 'SnowmobileCovers.com' %}
+{{ 'section-product-selector-page.css' | asset_url | stylesheet_tag }}
+{{ 'individual-product-template-page-data.js' | asset_url | script_tag }}
+<!-- {% render 'breadcrumbs' %} -->
+<script>
+  /*urlVehicleInfo = window.location.pathname.match(/pages\/cover-subpage\/([^&]*)&*([^&]*)&*([^&]*)&*([^&]*)/);
+  pageInfo = window.location.pathname.split("/")[3];
+  console.log("PAGEINFO TEST", pageInfo);
+  console.log("urlVehicleInfo Test:",urlVehicleInfo)
+ 
+   vehicleInfo = {
+     //tweaked this to account for inserted & for spacing in the url
+        "make": urlVehicleInfo[2].replace(/_/g, " "),
+        "model": urlVehicleInfo[3] ? urlVehicleInfo[3].replace(/_/g, " ") : "",
+        "year": urlVehicleInfo[4] ? urlVehicleInfo[4].replace(/_/g, " ") : "",
+        "bodytype": urlVehicleInfo[1] ? urlVehicleInfo[1].replace(/_/g, " ") : ""
+    }
+   
+   // allows for dynamic data in these subpages without breaking the api call. API CALL NEEDS BOTH ATVANDUTV
+   window.location.pathname.split("/")[3].split('&')[0] === "atv" || window.location.pathname.split("/")[3].split('&')[0] === "utv" ?  vehicleInfo.bodytype = "atv and utv" : vehicleInfo.bodytype
+     pageInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.bodytype + " Covers";
+*/
+   {% assign subpageType = request.path | split: '/' %}
+   {% assign collectionHandle = subpageType[3] | append: "-covers" %}
+ 
+   
+   console.log("test:", "{{ collectionHandle }}");
+               
+  
+  productData = {{collections.[collectionHandle].products | json}};
+  cartData = {{ cart | json }};
+  
+  productObject = [];
+  {% for product in collections.[collectionHandle].products %}
+  	
+  	tempObj = {{ product | json}};
+    tempObj["collection_content"] = {{ product.metafields.customField.collection_content.value | json }};
+  
+  	productObject.push(tempObj);
+  	
+  {% endfor %}
+
+</script>
+
+
+
+<div id ="margin-container">
+<div id="car-subpage-container">
+<div id="car-subpage-container-section"> 
+ <div class="product-selector-subpage-container">
+   <div class="ipp-container" style="border: none;">
+   <div class="product-selector-area" style="padding: 0;">
+   <div class="product-selector-subpage-container-left">
+     <h2 class="product-selector-subpage-title"></h2>
+     <h2 class="product-selector-subpage-subtitle"> <p class="TEST"></p> Act Now: Up to 50% off and 100% Free Shipping</h2>
+     <hr style="margin-top: 0; margin-bottom: 50px; color: black;">
+    
+
+     <div class="product-select">
+    <div style="height: 230px">
+      <form method="POST" id="carform">
+          <span id="vehicle_start"></span>
+
+        <div class="vehicle-select grid-four">
+          <div>
+            <img src="{{ 'start-here.png' | asset_url}}" alt="start here" title="start here">
+            <select id="year" name="year" >
+              <option selected disabled>Select your vehicle year...</option>
+            </select>
+       
+          </div>
+          <select id="make" name="make"  style="display: true;">
+            <option selected id="make-year" disabled>Select your vehicle make...</option>
+          </select>
+          <select id="model" name="model"  disabled style="display:none;">
+            <option selected disabled>Select your model...</option>
+          </select>
+          <select id="body" name="body" disabled style="display:none;">
+            <option selected disabled>Select your body type...</option>
+            <option>All body types</option>
+          </select>
+        </div>
+        
+        <div class="body-selector" style="display: none;">
+            <div class="truck-panel" >
+              <div class="truck-panel-header">
+                SELECT BODY STYLE
+                <span class="panel-close" onclick="$('.body-selector').hide();">&times;</span>
+              </div>
+              <div class="truck-panel-grid" id="truck-panel-grid"></div>
+            </div>
+          </div>
+
+        <a id="link" href="#" class="submit-btn">View All Available Covers</a>
+      </form>
+    </div>
+     
+    <p style="text-align: center">Can't Find Your Vehicle? <a href="/pages/cant-find-your-vehicle" style="text-decoration: none; color: black;">Click Here</a></p>
+     </div>
+     <div class="product-selector-left-grey-box">
+       <div class="bulletFormatting">
+         <ul>
+       <li>Free Shipping</li>
+       <li>In Stock</li>
+       <li>Ships Next Business Day</li>
+       </ul>
+       <ul>
+       <li>Guaranteed Fit</li>
+       <li>Lifetime Warranty</li>
+       <li>Hassle Free Guarantee</li>
+       </ul>
+       </div></div>
+     </div>
+     
+   <div class="product-selector-subpage-container-right">
+  
+<div class="slider-container"> 
+  
+          <div class="slide ">
+            <img id='s1' class="selector-img" alt="{{main_product_singular}} 1" title="{{main_product_singular}} 1">
+          </div>
+          <div class="slide">
+          	<img id='s2' class="selector-img" alt="{{main_product_singular}} 2" title="{{main_product_singular}} 2">
+          </div>
+          <div class ="slide ">
+          	<img id='s3' class="selector-img" alt="{{main_product_singular}} 3" title="{{main_product_singular}} 3">
+          </div>
+       	  <div class ="slide ">
+          	<img id='s4' class="selector-img" alt="{{main_product_singular}} 4" title="{{main_product_singular}} 4">
+          </div>
+           <div class ="slide ">
+          	<img id='s5' class="selector-img" alt="{{main_product_singular}} 5" title="{{main_product_singular}} 5">
+          </div>
+        <div class ="slide ">
+          	<img id='s6' class="selector-img" alt="{{main_product_singular}} 5" title="{{main_product_singular}} 5">
+          </div>
+     
+      </div>
+  	 <div>
+       <div class="arrowBackgroundLeft">
+          <div class="arrow left">&lt;</div>
+     	</div>
+     	<div class="leftArrow">
+          <div class="arrow left">&lt;</div>
+     	</div>
+     </div>
+     <div>
+       <div class="arrowBackgroundRight">
+          <div class="arrow right">&gt;</div>
+     	</div>
+     	<div class="rightArrow"> 
+     	  <div class="arrow right">&gt;</div>
+     	</div>
+     </div>
+     <!--<div>
+     	<div class="leftArrow">
+          <div class="arrow left arrowBackground">&lt;</div>
+     	</div>
+     </div>
+     <div>
+     	<div class="rightArrow"> 
+     	  <div class="arrow right arrowBackground">&gt;</div>
+     	</div>
+     </div>-->
+     </div>
+     
+     </div>
+     
+     
+    	
+    
+  
+   </div>
+     
+  
+     
+     </div>
+<!-- end of code for arrows --> 
+     
+     
+     
+   <div class="ipp-section-title text-primary" style="text-align: center;">WHY BUY FROM {{main_product_website}}?</div>
+    <div class="subpage-video" style="width: 100%;">
+      <video autoplay muted loop style="width: 100%;">
+    <source src="{{ 'SnowHero.mp4' | asset_url }}" type="video/mp4" />
+  </video>
+      </div>
+      <div
+        style="
+          height: 0.5px;
+          background-color: rgba(128, 128, 128, 0.211);
+          width: 100%;
+          margin: 25px 0px 10px 0px;
+        "
+      ></div>
+  <div style="margin-top: 1px;">
+       {% section 'comforts' %}
+  </div>
+  
+
+<!--  
+<h2 style="padding-left: 20px; padding-right: 20px;" class="car-subpage-show-more-categories" style="margin-top: 1em;">Show All Categories <a style="color:red; text-decoration:none;">▼</a></h2>
+<hr>
+ -->
+  
+<div style="padding-left: 20px; padding-right: 20px;" id="page-data">
+  <div class="ipp-section-title text-primary">Customized  <span class= "paragraph-header-vehicle-type"><span class="veh-instance"></span></span> Covers - Perfect Fit Guaranteed and Resistant to All Weather</div>
+  <p>Your <span class="dynamic-vehicle veh"></span> is one of the greatest investments you will ever make, so you need to take care of it. This includes buying the strongest custom <span class="veh-instance"></span> cover on the market. If you park in a garage, an indoor <span class="veh-instance"></span> cover might be the better option for you, but if your <span class="veh-instance"></span> is outside, an outdoor <span class="veh-instance"></span> cover is a necessity to protect your vehicle. We offer durable and budget-friendly custom <span class="veh-instance"></span> covers that are guaranteed to fit your <span class="veh-instance"></span> and protect it from all kinds of damage including animal damage, weather events, rotting, gradual discoloration and fading, and unattractive dings.
+  </p><p>Customers can attest to the fit and effectiveness of our custom <span class="veh-instance"></span> covers and various accessories. We offer hundreds of <span class="veh-instance"></span> covers that are guaranteed to fit your vehicle, which includes storm proof covers that are made up of several protective layers to guard your vehicle against all kinds of weather including rain, snow, sun, and more. There is no doubt UV rays can also damage your <span class="veh-instance"></span>, so our covers are made up of an enhanced fiber that protects against them. When you purchase a custom <span class="veh-instance"></span> cover from us, you can trust your <span class="veh-instance"></span> will be getting sufficient protection.
+  </p><p><div class="ipp-section-title veh text-primary">Product Information</div>
+  <p>Not only are you looking for a custom indoor or outdoor <span class="veh-instance"></span> cover that will protect your <span class="veh-instance"></span> from various damages, you also want the cover to last. Our covers are guaranteed to protect against damaging weather events as well as protect your <span class="veh-instance"></span>'s paint by blocking harmful UV rays through the use of enhanced fibers.
+  </p><p>When you purchase our custom <span class="veh-instance"></span> covers, you can rest assured that your <span class="veh-instance"></span> is protected regardless what kind of climate you reside in Our covers protect against both sun and water, which will ensure your <span class="veh-instance"></span> maintains its color and does not go through the rotting process. We offer custom <span class="veh-instance"></span> covers for hundreds of makes and models, and you can choose from dozens of different colors. When you purchase from us, we guarantee you are getting the best protection and perfect fit at a price that won't break the bank.
+  </p><p>We 100% guarantee our products come with:
+  <ul>
+  <li class="veh"> Heavy-duty materials that will last</li>
+  <li> Indoor and outdoor options</li>
+  <li> UV ray protection that will protect against sun damage</li>
+  <li> Resistance against water damage</li>
+  <li> Various color options</li>
+  <li> Easy install, including a label that specifies which end is which</li>
+  <li> An ID tag sewn onto the front so you can identify the right cover</li>
+  </ul>
+  
+  <p>With all of the features above, our covers are made to be snug on your <span class="dynamic-vehicle">vehicle</span> to prevent outside hazards from damaging it. Buying our long-lasting custom <span class="veh-instance"></span> covers ensures your <span class="veh-instance"></span> is safe
+  </p><p>Our customers also enjoy free shipping - all the time - and an easy 30-day return policy
+    </p><p>Note that because some of our covers are custom-made to fit your <span class="veh-instance"></span> perfectly, delivery may take three or four weeks.</p>
+</div>
+  <!--<hr>
+ <div class= "subpage-cut">
+<div class="ipp-section-title" id = "topSellingHeader">Top Selling Vehicle Car Covers</div>
+<div>
+   
+   
+</div>-->
+
+  
+   
+    {%section 'comparison-chart' %}
+  <hr>
+  
+  <div style="padding-left: 20px; padding-right: 20px;" class="ipp-section-title text-primary "><span class="warranty-toggle">Limited Lifetime</span> Warranty</div>
+  <div style="padding-left: 20px; padding-right: 20px;">
+    <p> We guarantee that our products are manufactured without any defects, which includes materials used for a years as long as the covers are used by the people who initially purchased them. As long as our covers are used on the  {{main_product_singular}}(s) they were created/intended for, our customers can trust they are getting superior protection. Of course, every product you buy, especially those for a {{main_product_singular}} - will eventually wear out as time goes on, but we guarantee you are making a great investment because our semi-custom {{main_product_singular}} covers are made to last a long time.
+	</p>  
+    <p>We are dedicated to providing the best customer service and making sure you are happy with your purchase. Our team strives to keep all of our customers happy, so we handle any warranty claims with great consideration.
+	</p>
+    <p> As with warranties on most products, some customers submit outrageous claims, but we promise we do not up our prices because of them. If we determine your claim falls under our warranty protection, we will either prorate the price for a new product or send you a replacement product for free. We aim to keep you as a customer for life and believe that honest customer service and fair dispute resolutions are critical to doing so. Our decision is final and proof of purchase is required when submitting a claim.
+	</p>
+
+    Some exclusions to the warranty we provide include:
+<ul>
+  <li>Wear and tear from severe abrasive conditions</li>
+  <li>Contact with chemicals such as bleach </li>
+  <li><span class="veh-instance"></span> accidents </li>
+  <li>Improper installation </li>
+  <li>Improper usage</li>
+</ul>
+  </div>
+  <hr>
+
+<div style="padding-left: 20px; padding-right: 20px;" class="ipp-section-title text-primary">Frequently Asked Questions</div>
+  
+<div style="padding-left: 20px; padding-right: 20px;" class="car-subpage-faq-container">
+
+<h3 style="font-style: italic; font-weight: bold;" class="text-primary">When will my semi-custom <span class="veh-instance"></span> cover arrive?</h3>
+  <p>Depending on your order, it may ship the same day it was ordered. Most covers are shipped the next business day and take between two to five business days to receive. Residents outside of the contiguous U.S. can experience a longer delivery time.
+  </p>
+<h3 style="font-style: italic; font-weight: bold;" class="text-primary">Which <span class="veh-instance"></span> cover is the best?</h3>
+  <p>There are three fits of <span class="veh-instance"></span> covers. Universal <span class="veh-instance"></span> covers normally come in small, medium, and large and do not provide sufficient coverage, therefore, we do not sell them. Semi-custom fit covers are the most commonly sold and are tailored to fit the approximate dimensions of a particular {{main_product_singular}}. These are arguably the best value, as they provide your  with a snug (but not exact) fit at a good price. Fully custom fit {{main_product_singular}} covers are tailored exactly to your {{main_product_singular}}body and the majority of them come with mirror pockets. These cost more and take longer to ship, but provide the most protection for your {{main_product_singular}}.
+</p>
+  <p>There are two cover materials to choose from: AllGuard Weatherproof Cover, AllGuard Standard Cover, and AllGuard Indoor Black Satin Cover.</p>
+
+<p>AllGuard Weatherproof covers are of the highest quality and protect against weather more than any other covers because they are made from UV treated PolyShield material, which is highly weather-resistant and will protect the finish of your {{main_product_singular}}. AllGuard Weatherproof covers are superior because they are made with a 600 Denier Fabric, so the covers are strong yet do not weigh as much. AllGuard Weatherproof covers come with a 10 year warranty, come with a no-cost storage bag, and are trailerable.
+  </p>
+
+  <p>The AllGuard Standard Shield Snowmobile cover is made from a light weight nylon material. Designed for light out door use and indoor use. Built-in air vents serve a dual purpose: increased air flow and protection from trapped moisture.</p>
+
+  <!--<p>AllGuard Indoor Black Satin covers are great for indoor usage because they protect from dust and abrasions. AllGuard Indoor Black Satin covers is our softest cover, providing the best cover fit because of the stretchy satin material. AllGuard Indoor Black Satin covers come with a 10-year warranty.</p>-->
+
+  <p>AllGuard Weatherproof covers win the award for the best <span class="veh-instance"></span>cover, as they are highly durable and protective while also not weighing a lot like some of their competitors. Preventing rust and other deterioration such as mildew is critical for the preservation of your {{main_product_singular}}'s shine, so when you buy a AllGuard Weatherproof cover, we guarantee you are getting the superior semi-custom {{main_product_singular}} cover.</p>
+
+  
+
+<h3 style="font-style: italic; font-weight: bold;" class="text-primary">Can I clean my <span class="veh-instance"></span> cover?</h3>
+ <p>Yes. Your semi-custom <span class="veh-instance"></span> cover can be placed in a washing machine without an agitator using the delicate cycle. Extra large covers will require a front-loading commercial washer. Use mild detergent like Woolite or similar when washing your cover by hand or in a machine washer. The best setting is warm water on a gentle cycle. Do NOT use fabric softener. After the cycle is complete, do two rinse (water only) cycles before letting it air dry.
+  </p>
+<p>If your cover is dusty you can either shake it off or use some fabric to "beat' out the dust.
+  </p>
+<p>If you want to hand wash your cover, first spray it down with a hose. Next, get a large bucket with mild soap and cold water and soak a gentle cloth in it. Wipe both sides of the cover thoroughly but gently with the soapy cloth. Rinse the cover with the hose a couple more times and hang it out to air dry.
+  </p>
+
+<h3 style="font-style: italic; font-weight: bold;" class="text-primary">Can <span class="veh-instance"></span> covers damage your paint?</h3>
+<p>This is another tricky question, because a <span class="veh-instance"></span>'s "paint" does not just mean its color. There are four types of paint coats that are utilized including matte, metallic, solid, and pearlescent.
+  </p>
+<p>Unless specially ordered, <span class="veh-instance"></span> are typically made with basic paint that come in white, red, blue, or black. There is one layer of paint and then a protective lacquer to protect the {{main_product_singular}} from dings and other damage. Solid paint is cheap and blemishes can normally be fixed with a touch up, however, the color will wear out and fade over time.
+  </p>
+<p>Metallic paints have powdered metals added in that make the <span class="veh-instance"></span> shiny and hide small blemishes, but repairs are harder because the color needs to be matched precisely.
+  </p>
+<p>Pearlescent paint has ceramic crystals mixed in instead of powdered metals. This creates a beautiful sparkle effect in different lightings, but it also comes at a cost. Several coats of paint are needed instead of just one, so consumers who own {{main_product_singular}} with pearlescent paint really want to protect them.
+  </p>
+<p>Although rare, some makes and models come with matte paint. PVC or epoxy is used to shield from shine and make the <span class="veh-instance"></span> appear "silky". <span class="veh-instance"></span>s with matte paints looks very unique but matte paints are the most expensive type and are also extremely pricey to repair.
+  </p>
+<p>Overall, selecting the proper <span class="veh-instance"></span> cover for your needs will not cause paint damage and will further protect your <span class="veh-instance"></span> from paint damage.
+  </p>
+  <hr>
+  </div>
+  
+<div style="padding-left: 20px; padding-right: 20px;" class="ipp-section-title text-primary">Testimonials</div>
+<div style="padding-left: 20px; padding-right: 20px;">
+ <p>{{main_product_website}} has earned a solid reputation of providing high-quality <span class="veh-instance"></span> covers worldwide. Everyone claims to be the best, but our reviews back us up. We have an extensive collection of superior reviews written by our honest, paying customers. </p>
+ <p>Don't take our word for it. Just visit our Reviews page to read through the thousands of reports from happy customers. We hope you will become one today. </p>
+</div>
+     <div style="display: none;">
+<div class="ipp-section-title">Videos</div>
+   <div class="car-subpage-video-links">
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=QZpFHkfEK7Y">Weatherproof Covers </a>- 30 Day Money Back - Free Shipping!</li>
+      <li><a href="https://www.youtube.com/watch?v=kxrWAIM4SFw"><span class="veh-instance"></span> Cover Review </a>- Platinum Shield <span class="veh-instance"></span> Cover from <span class="veh-instance-caps"></span>cover.com</li>
+      <li><a href="https://www.youtube.com/watch?v=H0CNOFULuV8">Platinum Shield <span class="veh-instance"></span> Cover </a>- Outdoor Cover - Lifetime Warranty</li>
+      <li><a href="https://www.youtube.com/watch?v=x8mqyUP0Hn0">Cover Testing Facility</a> - Free Shipping - Order Today</li>
+      <li><a href="https://www.youtube.com/watch?v=R3J7ziBuGyY">Platinum Shield Truck Cover</a> - Lifetime Warranty - Weatherproof</li>
+      <li><a href="https://www.youtube.com/watch?v=xazoSM0gCg">How To Use Your Cable and Lock</a> - Secure Your <span class="veh-instance"></span> Cover Investment With A Cable</li>
+      <li><a href="https://www.youtube.com/watch?v=_ik979sFxT4">How To Choose The Right <span class="veh-instance"></span> Cover</a> - <span class="veh-instance"></span> Cover Buying Guide -</li>
+      <li><a href="https://www.youtube.com/watch?v=pG_woKA4bus">Platinum Shield <span class="veh-instance"></span> Cover </a>- Lifetime Warranty - Weatherproof - Fleece lining</li>
+      <li><a href="https://www.youtube.com/watch?v=bXn2usE1_mo">Weatherproof <span class="veh-instance"></span> Cover</a> - Waterproof vs Breathable Vehicle Covers</li>
+      <li><a href="https://www.youtube.com/watch?v=qy9_WVzqKWM">Platinum Shield SUV and Van Cover</a> - Lifetime Warranty - Weatherproof - Fleece lining</li>
+      <li><a href="https://www.youtube.com/user/CarCoversVideos/videos">AND More</a></li>
+    </ul>
+     </div>
+   </div>
+<hr>
+  	<div class="hide-links">
+    <div class="ipp-section-title sublinks-title text-primary"><span class="veh-instance"></span> Covers For All Makes And Models:</div>
+        <div class="car-subpage-category-links">
+        <!-- Sub Links added via JS here -->
+        </div>
+      </div>
+  </div>
+  </div>
+</div>
+  </div>
+<div class="pops">
+  <div class="pops-header text-center primary">
+    <a href="#" class="cls-pop">Back</a>Make Your Selection:
+  </div>
+
+  <div id="pops-options">
+    <div data-value="Car" data-form="#type"><span class="veh-instance"></span> Covers</div>
+    <div data-value="Van" data-form="#type">Van Covers</div>
+    <div data-value="Truck" data-form="#type">Truck Covers</div>
+    <div data-value="SUV" data-form="#type">SUV Covers</div>
+  </div>
+</div>
+
+<!--Start Stamped.io Auto Installation-->
+
+<div class="stamped-box">
+<div id="stamped-main-widget" 
+     class="stamped-main-widget" 
+     data-widget-style="standard" 
+     data-product-id="{{ product.id }}" 
+     data-name="{{ product.title | escape }}" 
+     data-url="{{ shop.url }}{{ product.url }}" 
+     data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" 
+     data-description="{{ product.description | escape }}" data-product-sku="{{product.handle}}" 
+     data-product-type="{{product.type}}" 
+     data-widget-language="{{shop.locale}}">{{ product.metafields.stamped.reviews }}
+</div>
+</div>
+
+<!--End Stamped.io Auto Installation-->
+
+{{ 'global-selector.js' | asset_url | script_tag }}
+  <style>
+
+    .subpage-ptext {
+   	  font-size: 1.8rem;
+      font-weight: bold;
+      font-family: var(--font-heading-family);
+      font-style: var(--font-heading-style);
+      font-weight: var(--font-heading-weight);
+      letter-spacing: 0.06rem;
+      color: rgb(var(--color-foreground));
+      line-height: 1.3;
+    }
+    .bulletFormatting {
+      display: flex; 
+      flex-direction: row; 
+      justify-content: space-around; 
+      align-items: center; 
+    }
+    .sublinks-title, .car-subpage-category-links-column, #breadcrumb-page-title,.paragraph-header-vehicle-type{
+     	text-transform: capitalize;
+    }
+
+    .product-selector-area{
+      margin: 0;
+      height: 100%;
+    }
+
+   
+
+    .product-selector-subpage-container-left{
+      width: 40%;
+        }
+
+
+
+    .product-selector-subpage-container-right {
+      position: relative;
+      width: 60%;
+      border: 0;
+      border-left: 3px solid lightgray;    
+      border-right: 3px solid lightgray;  
+      border-bottom: 3px solid lightgray;  
+      padding: 0,1em,0,1em;
+      border: 3px solid lightgray;
+      border-left: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .selector-img{
+      display: block;
+      width: 100%;
+      height:100%;
+    }
+
+    .ipp-container{
+      display: block;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .ipp-section-title{
+      margin-top: 0;
+    }
+
+    .slider-container {
+      width: 100%;
+    }
+
+    .slide{
+      width: 100%;
+    }
+    
+    .leftArrow{
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      margin-top: -22px;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      /*z-index: 2;*/
+    }
+
+    .rightArrow{
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      margin-top: -22px;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      user-select: none;
+      right: 0%;
+      border-radius: 3px 0 0 3px;
+      /*z-index: 2;*/
+    }
+    /*CSS FOR SLIDER*/
+    .slider-container{
+        height: 100%;
+        width: 100%;
+    }
+    
+    .slide {
+      display: flex;
+      height: 100%;
+    }
+
+    .arrowBackgroundLeft {
+      position: absolute;
+      top: 50%;
+      width: auto;
+      margin-top: -22px;
+      padding: 16px;
+      background: black;
+      opacity: 0.4;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      user-select: none;
+      border-radius: 3px 0 0 3px;
+      /*z-index: 2;*/
+    }
+    
+    .arrowBackgroundRight {
+      position: absolute;
+      top: 50%;
+      width: auto;
+      margin-top: -22px;
+      padding: 16px;
+      background: black;
+      opacity: 0.4;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      user-select: none;
+      right: 0;
+      border-radius: 3px 0 0 3px;
+      /*z-index: 2;*/
+    }
+    
+
+    .right{
+
+     transform: scale(3.0);  
+    }
+
+    .left{
+     transform: scale(3.0); 
+    }
+
+    .shown{
+     visibility: visible;
+     animation-name: fadein;
+      animation-duration: 1s 
+    }
+    .hidden{
+     visibility: hidden;
+    }
+    @keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+    @media screen and (min-width: 2200px) {
+      .product-selector-left-grey-box li {
+       font-size: 24px;
+		}
+    }
+    @media (max-width: 1296px) {
+    .product-selector-subpage-container-right {
+      width: 100%;
+    }
+    }
+    @media (max-width: 430px) {
+    .rightArrow, .leftArrow{
+      font-size: 10px;
+    }
+    }
+    @media screen and (max-width: 325px) {
+      .bulletFormatting {
+       display: block;
+        }
+    }
+    
+    @media only screen and (max-width: 430px){
+	.prod_info_mobile {
+      text-align: left;
+      padding: 0;
+    }
+      
+    .arrowBackgroundLeft {
+      position: absolute;
+      top: 48%;
+
+    }
+      
+    .arrowBackgroundRight {
+      position: absolute;
+      top: 48%;
+    }
+      
+}
+
+    
+  </style>
+   
+<!-- Javascript from car-covers.liquid    -->   
+  
+
+<script>
+   otherSubpages = ["hailproof", "waterproof","indoor", "outdoor", "size","custom"]
+
+   document.querySelector(".sublinks-title").innerText = vehicleInfo.vehtype + " Covers For All Makes And Models:";
+   otherSubpages.includes(pageInfo) ? document.querySelector(".hide-links").style.display = "none": ""
+   
+  	needMoreInfo = true;
+   if( vehicleInfo.make == "")
+   {
+   		 apiLink = "https://api.carcovers.com/getMakes.php?type=" + vehicleInfo.vehtype;
+     console.log("APICHECK1", apiLink)
+     
+   }else if( vehicleInfo.model == "")
+   {
+   		 apiLink = "https://api.carcovers.com/getModels.php?type=" + vehicleInfo.vehtype + "&make=" + vehicleInfo.make;
+     console.log("APICHECK2", apiLink)
+   }
+  	else if( vehicleInfo.year == "")
+   {
+   		 apiLink = "https://api.carcovers.com/getModels.php?type=" + vehicleInfo.vehtype + "&make=" + vehicleInfo.make+ "&model=" + vehicleInfo.model;
+     console.log("APICHECK3", apiLink)
+   }
+  	else if(vehicleInfo.vehtype == "")
+    {
+      	
+    	apiLink = "https://api.carcovers.com/getCars.php?type=" + vehicleInfo.vehtype + "&make=" + vehicleInfo.make+ "&model=" + vehicleInfo.model;
+      	console.log("APICHECK4", apiLink)
+      
+    }
+    else{    
+      needMoreInfo = false;
+    }
+  	
+  	
+  	if(needMoreInfo)
+    {
+      	console.log("read apiLink right before AJAX Call", apiLink)
+       $.ajax({
+          url: apiLink,
+          type: "GET",
+          dataType: "json",
+          success: function (data) {
+            console.log("HERE IS THE API LINK AT REQUEST", apiLink)
+            console.log("HERE IS THE DATA RETURNED", data)
+            if(window.innerWidth > 430)
+            divider = Math.ceil((data.length/5));
+            if(window.innerWidth <= 430)
+              divider = Math.ceil((data.length/3));
+           if(data[0].min_year & data[0].max_year){
+              let newData = []
+             for(let i = parseFloat(data[0].min_year); i <= parseFloat(data[0].max_year); i++){
+              newData.push(i.toString())
+
+             }
+             data = newData
+           }
+            for (let i = 0; i < data.length; i++) {
+				  
+                  if( i % divider == 0 )
+                  {
+                    let columnElement = document.createElement("ul");
+                    columnElement.className = "car-subpage-category-links-column";
+
+                    lastColumnElement = document.querySelector(".car-subpage-category-links").appendChild(columnElement);
+                  }
+                  else{
+                      lastColumnElement = document.querySelector(".car-subpage-category-links .car-subpage-category-links-column:last-child");
+                  }
+                  //tweaked some of the formating here for clean linking throughout all subpages didnt account for spaces in make model types. 
+              console.log("I SHOULD BE AN ARRAY OF NUMBERS",data)
+              lastColumnElement.innerHTML = lastColumnElement.innerHTML+ "<li><a href='"+ window.location.pathname + "&" + data[i].replace(/ /g, "_") +"' title='" + vehicleInfo.make + vehicleInfo.model.replace(/_/g,  " ") +" " + data[i] +" " + vehicleInfo.vehtype + " Covers'>"+ vehicleInfo.make +" " + vehicleInfo.model.replace(/_/g,  " ") +" " + data[i] +" " + vehicleInfo.vehtype + " Covers</a></li>";
+
+              }
+        },
+      });
+    }
+  	else
+    {
+      //This will redirect to the collection page if you have all the vehicleInfo
+      window.location.replace(`${window.location.origin}/collections/${vehicleInfo.vehtype.replace(/ /g, "-")}-covers/${vehicleInfo.make.replace(" ","-")}&${vehicleInfo.model.replace(/ /g, "_")}&${vehicleInfo.year}`);
+      
+    }
+  	
+  		vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model;
+  	
+  	document.querySelector(".product-selector-subpage-title").innerHTML = "<span>View " + vehicleInfo.vehtype + " Covers For Your <span class='subpage-dynamic-selector'>Vehicle</span></span>";
+   
+   
+</script>
+
+<script>
+  
+  let slider;  
+  var vehicle_type = vehicleInfo.vehtype
+  //this breaks the code for some reason? 
+  //document.getElementById("topSellingHeader").innerHTML = "<span>Top Selling " + vehicle_type + " Covers</span>"
+  
+ vehicleInfo.make==='' && vehicleInfo.model === '' ? $(".dynamic-vehicle").text(vehicleInfo.vehtype) : $(".dynamic-vehicle").text(vehicleInfo.make +" " +vehicleInfo.model)
+  
+ pageInfo.split("&").length > 1 ? $('.subpage-dynamic-selector').text(vehicleInfoString)  : $('.subpage-dynamic-selector').text("vehicle")
+ //document.querySelector("#breadcrumb-page-title").innerText = vehicleInfo.vehtype + " Covers";
+ 
+
+
+$('#page-title').text(vehicleInfoString).hide()
+
+ let metaTitle = document.querySelector("title");
+ let metaDescription = document.getElementsByTagName('meta')["description"]
+ let title = document.getElementsByTagName('title')[0]
+  if(vehicleInfo.vehtype == 'Snowmobile'){
+  
+  slider = type_snowmobile.slider;
+   
+  metaTitle.content = `${capitalizeWords(pageInfoString.split(" ")).join(" ")} & Storage | Best Source | Free Shipping`;
+  metaDescription.content = "Buy affordable snowmobile covers. Protect your snowmobile from dirt and debris during transport and storage with a high-quality snowmobile cover.";
+  title.innerText = metaTitle.content;
+} 
+  else if (otherSubpages.includes(pageInfo)){
+    // sets varible to correct page variable rather then creating 10 more if else statements
+     pageData = window[pageInfo]
+     
+    
+ 	
+    
+    
+    //sets video url 
+    pageData.videoLinks.mainVideo ? 
+      $('.ipp-iframe-container iframe').attr('src', pageData.videoLinks.mainVideo) : $('.ipp-iframe-container').hide();
+    //sets slider images
+    slider = pageData.slider;
+    console.log("Test Slider Data:", pageData, slider);
+    //hide comparison chart
+    $("#shopify-section-comparison-chart").hide();
+    //hide extra data at bottom of page
+    //$(".dynamic-vehicle").text(" covers"
+    	pageInfo === "size" ? 
+      	document.querySelector(".product-selector-subpage-title").innerHTML = `<span class='text-primary'>What ${vehicleInfo.vehtype} Covers Do You Need For Your <span class='veh-instance'></span>?</span>`:
+        document.querySelector(".product-selector-subpage-title").innerHTML = `<span class='text-primary'>View  ${vehicleInfo.vehtype} Covers For Your <span class='veh-instance'></span></span>`;
+
+
+    $("#page-data").html(pageData.content)
+    $('.warranty-toggle').text(pageData.warranty_title)
+  }
+ 	
+    // Set images srcs 
+  
+  	$('#s1').attr('src',slider.slide1).attr('alt', capitalizeWords(pageInfoString.split(" ")).join(" ")).attr('title', capitalizeWords(pageInfoString.split(" ")).join(" "));
+  	$('#s2').attr('src',slider.slide2).attr('alt', capitalizeWords(pageInfoString.split(" ")).join(" ")).attr('title', capitalizeWords(pageInfoString.split(" ")).join(" "));
+  	$('#s3').attr('src',slider.slide3).attr('alt', capitalizeWords(pageInfoString.split(" ")).join(" ")).attr('title', capitalizeWords(pageInfoString.split(" ")).join(" "));
+  	$('#s4').attr('src',slider.slide4).attr('alt', capitalizeWords(pageInfoString.split(" ")).join(" ")).attr('title', capitalizeWords(pageInfoString.split(" ")).join(" "));
+    $('#s5').attr('src',slider.slide5).attr('alt', capitalizeWords(pageInfoString.split(" ")).join(" ")).attr('title', capitalizeWords(pageInfoString.split(" ")).join(" "));	
+   $('#s6').attr('src',slider.slide6).attr('alt', capitalizeWords(pageInfoString.split(" ")).join(" ")).attr('title', capitalizeWords(pageInfoString.split(" ")).join(" ")); 
+  // set where the slider will begin.
+  	let displaySlider = 1; 
+  	// Hide all images in the container
+  	$('.slider-container').children().hide();
+  	// select and show current slide
+    document.querySelectorAll(".slider-container div")[displaySlider].style.display = "block"
+ 	//Click event for slider
+  	$('.arrow').on("click",function(evt){
+       if($(evt.target).hasClass('right')){
+      
+          displaySlider += 1;
+      
+        if(displaySlider === Object.keys(slider).length){
+        		
+              displaySlider = 0;
+    }
+		     	$('.slider-container').children().hide();
+        	document.querySelectorAll(".slider-container div")[displaySlider].style.display = "block"
+      }
+      if($(evt.target).hasClass('left')){
+		  
+          displaySlider -= 1;
+          $
+          
+            if(displaySlider < 0){
+        		
+              displaySlider = Object.keys(slider).length-1;
+         
+        }
+          	$('.slider-container').children().hide();
+        	document.querySelectorAll(".slider-container div")[displaySlider].style.display = "block"
+      }
+      
+      
+
+            
+	});
+  Object.keys(slider).length < 4 ? $("#s4").hide() : true;
+</script>
+  
+<script>
+  	document.getElementById('vehicle_start').innerHTML += `<input id="type" type="hidden" id="type" name="type" value="${vehicle_type}">  `;
+ 	
+</script>
+<script>
+  $('.car-subpage-category-links').on('click',function(e){
+     let make_type = e.target.innerText;
+     make_type = make_type.replace("Car Covers", "");
+     console.log(make_type)
+    localStorage.setItem("make_type", make_type);
+    })
+	
+    //$(".paragraph-header-vehicle-type").text(vehicleInfo.make +" " +vehicleInfo.model + " " + subpage_type)
+	 
+</script>
+

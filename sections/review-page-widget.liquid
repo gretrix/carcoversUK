@@ -1,0 +1,47 @@
+<script type="text/javascript">
+  var sa_review_count = 20;
+  var sa_date_format = "F j, Y";
+  function saLoadScript(src) {
+    var js = window.document.createElement("script");
+    js.src = src;
+    js.type = "text/javascript";
+    document.getElementsByTagName("head")[0].appendChild(js);
+  }
+  saLoadScript("https://www.shopperapproved.com/merchant/929.js");
+</script>
+<div style="max-width: 965px; margin: auto" id="shopper_review_page">
+  <div id="review_header"></div>
+  <div id="merchant_page"></div>
+  <div id="review_image">
+    <a
+      href="https://www.shopperapproved.com/reviews/CarCovers.com/"
+      target="_blank"
+      rel="nofollow"
+    ></a>
+  </div>
+</div>
+
+<style></style>
+
+<script type="text/javascript">
+  (function () {
+    var js = window.document.createElement("script");
+    js.src = "https://www.shopperapproved.com/seals/certificate.js";
+    js.type = "text/javascript";
+    document.getElementsByTagName("head")[0].appendChild(js);
+  })();
+  console.log("pagecheck", window.location.pathName);
+</script>
+
+<script>
+  /*
+  window.onload = function () {
+var fix = document.querySelectorAll("div.verified");
+  console.log("Sam Test:" + fix);
+  //fix.setAttributeNode("position", "absolute");
+  };
+  */
+</script>
+
+{% schema %} { "name": "review-page-widget", "settings": [] } {% endschema %} {%
+stylesheet %} {% endstylesheet %} {% javascript %} {% endjavascript %}

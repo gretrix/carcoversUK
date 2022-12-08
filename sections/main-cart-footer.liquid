@@ -1,0 +1,426 @@
+{{ 'component-cart.css' | asset_url | stylesheet_tag }}
+{{ 'component-totals.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+
+<div class="page-width{% if cart == empty %} is-empty{% endif %}" id="main-cart-footer" data-id="{{ section.id }}">
+  <div class="panel">
+    
+    <div>
+    <div class="cart__footer">
+      {%- if section.settings.show_cart_note -%}
+        <cart-note class="cart__note field">
+          <label for="Cart-note">{{ 'sections.cart.note' | t }}</label>
+          <textarea class="text-area field__input" name="note" form="cart" id="Cart-note" placeholder="{{ 'sections.cart.note' | t }}">{{ cart.note }}</textarea>
+        </cart-note>
+      {%- endif -%}
+
+      <div class="cart__blocks">
+        {% for block in section.blocks %}
+          {%- case block.type -%}
+            {%- when '@app' -%}
+              {% render block %}
+            {%- when 'subtotal' -%}
+              <div class="js-contents" {{ block.shopify_attributes }}>
+                
+                <div>
+                  {%- if cart.cart_level_discount_applications.size > 0 -%}
+                    <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+                      {%- for discount in cart.cart_level_discount_applications -%}
+                        <li class="discounts__discount discounts__discount--position">
+                          {%- render 'icon-discount' -%}
+                          {{ discount.title }}
+                          (-{{ discount.total_allocated_amount | money }})
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+                </div>
+
+          
+              </div>
+            {%- else -%}
+              <div class="cart__ctas" {{ block.shopify_attributes }}>
+                <noscript>
+                  <button type="submit" class="cart__update-button button button--secondary" form="cart">
+                    {{ 'sections.cart.update' | t }}
+                  </button>
+                </noscript>
+
+                <button type="submit" id="checkout" class="cart__checkout-button button" name="checkout"{% if cart == empty %} disabled{% endif %} form="cart">
+            <img src="https://cdn.shopify.com/s/files/1/0613/2124/8956/t/33/assets/lock-checkout.png?v=1663611515" alt="checkout" title="checkout">      
+              Begin Secure {{ 'sections.cart.checkout' | t }}
+                </button>
+              </div>
+
+              {%- if additional_checkout_buttons -%}
+                <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
+                  {{ content_for_additional_checkout_buttons }}
+                </div>
+          <img src="https://cdn.shopify.com/s/files/1/0639/1142/8316/t/15/assets/payment-cards.png?v=1663649196" alt="payment cards" title="payment cards" style="display:block;margin: 20px auto;">
+        <img src="https://cdn.shopify.com/s/files/1/0639/1142/8316/t/15/assets/paypal-new-sharp.png?v=1663649184" alt="paypal" title="paypal" style="width: 100%">
+              {%- endif -%}
+          {%- endcase -%}
+        {% endfor %}
+<div class="js-contents" {{ block.shopify_attributes }}>
+                <div class="totals">
+                  <h3 class="totals__subtotal">{{ 'sections.cart.subtotal' | t }}</h3>
+                  <p class="totals__subtotal-value">{{ cart.total_price | money_with_currency }}</p>
+                </div>
+
+                <div></div>
+
+                <small class="tax-note caption-large rte">Taxes and <a href="/policies/shipping-policy">shipping</a> calculated at checkout
+</small>
+  <div class="panel-cont">
+  {% for item in cart.items %}
+       
+    {% for collection in item.product.collections %}
+      
+       {% if collection.title == "Snowmobile Covers" %}
+          {%assign snowmobileCount = snowmobileCount | plus:item.quantity%}
+       {% endif %}
+      
+    {% endfor %}
+     
+  {% endfor %}
+      
+                        <div class="summary-grid">
+                          <div class="sum-head">
+                            <span class="summary-heading">ORDER SUMMARY</span>
+                              <span class="sum-head-num"> {{ cart.item_count }} ITEMS</span>
+                          </div>
+                        </div>
+                        <hr>
+                        <div class="summary-grid">
+                          
+                          <div class="sum-top">
+                            <span class="sum-left">SUB TOTAL</span> <span class="sum-right" name=updates[]>{{cart.total_price | money}}</span>
+                          </div>
+                          
+                          <div class="discount_row sum-top" style="display:none">
+                            <span class="sum-left">Discount</span> <span class="discount_code_name sum-right" name=updates[]></span>
+                          </div>
+                            
+
+                          <div class="sum-mid">
+                            <span>SHIPPING &amp; HANDLING</span>
+                            <span>FREE</span>
+                          </div>
+
+                          <div class="sum-low">
+                            <span class="gt-text">GRAND TOTAL</span>
+                            <span class="grand-total">{{cart.total_price | money}}</span>
+                          </div>
+                        </div>
+                        <p class="disclaimer"><em>Grand total does not include tax. Tax is calculated after shipping address is entered on payment screen.</em></p>
+                      <p class="toggle-checkout-promo-container"><a style="cursor: pointer;" >&gt;&gt; Have a promotional code?</a></p>
+                    		<div id="checkout-promo-container">
+                              
+                                <input type="text" name="checkout-promo-input" id="checkout-promo-input" placeholder="ENTER PROMOTIONAL CODE">
+                                <small>Only 1 promotional code will be accepted per order.</small>
+								<button name="checkout-promo-button" id="checkout-promo-button">APPLY</button>
+                              <br>
+                    
+                      		</div>
+                </div>
+              </div>
+        <div id="cart-errors"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+{% javascript %}
+  class CartNote extends HTMLElement {
+    constructor() {
+      super();
+
+      this.addEventListener('change', debounce((event) => {
+        const body = JSON.stringify({ note: event.target.value });
+        fetch(`${routes.cart_update_url}`, {...fetchConfig(), ...{ body }});
+      }, 300))
+    }
+  }
+
+  customElements.define('cart-note', CartNote);
+{% endjavascript %}
+
+<script>
+//toggle promo code
+ let discounts = ["mobile10","welcome10", "welcome15"]
+ $(".toggle-checkout-promo-container").on("click", (evt) => {
+   evt.preventDefault();
+   $("#checkout-promo-container").show();
+ })
+$("#checkout-promo-button").on("click", (evt) => {
+  evt.preventDefault();
+  discountCode = $("#checkout-promo-input").val();
+  localStorage.setItem("discountName", discountCode.toLowerCase());
+  window.location.href = "/discount/" + discountCode + "?redirect=/cart";
+})
+let storedDiscount = localStorage.getItem("discountName");
+if(discounts.includes(storedDiscount)){
+    
+    
+    grandTotal = $(".grand-total").text()
+   
+  switch (storedDiscount){
+ 
+    case "mobile10" : 
+      dTotal = "{{snowmobileCount | times: 10 }}"
+      grandTotal = grandTotal.replace("$","")
+      grandTotal = grandTotal.replace(",","");
+      grandTotal = parseFloat(grandTotal).toFixed(2);
+       $(".discount_code_name").text(`- $${dTotal}.00`);
+       $(".discount_row").show();
+       appliedDiscount = grandTotal - dTotal;
+      $(".grand-total").text(`$${appliedDiscount.toFixed(2)}`) 
+      break;
+    case "welcome10":
+      dTotal = "{{snowmobileCount | times: 10 }}"
+      grandTotal = grandTotal.replace("$","")
+      grandTotal = grandTotal.replace(",","");
+      grandTotal = parseFloat(grandTotal).toFixed(2);
+          $(".discount_code_name").text(`- $${dTotal}.00`);
+       $(".discount_row").show();
+        appliedDiscount = grandTotal - dTotal;
+      $(".grand-total").text(`$${appliedDiscount.toFixed(2)}`) 
+      break;
+    case "welcome15":
+      console.log("WELCOME 15 is selected") 
+      dTotal = "{{snowmobileCount | times: 15 }}"
+    grandTotal = grandTotal.replace("$","");
+    grandTotal = grandTotal.replace(",","");
+    grandTotal = parseFloat(grandTotal).toFixed(2);
+       $(".discount_code_name").text(`- $${dTotal}.00`);
+       $(".discount_row").show();
+        appliedDiscount = grandTotal - dTotal;
+      $(".grand-total").text(`$${appliedDiscount.toFixed(2)}`) 
+      break;
+      
+  }
+}
+//end toggle promo code
+  document.addEventListener('DOMContentLoaded', function() {
+    function isIE() {
+      const ua = window.navigator.userAgent;
+      const msie = ua.indexOf('MSIE ');
+      const trident = ua.indexOf('Trident/');
+
+      return (msie > 0 || trident > 0);
+    }
+
+    if (!isIE()) return;
+    const cartSubmitInput = document.createElement('input');
+    cartSubmitInput.setAttribute('name', 'checkout');
+    cartSubmitInput.setAttribute('type', 'hidden');
+    document.querySelector('#cart').appendChild(cartSubmitInput);
+    document.querySelector('#checkout').addEventListener('click', function(event) {
+      document.querySelector('#cart').submit();
+    });
+  });
+</script>
+<script>
+//toggle promo code
+  
+ $(".toggle-checkout-promo-container").on("click", (evt) => {
+   evt.preventDefault();
+   
+   document.querySelector(".dcodeInnerWrapper").style.display = "block" ;
+   
+ })
+
+
+//end toggle promo code
+var firstChange = true;
+function reloadCart(){
+	var target = document.querySelector(`.quantity__input`);
+
+	if (!target)return
+ 
+var observer = new MutationObserver(function(mutations) {
+  mutations.forEach(function(mutation) {
+    if (firstChange){
+    	firstChange = false;
+    	return;
+    } else{
+      	firstChange = true;
+    	 setTimeout(window.location.reload(), 1000);
+    }
+    
+  });    
+});
+ 
+var config = { attributes: true, childList: true, characterData: true };
+observer.observe(target, config);
+	
+}
+document.addEventListener("DOMContentLoaded", function() {
+  
+  reloadCart();
+});
+  
+  selectElements = document.getElementsByClassName(`quantity__input`);
+  	var allOne = true;
+  
+  for (i = 0; i < selectElements.length; i++ ) {
+  		if (selectElements[i].getAttribute("value") > 1) {
+    		allOne = false;
+  		}
+  }
+//   console.log(allOne);
+  if (allOne == true) {
+    firstChange = false;
+  }
+
+</script>
+<style>
+.terms-item{
+  font-size:small;
+}
+p{
+  margin: 0 auto;
+}
+  .summary-grid{
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  .tax-note{
+    text-align: center;
+  }
+  .cart__checkout-button {
+    background: #CC0000;
+    color: white;
+    text-align: center;
+    padding: 14px 0;
+    font-weight: 600;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    outline: none;
+    gap: 15px;
+  }
+ 
+  .shopify-section:nth-child(1){
+  width: 65%
+}
+    .shopify-section:nth-child(2){
+  width: 30%
+}
+@media only screen and (max-width: 700px) {
+  .shopify-section:nth-child(2){
+  width: 100%
+}
+}
+  .summary-grid{
+/*         display: grid; */
+    grid-template-columns: 1fr 1fr;
+    row-gap: 5px;
+  }
+   .summary-grid p:nth-of-type(even) {
+    text-align: right;
+}
+.gt-text{
+  font-weight: 600;
+}
+  
+ .grand-total{
+   text-align:right;
+ }
+/*   /////////////////////////Gretrix Addon CSS ///////////////// */
+ .panel{
+        background-color: #CCC;
+   min-width: 375px;
+    display: flex;
+    justify-content: space-around;
+/*    margin-left: -4vw; */
+  }
+
+  .js-contents{
+    padding: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .cart__blocks{
+    width: 100%;
+  }
+
+  .sum-head{
+    display: flex;
+    justify-content: space-between;
+  }
+  .sum-top{
+    display: flex;
+    justify-content: space-between;
+  }
+  .sum-mid{
+    display: flex;
+    justify-content: space-between;
+  }
+  .sum-low{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .summary-heading{
+    font-weight: 600;
+  }
+
+  .sum-head-num{
+    font-weight: 600;
+  }
+
+  .grand-total{
+    font-weight: 600;
+  }
+
+
+  .dcodeInnerWrapper{
+    
+    margin-left: 20%;
+    padding-bottom: 1rem;
+  }
+
+  .cart__footer{
+    margin-left: 0;
+  }
+  
+/*   /////////////////////////End Gretrix Addon CSS ///////////////// */
+</style>
+{% schema %}
+{
+  "name": "t:sections.main-cart-footer.name",
+  "class": "cart__footer-wrapper",
+  
+  
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_cart_note",
+      "default": false,
+      "label": "t:sections.main-cart-footer.settings.show_cart_note.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "subtotal",
+      "name": "t:sections.main-cart-footer.blocks.subtotal.name",
+      "limit": 1
+    },
+    {
+      "type": "buttons",
+      "name": "t:sections.main-cart-footer.blocks.buttons.name",
+      "limit": 1
+    },
+    {
+      "type": "@app"
+    }
+  ]
+}
+{% endschema %}
