@@ -504,13 +504,13 @@ var type_utv = {
 var type_jet_ski = {
   slider: {
     slide1:
-      "https://cdn.shopify.com/s/files/1/0639/1142/8316/t/4/assets/JetSki-1.jpg?v=1652896285",
+      "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/JetSki-1.jpg?v=1650051555",
     slide2:
-      "https://cdn.shopify.com/s/files/1/0594/7172/4696/t/1/assets/JetSki-2.jpg?v=1651528976",
+      "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/JetSki-2.jpg?v=1650051554",
     slide3:
-      "https://cdn.shopify.com/s/files/1/0594/7172/4696/t/1/assets/JetSki-3.jpg?v=1651528976",
+      "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/JetSki-3.jpg?v=1650051555",
     slide4:
-      "https://cdn.shopify.com/s/files/1/0594/7172/4696/t/1/assets/JetSki-4.jpg?v=1651528976",
+      "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/JetSki-4.jpg?v=1650051554",
   },
   warranty_title: "Limited Lifetime",
   content: `<div id="page-data">
