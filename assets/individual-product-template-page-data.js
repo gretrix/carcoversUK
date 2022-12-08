@@ -626,7 +626,7 @@ var type_snowmobile = {
 					</div>`,
 };
 
-var type_golf_cart = {
+var type_golfcart = {
   slider: {
     slide1:
       "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/Golf-1.jpg?v=1670528361",
