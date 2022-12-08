@@ -629,13 +629,13 @@ var type_snowmobile = {
 var type_golf_cart = {
   slider: {
     slide1:
-      "https://cdn.shopify.com/s/files/1/0594/7172/4696/t/1/assets/Golf-1.jpg?v=1651528713",
+      "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/Golf-1.jpg?v=1670528361",
     slide2:
-      "https://cdn.shopify.com/s/files/1/0594/7172/4696/t/1/assets/Golf-2.jpg?v=1651528976",
+      "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/Golf-2.jpg?v=1670528361",
     slide3:
-      "https://cdn.shopify.com/s/files/1/0594/7172/4696/t/1/assets/Golf-3.jpg?v=1651528976",
+      "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/Golf-3.jpg?v=1670528362",
     slide4:
-      "https://cdn.shopify.com/s/files/1/0594/7172/4696/t/1/assets/Golf-4.jpg?v=1651528976",
+      "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/Golf-4.jpg?v=1670528362",
   },
   content: `<div id="page-data">
 					<h1 style="font-weight: bold"> <span class="paragraph-header-vehicle-type">SUV</span> Covers - Perfect Fit Guaranteed and Resistant to All Weather</h1>
