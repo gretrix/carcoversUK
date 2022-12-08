@@ -236,7 +236,7 @@ var type_van = {
 var type_motorcycle = {
   slider: {
     slide1:
-      "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/Motorcylce-1.jpg?v=1670527466",
+      "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/Scooter-1.jpg?v=1670527777",
     slide2:
       "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/Motorcylce-2.jpg?v=1670527463",
     slide3:
@@ -308,13 +308,13 @@ var type_motorcycle = {
 var type_scooter = {
   slider: {
     slide1:
-      "https://cdn.shopify.com/s/files/1/0594/7172/4696/t/1/assets/Scooter-1.jpg?v=1651529486",
+      "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/Scooter-1.jpg?v=1670527777",
     slide2:
-      "https://cdn.shopify.com/s/files/1/0594/7172/4696/t/1/assets/Scooter-2.jpg?v=1651528976",
+      "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/Scooter-2.jpg?v=1670527776",
     slide3:
-      "https://cdn.shopify.com/s/files/1/0594/7172/4696/t/1/assets/Scooter-3.jpg?v=1651528976",
+      "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/Scooter-3.jpg?v=1670527777",
     slide4:
-      "https://cdn.shopify.com/s/files/1/0594/7172/4696/t/1/assets/Scooter-4.jpg?v=1651528976",
+      "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/Scooter-4.jpg?v=1670527776",
   },
   chart: {
     plat: "https://cdn.shopify.com/s/files/1/0594/7172/4696/t/1/assets/Motorcycle_Platinum.png?v=1651704008",
