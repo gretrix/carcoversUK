@@ -703,7 +703,7 @@ $('#page-title').text(vehicleInfoString).hide()
  let metaDescription = document.getElementsByTagName('meta')["description"]
  let title = document.getElementsByTagName('title')[0]
   
-  slider = window[`type_${pageInfo}`].slider;
+  slider = window[`type_${pageInfo.replace(" ","_")}`].slider;
 
  
  if (otherSubpages.includes(pageInfo)){
