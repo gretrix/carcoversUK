@@ -702,15 +702,11 @@ $('#page-title').text(vehicleInfoString).hide()
  let metaTitle = document.querySelector("title");
  let metaDescription = document.getElementsByTagName('meta')["description"]
  let title = document.getElementsByTagName('title')[0]
-  if(vehicleInfo.vehtype == 'Snowmobile'){
   
   slider = type_snowmobile.slider;
-   
-  metaTitle.content = `${capitalizeWords(pageInfoString.split(" ")).join(" ")} & Storage | Best Source | Free Shipping`;
-  metaDescription.content = "Buy affordable snowmobile covers. Protect your snowmobile from dirt and debris during transport and storage with a high-quality snowmobile cover.";
-  title.innerText = metaTitle.content;
-} 
-  else if (otherSubpages.includes(pageInfo)){
+
+ 
+ if (otherSubpages.includes(pageInfo)){
     // sets varible to correct page variable rather then creating 10 more if else statements
      pageData = window[pageInfo]
      
