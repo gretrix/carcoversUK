@@ -236,13 +236,13 @@ var type_van = {
 var type_motorcycle = {
   slider: {
     slide1:
-      "https://cdn.shopify.com/s/files/1/0594/7172/4696/t/1/assets/Motorcylce-1.jpg?v=1651529486",
+      "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/Motorcylce-1.jpg?v=1670527466",
     slide2:
-      "https://cdn.shopify.com/s/files/1/0594/7172/4696/t/1/assets/Motorcycle-2.jpg?v=1651528976",
+      "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/Motorcylce-2.jpg?v=1670527463",
     slide3:
-      "https://cdn.shopify.com/s/files/1/0594/7172/4696/t/1/assets/Motorcycle-3.jpg?v=1651528976",
+      "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/Motorcylce-3.jpg?v=1670527465",
     slide4:
-      "https://cdn.shopify.com/s/files/1/0594/7172/4696/t/1/assets/Motorcycle-4.jpg?v=1651528976",
+      "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/Motorcylce-4.jpg?v=1670527463",
   },
   chart: {
     plat: "https://cdn.shopify.com/s/files/1/0594/7172/4696/t/1/assets/Motorcycle_Platinum.png?v=1651704008",
