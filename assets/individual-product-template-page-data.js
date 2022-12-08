@@ -380,13 +380,13 @@ var type_scooter = {
 var type_atv = {
   slider: {
     slide1:
-      "https://cdn.shopify.com/s/files/1/0594/7172/4696/t/1/assets/ATV-1.jpg?v=1651528713",
+      "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/ATV-1.jpg?v=1650051490",
     slide2:
-      "https://cdn.shopify.com/s/files/1/0594/7172/4696/t/1/assets/ATV-2.jpg?v=1651528976",
+      "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/ATV-2.jpg?v=1650051491",
     slide3:
-      "https://cdn.shopify.com/s/files/1/0594/7172/4696/t/1/assets/ATV-3.jpg?v=1651528976",
+      "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/ATV-3.jpg?v=1650051491",
     slide4:
-      "https://cdn.shopify.com/s/files/1/0594/7172/4696/t/1/assets/ATV-4.jpg?v=1651528976",
+      "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/ATV-4.jpg?v=1650051491",
   },
   content: `<div id="page-data">
 					<h1 style="font-weight: bold"> <span class="paragraph-header-vehicle-type">SUV</span> Covers - Perfect Fit Guaranteed and Resistant to All Weather</h1>
