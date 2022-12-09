@@ -190,9 +190,9 @@ $("#make").change(function() {
 //     removeOptions("body");
   	$("#model").prop("disabled", false);
   	$("#model").attr("style", "display:block;");
-    console.log("check url", "https://api.carcovers.com/getCars.php?type=" + "Snowmobile" + "&year=" + $("#year").val() + "&make=" + selected)
+    console.log("check url", "https://api.carcovers.com/getCars.php?type=" + microsite_type + "&year=" + $("#year").val() + "&make=" + selected)
     $.ajax({
-      url: "https://api.carcovers.com/getCars.php?type=" + "Snowmobile" + "&year=" + $("#year").val() + "&make=" + selected,
+      url: "https://api.carcovers.com/getCars.php?type=" + microsite_type + "&year=" + $("#year").val() + "&make=" + selected,
       type: "GET",
       dataType: "json",
       success: function (data) {
