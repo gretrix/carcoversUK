@@ -1,6 +1,7 @@
 // Car type change
 pageInfo.indexOf("&") > -1 ? pageInfo = pageInfo.split("&")[0] : pageInfo;
 let microsite_type = pageInfo == "golfcart" ? pageInfo = "golf cart" : pageInfo ;
+
 var selected = `${microsite_type}`
   $.ajax({
     url: "https://api.carcovers.com/getCars.php?type=" + selected,
@@ -30,7 +31,7 @@ console.log(" selector change test2")
     type: "GET",
     dataType: "json",
     success: function (data) {
-   
+     console.log("THIS IS CAR TYPE DATA", data)
       carTypeChange(data);
     }
   });
