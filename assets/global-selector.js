@@ -81,6 +81,7 @@ $("#year").change(function() {
       dataType: "json",
       success: function (data) {
         //changes Vehicle type to SUV to get all SUVs in Selector
+        console.log("check url for makes", this.url)
         if(microsite_type === "Hummer"){ 
           	//sets vehicle_type to SUV
         	vehicle_type ="SUV"
