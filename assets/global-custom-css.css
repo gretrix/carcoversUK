@@ -1,6 +1,6 @@
 :root {
   --color-pale: #c3d3e2;
-  --color-light: #ff9933;
+  --color-light: #b4ddf1;
   --color-mid: #cd2a26;
   --color-dark: #071724;
 }
@@ -2553,7 +2553,7 @@ ul.carcovers-styled-list {
 }
 
 .prod-sel-header {
-  background-color: var(--color-light);
+  background-color: #ff9933;
   padding: 15px 15px 15px 35px;
   font-weight: bold;
   color: white;
