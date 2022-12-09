@@ -77,7 +77,7 @@
        
     {% for collection in item.product.collections %}
       
-       {% if collection.title == "Snowmobile Covers" %}
+       {% if collection.title != "Accessories" %}
           {%assign snowmobileCount = snowmobileCount | plus:item.quantity%}
        {% endif %}
       
