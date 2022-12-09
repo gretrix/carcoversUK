@@ -4058,7 +4058,7 @@ video.prod-sel-nb-main-media-video {
     border-radius: 5px;
     padding: 5px ;
     text-align: center;
-  cursor: pointer;
+    cursor: pointer;
   }
 @media screen and (max-width: 430px) {
   .prod-sel-body-text-container {
