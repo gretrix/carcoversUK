@@ -1,4 +1,18 @@
 // Car type change
+
+if(document.getElementById('vehicle_start')){
+   var selected = vehicleInfo.vehtype
+  $.ajax({
+    url: "https://api.carcovers.com/getCars.php?type=" + selected,
+    type: "GET",
+    dataType: "json",
+    success: function (data) {
+      console.log(data);
+      carTypeChange(data);
+      
+    }
+  });
+}
 pageInfo.indexOf("&") > -1 ? pageInfo = pageInfo.split("&")[0] : pageInfo;
 let microsite_type = pageInfo == "golfcart" ? pageInfo = "golf cart" : pageInfo ;
 
