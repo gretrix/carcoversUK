@@ -25,7 +25,7 @@ console.log(" selector change test2")
   	$("#year").attr("style", "display:block;");
   	
   $.ajax({
-    url: "https://api.carcovers.com/getCars.php?type=" + selected.replace(/-/g, " "),
+    url: "https://api.carcovers.com/getCars.php?type=" + selected.replace(/-_/g, " "),
     type: "GET",
     dataType: "json",
     success: function (data) {
