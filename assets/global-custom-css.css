@@ -42,6 +42,7 @@ body {
   }
 
   .add-to-cart-btn .button-inner{
+    cursor: pointer;
     width: 90vw;
   }
 }
