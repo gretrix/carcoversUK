@@ -1,4 +1,5 @@
 // Car type change
+pageInfo.contains("&") ? pageInfo = pageInfo.split("&")[0] : pageInfo;
 let microsite_type = pageInfo == "golfcart" ? pageInfo = "golf cart" : pageInfo ;
 var selected = `${microsite_type}`
   $.ajax({
