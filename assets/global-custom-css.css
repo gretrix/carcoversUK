@@ -2632,7 +2632,7 @@ ul.carcovers-styled-list {
 
 .prod-sel-body-best {
   background-color: #ff9933;
-  color: var(--color-pale);
+  color: white;
   padding: 2px 10px;
   width: 95%;
   font-size: 14px;
