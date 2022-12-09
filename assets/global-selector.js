@@ -2,7 +2,7 @@
 let microsite_type = pageInfo = "golfcart" ? pageInfo = "golf_cart" : pageInfo ;
 var selected = `${microsite_type}`
   $.ajax({
-    url: "https://api.carcovers.com/getCars.php?type=" + selected,
+    url: "https://api.carcovers.com/getCars.php?type=" + selected.replace(/_/g, " "),
     type: "GET",
     dataType: "json",
     success: function (data) {
@@ -25,7 +25,7 @@ console.log(" selector change test2")
   	$("#year").attr("style", "display:block;");
   	
   $.ajax({
-    url: "https://api.carcovers.com/getCars.php?type=" + selected.replace(/_/g, " "),
+    url: "https://api.carcovers.com/getCars.php?type=" + selected.replace(/-/g, " "),
     type: "GET",
     dataType: "json",
     success: function (data) {
