@@ -2679,8 +2679,7 @@ ul.carcovers-styled-list {
   top: 0px;
   background: linear-gradient(
     to top right,
-    #ff9933 50%,
-    transparent 51%
+    #ff9933 50%
   );
 }
 .prod-sel-body-best:after {
