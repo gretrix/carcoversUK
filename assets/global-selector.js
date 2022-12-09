@@ -1,5 +1,5 @@
 // Car type change
-let microsite_type = "Snowmobile"
+let microsite_type = pageInfo;
 var selected = `${microsite_type}`
   $.ajax({
     url: "https://api.carcovers.com/getCars.php?type=" + selected,
