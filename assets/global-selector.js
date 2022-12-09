@@ -1,11 +1,6 @@
 // Car type change
 
-if(window.location.pathname.includes("subpage")){
-pageInfo.indexOf("&") > -1 ? pageInfo = pageInfo.split("&")[0] : pageInfo;
-let vehicle-type = pageInfo == "golfcart" ? pageInfo = "golf cart" : pageInfo ;
-}else{
-  vehicle-type = localStorage.getItem(vehicle_type)
-}
+
 var selected = `${vehicle-type}`
   $.ajax({
     url: "https://api.carcovers.com/getCars.php?type=" + selected,
@@ -40,6 +35,13 @@ console.log(" selector change test2")
     }
   });
 });
+
+if(window.location.pathname.includes("subpage")){
+pageInfo.indexOf("&") > -1 ? pageInfo = pageInfo.split("&")[0] : pageInfo;
+let vehicle-type = pageInfo == "golfcart" ? pageInfo = "golf cart" : pageInfo ;
+}else{
+  vehicle-type = localStorage.getItem(vehicle_type)
+}
 function carTypeChange(years) {    
   
   if(document.getElementById('vehicle_start')){
