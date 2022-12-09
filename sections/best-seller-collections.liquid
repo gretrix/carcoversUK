@@ -60,7 +60,7 @@
             <a href="">
               <img
                 class="prod-sel-nb-body-image"
-                src=""
+                src="{{ product | image_url: width:300 }}"
                 alt="AllGuard Weatherproof MAX {{
                   main_product_singular
                 }} Cover"
@@ -173,7 +173,7 @@
       <img class="prod-sel-bonus-item-section-image" src="" />
       <img
         class="prod-sel-bonus-item-section-image-mobile"
-        src=""
+        src="{{ ' free-banner-lg.jpg ' | asset_url }}"
       />
     </span>
   </div>
@@ -227,7 +227,7 @@
           <a href="">
             <img
               class="prod-sel-nb-body-image"
-              src=""
+              src="{{ product | image_url: width:300 }}"
               alt="AllGuard Indoor Black Satin {{
                 main_product_singular
               }} Cover"
@@ -368,7 +368,7 @@
       <img class="prod-sel-bonus-item-section-image" src="free-banner-lg.jpg" />
       <img
         class="prod-sel-bonus-item-section-image-mobile"
-        src=""
+        src="{{ 'free-banner-lg.jpg' | asset_url }}"
       />
     </span>
   </div>
@@ -465,10 +465,10 @@
           type = covers[i].match(/([^-]*)-covers/);
           blockElement = document.querySelector("." + type[1] + "-block");
 
-          console.log("Test Block Element:", blockElement);
+          //console.log("Test Block Element:", blockElement);
           blockElement.appendChild(element);
 
-          console.log("Element Test:", element);
+          //console.log("Element Test:", element);
 
           elementCollectionContent = product.collection_content;
           elementRatingsContent = product.ratings_content;
@@ -514,6 +514,9 @@
           element
             .querySelector(".add-to-cart-btn p")
             .setAttribute("shopify-product-id", product.variants[0].id);
+          element
+              .querySelector(".add-to-cart-btn p")
+              .setAttribute("productSKU", product.variants[0].sku)
           console.log("LANDING TEST8");
           if (!window.location.pathname.includes("/collections/accessories")) {
             element
@@ -632,39 +635,58 @@
     }
   });
 
+  function addToCart(passedProduct, event) {
+  event.preventDefault();
+  var shopifyProductId = event.target.getAttribute("shopify-product-id");
+  var productSKU = event.target.getAttribute("productSKU")
+  console.log(event.target)
+   $.ajax({
+          url: `https://api.carcovers.com/getSKUS.php?year=${vehicleInfo.year}&make=${vehicleInfo.make}&model=${vehicleInfo.model}&sku=${productSKU}`,
+          type: "GET",
+          dataType: "json",
+          success: function (data) {
+            warehouseSKU =data.filter(sku => sku.length > 0);
+            console.log("IM a single warehousesku", warehouseSKU)
+          data = {
+      items:
+      [{
+              quantity: 1,
+              id: shopifyProductId,
+              
+              properties: {
+                  "vehicle-info": vehicleInfoString,
+                  "warehouseSKU": warehouseSKU
+              }
+          }
+      ]
+  }
+console.log("ADD TO CART TEST1", data)
+  var xhr = new XMLHttpRequest();
+console.log("ADD TO CART TEST2", xhr)
+  xhr.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log("ADD TO CART TEST3", data)
+        
+          window.location.href = "/cart";
+      }
+  };
+console.log("ADD TO CART TEST4", data)
+  xhr.open("POST", window.Shopify.routes.root + 'cart/add.js', true);
+console.log("ADD TO CART TEST5", data)
+  xhr.setRequestHeader('Content-Type', 'application/json');
+console.log("ADD TO CART TEST6", data)
+  xhr.send(JSON.stringify(data));
+console.log("ADD TO CART TEST7", data)
+
+          },
+      });
+  
+  
+}
+
   // Add to cart function
 
-  function addToCart(passedProduct, event) {
-    event.preventDefault();
-    var shopifyProductId = event.target.getAttribute("shopify-product-id");
-    data = {
-      items: [
-        {
-          quantity: 1,
-          id: shopifyProductId,
-          properties: {
-            "vehicle-info": vehicleInfoString,
-          },
-        },
-      ],
-    };
-    console.log("ADD TO CART TEST1", data);
-    var xhr = new XMLHttpRequest();
-    console.log("ADD TO CART TEST2", xhr);
-    xhr.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-        console.log("ADD TO CART TEST3", data);
-        window.location.href = "/cart";
-      }
-    };
-    console.log("ADD TO CART TEST4", data);
-    xhr.open("POST", window.Shopify.routes.root + "cart/add.js", true);
-    console.log("ADD TO CART TEST5", data);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    console.log("ADD TO CART TEST6", data);
-    xhr.send(JSON.stringify(data));
-    console.log("ADD TO CART TEST7", data);
-  }
+
 </script>
 
 <!--End add to cart function-->
