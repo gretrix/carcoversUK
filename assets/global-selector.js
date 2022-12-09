@@ -1,6 +1,6 @@
 // Car type change
 
-if(windows.location.pathname.includes("subpage")){
+if(window.location.pathname.includes("subpage")){
   let microsite_type = pageInfo == "golfcart" ? pageInfo = "golf cart" : pageInfo ;
 } else{
   let microsite_type = $("#type").val()
