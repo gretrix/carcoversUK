@@ -1,12 +1,9 @@
 // Car type change
 
-if(window.location.pathname.includes("subpage")){
 pageInfo.indexOf("&") > -1 ? pageInfo = pageInfo.split("&")[0] : pageInfo;
-let vehicle_type = pageInfo == "golfcart" ? pageInfo = "golf cart" : pageInfo ;
-}else{
-  vehicle_type = localStorage.getItem(vehicle_type)
-}
-var selected = `${vehicle_type}`
+let microsite_type = pageInfo == "golfcart" ? pageInfo = "golf cart" : pageInfo ;
+
+var selected = `${microsite_type}`
   $.ajax({
     url: "https://api.carcovers.com/getCars.php?type=" + selected,
     type: "GET",
@@ -82,19 +79,19 @@ $("#year").change(function() {
   	$("#make").attr("style", "display:block;");
   
     $.ajax({
-      url: "https://api.carcovers.com/getCars.php?type=" + vehicle_type + "&year=" + selected,
+      url: "https://api.carcovers.com/getCars.php?type=" + microsite_type + "&year=" + selected,
       type: "GET",
       dataType: "json",
       success: function (data) {
         //changes Vehicle type to SUV to get all SUVs in Selector
         console.log("check url for makes", this.url)
-        if(vehicle_type === "Hummer"){ 
+        if(microsite_type === "Hummer"){ 
           	//sets vehicle_type to SUV
         	vehicle_type ="SUV"
         
         }
         //if vehicle_type is Motorcyle combine Motorcycle and Scooter selector
-      	else if(vehicle_type === "Motorcycle"){
+      	else if(microsite_type === "Motorcycle"){
   	  		$.ajax({
       			url: "https://api.carcovers.com/getCars.php?type=scooter" + "&year=" + selected,
       			type: "GET",
@@ -115,7 +112,7 @@ $("#year").change(function() {
     			});
   			}
          //if vehicle_type is Car Combine Car SUV VAN TRUCk
-        else if(vehicle_type === "Car"){
+        else if(microsite_type === "Car"){
         	$.ajax({
       		url: "https://api.carcovers.com/getCars.php?type=truck" + "&year=" + selected,
       		type: "GET",
@@ -197,18 +194,18 @@ $("#make").change(function() {
 //     removeOptions("body");
   	$("#model").prop("disabled", false);
   	$("#model").attr("style", "display:block;");
-    console.log("check url", "https://api.carcovers.com/getCars.php?type=" + vehicle_type + "&year=" + $("#year").val() + "&make=" + selected)
+    console.log("check url", "https://api.carcovers.com/getCars.php?type=" + microsite_type + "&year=" + $("#year").val() + "&make=" + selected)
     $.ajax({
-      url: "https://api.carcovers.com/getCars.php?type=" + vehicle_type + "&year=" + $("#year").val() + "&make=" + selected,
+      url: "https://api.carcovers.com/getCars.php?type=" + microsite_type + "&year=" + $("#year").val() + "&make=" + selected,
       type: "GET",
       dataType: "json",
       success: function (data) {
         
-        if(vehicle_type === "Hummer"){ 
+        if(microsite_type === "Hummer"){ 
         	vehicle_type ="SUV"
         
         }
-              if(vehicle_type === "Motorcycle"){
+              if(microsite_type === "Motorcycle"){
   	  $.ajax({
       url: "https://api.carcovers.com/getCars.php?type=scooter" + "&year=" +  $("#year").val() + "&make=" + selected,
       type: "GET",
@@ -222,7 +219,7 @@ $("#make").change(function() {
         carMakeChange(motoData);
       	}});
       	}
-                else if(vehicle_type === "Car" ){
+                else if(microsite_type === "Car" ){
             	  $.ajax({
       url: "https://api.carcovers.com/getCars.php?type=truck" + "&year=" +  $("#year").val() + "&make=" + selected,
       type: "GET",
@@ -316,7 +313,7 @@ function carModelChange(bodies) {
     var selected = $("#make").val().replace(/ /g,"_") + "&" + $("#model").val().replace(/ /g,"_") + "&" + $("#year").val()
     console.log("SELECTED", selected)
     
-    let url = window.location.origin + "/collections/"+`${vehicle_type}-covers/` + selected;
+    let url = window.location.origin + "/collections/"+`${microsite_type}-covers/` + selected;
   	$("#link").attr("href", url);
   	$(".submit-btn").css("background-color", "rgb(25 127 207)");
   	window.location.href = url;
