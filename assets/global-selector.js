@@ -8,7 +8,7 @@ if(window.location.pathname.includes("subpage")){
   console.log("IM the microsite 1 ", microsite_type)
 }
 
-
+console.log("selected", microsite_type)
 var selected = `${microsite_type}`
   $.ajax({
     url: "https://api.carcovers.com/getCars.php?type=" + selected,
