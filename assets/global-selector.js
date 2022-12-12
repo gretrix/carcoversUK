@@ -1,8 +1,15 @@
 // Car type change
 
-// Car type change
-if(document.getElementById('vehicle_start')){
-   var selected = vehicleInfo.vehtype
+if(window.location.pathname.includes("subpage")){
+   microsite_type = pageInfo == "golfcart" ? pageInfo = "golf cart" : pageInfo ;
+  console.log("microsite_type on a subapge", microsite_type)
+} else{
+  microsite_type = $("#type").val();
+  console.log("IM the microsite 1 ", microsite_type)
+}
+
+console.log("selected", microsite_type)
+var selected = `${microsite_type}`
   $.ajax({
     url: "https://api.carcovers.com/getCars.php?type=" + selected,
     type: "GET",
@@ -13,7 +20,7 @@ if(document.getElementById('vehicle_start')){
       
     }
   });
-}
+console.log(" selector change test2")
  $("#type").change(function() {
     var selected = $(this).val();
   	
@@ -37,33 +44,6 @@ if(document.getElementById('vehicle_start')){
     }
   });
 });
-function carTypeChange(years) {    
-  
-  let popUpOptions = document.getElementById("pops-options");
-  popUpOptions ? popUpOptions.InnerHTML = "" : console.log("Not Mobile")
-  
-   
-    
-  
-  	
-    years.forEach(function (year) {
-      
-        var opt = document.createElement("option");
-        opt.value = year;
-        opt.innerHTML = year;
-        document.getElementById("year").appendChild(opt);
-      
-      	var opt = document.createElement("div");
-      	$(opt).attr("data-value", year);
-      	$(opt).attr("data-form", "#year");
-      	opt.innerHTML = year;
-       
-      popUpOptions ? document.getElementById("pops-options").appendChild(opt) : console.log("Not Mobile");
-  
-      	
-      	/*initializePopupOptions();*/
-    });
-}
 function carTypeChange(years) {    
   
   if(document.getElementById('vehicle_start')){
