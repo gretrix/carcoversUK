@@ -23,7 +23,7 @@ var selected = `${microsite_type}`
 console.log(" selector change test2")
  $("#type").change(function() {
     var selected = $(this).val();
-    	vehicleInfo.vehtype = selected;
+    	microsite_type = selected;
     localStorage.setItem('vehicle_type', selected); //saves vehicle type to localstorage for dynamic content on collection page (ex: car, van, truck...)
   	console.log(localStorage.getItem('vehicle_type'))
     removeOptions("year");
