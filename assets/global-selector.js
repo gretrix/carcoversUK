@@ -4,7 +4,7 @@ if(window.location.pathname.includes("subpage")){
    microsite_type = pageInfo == "golfcart" ? pageInfo = "golf cart" : pageInfo ;
   console.log("microsite_type on a subapge", microsite_type)
 } else{
-  microsite_type = $("#type").val();
+  microsite_type = vehicleInfo.vehtype;
   console.log("IM the microsite 1 ", microsite_type)
 }
 
@@ -23,7 +23,7 @@ var selected = `${microsite_type}`
 console.log(" selector change test2")
  $("#type").change(function() {
     var selected = $(this).val();
-  	vehicleInfo.vehType = selected;
+  	
     localStorage.setItem('vehicle_type', selected); //saves vehicle type to localstorage for dynamic content on collection page (ex: car, van, truck...)
   	console.log(localStorage.getItem('vehicle_type'))
     removeOptions("year");
