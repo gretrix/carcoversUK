@@ -1,10 +1,10 @@
 // Car type change
 
 if(window.location.pathname.includes("subpage")){
-  let microsite_type = pageInfo == "golfcart" ? pageInfo = "golf cart" : pageInfo ;
+   microsite_type = pageInfo == "golfcart" ? pageInfo = "golf cart" : pageInfo ;
   console.log("microsite_type on a subapge", microsite_type)
 } else{
-  let microsite_type = $("#type").val();
+  microsite_type = $("#type").val();
   console.log("IM the microsite 1 ", microsite_type)
 }
 
