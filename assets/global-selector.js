@@ -1,15 +1,8 @@
 // Car type change
 
-if(window.location.pathname.includes("subpage")){
-   microsite_type = pageInfo == "golfcart" ? pageInfo = "golf cart" : pageInfo ;
-  console.log("microsite_type on a subapge", microsite_type)
-} else{
-  microsite_type = $("#type").val();
-  console.log("IM the microsite 1 ", microsite_type)
-}
-
-console.log("selected", microsite_type)
-var selected = `${microsite_type}`
+// Car type change
+if(document.getElementById('vehicle_start')){
+   var selected = vehicleInfo.vehtype
   $.ajax({
     url: "https://api.carcovers.com/getCars.php?type=" + selected,
     type: "GET",
@@ -20,12 +13,11 @@ var selected = `${microsite_type}`
       
     }
   });
-console.log(" selector change test2")
+}
  $("#type").change(function() {
     var selected = $(this).val();
   	
-    localStorage.setItem('vehicle_type', selected); //saves vehicle type to localstorage for dynamic content on collection page (ex: car, van, truck...)
-  	console.log(localStorage.getItem('vehicle_type'))
+
     removeOptions("year");
     removeOptions("make");
     removeOptions("model");
@@ -38,11 +30,40 @@ console.log(" selector change test2")
     type: "GET",
     dataType: "json",
     success: function (data) {
-     
+      console.log("API getCars Data Result:",data);
+      
+      
       carTypeChange(data);
     }
   });
 });
+function carTypeChange(years) {    
+  
+  let popUpOptions = document.getElementById("pops-options");
+  popUpOptions ? popUpOptions.InnerHTML = "" : console.log("Not Mobile")
+  
+   
+    
+  
+  	
+    years.forEach(function (year) {
+      
+        var opt = document.createElement("option");
+        opt.value = year;
+        opt.innerHTML = year;
+        document.getElementById("year").appendChild(opt);
+      
+      	var opt = document.createElement("div");
+      	$(opt).attr("data-value", year);
+      	$(opt).attr("data-form", "#year");
+      	opt.innerHTML = year;
+       
+      popUpOptions ? document.getElementById("pops-options").appendChild(opt) : console.log("Not Mobile");
+  
+      	
+      	/*initializePopupOptions();*/
+    });
+}
 function carTypeChange(years) {    
   
   if(document.getElementById('vehicle_start')){
