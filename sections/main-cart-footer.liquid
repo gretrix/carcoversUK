@@ -157,10 +157,10 @@
 $("#checkout-promo-button").on("click", (evt) => {
   evt.preventDefault();
   discountCode = $("#checkout-promo-input").val();
-  localStorage.setItem("discountName", discountCode.toLowerCase());
+  sessionStorage.setItem("discountName", discountCode.toLowerCase());
   window.location.href = "/discount/" + discountCode + "?redirect=/cart";
 })
-let storedDiscount = localStorage.getItem("discountName");
+let storedDiscount = sessionStorage.getItem("discountName");
 if(discounts.includes(storedDiscount)){
     
     
