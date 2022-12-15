@@ -302,15 +302,17 @@ $("#model").change(function() {
       }
     });
 });
-
+var vehHandleCheck;
 function carModelChange(bodies) {
   vehicleType = vehicleInfo.vehtype.toLocaleLowerCase();
  
-  vehicleMake = document.querySelector(".vehicle-select #make").value.toLocaleLowerCase().replace(" ","-");
-  if(vehicleType == "rv" || vehicleType == "limo")
-  {
-    vehicleType = vehicleMake.replace(/ /g, "-");
-  }
+   $.ajax({
+      url: "https://api.carcovers.com/getTypes.php?make=" + $("#make").val() + "&model=" + $("#model").val() + "&year=" + $("#year").val(),
+      type: "GET",
+     async: false,
+      dataType: "json",
+      success: setCheckedHandle })
+  vehicleType = vehHandleCheck[0];
   
   
   
@@ -387,7 +389,9 @@ $("#body").change(function() {
   	window.location.href = url;
 });
 
-
+function setCheckedHandle(data){
+	vehHandleCheck = data;
+}
 function removeOptions(element) {
     var select = document.getElementById(element);
 
