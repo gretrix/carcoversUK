@@ -2,6 +2,7 @@
 
 if(window.location.pathname.includes("subpage")){
    microsite_type = pageInfo == "golfcart" ? pageInfo = "golf cart" : pageInfo ;
+   microsite_type.tolowerCase().includes("hummer") ? pageInfo = "hummer" : pageInfo;
   console.log("microsite_type on a subapge", microsite_type)
 } else{
   microsite_type = vehicleInfo.vehtype;
@@ -49,7 +50,7 @@ function carTypeChange(years) {
   document.getElementById("pops-options").innerHTML = "" 
   }  
     
-  console.log("SELECTOR TESTOR ZACH",years)
+ 
   
     years.forEach(function (year) {
       
