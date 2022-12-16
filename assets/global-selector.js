@@ -320,8 +320,8 @@ function carModelChange(bodies) {
   if (bodies[0] == 'none') {
     console.log("No body found");
     var selected = $("#make").val().replace(/ /g,"_") + "&" + $("#model").val().replace(/ /g,"_") + "&" + $("#year").val()
-    console.log("SELECTED", selected)
-    microsite_type.includes(" ") ? microsite_type = microsite_type : microsite_type = microsite_type.replace(" ","_") 
+    console.log("SELECTED ALMOST DONE", selected)
+    
     let url = window.location.origin + "/collections/"+`${microsite_type}-covers/` + selected;
   	$("#link").attr("href", url);
   	$(".submit-btn").css("background-color", "rgb(25 127 207)");
