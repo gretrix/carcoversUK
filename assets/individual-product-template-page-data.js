@@ -388,6 +388,7 @@ var type_atv = {
     slide4:
       "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/ATV-4.jpg?v=1650051491",
   },
+  mainVideo: "https://cdn.shopify.com/videos/c/o/v/73cd32ba9b3a43438b8bc5682486384e.mp4",
   content: `<div id="page-data">
 					<h1 style="font-weight: bold"> <span class="paragraph-header-vehicle-type">SUV</span> Covers - Perfect Fit Guaranteed and Resistant to All Weather</h1>
 							
