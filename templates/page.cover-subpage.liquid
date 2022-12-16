@@ -702,9 +702,10 @@ $('#page-title').text(vehicleInfoString).hide()
  let metaTitle = document.querySelector("title");
  let metaDescription = document.getElementsByTagName('meta')["description"]
  let title = document.getElementsByTagName('title')[0]
-  
-  slider = window[`type_${pageInfo.replace(" ","_")}`].slider;
-
+  pageData = window[`type_${pageInfo.replace(" ","_")}`]
+  slider = pageData.slider;
+  pageData.mainVideo ? 
+      $('.subpage-video').attr('src', pageData.videoLinks.mainVideo) : $('.ipp-iframe-container').hide();
  
  if (otherSubpages.includes(pageInfo)){
     // sets varible to correct page variable rather then creating 10 more if else statements
@@ -716,7 +717,7 @@ $('#page-title').text(vehicleInfoString).hide()
     
     //sets video url 
     pageData.mainVideo ? 
-      $('.subpage-video').attr('src', pageData.videoLinks.mainVideo) : $('.subpage-video').hide();
+      $('.subpage-video').attr('src', pageData.videoLinks.mainVideo) : $('.ipp-iframe-container').hide();
     //sets slider images
     slider = pageData.slider;
     console.log("Test Slider Data:", pageData, slider);
