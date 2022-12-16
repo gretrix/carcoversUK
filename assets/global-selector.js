@@ -321,7 +321,7 @@ function carModelChange(bodies) {
     console.log("No body found");
     var selected = $("#make").val().replace(/ /g,"_") + "&" + $("#model").val().replace(/ /g,"_") + "&" + $("#year").val()
     console.log("SELECTED", selected)
-    microsite_type.includes(" ") ? microsite_type = "TEST"
+    microsite_type.includes(" ") ? microsite_type = microsite_type.replace(" ","-") : microsite_type = microsite_type;
     console.log("TEST TYPE", microsite_type)
    
     let url = window.location.origin + "/collections/"+`${microsite_type}-covers/` + selected;
