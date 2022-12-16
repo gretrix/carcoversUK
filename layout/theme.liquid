@@ -341,8 +341,6 @@ var productImagesGSUrls = [];
     <!-- javascript bootstrap -->
    
 
-{% render 'oneclickupsellapp-theme', oneclickupsellapp: oneclickupsellapp %}
-{% assign oneclickupsellapp = true %}
   
     <!-- Stamped - Begin Script-->
 <script async type="text/javascript" data-api-key="" id="stamped-script-widget" src="https://cdn-stamped-io.azureedge.net/files/widget.min.js"></script>
@@ -355,5 +353,8 @@ var productImagesGSUrls = [];
     margin: 0.1rem;
 }
 </style>
-  <link rel="stylesheet" href="https://gravity-software.com/js/shopify/rondell/jquery.rondellf85.css?v=123"/></body>
+  <link rel="stylesheet" href="https://gravity-software.com/js/shopify/rondell/jquery.rondellf85.css?v=123"/>
+{% render 'oneclickupsellapp-theme', oneclickupsellapp: oneclickupsellapp %}
+{% assign oneclickupsellapp = true %}
+</body>
 </html>
