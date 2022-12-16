@@ -716,7 +716,7 @@ $('#page-title').text(vehicleInfoString).hide()
     
     //sets video url 
     pageData.mainVideo ? 
-      $('.ipp-iframe-container iframe').attr('src', pageData.videoLinks.mainVideo) : $('.ipp-iframe-container').hide();
+      $('.subpage-video').attr('src', pageData.videoLinks.mainVideo) : $('.subpage-video').hide();
     //sets slider images
     slider = pageData.slider;
     console.log("Test Slider Data:", pageData, slider);
