@@ -2,7 +2,7 @@
 
 if(window.location.pathname.includes("subpage")){
    microsite_type = pageInfo == "golfcart" ? pageInfo = "golf cart" : pageInfo ;
-   microsite_type.tolowerCase().includes("hummer") ? pageInfo = "hummer" : pageInfo;
+   microsite_type.includes("hummer") ? pageInfo = "hummer" : pageInfo;
   console.log("microsite_type on a subapge", microsite_type)
 } else{
   microsite_type = vehicleInfo.vehtype;
