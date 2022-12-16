@@ -321,7 +321,7 @@ function carModelChange(bodies) {
     console.log("No body found");
     var selected = $("#make").val().replace(/ /g,"_") + "&" + $("#model").val().replace(/ /g,"_") + "&" + $("#year").val()
     console.log("SELECTED ALMOST DONE", selected)
-    
+    debugger;
     let url = window.location.origin + "/collections/"+`${microsite_type}-covers/` + selected;
   	$("#link").attr("href", url);
   	$(".submit-btn").css("background-color", "rgb(25 127 207)");
