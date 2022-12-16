@@ -26,7 +26,7 @@ var type_car = {
 };
 
 var type_truck = {
-  mainVideo: "https://cdn.shopify.com/videos/c/o/v/98b6631c7ddd49b79c3740a451de3887.mp4"
+  mainVideo: "https://cdn.shopify.com/videos/c/o/v/98b6631c7ddd49b79c3740a451de3887.mp4",
   slider: {
     slide1:
       "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/Truck-1.jpg?v=1650051614",
@@ -100,7 +100,7 @@ var type_truck = {
 
 var type_suv = {
   type: "Suv",
-  mainVideo:"https://cdn.shopify.com/videos/c/o/v/98b6631c7ddd49b79c3740a451de3887.mp4"
+  mainVideo:"https://cdn.shopify.com/videos/c/o/v/98b6631c7ddd49b79c3740a451de3887.mp4",
   description: "suv desc",
   slider: {
     slide1:
