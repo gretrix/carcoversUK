@@ -568,6 +568,7 @@ var type_jet_ski = {
 };
 
 var type_snowmobile = {
+  mainVideo: "https://cdn.shopify.com/videos/c/o/v/ada8037b272741658386f5ca54a4ce1d.mp4",
   slider: {
     slide1:
       "https://cdn.shopify.com/s/files/1/0613/2124/8956/files/SMC-1.jpg?v=1664992212",
