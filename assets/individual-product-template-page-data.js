@@ -1,5 +1,6 @@
 var type_car = {
   description: "car",
+  mainVideo: "https://cdn.shopify.com/videos/c/o/v/98b6631c7ddd49b79c3740a451de3887.mp4"
   slider: {
     slide1:
       "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/CAR-1.jpg?v=1650051538",
@@ -25,6 +26,7 @@ var type_car = {
 };
 
 var type_truck = {
+  mainVideo: "https://cdn.shopify.com/videos/c/o/v/98b6631c7ddd49b79c3740a451de3887.mp4"
   slider: {
     slide1:
       "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/Truck-1.jpg?v=1650051614",
@@ -98,6 +100,7 @@ var type_truck = {
 
 var type_suv = {
   type: "Suv",
+  mainVideo:"https://cdn.shopify.com/videos/c/o/v/98b6631c7ddd49b79c3740a451de3887.mp4"
   description: "suv desc",
   slider: {
     slide1:
@@ -172,6 +175,7 @@ var type_suv = {
 
 var type_van = {
   description: "van desc",
+  mainVideo: "https://cdn.shopify.com/videos/c/o/v/98b6631c7ddd49b79c3740a451de3887.mp4",
   slider: {
     slide1:
       "https://cdn.shopify.com/s/files/1/0594/7172/4696/t/1/assets/Van-1.jpg?v=1651528976",
@@ -441,6 +445,7 @@ var type_atv = {
 };
 
 var type_utv = {
+   mainVideo: "https://cdn.shopify.com/videos/c/o/v/73cd32ba9b3a43438b8bc5682486384e.mp4",
   slider: {
     slide1:
       "https://cdn.shopify.com/s/files/1/0594/7172/4696/t/1/assets/UTV-1.jpg?v=1651528713",
