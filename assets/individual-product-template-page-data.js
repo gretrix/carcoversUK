@@ -508,6 +508,7 @@ var type_utv = {
 };
 
 var type_jet_ski = {
+  mainVideo: "https://cdn.shopify.com/videos/c/o/v/309bb43399cf49a7973c9e3e001d531a.mp4",
   slider: {
     slide1:
       "https://cdn.shopify.com/s/files/1/0594/7172/4696/files/JetSki-1.jpg?v=1650051555",
