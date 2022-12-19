@@ -12,7 +12,7 @@
  }
 
   {% for product in chartData %}
-    console.log("TESTING INDIVIDUAL DATA FOR COMP CREATION",{{ product.title }})
+    console.log("TESTING INDIVIDUAL DATA FOR COMP CREATION",{{ product.title | json}})
   {% endfor %}
 </script>
 
