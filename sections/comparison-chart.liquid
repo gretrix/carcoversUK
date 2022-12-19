@@ -10,6 +10,10 @@
      console.log("TESTING COMP CHART LOOP", {{chartData}})
      break;
  }
+
+  {% for product in chartData %}
+    console.log("TESTING INDIVIDUAL DATA FOR COMP CREATION",{{ product.title }})
+  {% endfor %}
 </script>
 
 <!-- Start HTML for comparison chart section -->
