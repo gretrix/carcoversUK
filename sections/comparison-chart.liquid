@@ -6,13 +6,13 @@
 <script>
  switch (vehicleInfo.vehtype){
    case "car":
-      {% assign chartData = collections["car-covers"].products | json %}
+      {% assign chartData = collections["car-covers"].products %}
      console.log("TESTING COMP CHART LOOP", {{chartData}})
      break;
  }
 
   {% for product in chartData %}
-    {{ product.title}}
+   console.log( "TEST INDIDIVUDAL DATA IN CHART"{{ product.title}})
   {% endfor %}
 </script>
 
