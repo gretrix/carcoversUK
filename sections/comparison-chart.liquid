@@ -128,17 +128,16 @@
     <td class="comparisonchartdata">Water</td>
 {% for product in chartData %}       
             
-        
+      
         <td class="comparisonchartdata bestborder clip-star-container-plus">
           <div class="divPad">
-            <div class="clip-star"></div>
-            <div class="clip-star"></div>
-            <div class="clip-star"></div>
-            <div class="clip-star"></div>
-            <div class="clip-star"></div>
+             {% if product.title contains "Satin"%} 
+            <div class="comparisonchartdata">Indoor Only</div>
+           
+            {% endif %}
           </div>
         </td>
-
+  
 
    
 {% endfor %}
