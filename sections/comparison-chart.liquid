@@ -13,9 +13,9 @@
  }
 
   {% for product in chartData %}
-  {% case product.title contains "Platinum" %}
-    console.log("WE WORKED PLATINUM IS HERE")
-  {% endcase%}
+    {% if product.title contains "Platinum"  %}
+      {% assign materialType = "Polyester" %}
+    {%  endif%}
   {% endfor %}
 </script>
 
@@ -81,7 +81,7 @@
   <td class="comparisonchartdata">Material</td>
    {% for product in chartData %}
             
-        <td class="comparisonchartdata">Material</td>
+        <td class="comparisonchartdata">{{ materialType }}</td>
   
 
   {% endfor %}
