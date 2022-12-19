@@ -32,7 +32,7 @@
 <tr class="comparisonchartrow">
         {% for product in chartData %}
         <script>
-            console.log("Product Image URL", {{product.images.first | json}})
+            console.log("Product Image URL", {{product.images.first |file_img_url | json}})
         </script>
        <th class="comparisoncharthead" style="background-color: white">
          <div class="">#1 Best Seller</div>
