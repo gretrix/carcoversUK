@@ -4,17 +4,11 @@
 {% assign main_product_singular = 'Snowmobile' %} {% assign main_product_plural
 = 'Snowmobiles' %} {% assign main_product_website = 'Snowmobilecover.com' %}
 <script>
- switch (vehicleInfo.vehtype){
-   case "car":
-      {% assign chartData = collections["car-covers"].products| sort: "price" | reverse %}
-   
-     console.log("TESTING COMP CHART LOOP", {{chartData | json}})
-     break;
-  case "suv":
-    {% assign chartData = collections["suv-covers"].products| sort: "price" | reverse %}
-    break;
-
- }
+if(vehicleInfo.vehtype == "car"){
+   {% assign chartData = collections["car-covers"].products| sort: "price" | reverse %}
+  }else if(vehicleInfo.vehtype == "suv"){
+     {% assign chartData = collections["car-covers"].products| sort: "price" | reverse %}
+  }
 </script>
 
 <!-- Start HTML for comparison chart section -->
