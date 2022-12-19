@@ -198,9 +198,8 @@
         
         <td class="comparisonchartdata bestborder clip-star-container-plus">
  <div class="divPad">
-             {% if product.title contains "Satin"%} 
-            <div class="">Indoor Only</div>
-            {% elsif product.title contains "Platinum" %}
+             
+            {% if product.title contains "Platinum" or product.title contains "Satin" %}
             <div class="clip-star"></div>
             <div class="clip-star"></div>
             <div class="clip-star"></div>
