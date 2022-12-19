@@ -11,7 +11,7 @@
      console.log("TESTING COMP CHART LOOP", {{chartData | json}})
      break;
   case "suv":
-   console.log("VEHICLE INFO ===== SUV", vehicleInfo.vehtype)
+    {% assign chartData = collections["suv-covers"].products| sort: "price" | reverse %}
 
  }
 </script>
