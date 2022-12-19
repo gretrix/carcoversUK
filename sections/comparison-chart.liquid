@@ -20,6 +20,11 @@
    
      console.log("TESTING COMP CHART LOOP", {{chartData | json}})
      break;
+     case "motorcycle":
+      {% assign chartData = collections["motorcycle-covers"].products| sort: "price" | reverse %}
+   
+     console.log("TESTING COMP CHART LOOP", {{chartData | json}})
+     break;
  }
 
 </script>
