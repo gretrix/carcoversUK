@@ -4,7 +4,8 @@
 {% assign main_product_singular = 'Snowmobile' %} {% assign main_product_plural
 = 'Snowmobiles' %} {% assign main_product_website = 'Snowmobilecover.com' %}
 <script>
-  
+   
+  productData = {{collections[collectionHandle].products | json}};
  switch (vehicleInfo.vehtype){
    case "car":
       
