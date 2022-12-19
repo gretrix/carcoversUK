@@ -45,7 +45,7 @@
      <th class="comparisoncharthead bestborder">
           <img
             class="carcoverimg"
-            src="{{ product.featured_image }}"
+            src="{{product.images.first | json}}"
             alt="AllGuard WeatherProof Max Solid Color  {{
               main_product_singular
             }} Cover"
