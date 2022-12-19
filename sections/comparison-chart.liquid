@@ -291,10 +291,16 @@
       {% endif %}
     
   <td class="comparisonchartdata bestborder">
-     
+     {% if checkMark != "" %}
           <span class="check">
             {{ checkMark }}
           </span>
+      {% else %}
+         <span class="check">
+            
+          </span>
+    {{ checkMark }}
+       {% endif%}
         </td>
   {% endfor %}
 </tr>
