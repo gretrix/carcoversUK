@@ -40,7 +40,7 @@
 <tr class="comparisonchartrow">
   {% for product in chartData %}
     <script>
-      console.log("THIS IS A TEST FOR IMAGES LOOP", {{product.images.first | asset_img_url}})
+      console.log("THIS IS A TEST FOR IMAGES LOOP", {{product.images.first | asset_url}})
     </script>
      <th class="comparisoncharthead bestborder">
           <img
