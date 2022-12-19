@@ -39,10 +39,13 @@
 </tr>
 <tr class="comparisonchartrow">
   {% for product in chartData %}
+    <script>
+      console.log("THIS IS A TEST FOR IMAGES LOOP", {{product.images.first}})
+    </script>
      <th class="comparisoncharthead bestborder">
           <img
             class="carcoverimg"
-            src="https://cdn.shopify.com/s/files/1/0594/7172/4696/files/{{ product.images.first }}v=1636734163"
+            src=""
             
             alt="AllGuard WeatherProof Max Solid Color  {{
               main_product_singular
