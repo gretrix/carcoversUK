@@ -40,8 +40,10 @@
 <tr class="comparisonchartrow">
   {% for product in chartData %}
      {% assign product_vals = product | split: '|' %}
-      console.log({{product_vals[0] | json}},"check here") 
-      {{product_vals[2]}}
+  <script>   
+  console.log({{product_vals[0] | json}},"check here") 
+  </script>    
+    {{product_vals[2]}}
      <th class="comparisoncharthead bestborder">
           <img
             class="carcoverimg"
