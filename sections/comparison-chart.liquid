@@ -31,9 +31,10 @@
     <tbody>
 <tr class="comparisonchartrow">
         {% for product in chartData %}
-        <th class="comparisoncharthead" style="background-color: white"></th>
-        <tr class="comparisonchartrow">
-            <th class="comparisoncharthead bestborder">
+        <th class="comparisoncharthead" style="background-color: white">
+          
+        </th>
+                <th class="comparisoncharthead bestborder">
           <img
             class="carcoverimg"
             src="{{ 'snowmobile_Weatherproof.png' | asset_url }}"
@@ -47,7 +48,7 @@
           <br />
           <div class="protection">TOP LEVEL PROTECTION</div>
         </th>
-        </tr>
+        
         
         {% endfor %}
 </tr>
