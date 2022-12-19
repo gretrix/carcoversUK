@@ -224,12 +224,26 @@
        
         
         <td class="comparisonchartdata bestborder clip-star-container-plus">
-          <div class="divPad">
+     <div class="divPad">
+           
+            {% if product.title contains "Platinum" or product.title contains "Satin" %}
             <div class="clip-star"></div>
             <div class="clip-star"></div>
             <div class="clip-star"></div>
             <div class="clip-star"></div>
             <div class="clip-star"></div>
+            <div class="plus"></div>
+            {% elsif product.title contains "Basic" %}
+            <div class="clip-star"></div>
+            <div class="clip-star"></div>
+            <div class="clip-star"></div>
+            {% else %}
+            <div class="clip-star"></div>
+            <div class="clip-star"></div>
+            <div class="clip-star"></div>
+            <div class="clip-star"></div>
+            <div class="clip-star"></div>
+            {% endif %}
           </div>
         </td>
 {% endfor %}
@@ -240,12 +254,26 @@
        
         
         <td class="comparisonchartdata bestborder clip-star-container-plus">
-          <div class="divPad">
+            <div class="divPad">
+           
+            {% if product.title contains "Platinum" or product.title contains "Satin" %}
             <div class="clip-star"></div>
             <div class="clip-star"></div>
             <div class="clip-star"></div>
             <div class="clip-star"></div>
             <div class="clip-star"></div>
+            <div class="plus"></div>
+            {% elsif product.title contains "Basic" %}
+            <div class="clip-star"></div>
+            <div class="clip-star"></div>
+            <div class="clip-star"></div>
+            {% else %}
+            <div class="clip-star"></div>
+            <div class="clip-star"></div>
+            <div class="clip-star"></div>
+            <div class="clip-star"></div>
+            <div class="clip-star"></div>
+            {% endif %}
           </div>
         </td>
 {% endfor %}
