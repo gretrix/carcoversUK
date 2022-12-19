@@ -309,9 +309,16 @@
   {% for product in chartData %}
     {% assign checkMark = "✓" %}
      
-      {% if product.title contains "Ultimate" %}
-        {% assign checkMark = "Our Heaviest Material" %}
-      {% endif %}
+        {% if checkMark != "✓" %}
+            <span class="check">
+            
+          </span>
+    {{ checkMark }}
+      {% else %}
+       <span class="check">
+            {{ checkMark }}
+          </span>
+       {% endif%}
     
   <td class="comparisonchartdata bestborder">
      
