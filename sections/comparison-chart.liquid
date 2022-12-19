@@ -77,7 +77,7 @@
    {% for product in chartData %}
         {% if product.title contains "Platinum"  %}
           {% assign materialType = "Polyester" %}
-        {% else product.title contains "Satin"  %}
+        {% elsif product.title contains "Satin"  %}
           {% assign materialType = "Ultra Soft Satin Strech" %}
         {% else %}
           {% assign materialType = "Polyester" %}
