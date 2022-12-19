@@ -25,6 +25,16 @@
    
      console.log("TESTING COMP CHART LOOP", {{chartData | json}})
      break;
+       case "scooter":
+      {% assign chartData = collections["scooter-covers"].products| sort: "price" | reverse %}
+   
+     console.log("TESTING COMP CHART LOOP", {{chartData | json}})
+     break;
+     case "truck":
+      {% assign chartData = collections["truck-covers"].products| sort: "price" | reverse %}
+   
+     console.log("TESTING COMP CHART LOOP", {{chartData | json}})
+     break;
  }
 
 </script>
