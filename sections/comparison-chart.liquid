@@ -12,11 +12,6 @@
      break;
  }
 
-  {% for product in chartData %}
-    {% if product.title contains "Platinum"  %}
-      {% assign materialType = "Polyester" %}
-    {%  endif%}
-  {% endfor %}
 </script>
 
 <!-- Start HTML for comparison chart section -->
@@ -80,7 +75,14 @@
 <tr class="comparisonchartrow">
   <td class="comparisonchartdata">Material</td>
    {% for product in chartData %}
-            
+        {% if product.title contains "Platinum"  %}
+          {% assign materialType = "Polyester" %}
+        {% else product.title contains "Satin"  %}
+          {% assign materialType = "Ultra Soft Satin Strech" %}
+        {% else %}
+          {% assign materialType = "Polyester" %}
+        {%endif%}
+     
         <td class="comparisonchartdata">{{ materialType }}</td>
   
 
