@@ -12,7 +12,7 @@
  }
 
   {% for product in chartData %}
-   console.log( "TEST INDIDIVUDAL DATA IN CHART",{{ product.title}})
+   
   {% endfor %}
 </script>
 
@@ -29,6 +29,14 @@
   </p>
   <table class="comparisoncharttable">
     <tbody>
+<tr class="comparisonchartrow">
+        {% for product in chartData %}
+        <th class="comparisoncharthead" style="background-color: white">
+          <div class="best">#1 Best Seller</div>
+        </th>
+        
+        {% endfor %}
+</tr>
       <tr class="comparisonchartrow">
         <th class="comparisoncharthead" style="background-color: white"></th>
         <th
