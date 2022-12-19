@@ -133,7 +133,14 @@
           <div class="divPad">
              {% if product.title contains "Satin"%} 
             <div class="">Indoor Only</div>
-           
+             {%else %}
+            <div class="clip-star"></div>
+            <div class="clip-star"></div>
+            <div class="clip-star"></div>
+            <div class="clip-star"></div>
+            <div class="clip-star"></div>
+            {% elsif product.title contains "Platinum" %}
+               <div class="plus"></div>
             {% endif %}
           </div>
         </td>
