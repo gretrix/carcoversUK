@@ -71,6 +71,7 @@
   {% endfor %}
 </tr>
 <tr class="comparisonchartrow">
+  <td class="comparisonchartdata">Material</td>
    {% for product in chartData %}
             
         <td class="comparisonchartdata">Material</td>
@@ -78,9 +79,18 @@
 
   {% endfor %}
 </tr>
+<tr class="comparisonchartrow">
+    <td class="comparisonchartdata">Use</td>
+{% for product in chartData %}
+        
+       
+        <td class="comparisonchartdata bestborder">Outdoor/Indoor</td>
+       
 
-
-
+        <!--<td class="comparisonchartdata normalborder">Indoor</td>-->
+     
+{% endfor %}
+ </tr>  
       
       
 <tr class="comparisonchartrow">
