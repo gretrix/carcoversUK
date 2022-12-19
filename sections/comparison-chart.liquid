@@ -29,7 +29,9 @@
   </p>
   <table class="comparisoncharttable">
     <tbody>
+
 <tr class="comparisonchartrow">
+  <td class="comparisonchartdata"></td>
         {% for product in chartData %}
         <script>
             console.log("Product Image URL", {{product.images.first | image_url}})
@@ -41,6 +43,7 @@
         {% endfor %}
 </tr>
 <tr class="comparisonchartrow">
+  <td class="comparisonchartdata"></td>
   {% for product in chartData %}
      <th class="comparisoncharthead bestborder">
           <img
@@ -60,6 +63,7 @@
 </tr>
 
 <tr class="comparisonchartrow">
+  <td class="comparisonchartdata"></td>
    {% for product in chartData %}
         <th
           class="comparisoncharthead best bestborder"
