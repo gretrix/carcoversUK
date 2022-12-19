@@ -39,7 +39,9 @@
 </tr>
 <tr class="comparisonchartrow">
   {% for product in chartData %}
-    {{ product.images.last }}
+     {% assign product_vals = product | split: '|' %}
+      {{product_vals[0]}}
+      {{product_vals[2]}}
      <th class="comparisoncharthead bestborder">
           <img
             class="carcoverimg"
