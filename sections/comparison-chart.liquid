@@ -29,16 +29,31 @@
   </p>
   <table class="comparisoncharttable">
     <tbody>
-
+<tr class="comparisonchartrow">
         {% for product in chartData %}
-       <tr class="comparisonchartrow">
        <th class="comparisoncharthead" style="background-color: white">
          <div class="">#1 Best Seller</div>
        </th>
-        </tr>
+        
         {% endfor %}
-
-      <tr class="comparisonchartrow">
+</tr>
+<tr class="comparisonchartrow">
+     <th class="comparisoncharthead bestborder">
+          <img
+            class="carcoverimg"
+            src="{{ 'snowmobile_Weatherproof.png' | asset_url }}"
+            alt="AllGuard WeatherProof Max Solid Color  {{
+              main_product_singular
+            }} Cover"
+            title="AllGuard WeatherProof Max Solid Color {{
+              main_product_singular
+            }} Cover"
+          />
+          <br />
+          <div class="protection">TOP LEVEL PROTECTION</div>
+        </th>
+</tr>
+<tr class="comparisonchartrow">
         <th class="comparisoncharthead" style="background-color: white"></th>
         <th
           class="comparisoncharthead"
