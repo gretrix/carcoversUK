@@ -31,6 +31,9 @@
     <tbody>
 <tr class="comparisonchartrow">
         {% for product in chartData %}
+        <script>
+            console.log("Product Image URL", {{product.images.first}})
+        </script>
        <th class="comparisoncharthead" style="background-color: white">
          <div class="">#1 Best Seller</div>
        </th>
@@ -39,14 +42,10 @@
 </tr>
 <tr class="comparisonchartrow">
   {% for product in chartData %}
-    <script>
-      console.log("THIS IS A TEST FOR IMAGES LOOP", {{product.images.first | file_img_url}})
-    </script>
      <th class="comparisoncharthead bestborder">
           <img
             class="carcoverimg"
-            src=""
-            
+            src="{{ product.featured_image }}"
             alt="AllGuard WeatherProof Max Solid Color  {{
               main_product_singular
             }} Cover"
