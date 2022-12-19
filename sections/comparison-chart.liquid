@@ -39,15 +39,10 @@
 </tr>
 <tr class="comparisonchartrow">
   {% for product in chartData %}
-     {% assign product_vals = product | split: '|' %}
-  <script>   
-  console.log({{product_vals[0] | json}},"check here") 
-  </script>    
-    {{product_vals[2]}}
      <th class="comparisoncharthead bestborder">
           <img
             class="carcoverimg"
-            src="{{ product.images.first }}"
+            src="{{ product.featured_image }}"
             alt="AllGuard WeatherProof Max Solid Color  {{
               main_product_singular
             }} Cover"
