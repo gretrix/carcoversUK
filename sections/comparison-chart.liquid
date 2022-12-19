@@ -40,7 +40,7 @@
 <tr class="comparisonchartrow">
   {% for product in chartData %}
      {% assign product_vals = product | split: '|' %}
-      {{product_vals[0]}}
+      {{product_vals[0] | json}}
       {{product_vals[2]}}
      <th class="comparisoncharthead bestborder">
           <img
