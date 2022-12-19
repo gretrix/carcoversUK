@@ -108,7 +108,16 @@
  </tr>  
 <tr class="comparisonchartrow">
     <td class="comparisonchartdata">Warranty</td>
-{% for product in chartData %}       
+{% for product in chartData %}     
+  {% if product.title contains "Platinum"%}
+     {% assign warrantyType = "LIFETIME WARRANTY" %}
+  {% elsif product.title contains "Deluxe" %}
+     {% assign warrantyType = "5-Year Warranty" %}
+   {% elsif product.title contains "Basic" %}
+     {% assign warrantyType = "3-Year Warranty" %}
+   {% else %}
+    {% assign warrantyType = "10-Year Warranty" %}
+  {% endif %}
         <td class="comparisonchartdata bestborder" style="font-weight: bold">
           10-Year Warranty
         </td>    
