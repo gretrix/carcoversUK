@@ -158,18 +158,16 @@
 <tr class="comparisonchartrow">
     <td class="comparisonchartdata">Use</td>
 {% for product in chartData %}
-  {% if product.title contains "Basic" %}
-            {     
-  {% elsif product.title contains "Satin"  %}
+      {% if product.title contains "Satin" %}
+            {% assign useType = "Indoor" %}
+            {% assign classInsertion = "indoorborder" %}      
+      {% elsif product.title contains "basic" %}
           {% assign useType = "Indoor" %}
-          % assign classInsertion = "indoorborder" %}  
-          {% elsif product.title contains "Platinum" %}
+      {% elsif product.title contains "Platinum" %}
             {% assign classInsertion = "bestborder" %}
-         {% else %}
-          {% assign useType= "Outdoor/Indoor" %}
-        
-       
-        {%endif%}
+      {% else %}
+            {% assign useType= "Outdoor/Indoor" %}
+      {%endif%}
        
         <td class="comparisonchartdata {{ classInsertion }}">{{ useType }}</td>
        
