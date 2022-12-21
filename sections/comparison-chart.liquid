@@ -133,7 +133,7 @@
 <tr class="comparisonchartrow">
   <td class="comparisonchartdata">Material</td>
    {% for product in chartData %}
-        <td class="comparisonchartdata">{{ materialType }}</td>
+        
         {% if product.title contains "Platinum"  %}
           {% assign materialType = "Polyester" %}
         {% elsif product.title contains "Satin"  %}
@@ -141,7 +141,7 @@
         {% else %}
           {% assign materialType = "Polypropylene" %}
         {%endif%}
-     
+     <td class="comparisonchartdata">{{ materialType }}</td>
      
   
 
