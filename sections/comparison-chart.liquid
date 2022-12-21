@@ -20,6 +20,9 @@
     {% assign chartData = collections["scooter-covers"].products %}
     {% elsif urlCheck[5] contains 'jet_ski' %}
     {% assign chartData = collections["jet-ski-covers"].products %}
+      {% elsif urlCheck[5] contains 'snowmobile' %}
+    {% assign chartData = collections["snowmobile-covers"].products %}
+    
   {% endif %}
   console.log({{ chartData | json}}, "<----------------")
 
@@ -451,6 +454,7 @@
         </td>
   {% endfor %}
 </tr>
+
 <tr class="comparisonchartrow">
         <td class="comparisonchartdata">Breathable</td>
   {% for product in chartData %}
