@@ -183,10 +183,16 @@
 {% for product in chartData %}     
   {% if product.title contains "Platinum"%}
      {% assign warrantyType = "LIFETIME WARRANTY" %}
+     {% assign classInsertion = "bestborder" %}
   {% elsif product.title contains "Deluxe" %}
      {% assign warrantyType = "5-Year Warranty" %}
+    {% assign classInsertion = "normalborder" %}
    {% elsif product.title contains "Basic" %}
      {% assign warrantyType = "3-Year Warranty" %}
+    {% assign classInsertion = "normalborder" %}
+       {% elsif product.title contains "Satin" %}
+            
+            {% assign classInsertion = "indoorborder" %}  
    {% else %}
     {% assign warrantyType = "10-Year Warranty" %}
   {% endif %}
