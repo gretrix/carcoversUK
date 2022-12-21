@@ -286,8 +286,14 @@
     <td class="comparisonchartdata">Cover Fit</td>
 {% for product in chartData %}       
        
-        
-        <td class="comparisonchartdata bestborder clip-star-container-plus">
+                       {% if product.title contains "Platinum"  %}
+          {% assign classInsertion = "bestborder" %}
+        {% elsif product.title contains "Satin"  %}
+          {% assign classInsertion = "indoorborder" %}
+        {% else%}
+             {% assign classInsertion = "normalborder" %}
+        {%endif%}
+        <td class="comparisonchartdata {{ classInsertion }}clip-star-container-plus">
  <div class="divPad">
              
             {% if product.title contains "Platinum" or product.title contains "Satin" %}
@@ -312,8 +318,14 @@
     <td class="comparisonchartdata">UV Protection</td>
 {% for product in chartData %}       
        
-        
-        <td class="comparisonchartdata bestborder clip-star-container-plus">
+                       {% if product.title contains "Platinum"  %}
+          {% assign classInsertion = "bestborder" %}
+        {% elsif product.title contains "Satin"  %}
+          {% assign classInsertion = "indoorborder" %}
+        {% else%}
+             {% assign classInsertion = "normalborder" %}
+        {%endif%}
+        <td class="comparisonchartdata {{classInsertion}} clip-star-container-plus">
      <div class="divPad">
             {% if product.title contains "Satin"%} 
             <div class="">Indoor Only</div>
@@ -348,8 +360,14 @@
     <td class="comparisonchartdata">Dust Protection</td>
 {% for product in chartData %}       
        
-        
-        <td class="comparisonchartdata bestborder clip-star-container-plus">
+                       {% if product.title contains "Platinum"  %}
+          {% assign classInsertion = "bestborder" %}
+        {% elsif product.title contains "Satin"  %}
+          {% assign classInsertion = "indoorborder" %}
+        {% else%}
+             {% assign classInsertion = "normalborder" %}
+        {%endif%}
+        <td class="comparisonchartdata {{classInsertion}} clip-star-container-plus">
             <div class="divPad">
            
             {% if product.title contains "Platinum" or product.title contains "Satin" %}
