@@ -19,7 +19,7 @@
   {% elsif urlCheck[5] contains 'scooter' %}
     {% assign chartData = collections["scooter-covers"].products %}
     {% elsif urlCheck[5] contains 'jet_ski' %}
-    {% assign chartData = collections["jet-ski-covers"].products %}
+    {% assign chartData = collections["jet-ski-covers"].products | size : 4 %}
       {% elsif urlCheck[5] contains 'snowmobile' %}
     {% assign chartData = collections["snowmobile-covers"].products %}
     
