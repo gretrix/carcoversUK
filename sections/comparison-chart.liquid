@@ -19,7 +19,7 @@
   {% elsif urlCheck[5] contains 'scooter' %}
     {% assign chartData = collections["scooter-covers"].products %}
     {% elsif urlCheck[5] contains 'jet_ski' %}
-      {% paginate collection["jet-skicovers"].proudcts by 4 %}
+      {% paginate collection["jet-ski-covers"].proudcts by 4 %}
         {% assign chartData = collections["jet-ski-covers"].products %}
       {% endpaginate %}
     {% elsif urlCheck[5] contains 'snowmobile' %}
