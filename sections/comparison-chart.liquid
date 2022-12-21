@@ -9,17 +9,17 @@
   {% if urlCheck[5] contains 'car' or urlCheck[5] == null %}
     {% assign chartData = collections["car-covers"].products %}
   {% elsif urlCheck[5] contains 'suv' %}
-    {% assign chartData = collections["suv-covers"].products| sort: "type" | reverse %}
+    {% assign chartData = collections["suv-covers"].products%}
   {% elsif urlCheck[5] contains 'truck' %}
-    {% assign chartData = collections["truck-covers"].products| sort: "type" | reverse %}
+    {% assign chartData = collections["truck-covers"].products%}
   {% elsif urlCheck[5] contains 'van' %}
-    {% assign chartData = collections["van-covers"].products| sort: "type" | reverse %}
+    {% assign chartData = collections["van-covers"].products%}
   {% elsif urlCheck[5] contains 'motorcycle' %}
-    {% assign chartData = collections["motorcycle-covers"].products| sort: "type" | reverse %}
+    {% assign chartData = collections["motorcycle-covers"].products%}
   {% elsif urlCheck[5] contains 'scooter' %}
-    {% assign chartData = collections["scooter-covers"].products| sort: "type" | reverse %}
+    {% assign chartData = collections["scooter-covers"].products %}
     {% elsif urlCheck[5] contains 'jet_ski' %}
-    {% assign chartData = collections["jet-ski-covers"].products| sort: "type" | reverse %}
+    {% assign chartData = collections["jet-ski-covers"].products %}
   {% endif %}
   console.log({{ chartData | json}}, "<----------------")
 
