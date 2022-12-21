@@ -141,8 +141,10 @@
           {% assign classInsertion = "indoorborder" %}
           {% assign materialType = "Ultra Soft Satin Strech" %}
         {% elsif product.title contains "Ultimate"  %}
+          {% assign classInsertion = "normalborder" %}
           {% assign materialType = "Polypropylene <br />(Comparable to 5 Layer Covers)" | newline_to_br | split: '<br />' %}
         {% else %}
+          {% assign classInsertion = "normalborder" %}
           {% assign materialType = "Polypropylene" %}
         {%endif%}
      <td class="comparisonchartdata {{ classInsertion }}">{% for word in materialType %}
