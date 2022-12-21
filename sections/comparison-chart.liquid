@@ -4,7 +4,7 @@
 {% assign main_product_singular = 'Snowmobile' %} {% assign main_product_plural
 = 'Snowmobiles' %} {% assign main_product_website = 'Snowmobilecover.com' %}
 <script>
-  console.log("this is url ", {{ canonical_url }})
+  console.log("this is url ", "{{ canonical_url }}")
  switch (vehicleInfo.vehtype){
    case "car":
       chartData = {{collections["car-covers"].products| json}}
