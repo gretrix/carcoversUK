@@ -65,8 +65,16 @@
 <tr class="comparisonchartrow">
   <td class="comparisonchartdata"></td>
   {% for product in chartData %}
-    {% if product.title contains "Platinum" %}
-     <th class="comparisoncharthead bestborder">
+                   {% if product.title contains "Platinum"  %}
+          {% assign classInsertion = "bestborder" %}
+        {% elsif product.title contains "Satin"  %}
+          {% assign classInsertion = "indoorborder" %}
+        {% else%}
+             {% assign classInsertion = "normalborder" %}
+        {%endif%}
+      
+ 
+     <th class="comparisoncharthead {{ classInsertion }}">
           <img
             class="carcoverimg"
             src="{{ product.featured_image | img_url: '200x' }}"
@@ -80,37 +88,7 @@
           <br />
           <div class="protection">TOP LEVEL PROTECTION</div>
         </th>
-    {% elsif  product.title contains "Satin" %}
-           <th class="comparisoncharthead indoorborder">
-          <img
-            class="carcoverimg"
-            src="{{ product.featured_image | img_url: '200x' }}"
-            alt="AllGuard WeatherProof Max Solid Color  {{
-              main_product_singular
-            }} Cover"
-            title="AllGuard WeatherProof Max Solid Color {{
-              main_product_singular
-            }} Cover"
-          />
-          <br />
-          <div class="protection">TOP LEVEL PROTECTION</div>
-        </th>
-    {% else %}
-              <th class="comparisoncharthead">
-          <img
-            class="carcoverimg"
-            src="{{ product.featured_image | img_url: '200x' }}"
-            alt="AllGuard WeatherProof Max Solid Color  {{
-              main_product_singular
-            }} Cover"
-            title="AllGuard WeatherProof Max Solid Color {{
-              main_product_singular
-            }} Cover"
-          />
-          <br />
-          <div class="protection">TOP LEVEL PROTECTION</div>
-        </th>
-    {% endif %}
+  
   {% endfor %}
 </tr>
 
