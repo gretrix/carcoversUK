@@ -29,7 +29,15 @@
 </script>
 
 <!-- Start HTML for comparison chart section -->
-
+        {% if product.title contains "Platinum"  %}
+          {% assign classInsertion = "bestborder" %}
+          {% assign photoComment = "Top Level Protection"  %}
+        {% elsif product.title contains "Satin"  %}
+          {% assign classInsertion = "indoorborder" %}
+        {% else%}
+             {% assign classInsertion = "normalborder" %}
+        {%endif%}
+      
 <div class="chart-container">
   <!-- <div class="ipp-section-title">
         How Does the <span class="vehicle-title"></span> Compare to Our Other Covers
