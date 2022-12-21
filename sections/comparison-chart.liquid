@@ -5,7 +5,7 @@
 = 'Snowmobiles' %} {% assign main_product_website = 'Snowmobilecover.com' %}
 <script>
   {% assign urlCheck = canonical_url | split: '/' %}
-  console.log("TESTER TESTER TESTER", urlCheck[5])
+  console.log("TESTER TESTER TESTER", {{ urlCheck[5] }})
  switch (vehicleInfo.vehtype){
    case "car":
       chartData = {{collections["car-covers"].products| json}}
