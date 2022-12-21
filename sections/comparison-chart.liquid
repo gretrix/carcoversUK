@@ -165,8 +165,9 @@
           {% assign useType = "Indoor" %}
       {% elsif product.title contains "Platinum" %}
             {% assign classInsertion = "bestborder" %}
-      {% else %}
             {% assign useType= "Outdoor/Indoor" %}
+      {% else %}
+            
       {%endif%}
        
         <td class="comparisonchartdata {{ classInsertion }}">{{ useType }}</td>
