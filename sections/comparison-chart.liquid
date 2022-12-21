@@ -21,7 +21,7 @@
     {% elsif urlCheck[5] contains 'jet_ski' %}
     {% assign chartData = collections["jet-ski-covers"].products| sort: "price" | reverse %}
   {% endif %}
-  console.log("{{ chartData | json}}", "<----------------")
+  console.log({{ chartData | json}}, "<----------------")
 
 </script>
 
