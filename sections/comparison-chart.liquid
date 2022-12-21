@@ -124,13 +124,14 @@
         {% else%}
              {% assign classInsertion = "comparisoncharthead" %}
         {%endif%}
-        <th
-          class="{{ classInsertion }}"
-          
-     >
+       {% if product.title.size > 0   %}
+        <th class="{{ classInsertion }}">
+         {% else %}
+         <th style="background-color:white">
+         {% endif %}
           {{ product.title }}
         </th>
-
+    
   {% endfor %}
 </tr>
 <tr class="comparisonchartrow">
