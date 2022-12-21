@@ -167,7 +167,8 @@
             {% assign classInsertion = "bestborder" %}
             {% assign useType= "Outdoor/Indoor" %}
       {% else %}
-            
+               {% assign classInsertion = "normalborder" %}
+            {% assign useType= "Outdoor/Indoor" %}
       {%endif%}
        
         <td class="comparisonchartdata {{ classInsertion }}">{{ useType }}</td>
