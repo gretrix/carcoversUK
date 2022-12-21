@@ -6,7 +6,9 @@
 <script>
   {% assign urlCheck = canonical_url | split: '/' %}
   console.log("{{ urlCheck[5] }}", "<----------------")
-
+  {% if urlCheck == "car" %}
+  console.log("THIS WORKED SUPRISINGLY")
+  {% endif %}
 
 
 </script>
