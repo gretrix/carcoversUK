@@ -11,6 +11,7 @@
      console.log("TESTING COMP CHART LOOP", {{chartData | json}})
      break;
   case "suv":
+  console.log("TESTING COMP CHART LOOP", {{chartData | json}})
     {% assign chartData = collections["suv-covers"].products| sort: "price" | reverse %}
     break;
 
