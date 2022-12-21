@@ -135,16 +135,17 @@
    {% for product in chartData %}
         
         {% if product.title contains "Platinum"  %}
-        
+          {% assign classInsertion = "bestborder" %}
           {% assign materialType = "Polyester <br />(outperforms 5 Layer Covers)" | newline_to_br | split: '<br />' %}
         {% elsif product.title contains "Satin"  %}
+          {% assign classInsertion = "indoorborder" %}
           {% assign materialType = "Ultra Soft Satin Strech" %}
         {% elsif product.title contains "Ultimate"  %}
           {% assign materialType = "Polypropylene <br />(Comparable to 5 Layer Covers)" | newline_to_br | split: '<br />' %}
         {% else %}
           {% assign materialType = "Polypropylene" %}
         {%endif%}
-     <td class="comparisonchartdata">{% for word in materialType %}
+     <td class="comparisonchartdata {{ classInsertion }}">{% for word in materialType %}
        <p>{{ word }}</p>
       {% endfor %}</td>
      
