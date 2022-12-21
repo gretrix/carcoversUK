@@ -7,7 +7,7 @@
   {% assign urlCheck = canonical_url | split: '/' %}
 
   {% if urlCheck[5] contains 'car' or urlCheck[5] == null %}
-    {% assign chartData = collections["car-covers"].products| sort: "id" | reverse %}
+    {% assign chartData = collections["car-covers"].products| sort: "tags" | reverse %}
   {% elsif urlCheck[5] contains 'suv' %}
     {% assign chartData = collections["suv-covers"].products| sort: "price" | reverse %}
   {% elsif urlCheck[5] contains 'truck' %}
