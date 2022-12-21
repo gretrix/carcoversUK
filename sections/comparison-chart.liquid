@@ -143,13 +143,8 @@
           {% assign materialType = "Polypropylene" %}
         {%endif%}
      <td class="comparisonchartdata">{% for word in materialType %}
-       
-  {% if materialType[2] %}
-      <p style="font-size: 12px; font-weight:bold;">{{ word }}</p>
-  {else}
-  <p >{{ word }}</p>
-  {% endif %}
-       {% endfor %}</td>
+       <p>{{ word }}</p>
+      {% endfor %}</td>
      
   
 
