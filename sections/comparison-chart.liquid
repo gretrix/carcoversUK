@@ -394,17 +394,21 @@
         <td class="comparisonchartdata">Fleece Liner</td>
   {% for product in chartData %}
     {% assign checkMark = "✓" %}
+    
       {% if product.title contains "Deluxe" or product.title contains "Basic" %}
           {% assign checkMark = "" %}
+          {% assign classInsertion = "normalborder" %}
       {% elsif product.title contains "Satin" %}
         {% assign checkMark = "Our SOFTEST Material" %}
+        {% assign classInsertion = "indoorborder" %}
+      {% elsif product.title contains "Platinum" %}
+        {% assign classInsertion = "bestborder" %}
       {% endif %}
     
-  <td class="comparisonchartdata bestborder">
+  <td class="comparisonchartdata {{ classInsertion }}">
      {% if checkMark != "✓" %}
             <span class="check">
-            
-          </span>
+            </span>
     {{ checkMark }}
       {% else %}
      <span class="check">
