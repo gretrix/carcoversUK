@@ -7,16 +7,16 @@
   {% assign urlCheck = canonical_url | split: '/' %}
   console.log("{{ urlCheck[5] }}", "<----------------")
   {% if urlCheck[5] contains 'car' %}
-   {% assign chartData = collections["car-covers"].products| sort: "price" | reverse %}
+    {% assign chartData = collections["car-covers"].products| sort: "price" | reverse %}
   {% elsif urlCheck[5] contains 'suv' %}
     {% assign chartData = collections["suv-covers"].products| sort: "price" | reverse %}
-     {% elsif urlCheck[5] contains 'truck' %}
+  {% elsif urlCheck[5] contains 'truck' %}
     {% assign chartData = collections["truck-covers"].products| sort: "price" | reverse %}
-     {% elsif urlCheck[5] contains 'van' %}
+  {% elsif urlCheck[5] contains 'van' %}
     {% assign chartData = collections["van-covers"].products| sort: "price" | reverse %}
-   {% elsif urlCheck[5] contains 'motorcycle' %}
+  {% elsif urlCheck[5] contains 'motorcycle' %}
     {% assign chartData = collections["motorcycle-covers"].products| sort: "price" | reverse %}
-    {% elsif urlCheck[5] contains 'scooter' %}
+  {% elsif urlCheck[5] contains 'scooter' %}
     {% assign chartData = collections["scooter-covers"].products| sort: "price" | reverse %}
   {% endif %}
 
