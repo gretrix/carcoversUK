@@ -20,9 +20,10 @@
     {% assign chartData = collections["scooter-covers"].products %}
     {% elsif urlCheck[5] contains 'jet_ski' %}
      {% paginate collection.products by 4 %}
+       {% assign chartData = collections["jet-ski-covers"].products %}
       {{- paginate | default_pagination }}
     {% endpaginate %}
-        {% assign chartData = collections["jet-ski-covers"].products %}
+        
       
     {% elsif urlCheck[5] contains 'snowmobile' %}
     {% assign chartData = collections["snowmobile-covers"].products %}
