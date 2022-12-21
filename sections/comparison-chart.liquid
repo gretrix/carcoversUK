@@ -64,14 +64,7 @@
 </tr>
 <tr class="comparisonchartrow">
   <td class="comparisonchartdata"></td>
-  {% for product in chartData %}
-                   {% if product.title contains "Platinum"  %}
-          {% assign classInsertion = "bestborder" %}
-        {% elsif product.title contains "Satin"  %}
-          {% assign classInsertion = "indoorborder" %}
-        {% else%}
-             {% assign classInsertion = "normalborder" %}
-        {%endif%}
+
       
  
      <th class="comparisoncharthead {{ classInsertion }}">
@@ -89,7 +82,7 @@
           <div class="protection">TOP LEVEL PROTECTION</div>
         </th>
   
-  {% endfor %}
+
 </tr>
 
 <tr class="comparisonchartrow">
