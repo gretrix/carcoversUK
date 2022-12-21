@@ -403,6 +403,8 @@
         {% assign classInsertion = "indoorborder" %}
       {% elsif product.title contains "Platinum" %}
         {% assign classInsertion = "bestborder" %}
+        {% else %}
+        {% assign classInsertion = "normalborder" %}
       {% endif %}
     
   <td class="comparisonchartdata {{ classInsertion }}">
