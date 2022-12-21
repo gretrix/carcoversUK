@@ -423,10 +423,15 @@
 <tr class="comparisonchartrow">
         <td class="comparisonchartdata">Lightweight</td>
   {% for product in chartData %}
+    
     {% assign checkMark = "✓" %}
      
       {% if product.title contains "Ultimate" %}
         {% assign checkMark = "Our HEAVIEST Material" %}
+      {% elsif product.title contains "Platinum" %}
+        {% assign classInsertion = "bestborder" %}
+          {% elsif product.title contains "Satin" %}
+        {% assign classInsertion = "indoorborder" %}
       {% endif %}
     
   <td class="comparisonchartdata bestborder">
