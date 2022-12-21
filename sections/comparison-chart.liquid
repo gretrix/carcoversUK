@@ -3,23 +3,23 @@
 <!-- Below are variables for the primary product -->
 {% assign main_product_singular = 'Snowmobile' %} {% assign main_product_plural
 = 'Snowmobiles' %} {% assign main_product_website = 'Snowmobilecover.com' %}
-<!-- <script> -->
- // switch (vehicleInfo.vehtype){
- //   case "car":
- //      chartData = {{collections["car-covers"].products| json}}
+<script>
+  {% assign urlCheck = canonical_url | split: '/' %}
+  console.log("TESTER TESTER TESTER", urlCheck[5])
+ switch (vehicleInfo.vehtype){
+   case "car":
+      chartData = {{collections["car-covers"].products| json}}
    
- //     console.log("TESTING COMP CHART LOOP", chartData)
- //     break;
- //  case "suv":
- //  console.log("TESTING COMP CHART LOOP", {{chartData | json}})
- //    {% assign chartData = collections["suv-covers"].products| sort: "price" | reverse %}
- //    break;
-{% assign urlCheck = canonical_url | split : "/" %}
-<script>console.log("THIS IS THE WORD", "{{urlCheck[5]}}")</script>
- // }
-<!-- </script> -->
-{% assign urlCheck =  %}
-console.log("THIS IS THE WORD", "{{urlCheck[5]}}")
+     console.log("TESTING COMP CHART LOOP", chartData)
+     break;
+  case "suv":
+  console.log("TESTING COMP CHART LOOP", {{chartData | json}})
+    {% assign chartData = collections["suv-covers"].products| sort: "price" | reverse %}
+    break;
+
+ }
+</script>
+
 <!-- Start HTML for comparison chart section -->
 
 <div class="chart-container">
