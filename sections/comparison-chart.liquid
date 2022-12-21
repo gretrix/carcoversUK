@@ -6,7 +6,7 @@
 <script>
  switch (vehicleInfo.vehtype){
    case "car":
-      chartData = {{collections["car-covers"].products| sort: "price" | reverse}}
+      chartData = {{collections["car-covers"].products| json}}
    
      console.log("TESTING COMP CHART LOOP", chartData)
      break;
