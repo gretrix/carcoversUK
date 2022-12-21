@@ -115,16 +115,16 @@
   <td class="comparisonchartdata"></td>
    {% for product in chartData %}
            {% if product.title contains "Platinum"  %}
-          {% assign classInsertion = "bestborder" %}
-          {% assign fillColor = "best" %}
+          {% assign classInsertion = "best bestborder" %}
         {% elsif product.title contains "Satin"  %}
-          {% assign classInsertion = "indoorborder" %}
-          {% assign fillColor = "satin" %}
+          {% assign classInsertion = "satin indoorborder" %}
+        {% else%}
+             {% assign classInsertion = "comparisoncharthead" %}
         {%endif%}
         <th
-          class="comparisoncharthead {{ fillColor }} {{ classInsertion }}"
+          class="comparisoncharthead best bestborder"
           
-        >
+     >
           {{ product.title }}
         </th>
 
