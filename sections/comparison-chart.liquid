@@ -471,6 +471,7 @@
         </td>
   {% endfor %}
 </tr>
+      {% if urlCheck contains "snowmobile"%}
 <tr class="comparisonchartrow">
         <td class="comparisonchartdata">Buckle & Strap System</td>
   {% for product in chartData %}
@@ -501,6 +502,7 @@
         </td>
   {% endfor %}
 </tr>
+  {% endif %}
 <tr class="comparisonchartrow">
         <td class="comparisonchartdata">Free Storage Bag</td>
   {% for product in chartData %}
