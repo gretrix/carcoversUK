@@ -245,7 +245,7 @@
 <tr class="comparisonchartrow">
     <td class="comparisonchartdata">Snow</td>
 {% for product in chartData %}       
-                      {% if product.title contains "Platinum"  %}
+            {% if product.title contains "Platinum"  %}
           {% assign classInsertion = "bestborder" %}
         {% elsif product.title contains "Satin"  %}
           {% assign classInsertion = "comparisonchartdata indoorborder" %}
@@ -256,7 +256,8 @@
         <td class="comparisonchartdata {{classInsertion}} clip-star-container-plus">
            <div class="divPad">
              {% if product.title contains "Satin"%} 
-            <div stlye = "text-align: center">Indoor Only</div>
+                        <div style="text-align:center">Indoor Only</div>
+
             {% elsif product.title contains "Platinum" %}
             <div class="clip-star"></div>
             <div class="clip-star"></div>
