@@ -15,14 +15,14 @@
   console.log("TESTING COMP CHART LOOP", {{chartData | json}})
     {% assign chartData = collections["suv-covers"].products| sort: "price" | reverse %}
     break;
-{% assign urlCheck = page_url | split: '/' %}
+{% assign urlCheck = canonical_url | split: '/' %}
 
 {% for word in urlCheck %}
 
                 console.log("THIS IS THE WORD", "{{word}}")
 
 {% endfor %}
- }
+ 
 
 </script>
 
