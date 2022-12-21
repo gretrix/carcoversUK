@@ -19,7 +19,9 @@
   {% elsif urlCheck[5] contains 'scooter' %}
     {% assign chartData = collections["scooter-covers"].products %}
     {% elsif urlCheck[5] contains 'jet_ski' %}
-      
+     {% paginate collection.products by 4 %}
+      {{- paginate | default_pagination }}
+    {% endpaginate %}
         {% assign chartData = collections["jet-ski-covers"].products %}
       
     {% elsif urlCheck[5] contains 'snowmobile' %}
