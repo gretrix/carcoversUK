@@ -398,7 +398,7 @@
   {% for product in chartData %}
     {% assign checkMark = "✓" %}
     
-      {% if product.title contains "Deluxe" or product.title contains "Basic" %}
+      {% if product.title contains "Deluxe" or product.title contains "Basic" or product.title contains "standard" %}
           {% assign checkMark = "" %}
           {% assign classInsertion = "normalborder" %}
       {% elsif product.title contains "Satin" %}
