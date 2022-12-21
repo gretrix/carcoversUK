@@ -6,7 +6,7 @@
 <script>
   {% assign urlCheck = canonical_url | split: '/' %}
   console.log("{{ urlCheck[5] }}", "<----------------")
-  {% if urlCheck != null %}
+  {% if urlCheck[5] contains 'car' %}
    {% assign chartData = collections["car-covers"].products| sort: "price" | reverse %}
   {% endif %}
 
