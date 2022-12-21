@@ -454,7 +454,14 @@
 <tr class="comparisonchartrow">
         <td class="comparisonchartdata">Breathable</td>
   {% for product in chartData %}
-    <td class="comparisonchartdata bestborder">
+                   {% if product.title contains "Platinum"  %}
+          {% assign classInsertion = "bestborder" %}
+        {% elsif product.title contains "Satin"  %}
+          {% assign classInsertion = "indoorborder" %}
+        {% else%}
+             {% assign classInsertion = "normalborder" %}
+        {%endif%}
+    <td class="comparisonchartdata {{ classInsertion }}">
           <span class="check">✓</span>
         </td>
   {% endfor %}
@@ -462,7 +469,14 @@
 <tr class="comparisonchartrow">
         <td class="comparisonchartdata">Buckle & Strap System</td>
   {% for product in chartData %}
-    <td class="comparisonchartdata bestborder">
+                   {% if product.title contains "Platinum"  %}
+          {% assign classInsertion = "bestborder" %}
+        {% elsif product.title contains "Satin"  %}
+          {% assign classInsertion = "indoorborder" %}
+        {% else%}
+             {% assign classInsertion = "normalborder" %}
+        {%endif%}
+    <td class="comparisonchartdata {{ classInsertion }}">
           <span class="check">✓</span>
         </td>
   {% endfor %}
@@ -470,7 +484,14 @@
 <tr class="comparisonchartrow">
         <td class="comparisonchartdata">Double Stiched Seams & Elasticized Hems</td>
   {% for product in chartData %}
-    <td class="comparisonchartdata bestborder">
+                   {% if product.title contains "Platinum"  %}
+          {% assign classInsertion = "bestborder" %}
+        {% elsif product.title contains "Satin"  %}
+          {% assign classInsertion = "indoorborder" %}
+        {% else%}
+             {% assign classInsertion = "normalborder" %}
+        {%endif%}
+    <td class="comparisonchartdata {{ classInsertion }}">
           <span class="check">✓</span>
         </td>
   {% endfor %}
@@ -478,7 +499,14 @@
 <tr class="comparisonchartrow">
         <td class="comparisonchartdata">Free Storage Bag</td>
   {% for product in chartData %}
-  <td class="comparisonchartdata bestborder">
+                   {% if product.title contains "Platinum"  %}
+          {% assign classInsertion = "bestborder" %}
+        {% elsif product.title contains "Satin"  %}
+          {% assign classInsertion = "indoorborder" %}
+        {% else%}
+             {% assign classInsertion = "normalborder" %}
+        {%endif%}
+  <td class="comparisonchartdata {{ classInsertion }}">
           <span class="check">✓</span> ($20 Value)
         </td>
   {% endfor %}
@@ -487,7 +515,14 @@
 <tr class="comparisonchartrow">
         <td class="comparisonchartdata">Free Antenna Patch</td>
   {% for product in chartData %}
-    <td class="comparisonchartdata bestborder">
+                   {% if product.title contains "Platinum"  %}
+          {% assign classInsertion = "bestborder" %}
+        {% elsif product.title contains "Satin"  %}
+          {% assign classInsertion = "indoorborder" %}
+        {% else%}
+             {% assign classInsertion = "normalborder" %}
+        {%endif%}
+    <td class="comparisonchartdata {{ classInsertion }}">
           <span class="check">✓</span>($10 Value)
         </td>
   {% endfor %}
@@ -495,7 +530,14 @@
 <tr class="comparisonchartrow">
         <td class="comparisonchartdata">Free Cable & Lock</td>
   {% for product in chartData %}
-    <td class="comparisonchartdata bestborder">
+                   {% if product.title contains "Platinum"  %}
+          {% assign classInsertion = "bestborder" %}
+        {% elsif product.title contains "Satin"  %}
+          {% assign classInsertion = "indoorborder" %}
+        {% else%}
+             {% assign classInsertion = "normalborder" %}
+        {%endif%}
+    <td class="comparisonchartdata {{ classInsertion }}">
     {% if product.title contains "Platinum" or product.title contains "Ultimate" %}
           <span class="check">✓</span>($15 Value)
     {% endif %}
@@ -505,7 +547,14 @@
 <tr class="comparisonchartrow">
         <td class="comparisonchartdata">Free Shipping</td>
   {% for product in chartData %}
-    <td class="comparisonchartdata bestborder">
+                   {% if product.title contains "Platinum"  %}
+          {% assign classInsertion = "bestborder" %}
+        {% elsif product.title contains "Satin"  %}
+          {% assign classInsertion = "indoorborder" %}
+        {% else%}
+             {% assign classInsertion = "normalborder" %}
+        {%endif%}
+    <td class="comparisonchartdata {{ classInsertion }}">
     
           <span class="check">✓</span>($15 Value)
   
