@@ -5,7 +5,7 @@
 = 'Snowmobiles' %} {% assign main_product_website = 'Snowmobilecover.com' %}
 <script>
   {% assign urlCheck = canonical_url | split: '/' %}
-  console.log("{{ cartData | json}}", "<----------------")
+
   {% if urlCheck[5] contains 'car' or urlCheck[5] == null %}
     {% assign chartData = collections["car-covers"].products| sort: "price" | reverse %}
   {% elsif urlCheck[5] contains 'suv' %}
@@ -21,7 +21,7 @@
     {% elsif urlCheck[5] contains 'jet_ski' %}
     {% assign chartData = collections["jet-ski-covers"].products| sort: "price" | reverse %}
   {% endif %}
-
+  console.log("{{ cartData | json}}", "<----------------")
 
 </script>
 
