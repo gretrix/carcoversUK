@@ -46,7 +46,13 @@
           
       
        <th class="comparisoncharthead {}" style="background-color: white">
-         <div class="">#1 Best Seller</div>
+         {% if product.title contains "Platinum" %}
+         <div class="best">#1 Best Seller</div>
+           {% elsif product.title contains "Satin" %}
+         <div class="best">#1 Best Seller</div>
+           {%else%}
+           <div></div>
+        {% endif %}
        </th>
         
         {% endfor %}
@@ -764,6 +770,14 @@
   <!--Comparison chart CSS-->
 
   <style>
+    .satin{
+      
+          background-color: #f93;
+          border-radius: 8px 8px 0 0;
+          border: 1px;
+        
+    
+    }
     /* Comparison Chart Section */
     .comparisonchartdata {
       /*white-space: nowrap;*/
@@ -1055,6 +1069,7 @@
         font-size: 10px;
       }
     }
+    
     @media screen and (max-width: 1275px) {
       .chart-container {
         overflow-x: scroll;
