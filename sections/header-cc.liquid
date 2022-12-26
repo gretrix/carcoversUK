@@ -22,7 +22,7 @@
         }
     
        console.log("THIS IS SNOWMOBILE VEHTYPE CHECK", vehicleInfo)
-    vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.vehtype;
+    vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.bodytype;
         
     }
   //If you are on product page UrlVehicleInfo is derived this way notice -cover is singular
@@ -40,7 +40,7 @@
             "bodytype": urlVehicleInfo[4] ? urlVehicleInfo[4].replace(/_/g, " ") : ""
         }
         
-        vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.vehtype;
+        vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.bodytype;
         
     }
 //If you are on subpage urlVehilceInfo is derived this way notice cover-subpage
@@ -60,7 +60,7 @@
               "year": urlVehicleInfo[4] ? urlVehicleInfo[4].replace(/_/g, " ") : "",
               "bodytype": ""
           }
-		vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.vehtype 
+		vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.bodytype 
  
          // allows for dynamic data in these subpages without breaking the api call. API CALL NEEDS BOTH ATVANDUTV
          window.location.pathname.split("/")[3].split('&')[0] === "atv" || window.location.pathname.split("/")[3].split('&')[0] === "utv" ?  vehicleInfo.vehtype = "atv and utv" : vehicleInfo.vehtype
@@ -86,7 +86,7 @@
             "year": landingPagePath[3] ? landingPagePath[3].replace(/_/g, " ") : "",
             "bodytype": ""
         }
-  vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.vehtype 
+  vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.bodytype 
 
     }
     else
@@ -103,7 +103,7 @@
             "year": "",
             "bodytype": ""
         } 
-        vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.vehtype;
+        vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.bodytype;
       
       $(".free-prod-banner").hide()
     }
@@ -125,7 +125,7 @@
 
  document.addEventListener('DOMContentLoaded', function () {
   $(".veh-instance").text(`${vehicleInfoString}`)
-  $(".veh-instance-caps").text(`${vehicleInfoString}`)
+  $(".veh-instance-caps").text(${vehicleInfoString})
   
 }, false); 
 
@@ -202,7 +202,7 @@
       	<h1 style="margin:auto 0;">
           
 
-          	<a href="/" onclick=set_veh_type('Car') title= '{{main_product_singular}} Cover Homepage'>
+          	<a href="/" onclick=set_veh_type('Snowmobile') title= '{{main_product_singular}} Cover Homepage'>
               <span class="vehicle-title" ></span><img alt= "{{main_product_singular}} Cover Logo" src="https://cdn.shopify.com/s/files/1/0594/7172/4696/files/carcoversLogo_300x_1.png?v=1670342156">
           	</a>
         </h1>
@@ -469,7 +469,7 @@ function mobileLinksToggle() {
 function set_veh_type(veh_type){
     localStorage.setItem('vehicle_type', veh_type)
 }
-  vehicleInfoString === "" ? $('.vehicle-title').text("Car Cover") : $('.vehicle-title').text(vehicleInfoString);
+  vehicleInfoString === "" ? $('.vehicle-title').text("Snowmobile Cover") : $('.vehicle-title').text(vehicleInfoString + " Snowmobile Cover");
 
 $('.vehicle-title').hide();
   function addToCart(passedProduct, event) {
