@@ -720,7 +720,7 @@ $('#page-title').text(vehicleInfoString).hide()
     pageData.mainVideo ? 
       $('.subpage-video').attr('src', pageData.videoLinks.mainVideo) : $('.ipp-iframe-container').hide();
     //sets slider images
-    slider = pageData.slider;
+    slider = pageData.slider ? slider : slider = type_car.slider;
     console.log("Test Slider Data:", pageData, slider);
     //hide comparison chart
     $("#shopify-section-comparison-chart").hide();
