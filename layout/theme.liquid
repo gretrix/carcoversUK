@@ -46,7 +46,7 @@
     	<script>
           console.log("Test Shopifys1:",{{descriptionUrlStringArray | json }});
           console.log("Test Shopifys1:",{{vehMake| json }});
-          console.log("Test Shopifys2:","{{ seoTitle }} Covers | Guaranteed Fit | Free Shipping");
+          console.log("Test Shopifys2:","{{ seoTitle | json }} Covers | Guaranteed Fit | Free Shipping");
         </script>	
     	<title>
           {% for word in descriptionUrlStringArray %} {{ word | capitalize}}{% endfor %} Covers | Guaranteed Fit | Free Shipping
