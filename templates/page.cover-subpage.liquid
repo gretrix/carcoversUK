@@ -283,6 +283,9 @@
         {% assign vehTypeCheck = descriptionUrlStringArray[0] %}
         {% if vehTypeCheck.size == 3 %}
           {% assign vehType = vehTypeCheck[0] | upcase %}
+           <script>
+    console.log("THIS IS THE INFORMATIONAL TITLE", {{vehTypeCheck.size | json}})
+  </script>
          {% else %}
           {% assign vehType = vehTypeCheck[0] %}
         {% endif %}
@@ -292,9 +295,7 @@
    {% capture seoTitle %}
           {{ vehYear | capitalize }} {{ vehMake | capitalize }} {{ vehModel | capitalize }} {{ vehType | capitalize }} 
   {% endcapture %}
-  <script>
-    console.log("THIS IS THE INFORMATIONAL TITLE", {{vehTypeCheck.size | json}})
-  </script>
+ 
 <h3 style="font-style: italic; font-weight: bold;" class="text-primary">When will my semi-custom {{seoTitle}} cover arrive?</h3>
   <p>Depending on your order, it may ship the same day it was ordered. Most covers are shipped the next business day and take between two to five business days to receive. Residents outside of the contiguous U.S. can experience a longer delivery time.
   </p>
