@@ -70,6 +70,8 @@
 <tr class="comparisonchartrow">
   <td class="comparisonchartdata"></td>
   {% for product in chartData %}
+    {% assign classInsertion = "normalborder" %}
+    {% assign photoComment = "RELIABLE INDOOR/OUTDOOR PROTECTION"  %}
         {% if product.title contains "Platinum"  %}
           {% assign classInsertion = "bestborder" %}
           {% assign photoComment = "TOP LEVEL PROTECTION"  %}
@@ -77,14 +79,9 @@
           {% assign classInsertion = "indoorborder" %}
           {% assign photoComment = "INDOOR DIRT & DUST PROTECTION"  %}
         {% elsif product.title contains "Ultimate"%}
-          {% assign classInsertion = "normalborder" %}
+          
           {% assign photoComment = "EXCEPTIONAL YEAR ROUND PROTECTION"  %}
-        {% elsif product.title contains "Deluxe"%}
-          {% assign classInsertion = "normalborder" %}
-          {% assign photoComment = "RELIABLE INDOOR/OUTDOOR PROTECTION"  %}
-            {% elsif product.title contains "Basic"%}
-          {% assign classInsertion = "normalborder" %}
-          {% assign photoComment = "RELIABLE INDOOR/OUTDOOR PROTECTION"  %}
+          
         {%endif%}
       
  
