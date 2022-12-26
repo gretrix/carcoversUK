@@ -280,11 +280,11 @@
     {% endif %}
     
     	  {% assign descriptionUrlStringArray = urlParts[5] | split: "&" %}
-        
-        {% if  descriptionUrlStringArray[0].size = 3 %}
-          {% assign vehType = descriptionUrlStringArray[0] | upcase %}
-        {% else %}
-          {% assign vehType = descriptionUrlStringArray[0] %}
+        {% assign vehTypeCheck = descriptionUrlStringArray[0] %}
+        {% if vehTypeChek.size == 3 %}
+          {% assign vehType = vehTypeCheck[0] | upcase %}
+         {% else %}
+          {% assign vehType = vehTypeCheck[0] %}
         {% endif %}
        {% assign vehMake = descriptionUrlStringArray[1] %}
        {% assign vehModel = descriptionUrlStringArray[2] %}
