@@ -672,12 +672,7 @@
         },
       });
     }
-  	else
-    {
-      //This will redirect to the collection page if you have all the vehicleInfo
-      window.location.replace(`${window.location.origin}/collections/${vehicleInfo.vehtype.replace(/ /g, "-")}-covers/${vehicleInfo.make.replace(" ","-")}&${vehicleInfo.model.replace(/ /g, "_")}&${vehicleInfo.year}`);
-      
-    }
+  
   	
   		vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model;
   	
