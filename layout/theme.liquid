@@ -33,7 +33,7 @@
        {% assign vehMake = descriptionUrlStringArray[1] %}
        {% assign vehModel = descriptionUrlStringArray[2] %}
       {% assign vehYear = descriptionUrlStringArray[3] %}
-       {% assign seoTitle = vehYear | append: vehType%}
+       {% assign seoTitle = vehYear | append: vehType | append: vehMake | append : vehModel%}
     {% else if urlParts[4] != null %}
     	{% assign descriptionUrlStringArray = urlParts[4] | split: "-" %}
       
