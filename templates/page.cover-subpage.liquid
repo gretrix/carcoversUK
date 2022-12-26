@@ -21,12 +21,12 @@
    
    // allows for dynamic data in these subpages without breaking the api call. API CALL NEEDS BOTH ATVANDUTV
    window.location.pathname.split("/")[3].split('&')[0] === "atv" || window.location.pathname.split("/")[3].split('&')[0] === "utv" ?  vehicleInfo.bodytype = "atv and utv" : vehicleInfo.bodytype
-     pageInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.bodytype + " Covers";
+     
 */
    {% assign subpageType = request.path | split: '/' %}
    {% assign collectionHandle = subpageType[3] | append: "-covers" %}
  
-   
+   pageInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.bodytype + " Covers";
    console.log("test:", "{{ collectionHandle }}");
                
   
