@@ -34,8 +34,13 @@
       
     {% endif %}
     
-    	  {% assign descriptionUrlStringArray = urlParts[5] | split: "&" %}
-        {% assign vehType = descriptionUrlStringArray[0] %}
+    	{% assign descriptionUrlStringArray = urlParts[5] | split: "&" %}
+         {% assign vehTypeCheck = descriptionUrlStringArray[0] %}
+        {% if vehTypeCheck.size == 3 %}
+          {% assign vehType = vehTypeCheck | upcase %
+         {% else %}
+          {% assign vehType = vehTypeCheck[0] | capitalize %}
+        {% endif %}
        {% assign vehMake = descriptionUrlStringArray[1] %}
        {% assign vehModel = descriptionUrlStringArray[2] %}
       {% assign vehYear = descriptionUrlStringArray[3] %}
