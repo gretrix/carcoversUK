@@ -663,9 +663,11 @@
                       lastColumnElement = document.querySelector(".car-subpage-category-links .car-subpage-category-links-column:last-child");
                   }
                   //tweaked some of the formating here for clean linking throughout all subpages didnt account for spaces in make model types. 
-            
+  
               lastColumnElement.innerHTML = lastColumnElement.innerHTML+ "<li><a href='"+ window.location.pathname + "&" + data[i].replace(/ /g, "_") +"' title='" + vehicleInfo.make + vehicleInfo.model.replace(/_/g,  " ") +" " + data[i] +" " + vehicleInfo.vehtype + " Covers'>"+ vehicleInfo.make +" " + vehicleInfo.model.replace(/_/g,  " ") +" " + data[i] +" " + vehicleInfo.vehtype + " Covers</a></li>";
-
+              if(if(vehicleInfo.vehtype && vehicleInfo.make && vehicleInfo.model){
+                console.log("THIS IS THE LAST COLUMN ELEMENT REDIRECT TO COLLECTION", lastColumnElement)
+              }
               }
         },
       });
