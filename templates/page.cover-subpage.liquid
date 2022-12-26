@@ -1,4 +1,7 @@
 <!-- Below are variables for the primary product -->
+<script>
+ console.log("First ran script", {{vehType}})
+</script>
 {% assign subpageType = request.path | split: '/' %}
 {% assign subpageSection = subpageType[3] | split: "&"%}
 {% assign main_product_singular = subpageSection[0] %}
@@ -25,6 +28,7 @@
    window.location.pathname.split("/")[3].split('&')[0] === "atv" || window.location.pathname.split("/")[3].split('&')[0] === "utv" ?  vehicleInfo.bodytype = "atv and utv" : vehicleInfo.bodytype
      
 */
+
    {% assign subpageType = request.path | split: '/' %}
    {% assign collectionHandle = subpageType[3] | append: "-covers" %}
  
