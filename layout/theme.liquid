@@ -37,7 +37,7 @@
     	
     {% if urlParts[4] != null%}
     	<script>
-          console.log("Test Shopifys1:",{{year}});
+          console.log("Test Shopifys1:",{{year | json}});
           console.log("Test Shopifys2:","{% for word in descriptionUrlStringArray %} {{ word | capitalize}}{% endfor %} Covers | Guaranteed Fit | Free Shipping");
         </script>	
     	<title>
