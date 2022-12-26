@@ -34,7 +34,7 @@
        {% assign vehModel = descriptionUrlStringArray[2] %}
       {% assign vehYear = descriptionUrlStringArray[3] %}
    {% capture seoTitle %}
-      {{ vehYear }} {{ vehMake }} {{ vehModel }} {{ vehType }} Covers
+      {{ vehYear }} {{ vehMake }} {{ vehModel }} {{ vehType }} 
   {% endcapture %}
     {% else if urlParts[4] != null %}
     	{% assign descriptionUrlStringArray = urlParts[4] | split: "-" %}
@@ -46,7 +46,7 @@
     	<script>
           console.log("Test Shopifys1:",{{descriptionUrlStringArray | json }});
           console.log("Test Shopifys1:",{{vehMake| json }});
-          console.log("Test Shopifys2:","{% for word in seoTitle %} {{ word | capitalize}}{% endfor %} Covers | Guaranteed Fit | Free Shipping");
+          console.log("Test Shopifys2:","{{ seoTitle }} Covers | Guaranteed Fit | Free Shipping");
         </script>	
     	<title>
           {% for word in descriptionUrlStringArray %} {{ word | capitalize}}{% endfor %} Covers | Guaranteed Fit | Free Shipping
