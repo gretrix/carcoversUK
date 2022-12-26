@@ -282,7 +282,7 @@
     	  {% assign descriptionUrlStringArray = urlParts[5] | split: "&" %}
         {% assign vehTypeCheck = descriptionUrlStringArray[0] %}
         {% if vehTypeCheck.size == 3 %}
-          {% assign vehType = vehTypeCheck[0] | upcase %}
+          {% assign vehType = vehTypeCheck | upcase %}
            <script>
     console.log("THIS IS THE INFORMATIONAL TITLE", {{vehTypeCheck | json}})
   </script>
