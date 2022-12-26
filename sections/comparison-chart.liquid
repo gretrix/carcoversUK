@@ -143,7 +143,7 @@
           {% assign classInsertion = "normalborder" %}
           {% assign materialType = "Polypropylene" %}
         {%endif%}
-     <td class="comparisonchartdata {{ classInsertion }}">{% for word in materialType %}
+     {% for word in materialType %}
        <p>{{ word }}</p>
       {% endfor %}</td>
      
@@ -589,7 +589,7 @@
       width: 200px;
       min-width: 200px;
     }
-.comparisonchartdata material {
+.comparisonchartdata {
   margin: 0px;
   color: red;
 }
