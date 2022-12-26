@@ -285,7 +285,12 @@
        {% assign vehModel = descriptionUrlStringArray[2] %}
       {% assign vehYear = descriptionUrlStringArray[3] %}
    {% capture seoTitle %}
-          {{ vehYear | capitalize }} {{ vehMake | capitalize }} {{ vehModel | capitalize }} {{ vehType | capitalize }} 
+          {{ vehYear | capitalize }} {{ vehMake | capitalize }} {{ vehModel | capitalize }} 
+     {% if vehType.size = 3 %}
+       {{ vehType | upcase }} 
+    {% else %}
+       {{ vehType | capitalize }} 
+    {% endif %}
   {% endcapture %}
 <h3 style="font-style: italic; font-weight: bold;" class="text-primary">When will my semi-custom {{seoTitle}} cover arrive?</h3>
   <p>Depending on your order, it may ship the same day it was ordered. Most covers are shipped the next business day and take between two to five business days to receive. Residents outside of the contiguous U.S. can experience a longer delivery time.
