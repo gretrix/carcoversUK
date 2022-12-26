@@ -604,23 +604,23 @@
    if( vehicleInfo.make == "")
    {
    		 apiLink = "https://api.carcovers.com/getMakes.php?type=" + vehicleInfo.vehtype;
-     console.log("APICHECK1", apiLink)
+    
      
    }else if( vehicleInfo.model == "")
    {
    		 apiLink = "https://api.carcovers.com/getModels.php?type=" + vehicleInfo.vehtype + "&make=" + vehicleInfo.make;
-     console.log("APICHECK2", apiLink)
+ 
    }
   	else if( vehicleInfo.year == "")
    {
    		 apiLink = "https://api.carcovers.com/getModels.php?type=" + vehicleInfo.vehtype + "&make=" + vehicleInfo.make+ "&model=" + vehicleInfo.model;
-     console.log("APICHECK3", apiLink)
+
    }
   	else if(vehicleInfo.vehtype == "")
     {
       	
     	apiLink = "https://api.carcovers.com/getCars.php?type=" + vehicleInfo.vehtype + "&make=" + vehicleInfo.make+ "&model=" + vehicleInfo.model;
-      	console.log("APICHECK4", apiLink)
+ 
       
     }
     else{    
@@ -630,14 +630,13 @@
   	
   	if(needMoreInfo)
     {
-      	console.log("read apiLink right before AJAX Call", apiLink)
+      	
        $.ajax({
           url: apiLink,
           type: "GET",
           dataType: "json",
           success: function (data) {
-            console.log("HERE IS THE API LINK AT REQUEST", apiLink)
-            console.log("HERE IS THE DATA RETURNED", data)
+           
             if(window.innerWidth > 430)
             divider = Math.ceil((data.length/5));
             if(window.innerWidth <= 430)
@@ -666,7 +665,7 @@
   
               lastColumnElement.innerHTML = lastColumnElement.innerHTML+ "<li><a href='"+ window.location.pathname + "&" + data[i].replace(/ /g, "_") +"' title='" + vehicleInfo.make + vehicleInfo.model.replace(/_/g,  " ") +" " + data[i] +" " + vehicleInfo.vehtype + " Covers'>"+ vehicleInfo.make +" " + vehicleInfo.model.replace(/_/g,  " ") +" " + data[i] +" " + vehicleInfo.vehtype + " Covers</a></li>";
               if(vehicleInfo.vehtype && vehicleInfo.make && vehicleInfo.model){
-                console.log("THIS IS THE LAST COLUMN ELEMENT REDIRECT TO COLLECTION", $(".car-subpage-category-links-column a")[i].href = `/collections/${vehicleInfo.vehtype.replace(/ /g, "-")}-covers/${vehicleInfo.make.replace(" ","-")}&${vehicleInfo.model.replace(/ /g, "_")}&${data[i]}`)
+                $(".car-subpage-category-links-column a")[i].href = `/collections/${vehicleInfo.vehtype.replace(/ /g, "-")}-covers/${vehicleInfo.make.replace(" ","-")}&${vehicleInfo.model.replace(/ /g, "_")}&${data[i]}`)
               }
               }
         },
