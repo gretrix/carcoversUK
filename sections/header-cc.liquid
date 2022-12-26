@@ -22,7 +22,7 @@
         }
     
        console.log("THIS IS SNOWMOBILE VEHTYPE CHECK", vehicleInfo)
-    vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.bodytype;
+    vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.vehtype;
         
     }
   //If you are on product page UrlVehicleInfo is derived this way notice -cover is singular
@@ -40,7 +40,7 @@
             "bodytype": urlVehicleInfo[4] ? urlVehicleInfo[4].replace(/_/g, " ") : ""
         }
         
-        vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.bodytype;
+        vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.vehtype;
         
     }
 //If you are on subpage urlVehilceInfo is derived this way notice cover-subpage
@@ -60,7 +60,7 @@
               "year": urlVehicleInfo[4] ? urlVehicleInfo[4].replace(/_/g, " ") : "",
               "bodytype": ""
           }
-		vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.bodytype 
+		vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.vehtype 
  
          // allows for dynamic data in these subpages without breaking the api call. API CALL NEEDS BOTH ATVANDUTV
          window.location.pathname.split("/")[3].split('&')[0] === "atv" || window.location.pathname.split("/")[3].split('&')[0] === "utv" ?  vehicleInfo.vehtype = "atv and utv" : vehicleInfo.vehtype
@@ -86,7 +86,7 @@
             "year": landingPagePath[3] ? landingPagePath[3].replace(/_/g, " ") : "",
             "bodytype": ""
         }
-  vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.bodytype 
+  vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.vehtype 
 
     }
     else
@@ -103,7 +103,7 @@
             "year": "",
             "bodytype": ""
         } 
-        vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.bodytype;
+        vehicleInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.vehtype;
       
       $(".free-prod-banner").hide()
     }
@@ -112,7 +112,7 @@
     
  	
  	vehicleInfoString = vehicleInfoString.replace(/\s+/g,' ').trim();
-  	pageInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.vehtype + " Covers";
+  	pageInfoString = vehicleInfo.year + " " + vehicleInfo.make + " " + vehicleInfo.model + " " + vehicleInfo.bodytype + " Covers";
   
   	function capitalizeWords(arr) {
   return arr.map(element => {
