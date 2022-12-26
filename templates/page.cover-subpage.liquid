@@ -666,7 +666,7 @@
   
               lastColumnElement.innerHTML = lastColumnElement.innerHTML+ "<li><a href='"+ window.location.pathname + "&" + data[i].replace(/ /g, "_") +"' title='" + vehicleInfo.make + vehicleInfo.model.replace(/_/g,  " ") +" " + data[i] +" " + vehicleInfo.vehtype + " Covers'>"+ vehicleInfo.make +" " + vehicleInfo.model.replace(/_/g,  " ") +" " + data[i] +" " + vehicleInfo.vehtype + " Covers</a></li>";
               if(vehicleInfo.vehtype && vehicleInfo.make && vehicleInfo.model){
-                console.log("THIS IS THE LAST COLUMN ELEMENT REDIRECT TO COLLECTION", $(".car-subpage-category-links-column a")[i].href = `${window.location.origin}/collections/${vehicleInfo.vehtype.replace(/ /g, "-")}-covers/${data[i].replace(/ /g, "_")}`)
+                console.log("THIS IS THE LAST COLUMN ELEMENT REDIRECT TO COLLECTION", $(".car-subpage-category-links-column a")[i].href = `/collections/${vehicleInfo.vehtype.replace(/ /g, "-")}-covers/${vehicleInfo.make.replace(" ","-")}&${vehicleInfo.model.replace(/ /g, "_")}&${vehicleInfo.year}`)
               }
               }
         },
@@ -675,7 +675,7 @@
   	else
     {
       //This will redirect to the collection page if you have all the vehicleInfo
-      window.location.replace(`${window.location.origin}/collections/${vehicleInfo.vehtype.replace(/ /g, "-")}-covers/${data[i].replace(/ /g, "_")}`);
+      window.location.replace(`${window.location.origin}/collections/${vehicleInfo.vehtype.replace(/ /g, "-")}-covers/${vehicleInfo.make.replace(" ","-")}&${vehicleInfo.model.replace(/ /g, "_")}&${vehicleInfo.year}`);
       
     }
   	
