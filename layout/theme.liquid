@@ -34,7 +34,7 @@
       
     {% endif %}
     
-    	      	{% assign descriptionUrlStringArray = urlParts[5] | split: "&" %}
+    	  {% assign descriptionUrlStringArray = urlParts[5] | split: "&" %}
         {% assign vehType = descriptionUrlStringArray[0] %}
        {% assign vehMake = descriptionUrlStringArray[1] %}
        {% assign vehModel = descriptionUrlStringArray[2] %}
@@ -45,7 +45,7 @@
     {% if urlParts[4] != null%}
     	<script>
           console.log("Test Shopifys1:",{{descriptionUrlStringArray | json }});
-          console.log("Test Shopifys1:",{{vehMake| json }});
+          console.log("Test Shopifys1:",{{seoTitle| json }});
           console.log("Test Shopifys2:"," Covers | Guaranteed Fit | Free Shipping");
         </script>	
     	<title>
