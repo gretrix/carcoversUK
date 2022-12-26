@@ -34,7 +34,7 @@
        {% assign vehModel = descriptionUrlStringArray[2] %}
       {% assign vehYear = descriptionUrlStringArray[3] %}
    {% capture seoTitle %}
-      {{ vehYear }} {{ vehMake }} {{ vehModel }} {{ vehType }} 
+          {{ vehYear | upcase }} {{ vehMake | upcase }} {{ vehModel | upcase }} {{ vehType | upcase }} 
   {% endcapture %}
     {% else if urlParts[4] != null %}
     	{% assign descriptionUrlStringArray = urlParts[4] | split: "-" %}
