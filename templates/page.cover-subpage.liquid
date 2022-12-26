@@ -285,13 +285,13 @@
           {% assign vehType = vehTypeCheck | upcase %}
 
          {% else %}
-          {% assign vehType = vehTypeCheck[0] %}
+          {% assign vehType = vehTypeCheck[0] | capitalize %}
         {% endif %}
        {% assign vehMake = descriptionUrlStringArray[1] %}
        {% assign vehModel = descriptionUrlStringArray[2] %}
       {% assign vehYear = descriptionUrlStringArray[3] %}
    {% capture seoTitle %}
-          {{ vehYear }} {{ vehMake | capitalize }} {{ vehModel | capitalize }} {{ vehType | capitalize }} 
+          {{ vehYear }} {{ vehMake | capitalize }} {{ vehModel | capitalize }} {{ vehType }} 
   {% endcapture %}
  
 <h3 style="font-style: italic; font-weight: bold;" class="text-primary">When will my semi-custom {{seoTitle}} cover arrive?</h3>
