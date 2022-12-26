@@ -280,10 +280,14 @@
     {% endif %}
     
     	  {% assign descriptionUrlStringArray = urlParts[5] | split: "&" %}
-        {% assign vehType = descriptionUrlStringArray[0] %}
-             {% if vehType.size = 3 %}
-         {% assign vehType = vehType | upcase %}  
-    {% endif %}
+        {% assign vehTypeCheck = descriptionUrlStringArray[0] %}
+          {%- capture vehType -%}
+            {% if vehTypeCheck.size = 3 %}
+               {{ vehTypeCheck | upcase }}
+          {%- else -%}
+              {{ vehTypeCheck | capitalize }}
+        {%- endif %}
+        {%- endcapture %}
        {% assign vehMake = descriptionUrlStringArray[1] %}
        {% assign vehModel = descriptionUrlStringArray[2] %}
       {% assign vehYear = descriptionUrlStringArray[3] %}
