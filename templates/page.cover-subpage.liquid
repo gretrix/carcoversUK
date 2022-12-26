@@ -281,8 +281,8 @@
     
     	  {% assign descriptionUrlStringArray = urlParts[5] | split: "&" %}
         {% assign vehType = descriptionUrlStringArray[0] %}
-        {% if vehType.size == 2 %}
-          {% assign vehType = descriptionUrlStringArray[0] | upcase %}
+        {% if vehType.size == 3 %}
+          {% assign vehType = vehType | upcase %}
         {% endif %}
        {% assign vehMake = descriptionUrlStringArray[1] %}
        {% assign vehModel = descriptionUrlStringArray[2] %}
