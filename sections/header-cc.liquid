@@ -26,7 +26,13 @@
       {% endif %}
      
   {% endcapture %}
-{% assign main_product_singular = vehType %}
+   {% capture main_product_singular %}
+     {% if vehType.size == 3 and vehType != 'car'  %}
+     {{ vehType | upcase }}
+       {% else %}
+       {{ vehType | capitalize }}
+      {% endif %}
+  {% endcapture %}
 {% assign main_product_plural = 'Snowmobiles' %}
 {% assign main_product_website = 'SnowmobileCover.com' %}
 <!-- header-cc.liquid Beginning -->
