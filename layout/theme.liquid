@@ -37,14 +37,12 @@
             {% assign vehType = {{urlParts[4] | replace : "-covers", "" }} %}
     
         {% else %}
-        
-        
-        
-       {% assign vehMake = descriptionUrlStringArray[1] %}
-       {% assign vehModel = descriptionUrlStringArray[2] %}
-      {% assign vehYear = descriptionUrlStringArray[3] %}
-      {% assign vehYear = descriptionUrlStringArray[4] %}
-          {% endif %}
+
+           {% assign vehMake = descriptionUrlStringArray[1] %}
+           {% assign vehModel = descriptionUrlStringArray[2] %}
+           {% assign vehYear = descriptionUrlStringArray[3] %}
+           {% assign vehYear = descriptionUrlStringArray[4] %}
+       {% endif %}
    {% capture seoTitle %}
           {{ vehYear | capitalize }} {{ vehMake | capitalize }} {{ vehModel | capitalize }} 
      {% if vehType.size == 3 and vehType != 'car'  %}
