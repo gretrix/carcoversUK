@@ -543,21 +543,11 @@ html,body{
     window.dataLayer.push({event:"ViewSingleItem", ecommerce: { view: {item: {product: productData, vehicle: vehicleInfoString}}}})                                                   
   
     console.log("Test Finding Add to Cart", document.querySelector(".add-to-cart-btn, .add-to-cart-btn img"));    
-    document.querySelector(".add-to-cart-btn, .add-to-cart-btn img").addEventListener("click", function(event){
-		console.log("Test Attempting to Add to Cart");    
-
-      data = {
-        items: 
-        [
-          {
-            quantity: 1,
-            id: productData.variants[0].id,
-            properties: {
-            "vehicle-info": vehicleInfoString
-          }
-          }
-        ]
-     }
+ let productBtn = document.querySelector(".add-to-cart-btn, .add-to-cart-btn img")
+            productBtn.setAttribute("shopify-product-id", productData.variants[0].id)
+ 
+            productBtn.setAttribute("productSKU", productData.variants[0].sku)
+            productBtn.addEventListener("click", (event) => addToCart(productData, event));
       
     // On page load, perform following function
     var xhr = new XMLHttpRequest();
