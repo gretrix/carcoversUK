@@ -35,9 +35,7 @@
             {% assign vehModel = descriptionUrlStringArray[1] %}
             {% assign vehYear = descriptionUrlStringArray[2] %}
             {% assign vehType = {{urlParts[4] | replace : "-covers", "" }} %}
-        <script>
-          console.log("WORKING COLLECTION SEO")
-        </script>
+    
         {% else %}
         
         
@@ -45,6 +43,7 @@
        {% assign vehMake = descriptionUrlStringArray[1] %}
        {% assign vehModel = descriptionUrlStringArray[2] %}
       {% assign vehYear = descriptionUrlStringArray[3] %}
+      {% assign vehYear = descriptionUrlStringArray[4] %}
           {% endif %}
    {% capture seoTitle %}
           {{ vehYear | capitalize }} {{ vehMake | capitalize }} {{ vehModel | capitalize }} 
