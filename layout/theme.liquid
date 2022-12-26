@@ -30,9 +30,11 @@
     
     {% assign descriptionUrlStringArray = urlParts[5] | split: "&" %}
         {% if urlParts contains "collections" %}
+            
             {% assign vehMake = descriptionUrlStringArray[0] %}
             {% assign vehModel = descriptionUrlStringArray[1] %}
             {% assign vehYear = descriptionUrlStringArray[2] %}
+            {% assign vehType = urlPartsDirty %}
         <script>
           console.log("WORKING COLLECTION SEO")
         </script>
