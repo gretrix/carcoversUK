@@ -32,9 +32,6 @@
   
     {% else if urlParts[4] != null %}
     	{% assign descriptionUrlStringArray = urlParts[4] | split: "-" %}
-          <script>
- console.log("First ran script", {{vehType | json}})
-</script>
     {% endif %}
     
     	{% assign descriptionUrlStringArray = urlParts[5] | split: "&" %}
