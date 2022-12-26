@@ -267,7 +267,26 @@
 <div style="padding-left: 20px; padding-right: 20px;" class="ipp-section-title text-primary">Frequently Asked Questions</div>
   
 <div style="padding-left: 20px; padding-right: 20px;" class="car-subpage-faq-container">
+    {% assign urlPartsDirty = canonical_url | replace: "_", "&" %}
+    {% assign urlParts = urlPartsDirty | split: "/" %}
+    
+                
+    <!-- Collection Page SEO Check -->
+    {% if urlParts[5] != null %}
 
+    {% else if urlParts[4] != null %}
+    	{% assign descriptionUrlStringArray = urlParts[4] | split: "-" %}
+      
+    {% endif %}
+    
+    	  {% assign descriptionUrlStringArray = urlParts[5] | split: "&" %}
+        {% assign vehType = descriptionUrlStringArray[0] %}
+       {% assign vehMake = descriptionUrlStringArray[1] %}
+       {% assign vehModel = descriptionUrlStringArray[2] %}
+      {% assign vehYear = descriptionUrlStringArray[3] %}
+   {% capture seoTitle %}
+          {{ vehYear | capitalize }} {{ vehMake | capitalize }} {{ vehModel | capitalize }} {{ vehType | capitalize }} 
+  {% endcapture %}
 <h3 style="font-style: italic; font-weight: bold;" class="text-primary">When will my semi-custom {{seoTitle}} cover arrive?</h3>
   <p>Depending on your order, it may ship the same day it was ordered. Most covers are shipped the next business day and take between two to five business days to receive. Residents outside of the contiguous U.S. can experience a longer delivery time.
   </p>
