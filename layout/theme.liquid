@@ -39,7 +39,7 @@
         {% if vehTypeCheck.size == 3 %}
           {% assign vehType = vehTypeCheck | upcase %
          {% else %}
-          {% assign vehType = vehTypeCheck[0] | capitalize %}
+          {% assign vehType = vehTypeCheck | capitalize %}
         {% endif %}
        {% assign vehMake = descriptionUrlStringArray[1] %}
        {% assign vehModel = descriptionUrlStringArray[2] %}
