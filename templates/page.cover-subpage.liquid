@@ -1,7 +1,4 @@
 <!-- Below are variables for the primary product -->
-<script>
- console.log("First ran script", {{vehType | json}})
-</script>
 {% assign subpageType = request.path | split: '/' %}
 {% assign subpageSection = subpageType[3] | split: "&"%}
 {% assign main_product_singular = subpageSection[0] %}
