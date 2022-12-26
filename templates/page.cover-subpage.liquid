@@ -1,6 +1,6 @@
 <!-- Below are variables for the primary product -->
 {% assign subpageType = request.path | split: '/' %}
-{% assign main_product_singular = subpageType %}
+{% assign main_product_singular = subpageType[1] %}
 {% assign main_product_plural = 'Snowmobiles' %}
 {% assign main_product_website = 'CARCOVERSUK.COM' %}
 {{ 'section-product-selector-page.css' | asset_url | stylesheet_tag }}
