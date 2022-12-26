@@ -28,19 +28,22 @@
       
     {% endif %}
     
-    	  {% assign descriptionUrlStringArray = urlParts[5] | split: "&" %}
+    {% assign descriptionUrlStringArray = urlParts[5] | split: "&" %}
         {% if urlParts contains "collections" %}
+            {% assign vehMake = descriptionUrlStringArray[0] %}
+            {% assign vehModel = descriptionUrlStringArray[1] %}
+            {% assign vehYear = descriptionUrlStringArray[2] %}
         <script>
           console.log("WORKING COLLECTION SEO")
         </script>
         {% else %}
-          {% assign vehType = descriptionUrlStringArray[0] %}
-        {% endif %}
+        
         
         
        {% assign vehMake = descriptionUrlStringArray[1] %}
        {% assign vehModel = descriptionUrlStringArray[2] %}
       {% assign vehYear = descriptionUrlStringArray[3] %}
+          {% endif %}
    {% capture seoTitle %}
           {{ vehYear | capitalize }} {{ vehMake | capitalize }} {{ vehModel | capitalize }} 
      {% if vehType.size == 3 and vehType != 'car'  %}
