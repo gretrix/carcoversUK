@@ -72,6 +72,7 @@
   {% for product in chartData %}
     {% assign classInsertion = "normalborder" %}
     {% assign photoComment = "RELIABLE INDOOR/OUTDOOR PROTECTION"  %}
+    
         {% if product.title contains "Platinum"  %}
           {% assign classInsertion = "bestborder" %}
           {% assign photoComment = "TOP LEVEL PROTECTION"  %}
@@ -79,9 +80,7 @@
           {% assign classInsertion = "indoorborder" %}
           {% assign photoComment = "INDOOR DIRT & DUST PROTECTION"  %}
         {% elsif product.title contains "Ultimate"%}
-          
           {% assign photoComment = "EXCEPTIONAL YEAR ROUND PROTECTION"  %}
-          
         {%endif%}
       
  
