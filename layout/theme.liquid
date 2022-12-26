@@ -29,10 +29,10 @@
     {% endif %}
     
     	  {% assign descriptionUrlStringArray = urlParts[5] | split: "&" %}
-        {% if urlParts contains "-covers" %}
-           {% assign vehMake = descriptionUrlStringArray[0] %}
-           {% assign vehModel = descriptionUrlStringArray[1] %}
-           {% assign vehYear = descriptionUrlStringArray[2] %}
+        {% if urlParts contains "collections" %}
+        <script>
+          console.log("WORKING COLLECTION SEO")
+        </script>
         {% else %}
           {% assign vehType = descriptionUrlStringArray[0] %}
         {% endif %}
