@@ -706,7 +706,7 @@ $('#page-title').text(vehicleInfoString).hide()
   pageData = window[`type_${pageInfo.replace(" ","_")}`]
    pageData != null ? pageData : pageData = type_car;
    pageData.mainVideo ? $('.subpage-video video').attr('src', pageData.mainVideo) : $('.subpage-video').hide();
- 
+   slider = pageData.slider;
  if (otherSubpages.includes(pageInfo)){
     // sets varible to correct page variable rather then creating 10 more if else statements
    
