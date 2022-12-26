@@ -287,7 +287,7 @@
       {% assign vehYear = descriptionUrlStringArray[3] %}
    {% capture seoTitle %}
           {{ vehYear | capitalize }} {{ vehMake | capitalize }} {{ vehModel | capitalize }} 
-     {% if vehType.size == 3 and vehType contains "car" == true  %}
+     {% if vehType.size == 3 and vehType != 'car'  %}
      {{ vehType | upcase }}
        {% else %}
        {{ vehType | capitalize }}
