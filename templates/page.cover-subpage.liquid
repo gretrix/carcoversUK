@@ -704,7 +704,7 @@ $('#page-title').text(vehicleInfoString).hide()
  let metaDescription = document.getElementsByTagName('meta')["description"]
  let title = document.getElementsByTagName('title')[0]
   pageData = window[`type_${pageInfo.replace(" ","_")}`]
-  pageData ? slider = pageData.slider ? slider = type_car.slider;
+  pageData ? slider = pageData.slider : slider = type_car.slider;
   pageData.mainVideo ? 
       $('.subpage-video video').attr('src', pageData.mainVideo) : $('.subpage-video').hide();
  
