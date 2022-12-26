@@ -288,6 +288,9 @@
       </script>
          {% else %}
           {% assign vehType = vehTypeCheck | capitalize %}
+                    <script>
+    console.log("THIS IS THE INFORMATIONAL TITLE", {{vehTypeCheck.size | json}})
+      </script>
         {% endif %}
        {% assign vehMake = descriptionUrlStringArray[1] %}
        {% assign vehModel = descriptionUrlStringArray[2] %}
