@@ -49,7 +49,7 @@
           console.log("Test Shopifys2:","{{ seoTitle | json }} Covers | Guaranteed Fit | Free Shipping");
         </script>	
     	<title>
-          {% for word in descriptionUrlStringArray %} {{ word | capitalize}}{% endfor %} Covers | Guaranteed Fit | Free Shipping
+          {{ seoTitle }} Covers | Guaranteed Fit | Free Shipping
         </title>
     
       	<meta name="description" content="{% for word in descriptionUrlStringArray %} {{ word | capitalize}}{% endfor %} Covers. Guaranteed Fit Covers. Lifetime Warranty. Over 75294 Reviews. Up to 50% Off and Free Shipping.">
