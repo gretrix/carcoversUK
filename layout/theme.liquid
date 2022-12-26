@@ -29,6 +29,7 @@
     <!-- Collection Page SEO Check -->
     {% if urlParts[5] != null %}
       	{% assign descriptionUrlStringArray = urlParts[5] | split: "&" %}
+        {% assign year = descriptionUrlStringArray[1] %}
     {% else if urlParts[4] != null %}
     	{% assign descriptionUrlStringArray = urlParts[4] | split: "-" %}
     {% endif %}
@@ -45,14 +46,10 @@
     
       	<meta name="description" content="{% for word in descriptionUrlStringArray %} {{ word | capitalize}}{% endfor %} Covers. Guaranteed Fit Covers. Lifetime Warranty. Over 75294 Reviews. Up to 50% Off and Free Shipping.">
     
-   	{% else %}
-      	<script>
-          console.log("Test Shopifys1:",{{ descriptionUrlStringArray | json}});
-          console.log("Test Shopifys2:","{% for word in descriptionUrlStringArray %} {{ word | capitalize}}{% endfor %} Covers | Guaranteed Fit | Free Shipping");
-        </script>	
+   	{% else %}	
       {% if descriptionUrlStringArray.size == 0 %}
         
-           	<title>
+       <title>
         Car Covers | Guaranteed Fit | Free Shipping
         </title>
         
