@@ -24,7 +24,7 @@
     {% if urlParts contains "collections" %}
         {% assign descriptionUrlStringArray = urlParts[4] | split: "-" %}
         <script>
-          console.log("collection page seo setter", "{{urlParts}}")
+          console.log("collection page seo setter", "{{urlParts | json}}")
         </script
     {% elsif urlParts[4] != null %}
     	{% assign descriptionUrlStringArray = urlParts[4] | split: "-" %}
