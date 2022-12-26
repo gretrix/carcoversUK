@@ -2,7 +2,7 @@
 {% assign subpageType = request.path | split: '/' %}
 {% assign subpageSection = subpageType[3] | split: "&"%}
 {% assign main_product_singular = subpageSection[0] %}
-{% assign main_product_plural = 'Snowmobiles' %}
+{% assign main_product_plural = subpageSection[0] append : "'s" %}
 {% assign main_product_website = 'CARCOVERSUK.COM' %}
 {{ 'section-product-selector-page.css' | asset_url | stylesheet_tag }}
 {{ 'individual-product-template-page-data.js' | asset_url | script_tag }}
