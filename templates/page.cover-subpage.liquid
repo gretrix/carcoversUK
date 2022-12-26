@@ -283,9 +283,7 @@
         {% assign vehTypeCheck = descriptionUrlStringArray[0] %}
         {% if vehTypeCheck.size == 3 %}
           {% assign vehType = vehTypeCheck | upcase %}
-           <script>
-    console.log("THIS IS THE INFORMATIONAL TITLE", {{vehType | json}})
-  </script>
+
          {% else %}
           {% assign vehType = vehTypeCheck[0] %}
         {% endif %}
@@ -293,7 +291,7 @@
        {% assign vehModel = descriptionUrlStringArray[2] %}
       {% assign vehYear = descriptionUrlStringArray[3] %}
    {% capture seoTitle %}
-          {{ vehYear | capitalize }} {{ vehMake | capitalize }} {{ vehModel | capitalize }} {{ vehType | capitalize }} 
+          {{ vehYear }} {{ vehMake | capitalize }} {{ vehModel | capitalize }} {{ vehType | capitalize }} 
   {% endcapture %}
  
 <h3 style="font-style: italic; font-weight: bold;" class="text-primary">When will my semi-custom {{seoTitle}} cover arrive?</h3>
