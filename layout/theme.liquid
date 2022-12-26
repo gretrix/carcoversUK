@@ -38,7 +38,7 @@
           {{ vehYear | capitalize }} {{ vehMake | capitalize }} {{ vehModel | capitalize }} 
      {% if vehType.size == 3 and vehType != 'car'  %}
      {{ vehType | upcase }}
-       {% else %}
+       {% elsif vehtype %}
        {{ vehType | capitalize }}
       {% endif %}
      
