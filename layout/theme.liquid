@@ -38,7 +38,7 @@
           {{ vehYear | capitalize }} {{ vehMake | capitalize }} {{ vehModel | capitalize }} 
      {% if vehType.size == 3 and vehType != 'car'  %}
      {{ vehType | upcase }}
-       {% elsif vehtype %}
+       {% else %}
        {{ vehType | capitalize }}
       {% endif %}
      
@@ -46,7 +46,7 @@
     {% if urlParts[4] != null%}
     	<script>
           console.log("Test Shopifys1:",{{descriptionUrlStringArray | json }});
-          console.log("Test Shopifys1:",{{ urlParts| json }});
+          console.log("Test Shopifys1:",{urlParts| json }});
           console.log("Test Shopifys2:"," Covers | Guaranteed Fit | Free Shipping");
         </script>	
     	<title>
