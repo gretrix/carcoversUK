@@ -45,7 +45,7 @@
       {% endif %}
      
   {% endcapture %}
-    {% if urlParts[4] != null%}
+    {% if urlParts[4] != null or urlParts[5]%}
     	<script>
           console.log("Test Shopifys1:",{{urlParts | json }});
           console.log("Test Shopifys1:",{{vehtype| json }});
