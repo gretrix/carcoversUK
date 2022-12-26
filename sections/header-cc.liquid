@@ -29,6 +29,8 @@
    {% capture main_product_singular %}
      {% if vehType.size == 3 and vehType != 'car'  %}
      {{ vehType | upcase }}
+       {% elsif vehType%}
+       Car
        {% else %}
        {{ vehType | capitalize }}
       {% endif %}
