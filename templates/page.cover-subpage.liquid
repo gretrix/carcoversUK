@@ -663,7 +663,7 @@
                       lastColumnElement = document.querySelector(".car-subpage-category-links .car-subpage-category-links-column:last-child");
                   }
                   //tweaked some of the formating here for clean linking throughout all subpages didnt account for spaces in make model types. 
-              console.log("I SHOULD BE AN ARRAY OF NUMBERS",data)
+            
               lastColumnElement.innerHTML = lastColumnElement.innerHTML+ "<li><a href='"+ window.location.pathname + "&" + data[i].replace(/ /g, "_") +"' title='" + vehicleInfo.make + vehicleInfo.model.replace(/_/g,  " ") +" " + data[i] +" " + vehicleInfo.vehtype + " Covers'>"+ vehicleInfo.make +" " + vehicleInfo.model.replace(/_/g,  " ") +" " + data[i] +" " + vehicleInfo.vehtype + " Covers</a></li>";
 
               }
