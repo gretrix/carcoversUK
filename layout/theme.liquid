@@ -29,7 +29,7 @@
     <!-- Collection Page SEO Check -->
     {% if urlParts[5] != null %}
       	{% assign descriptionUrlStringArray = urlParts[5] | split: "&" %}
-        {% assign year = descriptionUrlStringArray[1] %}
+        {% assign year = descriptionUrlStringArray[0] %}
     {% else if urlParts[4] != null %}
     	{% assign descriptionUrlStringArray = urlParts[4] | split: "-" %}
     {% endif %}
