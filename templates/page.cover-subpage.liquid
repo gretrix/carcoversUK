@@ -703,8 +703,8 @@ $('#page-title').text(vehicleInfoString).hide()
  let metaTitle = document.querySelector("title");
  let metaDescription = document.getElementsByTagName('meta')["description"]
  let title = document.getElementsByTagName('title')[0]
-  pageData = window[`type_${pageInfo.replace(" ","_")}`] ? pageData = pageData : pageData = type_car;
-   pageData ? slider = pageData.slider
+  pageData = window[`type_${pageInfo.replace(" ","_")}`]
+   pageData != null ? pageData : pageData = type_car;
    pageData.mainVideo ? $('.subpage-video video').attr('src', pageData.mainVideo) : $('.subpage-video').hide();
  
  if (otherSubpages.includes(pageInfo)){
