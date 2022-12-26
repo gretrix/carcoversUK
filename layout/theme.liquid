@@ -32,7 +32,7 @@
         {% assign vehType = descriptionUrlStringArray[0] %}
        {% assign vehMake = descriptionUrlStringArray[1] %}
        {% assign vehModel = descriptionUrlStringArray[2] %}
-       {% assign seoTitle = vehType %}
+       {% assign seoTitle = vehType | concat: vehMake %}
     {% else if urlParts[4] != null %}
     	{% assign descriptionUrlStringArray = urlParts[4] | split: "-" %}
       
