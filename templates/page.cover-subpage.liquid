@@ -284,7 +284,7 @@
         {% if vehTypeCheck.size == 3 %}
           {% assign vehType = vehTypeCheck[0] | upcase %}
            <script>
-    console.log("THIS IS THE INFORMATIONAL TITLE", {{vehTypeCheck.size | json}})
+    console.log("THIS IS THE INFORMATIONAL TITLE", {{vehType | json}})
   </script>
          {% else %}
           {% assign vehType = vehTypeCheck[0] %}
