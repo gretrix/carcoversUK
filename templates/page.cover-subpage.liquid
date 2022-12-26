@@ -666,7 +666,7 @@
   
               lastColumnElement.innerHTML = lastColumnElement.innerHTML+ "<li><a href='"+ window.location.pathname + "&" + data[i].replace(/ /g, "_") +"' title='" + vehicleInfo.make + vehicleInfo.model.replace(/_/g,  " ") +" " + data[i] +" " + vehicleInfo.vehtype + " Covers'>"+ vehicleInfo.make +" " + vehicleInfo.model.replace(/_/g,  " ") +" " + data[i] +" " + vehicleInfo.vehtype + " Covers</a></li>";
               if(vehicleInfo.vehtype && vehicleInfo.make && vehicleInfo.model){
-                console.log("THIS IS THE LAST COLUMN ELEMENT REDIRECT TO COLLECTION", lastColumnElement.href)
+                console.log("THIS IS THE LAST COLUMN ELEMENT REDIRECT TO COLLECTION", lastColumnElement[i].href)
               }
               }
         },
