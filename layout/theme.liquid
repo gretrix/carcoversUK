@@ -33,7 +33,9 @@
        {% assign vehMake = descriptionUrlStringArray[1] %}
        {% assign vehModel = descriptionUrlStringArray[2] %}
       {% assign vehYear = descriptionUrlStringArray[3] %}
-       {% assign seoTitle = vehYear | append: vehType | append: vehMake | append : vehModel%}
+   {% capture seoTitle %}
+      {{ vehYear }} {{ vehMake }} {{ vehModel }} {{ vehType }} Covers
+  {% endcapture %}
     {% else if urlParts[4] != null %}
     	{% assign descriptionUrlStringArray = urlParts[4] | split: "-" %}
       
