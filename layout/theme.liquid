@@ -39,9 +39,9 @@
      {% if vehType.size == 3 and vehType != 'car'  %}
      {{ vehType | upcase }}
        {% elsif vehType %}
-         TEST
+        {{ vehType | capitalize }}
        {% else %}
-       {{ vehType | capitalize }}
+       Test
       {% endif %}
      
   {% endcapture %}
