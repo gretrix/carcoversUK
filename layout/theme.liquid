@@ -30,8 +30,8 @@
             {% assign vehYear = descriptionUrlStringArray[2] %}
             {% assign vehType = {{urlParts[4] | replace : "-covers", "" }} %}
     
-        {% else  %}
-
+        {% elsif urlParts contains "products"  %}
+            {% assign descriptionUrlStringArray = fullUrl[5] | split: "&" %}
            {% assign vehMake = descriptionUrlStringArray[1] %}
            {% assign vehModel = descriptionUrlStringArray[2] %}
            {% assign vehYear = descriptionUrlStringArray[3] %}
@@ -48,7 +48,7 @@
   {% endcapture %}
     {% if urlParts[4] != null%}
     	<script>
-          console.log("Test Shopifys1:",{{full_url | json}});
+          console.log("Test Shopifys1:",{{request.path | json}});
           console.log("Test Shopifys1:","{{ canonical_url }}");
           console.log("Test Shopifys2:",{{ seoTitle | json }} ,"Covers | Guaranteed Fit | Free Shipping");
         </script>	
