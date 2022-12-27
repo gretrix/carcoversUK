@@ -22,7 +22,7 @@
                 
     <!-- Collection Page SEO Check -->
   
-   {% assign full_url = request.host | append: request.path %}
+   {% assign full_url = request.host | append: request.path | split: "/"%}
         {% if urlParts contains "collections" %}
              {% assign descriptionUrlStringArray = urlParts[5] | split: "&" %}
             {% assign vehMake = descriptionUrlStringArray[0] %}
@@ -30,7 +30,7 @@
             {% assign vehYear = descriptionUrlStringArray[2] %}
             {% assign vehType = {{urlParts[4] | replace : "-covers", "" }} %}
     
-        {% else %}
+        {% else  %}
 
            {% assign vehMake = descriptionUrlStringArray[1] %}
            {% assign vehModel = descriptionUrlStringArray[2] %}
