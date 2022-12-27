@@ -32,10 +32,10 @@
     
         {% elsif urlParts contains "products"  %}
             {% assign descriptionUrlStringArray = fullUrl[3] | split: "&" %}
-           {% assign vehMake = descriptionUrlStringArray[1] %}
-           {% assign vehModel = descriptionUrlStringArray[2] %}
+           {% assign vehMake = descriptionUrlStringArray[0] %}
+           {% assign vehModel = descriptionUrlStringArray[1] %}
+           {% assign vehYear = descriptionUrlStringArray[2] %}
            {% assign vehYear = descriptionUrlStringArray[3] %}
-           {% assign vehYear = descriptionUrlStringArray[4] %}
        {% endif %}
    {% capture seoTitle %}
           {{ vehYear | capitalize }} {{ vehMake | capitalize }} {{ vehModel | capitalize }} 
