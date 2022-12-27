@@ -48,7 +48,7 @@
   {% endcapture %}
     {% if urlParts[4] != null%}
     	<script>
-          console.log("Test Shopifys1:",{{full_url[3] | split:"&"}});
+          console.log("Test Shopifys1:","{{full_url[3] | split:"&"}}");
           console.log("Test Shopifys1:",{{full_url | json }});
           console.log("Test Shopifys2:",{{ seoTitle | json }} ,"Covers | Guaranteed Fit | Free Shipping");
         </script>	
