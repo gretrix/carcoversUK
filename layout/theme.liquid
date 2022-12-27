@@ -22,7 +22,7 @@
                 
     <!-- Collection Page SEO Check -->
   
-   
+   {% assign full_url = request.host | append: request.path %}
         {% if urlParts contains "collections" %}
              {% assign descriptionUrlStringArray = urlParts[5] | split: "&" %}
             {% assign vehMake = descriptionUrlStringArray[0] %}
@@ -48,7 +48,7 @@
   {% endcapture %}
     {% if urlParts[4] != null%}
     	<script>
-          console.log("Test Shopifys1:",{{urlParts | json}});
+          console.log("Test Shopifys1:",{{full_url | json}});
           console.log("Test Shopifys1:","{{ canonical_url }}");
           console.log("Test Shopifys2:",{{ seoTitle | json }} ,"Covers | Guaranteed Fit | Free Shipping");
         </script>	
