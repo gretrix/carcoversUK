@@ -34,7 +34,7 @@
             {% assign vehType = {{urlParts[4] | replace : "-covers", "" }} %}
     
         {% elsif urlParts contains "products"  %}
-          {% assign vehType = urlParts[4] | split: "-" %}
+          {% assign vehCheck = urlParts[4] | split: "-" %}
           	<script>
           console.log("Im a product","{{vehType[-1]}}");
                 </script>
@@ -42,7 +42,7 @@
            {% assign vehMake = descriptionUrlStringArray[0] %}
            {% assign vehModel = descriptionUrlStringArray[1] %}
            {% assign vehYear = descriptionUrlStringArray[2] %}
-           
+           {% assign vehType = {{vehType[-2]}} %}
        {% endif %}
    {% capture seoTitle %}
           {{ vehYear | capitalize }} {{ vehMake | capitalize }} {{ vehModel | capitalize }} 
