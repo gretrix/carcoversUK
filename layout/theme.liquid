@@ -31,7 +31,7 @@
             {% assign vehType = {{urlParts[4] | replace : "-covers", "" }} %}
     
         {% elsif urlParts contains "products"  %}
-            {% assign descriptionUrlStringArray = fullUrl[5] | split: "&" %}
+            {% assign descriptionUrlStringArray = fullUrl[3] | split: "&" %}
            {% assign vehMake = descriptionUrlStringArray[1] %}
            {% assign vehModel = descriptionUrlStringArray[2] %}
            {% assign vehYear = descriptionUrlStringArray[3] %}
