@@ -35,7 +35,7 @@
     
         {% elsif urlParts contains "products"  %}
           	<script>
-          console.log("Im a product");
+          console.log("Im a product",{{urlParts[4]}});
                 </script>
             {% assign descriptionUrlStringArray = full_url[3] | split: "&" %}
            {% assign vehMake = descriptionUrlStringArray[0] %}
