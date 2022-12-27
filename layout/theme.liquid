@@ -22,9 +22,9 @@
                 
     <!-- Collection Page SEO Check -->
   
-    {% assign descriptionUrlStringArray = urlParts[5] | split: "&" %}
+   
         {% if urlParts contains "collections" %}
-            
+             {% assign descriptionUrlStringArray = urlParts[5] | split: "&" %}
             {% assign vehMake = descriptionUrlStringArray[0] %}
             {% assign vehModel = descriptionUrlStringArray[1] %}
             {% assign vehYear = descriptionUrlStringArray[2] %}
