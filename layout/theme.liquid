@@ -24,6 +24,9 @@
   
    {% assign full_url = request.host | append: request.path | split: "/"%}
         {% if urlParts contains "collections" %}
+             	<script>
+          console.log("Im a Collection");
+                </script>
              {% assign descriptionUrlStringArray = urlParts[5] | split: "&" %}
             {% assign vehMake = descriptionUrlStringArray[0] %}
             {% assign vehModel = descriptionUrlStringArray[1] %}
@@ -31,6 +34,9 @@
             {% assign vehType = {{urlParts[4] | replace : "-covers", "" }} %}
     
         {% elsif urlParts contains "products"  %}
+          	<script>
+          console.log("Im a product");
+                </script>
             {% assign descriptionUrlStringArray = fullUrl[3] | split: "&" %}
            {% assign vehMake = descriptionUrlStringArray[0] %}
            {% assign vehModel = descriptionUrlStringArray[1] %}
