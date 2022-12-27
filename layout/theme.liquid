@@ -28,7 +28,7 @@
       
     {% endif %}
     
-    {% assign descriptionUrlStringArray = urlParts[5] | split: "&" %}
+    {% assign descriptionUrlStringArray = urlParts[5] | last %}
         {% if urlParts contains "collections" %}
             
             {% assign vehMake = descriptionUrlStringArray[0] %}
