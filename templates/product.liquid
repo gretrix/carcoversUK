@@ -75,8 +75,8 @@
                 </div>
               </div>
               <div class="ipp-add-to-cart-button ipp-row">
-                <a name="add" class="add-to-cart-btn button-outer" >
-                 <p class="button-inner">&#x1F6D2; ADD TO CART</p>
+                <a name="add" class="utton-outer" >
+                 <p class="add-to-cart-btn button-inner">&#x1F6D2; ADD TO CART</p>
                 </a>
               </div>
               <div id="ipp-hide-on-mobile">
@@ -443,8 +443,8 @@ html,body{
     product_return = {{product.metafields.customField.return_container.value | json}}
     product_warranty = {{product.metafields.customField.warranty_container.value | json}}
     product_order = {{product.metafields.customField.order_container.value | json}}
-    console.log("TEST PRODUCTS HERE ZACHARY,",productData)
-    console.log('test1')
+  
+  
  	let metaTitle = document.querySelector("title");
 	let metaDescription = document.getElementsByTagName('meta')["description"];
  	let title = document.getElementsByTagName('title')[0];
@@ -543,41 +543,11 @@ html,body{
     window.dataLayer.push({event:"ViewSingleItem", ecommerce: { view: {item: {product: productData, vehicle: vehicleInfoString}}}})                                                   
   
     console.log("Test Finding Add to Cart", document.querySelector(".add-to-cart-btn, .add-to-cart-btn img"));    
-    document.querySelector(".add-to-cart-btn, .add-to-cart-btn img").addEventListener("click", function(event){
-		console.log("Test Attempting to Add to Cart");    
-
-      data = {
-        items: 
-        [
-          {
-            quantity: 1,
-            id: productData.variants[0].id,
-            properties: {
-            "vehicle-info": vehicleInfoString
-          }
-          }
-        ]
-     }
-      
-    // On page load, perform following function
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function () {
-
-        // Process our return data
-        if (xhr.status >= 200 && xhr.status < 300) {
-          // Runs when the request is successful
-          window.location.href = "/cart";
-        } else {
-          // Runs when it's not
-          console.log(xhr.responseText);
-        }
-
-      };
-    xhr.open("POST", window.Shopify.routes.root + 'cart/add.js', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(JSON.stringify(data));
-  });
-
+    let productBtn = document.querySelector(".add-to-cart-btn, .add-to-cart-btn img")
+            productBtn.setAttribute("shopify-product-id", productData.variants[0].id)
+ 
+            productBtn.setAttribute("productSKU", productData.variants[0].sku)
+            productBtn.addEventListener("click", (event) => addToCart(productData, event));
   window.location.pathname.split("/")[3] === "" ? $(".chart-container").hide() : console.log("SHOW COMP CHART") 
   
 </script>
