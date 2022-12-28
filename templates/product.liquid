@@ -422,7 +422,7 @@ html,body{
 <script>
  
   productData = {{ product | json }};
-  mainVideoData = {{product.metafields.custom_field.product_page_360_video_id| json}};
+  mainVideoData = {{product.metafields.customField.product_page_360_video_id| json}};
   tutorialVideoData = {{product.metafields.customField.tutorial_youtube_video | json}}
   ratings_content = {{product.metafields.customField.ratings_content.value | json}}
   productMediaData = {{ product.media | json }};
