@@ -8,6 +8,9 @@
 /*
 	Overwrite Shopify CSS
 */
+.stamped-review-avatar:before {
+    color: var(--color-mid) !important;
+}
 section.homepage .shopify-section.spaced-section {
   margin-top: 0;
 }
