@@ -494,7 +494,7 @@ header {
   list-style: none;
   padding-top: 5px;
   width:83.3px
-  
+  text-align:center;
 }
 .header-items:last-child > li {
   border-right: 1px solid white;
