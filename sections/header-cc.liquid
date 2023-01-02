@@ -417,7 +417,52 @@
 <!--Mobile header-->
 
 <div class="mobilenav mobilenav-top mobile-only">
-         <ul class="header-section-container covers-options header-items">
+    <div>
+        <div class="fall-sale-div">FALL<br><span class="text-primary">SALE</span></div>
+        <p>Sale ends in:</p>
+    </div>
+    <div>
+        <div class="CountDownContainerMobile"></div>
+        <script>
+            var countDownClock = new Countdown({
+                cont: document.querySelector('.CountDownContainerMobile'),
+                date: date,
+                outputTranslation: {
+                    year: 'Years',
+                    week: 'custom_string_Weeks',
+                    day: 'Days',
+                    hour: 'Hours',
+                    minute: 'Minutes',
+                    second: 'Seconds',
+                },
+                endCallback: null,
+                outputFormat: 'day|hour|minute|second',
+            });
+            countDownClock.start();         
+        </script>
+    </div>
+    <a href="/cart" class="icon">
+        <img alt="{{main_product_singular}}cover.com cart" src="{{ 'cart-icon.png' | asset_url }}" width="36">
+        <p>Cart</p>
+    </a>
+</div>
+<div class="mobilenav mobile-only" id="second-nav">
+    <a href="javascript:void(0);" class="icon" onclick="mobileLinksToggle()">
+        <img alt="{{main_product_singular}} Cover menu button" src="{{ 'menu-button.png' | asset_url }}">
+        <p>Menu</p>
+    </a>
+
+    <a href="/" class="active"><img src="https://cdn.shopify.com/s/files/1/0613/2124/8956/files/Snowmobile-Logo-Color.png?v=1663949782"></a>
+    <a href="tel:8004760341" class="icon" id="phone-icon">
+
+        <!-- <img alt="Phone icon" src="{{ 'Phone.png' | asset_img_url: '300x' }}" width="60"> -->
+      <span class="telephone-logo telephone-logo-mobile">&#x2706</span>
+    </a>
+</div>
+<div id="mobilenav-links" class="mobile-only" style="background: #333;">
+     
+          
+             <ul class="header-section-container covers-options header-items">
         <li onclick="set_veh_type('Car')">
           <a href="/pages/cover-subpage/car" title="Car Covers">
                 <p>Car<br> Covers</p>
@@ -500,52 +545,6 @@
             </a>
         </li>
       </ul>
-    <div>
-        <div class="fall-sale-div">FALL<br><span class="text-primary">SALE</span></div>
-        <p>Sale ends in:</p>
-    </div>
-    <div>
-        <div class="CountDownContainerMobile"></div>
-        <script>
-            var countDownClock = new Countdown({
-                cont: document.querySelector('.CountDownContainerMobile'),
-                date: date,
-                outputTranslation: {
-                    year: 'Years',
-                    week: 'custom_string_Weeks',
-                    day: 'Days',
-                    hour: 'Hours',
-                    minute: 'Minutes',
-                    second: 'Seconds',
-                },
-                endCallback: null,
-                outputFormat: 'day|hour|minute|second',
-            });
-            countDownClock.start();         
-        </script>
-    </div>
-    <a href="/cart" class="icon">
-        <img alt="{{main_product_singular}}cover.com cart" src="{{ 'cart-icon.png' | asset_url }}" width="36">
-        <p>Cart</p>
-    </a>
-</div>
-<div class="mobilenav mobile-only" id="second-nav">
-    <a href="javascript:void(0);" class="icon" onclick="mobileLinksToggle()">
-        <img alt="{{main_product_singular}} Cover menu button" src="{{ 'menu-button.png' | asset_url }}">
-        <p>Menu</p>
-    </a>
-
-    <a href="/" class="active"><img src="https://cdn.shopify.com/s/files/1/0613/2124/8956/files/Snowmobile-Logo-Color.png?v=1663949782"></a>
-    <a href="tel:8004760341" class="icon" id="phone-icon">
-
-        <!-- <img alt="Phone icon" src="{{ 'Phone.png' | asset_img_url: '300x' }}" width="60"> -->
-      <span class="telephone-logo telephone-logo-mobile">&#x2706</span>
-    </a>
-</div>
-<div id="mobilenav-links" class="mobile-only" style="background: #333;">
-     
-          
-      
 
       
      
