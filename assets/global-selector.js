@@ -471,7 +471,12 @@ var selected =  vehicleInfo.vehtype;
 
   })
 function apiCall(inputType){
-  console.log("I AM THE API CALL ", `#${inputType}`)
+  switch(inputType){
+    case inputType = "type":
+      console.log("IM a type call");
+    break;
+      
+  }
 $.ajax({
   url: `https://api.carcovers.com/getCars.php?type=${selected}`,
   type:"GET",
