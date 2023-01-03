@@ -465,7 +465,7 @@ var selected = vehicleInfo.vehtype ;
      var selected = $(this).val();
      microsite_type = selected;
      localStorage.setItem('vehicle_type', selected); //saves vehicle type to localstorage for dynamic content on collection page (ex: car, van, truck...)
-     console.log( "Local Storage Set", localStorage.getItem('vehicle_type'))
+     
      removeOptions("year");
      removeOptions("make");
      removeOptions("model");
@@ -473,6 +473,7 @@ var selected = vehicleInfo.vehtype ;
    	$("#year").prop("disabled", false);
    	$("#year").attr("style", "display:block;");
   }	)
+console.log( "Local Storage Set", localStorage.getItem('vehicle_type'))
 $.ajax({
   url: "https://api.carcovers.com/getCars.php?type=selected",
   type:"GET",
