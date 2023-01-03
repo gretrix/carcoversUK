@@ -462,9 +462,14 @@
 let selected ;
 $("#type").on("click" ,function(evt){
    selected = evt.target.value;
-   console.log("Test Selected", selected)
+   
 })
-console.log("Test Selected", selected)
+
 $.ajax({
-  url: "https://api.carcovers.com/getCars.php?type="
+  url: "https://api.carcovers.com/getCars.php?type=selected",
+  type:"GET",
+  dataType:"json",
+  success: function(data){
+    console.log("TESTED SELECTED", data)
+  }
 })
