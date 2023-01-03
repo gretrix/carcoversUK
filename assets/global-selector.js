@@ -524,6 +524,11 @@ $.ajax({
   console.log("This is a test for adding make", filledInput)
   
 }
+function removeOptions(element) {
+    var select = document.getElementById(element);
 
+    for (i = select.length - 1; i >= 1; i--) {
+      select.remove(i);
+    }
 
 
