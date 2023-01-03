@@ -551,9 +551,9 @@ $.ajax({
     })} 
     else {
     type = $("#type").val().replace(" ", "-")
-    year = $("#type").val().replace(" ", "_")
-    make = $("#type").val().replace(" ","_")
-    model = $("#type").val().replace(" ","_")
+    year = $("#year").val().replace(" ", "_")
+    make = $("#make").val().replace(" ","_")
+    model = $("#model").val().replace(" ","_")
     window.location.href = `/collections/${$("#type").val()}-covers/${$("#year").val()}&${$("#make").val()}&${$("#model").val()}&${selectedInput}`
   }
 }
