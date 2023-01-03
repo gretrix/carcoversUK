@@ -533,8 +533,9 @@ $.ajax({
   dataType:"json",
   success: function(data){
     console.log("Check 2 things", url, data)
-    if(inputType != "body"){
-      data.forEach(function(rowInput){
+    data == "none" ? 
+    window.location.href = `/collections/${$("#type").val().replace(" ","-")}-covers/${$("#year").val()}&${$("#make").val()}&${$("#model").val()}` : 
+    data.forEach(function(rowInput){
        
          var opt = document.createElement("option");
          opt.value = rowInput;
@@ -548,11 +549,10 @@ $.ajax({
       	opt.innerHTML = rowInput;
        
    document.getElementById("pops-options").appendChild(opt);  
-    })} 
-    else {
+    })
+  
    
-    window.location.href = `/collections/${$("#type").val().replace(" ","-")}-covers/${$("#year").val()}&${$("#make").val()}&${$("#model").val()}`
-  }
+  
 }
 })
   console.log("This is a test for adding make", filledInput)
