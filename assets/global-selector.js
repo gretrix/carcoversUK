@@ -470,7 +470,7 @@ var selected =  vehicleInfo.vehtype;
    	$("#year").attr("style", "display:block;");
 
   })
-
+function apiCall(){
 $.ajax({
   url: `https://api.carcovers.com/getCars.php?type=${selected}`,
   type:"GET",
@@ -480,6 +480,10 @@ $.ajax({
     
   }
 })
+  console.log("I AM THE API CALL")
+  return "Hello World I work"
+}
+
 
  function carTypeChange(years) {    
   
