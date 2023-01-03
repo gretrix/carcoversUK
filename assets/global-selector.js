@@ -472,7 +472,7 @@ var selected = vehicleInfo.vehtype ;
     removeOptions("body");
    	$("#year").prop("disabled", false);
    	$("#year").attr("style", "display:block;");
-  }	
+  }	)
 $.ajax({
   url: "https://api.carcovers.com/getCars.php?type=selected",
   type:"GET",
