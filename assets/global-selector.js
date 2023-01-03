@@ -468,12 +468,12 @@ var selected =  vehicleInfo.vehtype;
      vehicleInfo.vehtype = $(this).val()
    	$("#year").prop("disabled", false);
    	$("#year").attr("style", "display:block;");
-    apiCall("type")
+      apiCall("type", selected)
   })
-function apiCall(inputType){
+function apiCall(inputType,selectedInput){
   switch(inputType){
     case inputType = "type":
-      url = `https://api.carcovers.com/getCars.php?type=car`
+      url = `https://api.carcovers.com/getCars.php?type=${selectedInput}`
       
     break;
      
