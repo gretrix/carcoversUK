@@ -501,7 +501,7 @@ var selected =  vehicleInfo.vehtype;
       
    	 console.log("WE CHANGED THE BODY ")
      
-      apiCall("model", selected)
+      
   });
 
 function apiCall(inputType,selectedInput){
