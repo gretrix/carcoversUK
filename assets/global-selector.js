@@ -471,7 +471,7 @@ var selected = vehicleInfo.vehtype ;
   }	)
 
 $.ajax({
-  url: "https://api.carcovers.com/getCars.php?type=selected",
+  url: `https://api.carcovers.com/getCars.php?type=${selected}`,
   type:"GET",
   dataType:"json",
   success: function(data){
