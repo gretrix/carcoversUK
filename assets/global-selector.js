@@ -527,7 +527,6 @@ function apiCall(inputType,selectedInput){
     case inputType = "body" : 
       url = `https://api.carcovers.com/getTypes.php?year=${$("#year").val()}&make=${$("#make").val()}&model=${selectedInput}`
   }
-    
 $.ajax({
   url: url,
   type:"GET",
@@ -547,12 +546,12 @@ $.ajax({
       	$(opt).attr("data-value", rowInput);
      	$(opt).attr("data-form", "#year");
       	opt.innerHTML = rowInput;
-   data == "none" ? window.location.href = `/collections/${type}-covers/${year}&${make}&${model}`:
+       
    document.getElementById("pops-options").appendChild(opt);  
     })} 
-   else {
-  
-    window.location.href = `/collections/${type}-covers/${year}&${make}&${model}&${selectedInput}`;
+    else {
+   
+    window.location.href = `/collections/${$("#type").val().replace(" ",-)}-covers/${$("#year").val()}&${$("#make").val()}&${$("#model").val()}&${selectedInput}`
   }
 }
 })
