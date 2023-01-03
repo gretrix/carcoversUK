@@ -477,7 +477,7 @@ var selected =  vehicleInfo.vehtype;
      var selected = $(this).val();
    	$("#model").prop("disabled", false);
 	$("#model").attr("style", "display:block;");
-      apiCall("year", selected)
+      apiCall("make", selected)
   });
 
 
