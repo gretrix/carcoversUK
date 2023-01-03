@@ -465,21 +465,21 @@ var selected =  vehicleInfo.vehtype;
      var selected = $(this).val();
    	$("#year").prop("disabled", false);
    	$("#year").attr("style", "display:block;");
-    filledInput = ""
+    
       apiCall("type", selected)
   });
     $("#year").change(function() {
      var selected = $(this).val();
    	$("#make").prop("disabled", false);
 	$("#make").attr("style", "display:block;");
-      filledInput = ""
+      
       apiCall("year", selected)
   });
     $("#make").change(function() {
      var selected = $(this).val();
    	$("#model").prop("disabled", false);
 	$("#model").attr("style", "display:block;");
-      filledInput = ""
+     
       apiCall("make", selected)
   });
 
