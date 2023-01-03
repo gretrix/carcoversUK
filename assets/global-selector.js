@@ -490,7 +490,7 @@ var selected =  vehicleInfo.vehtype;
   });
     $("#model").change(function() {
      var selected = $(this).val();
-      removeOptions("model");
+      
    	$("#body").prop("disabled", false);
 	$("#body").attr("style", "display:block;");
      
