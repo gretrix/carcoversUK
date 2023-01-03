@@ -527,6 +527,10 @@ function apiCall(inputType,selectedInput){
     case inputType = "body" : 
       url = `https://api.carcovers.com/getTypes.php?year=${$("#year").val()}&make=${$("#make").val()}&model=${selectedInput}`
   }
+    type = $("#type").val().replace(" ", "-");
+    year = $("#year").val().replace(" ", "_");
+    make = $("#make").val().replace(" ","_");
+    model = $("#model").val().replace(" ","_");
 $.ajax({
   url: url,
   type:"GET",
@@ -550,10 +554,7 @@ $.ajax({
    document.getElementById("pops-options").appendChild(opt);  
     })} 
    else {
-    type = $("#type").val().replace(" ", "-");
-    year = $("#year").val().replace(" ", "_");
-    make = $("#make").val().replace(" ","_");
-    model = $("#model").val().replace(" ","_");
+  
     window.location.href = `/collections/${type}-covers/${year}&${make}&${model}&${selectedInput}`;
   }
 }
