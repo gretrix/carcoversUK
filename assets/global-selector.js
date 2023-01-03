@@ -459,7 +459,7 @@
   
 // })
 
-var selected = localStorage.setItem('vehicle_type', selected) ;
+var selected =  ;
 
   $("#type").change(function() {
      var selected = $(this).val();
