@@ -496,6 +496,13 @@ var selected =  vehicleInfo.vehtype;
      
       apiCall("model", selected)
   });
+    $("#body").change(function() {
+     var selected = $(this).val();
+      
+   	 console.log("WE CHANGED THE BODY ")
+     
+      apiCall("model", selected)
+  });
 
 function apiCall(inputType,selectedInput){
   let  url = `https://api.carcovers.com/getCars.php?`
