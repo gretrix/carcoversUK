@@ -469,7 +469,7 @@ var selected =  vehicleInfo.vehtype;
    	$("#year").prop("disabled", false);
    	$("#year").attr("style", "display:block;");
       apiCall("type", selected)
-  })
+  });
 function apiCall(inputType,selectedInput){
   switch(inputType){
     case inputType = "type":
@@ -483,12 +483,10 @@ $.ajax({
   type:"GET",
   dataType:"json",
   success: function(data){
-    carTypeChange(data);
+    console.log("IM the data returned")
     
   }
 })
-  
-  return url;
 }
 
 
