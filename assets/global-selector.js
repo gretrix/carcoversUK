@@ -512,4 +512,3 @@ $.ajax({
        	/*initializePopupOptions();*/
      });
  }
-apiCall();
