@@ -461,7 +461,7 @@
 
 
 $("#type").on("click" ,function(evt){
-   let selected = evt.target.value;
+   selected = evt.target.value;
 })
 console.log("Test Selected", selected)
 $.ajax({
