@@ -493,11 +493,11 @@ $.ajax({
          var opt = document.createElement("option");
          opt.value = rowInput;
          opt.innerHTML = rowInput;
-         document.getElementById("year").appendChild(opt);
+         document.getElementById(inputType).appendChild(opt);
       
        	var opt = document.createElement("div");
       	$(opt).attr("data-value", rowInput);
-     	$(opt).attr("data-form", "#year");
+     	$(opt).attr("data-form", `#${inputType}`);
       	opt.innerHTML = rowInput;
        
    document.getElementById("pops-options").appendChild(opt);  
