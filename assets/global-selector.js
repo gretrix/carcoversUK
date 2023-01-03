@@ -475,6 +475,6 @@ $.ajax({
   type:"GET",
   dataType:"json",
   success: function(data){
-    
+    console.lot("TESTING PROVIDED API DATA", data)
   }
 })
