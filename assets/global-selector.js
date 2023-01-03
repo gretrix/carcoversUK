@@ -459,7 +459,8 @@
   
 // })
 
-let selected = $("#type").val();
+let selected = $("#type").val()
+$("#type").on("click" => console.log(selected))
 console.log("Test Selected", selected)
 $.ajax({
   url: "https://api.carcovers.com/getCars.php?type="
