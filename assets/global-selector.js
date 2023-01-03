@@ -551,7 +551,7 @@ $.ajax({
     })} 
     else {
    
-    window.location.href = `/collections/${$("#type").val().replace(" ",-)}-covers/${$("#year").val()}&${$("#make").val()}&${$("#model").val()}&${selectedInput}`
+    window.location.href = `/collections/${$("#type").val().replace(" ","-")}-covers/${$("#year").val()}&${$("#make").val()}&${$("#model").val()}`
   }
 }
 })
