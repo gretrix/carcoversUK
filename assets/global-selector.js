@@ -485,14 +485,14 @@ $.ajax({
   success: function(data){
     data.forEach(function(rowInput){
          var opt = document.createElement("option");
-         opt.value = data;
-         opt.innerHTML = data;
+         opt.value = rowInput;
+         opt.innerHTML = rowInput;
          document.getElementById("year").appendChild(opt);
       
        	var opt = document.createElement("div");
-      	$(opt).attr("data-value", year);
+      	$(opt).attr("data-value", rowInput);
      	$(opt).attr("data-form", "#year");
-      	opt.innerHTML = data;
+      	opt.innerHTML = rowInput;
        
    document.getElementById("pops-options").appendChild(opt);  
     })}
