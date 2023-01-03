@@ -499,7 +499,7 @@ var selected =  vehicleInfo.vehtype;
     $("#body").change(function() {
      var selected = $(this).val();
       
-   	 console.log("WE CHANGED THE BODY ")
+   	 
      
       
   });
@@ -524,6 +524,8 @@ function apiCall(inputType,selectedInput){
       url = url += `type=${$("#type").val()}&year=${$("#year").val()}&make=${$("#make").val()}&model=${selectedInput}`
       filledInput = document.getElementById("body");
       break;
+    case inputType = "body" : 
+      url = `https://api.carcovers.com/getTypes.php?year=${$("#year").val()}&make=${$("#make").val()}&model=${selectedInput}`
   }
 $.ajax({
   url: url,
@@ -531,8 +533,9 @@ $.ajax({
   dataType:"json",
   success: function(data){
     console.log("Check 2 things", url, data)
-    data.forEach(function(rowInput){
-         
+    inputType != "body" ? 
+      data.forEach(function(rowInput){
+       
          var opt = document.createElement("option");
          opt.value = rowInput;
          opt.innerHTML = rowInput;
@@ -545,7 +548,9 @@ $.ajax({
       	opt.innerHTML = rowInput;
        
    document.getElementById("pops-options").appendChild(opt);  
-    })}
+    })} : 
+  console.log("Im the body")
+  
 })
   console.log("This is a test for adding make", filledInput)
   
