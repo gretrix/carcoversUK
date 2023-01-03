@@ -547,8 +547,8 @@ $.ajax({
       	opt.innerHTML = rowInput;
        
    document.getElementById("pops-options").appendChild(opt);  
-    }) :
-  console.log("IM A BODY ")
+    }) : window.location.href = "google.com"
+  
 }
 })
   console.log("This is a test for adding make", filledInput)
