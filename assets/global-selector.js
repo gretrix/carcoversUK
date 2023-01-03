@@ -470,12 +470,38 @@ var selected = localStorage.setItem('vehicle_type', selected) ;
    	$("#year").attr("style", "display:block;");
 
   })
+ function carTypeChange(years) {    
+  
+   if(document.getElementById('vehicle_start')){
+   document.getElementById("pops-options").innerHTML = "" 
+   }  
+    
+ 
+  
+     years.forEach(function (year) {
+      
+         var opt = document.createElement("option");
+         opt.value = year;
+         opt.innerHTML = year;
+         document.getElementById("year").appendChild(opt);
+      
+       	var opt = document.createElement("div");
+      	$(opt).attr("data-value", year);
+     	$(opt).attr("data-form", "#year");
+      	opt.innerHTML = year;
+       
+   document.getElementById("pops-options").appendChild(opt);
+  
+      	
+       	/*initializePopupOptions();*/
+     });
+ }
 $.ajax({
   url: `https://api.carcovers.com/getCars.php?type=${selected}`,
   type:"GET",
   dataType:"json",
   success: function(data){
-
+    carTypeChange(data);
     
   }
 })
