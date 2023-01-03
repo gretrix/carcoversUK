@@ -548,8 +548,7 @@ $.ajax({
       	opt.innerHTML = rowInput;
        
    document.getElementById("pops-options").appendChild(opt);  
-    })} 
-    else {
+    })} else {
     type = $("#type").val().replace(" ", "-")
     year = $("#year").val().replace(" ", "_")
     make = $("#make").val().replace(" ","_")
