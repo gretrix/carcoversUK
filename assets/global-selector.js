@@ -459,10 +459,9 @@
   
 // })
 
-let selected ;
-$("#type").on("click" ,function(evt){
-   selected = evt.target.value;
-   
+var selected ;
+$("#type").change(function(){
+  console.log("TEST SWAP VALUE", $(this).val())
 })
 
 $.ajax({
@@ -470,6 +469,6 @@ $.ajax({
   type:"GET",
   dataType:"json",
   success: function(data){
-    console.log("TESTED SELECTED", data)
+    
   }
 })
