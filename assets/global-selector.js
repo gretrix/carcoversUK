@@ -488,7 +488,14 @@ var selected =  vehicleInfo.vehtype;
      
       apiCall("make", selected)
   });
-
+    $("#model").change(function() {
+     var selected = $(this).val();
+      
+   	$("#body").prop("disabled", false);
+	$("#body").attr("style", "display:block;");
+     
+      apiCall("model", selected)
+  });
 
 function apiCall(inputType,selectedInput){
   let  url = `https://api.carcovers.com/getCars.php?`
@@ -511,7 +518,6 @@ $.ajax({
   type:"GET",
   dataType:"json",
   success: function(data){
-    console.log("Check data", data)
     data.forEach(function(rowInput){
          
          var opt = document.createElement("option");
@@ -527,9 +533,8 @@ $.ajax({
        
    document.getElementById("pops-options").appendChild(opt);  
     })}
-  
 })
-  console.log("This is a test for adding make", url)
+  console.log("This is a test for adding make", filledInput)
   
 }
 function removeOptions(element) {
