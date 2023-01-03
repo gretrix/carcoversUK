@@ -484,7 +484,17 @@ $.ajax({
   dataType:"json",
   success: function(data){
     data.forEach(function(rowInput){
-       console.log("I am an item in the array", rowInput)
+         var opt = document.createElement("option");
+         opt.value = data;
+         opt.innerHTML = data;
+         document.getElementById("year").appendChild(opt);
+      
+       	var opt = document.createElement("div");
+      	$(opt).attr("data-value", year);
+     	$(opt).attr("data-form", "#year");
+      	opt.innerHTML = data;
+       
+   document.getElementById("pops-options").appendChild(opt);  
     })}
 })
 }
