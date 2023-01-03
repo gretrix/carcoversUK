@@ -499,7 +499,7 @@ var selected =  vehicleInfo.vehtype;
     $("#body").change(function() {
      var selected = $(this).val();
       
-   	 
+   	  apiCall("body", selected)
      
       
   });
