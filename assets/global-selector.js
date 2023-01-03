@@ -480,7 +480,7 @@ $.ajax({
     
   }
 })
-  console.log("I AM THE API CALL")
+  console.log("I AM THE API CALL",vehicleInfo.vehType)
   return "Hello World I work"
 }
 
