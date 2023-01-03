@@ -461,7 +461,7 @@
 
 var selected ;
 $("#type").change(function(){
- selected = $(this).val())
+ selected = $(this).val()
 })
 console.log("Test Selected", selected)
 $.ajax({
