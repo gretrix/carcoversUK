@@ -460,7 +460,7 @@
 // })
 
 let selected = $("#type").val()
-$("#type").on("click" function(){
+$("#type").on("click" ,function(){
   console.log("Swapped Selected Test", selected)
 })
 console.log("Test Selected", selected)
