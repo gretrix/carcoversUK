@@ -550,11 +550,11 @@ $.ajax({
    document.getElementById("pops-options").appendChild(opt);  
     })} 
    else {
-    type = $("#type").val().replace(" ", "-")
-    year = $("#year").val().replace(" ", "_")
-    make = $("#make").val().replace(" ","_")
-    model = $("#model").val().replace(" ","_")
-    window.location.href = `/collections/${type}-covers/${year}&${make}&${$(model}&${selectedInput}`
+    type = $("#type").val().replace(" ", "-");
+    year = $("#year").val().replace(" ", "_");
+    make = $("#make").val().replace(" ","_");
+    model = $("#model").val().replace(" ","_");
+    window.location.href = `/collections/${type}-covers/${year}&${make}&${$(model}&${selectedInput}`;
   }
 }
 })
