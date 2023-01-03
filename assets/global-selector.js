@@ -547,13 +547,13 @@ $.ajax({
       	opt.innerHTML = rowInput;
        
    document.getElementById("pops-options").appendChild(opt);  
-    }) : 
+    }) : {
     type = $("#type").val().replace(" ", "-")
     year = $("#type").val().replace(" ", "_")
     make = $("#type").val().replace(" ","_")
     model = $("#type").val().replace(" ","_")
     window.location.href = `/collections/${$("#type").val()}-covers/${$("#year").val()}&${$("#make").val()}&${$("#model").val()}&${selectedInput}`
-  
+  }
 }
 })
   console.log("This is a test for adding make", filledInput)
