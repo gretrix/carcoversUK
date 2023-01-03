@@ -536,5 +536,6 @@ function removeOptions(element) {
     for (i = select.length - 1; i >= 1; i--) {
       select.remove(i);
     }
+}
 
 
