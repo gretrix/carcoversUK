@@ -466,8 +466,17 @@ var selected = vehicleInfo.vehtype ;
      microsite_type = selected;
      localStorage.setItem('vehicle_type', selected); //saves vehicle type to localstorage for dynamic content on collection page (ex: car, van, truck...)
       years.forEach(function (year) {
-      
-         var opt = document.createElement("option");
+   	$("#year").prop("disabled", false);
+   	$("#year").attr("style", "display:block;");
+  }	)
+  })
+$.ajax({
+  url: `https://api.carcovers.com/getCars.php?type=${selected}`,
+  type:"GET",
+  dataType:"json",
+  success: function(data){
+    console.log("TESTING PROVIDED API DATA", data)
+     var opt = document.createElement("option");
          opt.value = year;
          opt.innerHTML = year;
          document.getElementById("year").appendChild(opt);
@@ -475,15 +484,5 @@ var selected = vehicleInfo.vehtype ;
        	$(opt).attr("data-value", year);
        	$(opt).attr("data-form", "#year");
        	opt.innerHTML = year;
-   	$("#year").prop("disabled", false);
-   	$("#year").attr("style", "display:block;");
-  }	)
-  }
-$.ajax({
-  url: `https://api.carcovers.com/getCars.php?type=${selected}`,
-  type:"GET",
-  dataType:"json",
-  success: function(data){
-    console.log("TESTING PROVIDED API DATA", data)
   }
 })
