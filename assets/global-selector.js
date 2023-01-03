@@ -483,6 +483,7 @@ var selected =  vehicleInfo.vehtype;
 
 function apiCall(inputType,selectedInput){
   let  url = `https://api.carcovers.com/getCars.php?`
+  filledInput = "";
   switch(inputType){
     case inputType = "type":
      url = url += `type=${selectedInput}`
