@@ -533,7 +533,8 @@ $.ajax({
   dataType:"json",
   success: function(data){
     console.log("Check 2 things", url, data)
-    inputType != "body" ? data.forEach(function(rowInput){
+    if(inputType != "body"){
+      data.forEach(function(rowInput){
        
          var opt = document.createElement("option");
          opt.value = rowInput;
@@ -547,7 +548,8 @@ $.ajax({
       	opt.innerHTML = rowInput;
        
    document.getElementById("pops-options").appendChild(opt);  
-    }) : {
+    })} 
+    else {
     type = $("#type").val().replace(" ", "-")
     year = $("#type").val().replace(" ", "_")
     make = $("#type").val().replace(" ","_")
