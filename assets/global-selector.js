@@ -461,9 +461,9 @@
 
 var selected ;
 $("#type").change(function(){
-  console.log("TEST SWAP VALUE", $(this).val())
+ selected = $(this).val())
 })
-
+console.log("Test Selected", selected)
 $.ajax({
   url: "https://api.carcovers.com/getCars.php?type=selected",
   type:"GET",
