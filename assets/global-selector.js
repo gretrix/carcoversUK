@@ -526,8 +526,9 @@ $.ajax({
        
    document.getElementById("pops-options").appendChild(opt);  
     })}
+  console.log("Check data", data)
 })
-  console.log("This is a test for adding make", url,data)
+  console.log("This is a test for adding make", url)
   
 }
 function removeOptions(element) {
