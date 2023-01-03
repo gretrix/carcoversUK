@@ -471,6 +471,7 @@ var selected =  vehicleInfo.vehtype;
 
   })
 function apiCall(){
+  console.log("I AM THE API CALL ", vehicleInfo.vehtype,selected)
 $.ajax({
   url: `https://api.carcovers.com/getCars.php?type=${selected}`,
   type:"GET",
@@ -480,7 +481,7 @@ $.ajax({
     
   }
 })
-  console.log("I AM THE API CALL ", vehicleInfo.vehtype,selected)
+  
   return "Hello World I work"
 }
 
