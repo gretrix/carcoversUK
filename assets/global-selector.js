@@ -468,17 +468,17 @@ var selected =  vehicleInfo.vehtype;
      vehicleInfo.vehtype = $(this).val()
    	$("#year").prop("disabled", false);
    	$("#year").attr("style", "display:block;");
-
+    apiCall("type")
   })
 function apiCall(inputType){
   switch(inputType){
     case inputType = "type":
-      console.log("IM a type call");
+      url = `https://api.carcovers.com/getCars.php?type=car`
     break;
       
   }
 $.ajax({
-  url: `https://api.carcovers.com/getCars.php?type=${selected}`,
+  url: url,
   type:"GET",
   dataType:"json",
   success: function(data){
