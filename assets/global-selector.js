@@ -473,6 +473,12 @@ var selected =  vehicleInfo.vehtype;
 	$("#make").attr("style", "display:block;");
       apiCall("year", selected)
   });
+    $("#make").change(function() {
+     var selected = $(this).val();
+   	$("#model").prop("disabled", false);
+	$("#model").attr("style", "display:block;");
+      apiCall("year", selected)
+  });
 
 
 function apiCall(inputType,selectedInput){
