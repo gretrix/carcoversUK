@@ -477,7 +477,7 @@ var selected = localStorage.setItem('vehicle_type', selected) ;
    }  
     
  
-  
+     console.log("Test Change function")
      years.forEach(function (year) {
       
          var opt = document.createElement("option");
