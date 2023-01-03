@@ -463,9 +463,6 @@ var selected =  vehicleInfo.vehtype;
 
   $("#type").change(function() {
      var selected = $(this).val();
-     microsite_type = selected;
-     localStorage.setItem('vehicle_type', selected); //saves vehicle type to localstorage for dynamic content on collection page (ex: car, van, truck...)
-     vehicleInfo.vehtype = $(this).val()
    	$("#year").prop("disabled", false);
    	$("#year").attr("style", "display:block;");
       apiCall("type", selected)
@@ -477,7 +474,6 @@ function apiCall(inputType,selectedInput){
   switch(inputType){
     case inputType = "type":
       url = `https://api.carcovers.com/getCars.php?type=${selectedInput}`
-      
     break;
      
   }
