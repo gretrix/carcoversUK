@@ -468,7 +468,7 @@ var selected =  vehicleInfo.vehtype;
      vehicleInfo.vehtype = $(this).val()
    	$("#year").prop("disabled", false);
    	$("#year").attr("style", "display:block;");
-    
+    apiCall("type")
   })
 function apiCall(inputType){
   switch(inputType){
