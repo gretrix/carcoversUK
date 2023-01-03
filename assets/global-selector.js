@@ -510,6 +510,7 @@ $.ajax({
          var opt = document.createElement("option");
          opt.value = rowInput;
          opt.innerHTML = rowInput;
+        
          filledInput.appendChild(opt);
       
        	var opt = document.createElement("div");
@@ -520,7 +521,7 @@ $.ajax({
    document.getElementById("pops-options").appendChild(opt);  
     })}
 })
-  console.log("This is a test for adding make", url)
+  console.log("This is a test for adding make", filledInput)
   
 }
 
