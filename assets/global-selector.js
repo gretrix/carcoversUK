@@ -16,7 +16,7 @@ var selected = `${microsite_type}`
     type: "GET",
     dataType: "json",
     success: function (data) {
-      console.log(data);
+      console.log("Type Select",data);
       carTypeChange(data);
       
     }
