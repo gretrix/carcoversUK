@@ -465,7 +465,7 @@ var selected =  vehicleInfo.vehtype;
      var selected = $(this).val();
      microsite_type = selected;
      localStorage.setItem('vehicle_type', selected); //saves vehicle type to localstorage for dynamic content on collection page (ex: car, van, truck...)
-      
+     vehicleInfo.vehtype = $(this).val()
    	$("#year").prop("disabled", false);
    	$("#year").attr("style", "display:block;");
 
