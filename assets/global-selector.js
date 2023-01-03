@@ -471,16 +471,18 @@ var selected =  vehicleInfo.vehtype;
      var selected = $(this).val();
    	$("#make").prop("disabled", false);
 	$("#make").attr("style", "display:block;");
-      apiCall("type", selected)
+      apiCall("year", selected)
   });
 
 
 function apiCall(inputType,selectedInput){
+  let  url = `https://api.carcovers.com/getCars.php?`
   switch(inputType){
     case inputType = "type":
-      url = `https://api.carcovers.com/getCars.php?type=${selectedInput}`
+     url = url += `type=${selectedInput}`
     break;
-     
+    case inputType = "year":
+      url = `https://api.carcovers.com/getCars.php?type=${inputType}&year=${selectedInput}`
   }
 $.ajax({
   url: url,
