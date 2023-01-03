@@ -482,7 +482,7 @@ function apiCall(inputType,selectedInput){
      url = url += `type=${selectedInput}`
     break;
     case inputType = "year":
-      url = `https://api.carcovers.com/getCars.php?type=${inputType}&year=${selectedInput}`
+      url = url += `&year=${selectedInput}`
   }
 $.ajax({
   url: url,
