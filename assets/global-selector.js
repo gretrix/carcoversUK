@@ -515,7 +515,7 @@ function apiCall(inputType,selectedInput){
       break;
     case inputType = "model":
       url = url += `type=${$("#type").val()}&year=${$("#year").val()}&make=${$("#make").val()}&model=${selectedInput}`
-      filledInput = document.getElementById("model");
+      filledInput = document.getElementById("body");
       break;
   }
 $.ajax({
