@@ -459,7 +459,8 @@
   
 // })
 
-console.log('New Global Selector Test', vehicleInfo)
+let selected = $("#type").val();
+console.log("Test Selected", selected)
 $.ajax({
   url: "https://api.carcovers.com/getCars.php?type="
 })
