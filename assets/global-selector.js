@@ -503,6 +503,7 @@ $.ajax({
    document.getElementById("pops-options").appendChild(opt);  
     })}
 })
+  console.log("This is a test for adding make", url)
 }
 
 
