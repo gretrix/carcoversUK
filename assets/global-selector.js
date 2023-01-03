@@ -493,7 +493,7 @@ function apiCall(inputType,selectedInput){
       filledInput = document.getElementById("make");
       break;
     case inputType = "make":
-      url = url += `type=${$("#type").val()}&year=${"#year"}&make=${selectedInput}`
+      url = url += `type=${$("#type").val()}&year=${$("#year").val()}&make=${selectedInput}`
       filledInput = document.getElementById("model");
   }
 $.ajax({
