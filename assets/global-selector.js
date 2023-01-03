@@ -483,7 +483,7 @@ function apiCall(inputType,selectedInput){
     break;
     case inputType = "year":
       url = url += `type=${$("#type").val()}&year=${selectedInput}`
-      
+      let tester = $(opt).attr("data-value", rowInput);
   }
 $.ajax({
   url: url,
@@ -505,6 +505,7 @@ $.ajax({
     })}
 })
   console.log("This is a test for adding make", url)
+  console.log(tester)
 }
 
 
