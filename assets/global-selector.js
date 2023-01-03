@@ -475,17 +475,7 @@ $.ajax({
   type:"GET",
   dataType:"json",
   success: function(data){
-    console.log("TESTING PROVIDED API DATA", data)
-    data.forEach(function(year){
-       var opt = document.createElement("option");
-         opt.value = year;
-         opt.innerHTML = year;
-         document.getElementById("year").appendChild(opt);
-         	var opt = document.createElement("div");
-       	$(opt).attr("data-value", year);
-       	$(opt).attr("data-form", "#year");
-       	opt.innerHTML = year;
-    })
+
     
   }
 })
