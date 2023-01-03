@@ -512,7 +512,7 @@ $.ajax({
   dataType:"json",
   success: function(data){
     data.forEach(function(rowInput){
-         
+         console.log("Check data", data)
          var opt = document.createElement("option");
          opt.value = rowInput;
          opt.innerHTML = rowInput;
@@ -526,7 +526,7 @@ $.ajax({
        
    document.getElementById("pops-options").appendChild(opt);  
     })}
-  console.log("Check data", data)
+  
 })
   console.log("This is a test for adding make", url)
   
