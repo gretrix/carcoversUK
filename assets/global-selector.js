@@ -463,6 +463,9 @@ var selected =  vehicleInfo.vehtype;
 
   $("#type").change(function() {
      var selected = $(this).val();
+    removeOptions("year");
+    removeOptions("make");
+    removeOptions("model");
    	$("#year").prop("disabled", false);
    	$("#year").attr("style", "display:block;");
     
@@ -470,6 +473,8 @@ var selected =  vehicleInfo.vehtype;
   });
     $("#year").change(function() {
      var selected = $(this).val();
+    removeOptions("make");
+    removeOptions("model");
    	$("#make").prop("disabled", false);
 	$("#make").attr("style", "display:block;");
       
@@ -477,6 +482,7 @@ var selected =  vehicleInfo.vehtype;
   });
     $("#make").change(function() {
      var selected = $(this).val();
+      removeOptions("model");
    	$("#model").prop("disabled", false);
 	$("#model").attr("style", "display:block;");
      
