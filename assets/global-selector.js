@@ -459,9 +459,9 @@
   
 // })
 
-let selected = $("#type").val()
-$("#type").on("click" ,function(){
-  $("#type").val("test")
+
+$("#type").on("click" ,function(evt){
+   let selected = evt.target.value;
 })
 console.log("Test Selected", selected)
 $.ajax({
