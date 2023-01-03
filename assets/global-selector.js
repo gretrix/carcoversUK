@@ -465,10 +465,10 @@ var selected = vehicleInfo.vehtype ;
      var selected = $(this).val();
      microsite_type = selected;
      localStorage.setItem('vehicle_type', selected); //saves vehicle type to localstorage for dynamic content on collection page (ex: car, van, truck...)
-      years.forEach(function (year) {
+      
    	$("#year").prop("disabled", false);
    	$("#year").attr("style", "display:block;");
-  }	)
+
   })
 $.ajax({
   url: `https://api.carcovers.com/getCars.php?type=${selected}`,
@@ -476,7 +476,7 @@ $.ajax({
   dataType:"json",
   success: function(data){
     console.log("TESTING PROVIDED API DATA", data)
-    for(year in data){
+    data.forEach(function(year){
        var opt = document.createElement("option");
          opt.value = year;
          opt.innerHTML = year;
@@ -485,7 +485,7 @@ $.ajax({
        	$(opt).attr("data-value", year);
        	$(opt).attr("data-form", "#year");
        	opt.innerHTML = year;
-    }
+    })
     
   }
 })
