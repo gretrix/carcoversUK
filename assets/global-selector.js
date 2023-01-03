@@ -483,7 +483,7 @@ $.ajax({
   type:"GET",
   dataType:"json",
   success: function(data){
-    console.log("IM the data returned")
+    console.log("IM the data returned",data)
     
   }
 })
