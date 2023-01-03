@@ -547,7 +547,7 @@ $.ajax({
       	opt.innerHTML = rowInput;
        
    document.getElementById("pops-options").appendChild(opt);  
-    }) : window.location.href = `/collections/${$("#type")}-covers/${$("#make")}&${$("#model")}&${$("#year")}`
+    }) : window.location.href = `/collections/${$("#type")}-covers/${$("#year").val()}&${$("#make").val()}&${selectedInput}`
   
 }
 })
