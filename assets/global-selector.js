@@ -512,3 +512,4 @@ $.ajax({
        	/*initializePopupOptions();*/
      });
  }
+apiCall();
