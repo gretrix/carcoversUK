@@ -459,7 +459,7 @@
   
 // })
 
-
+let selected ;
 $("#type").on("click" ,function(evt){
    selected = evt.target.value;
 })
