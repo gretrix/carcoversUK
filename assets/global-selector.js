@@ -470,6 +470,17 @@ var selected =  vehicleInfo.vehtype;
    	$("#year").attr("style", "display:block;");
 
   })
+
+$.ajax({
+  url: `https://api.carcovers.com/getCars.php?type=${selected}`,
+  type:"GET",
+  dataType:"json",
+  success: function(data){
+    carTypeChange(data);
+    
+  }
+})
+
  function carTypeChange(years) {    
   
    if(document.getElementById('vehicle_start')){
@@ -496,5 +507,3 @@ var selected =  vehicleInfo.vehtype;
        	/*initializePopupOptions();*/
      });
  }
-
-
