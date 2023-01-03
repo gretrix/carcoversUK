@@ -533,8 +533,7 @@ $.ajax({
   dataType:"json",
   success: function(data){
     console.log("Check 2 things", url, data)
-    inputType != "body" ? 
-      data.forEach(function(rowInput){
+    inputType != "body" ? data.forEach(function(rowInput){
        
          var opt = document.createElement("option");
          opt.value = rowInput;
@@ -548,9 +547,9 @@ $.ajax({
       	opt.innerHTML = rowInput;
        
    document.getElementById("pops-options").appendChild(opt);  
-    })} : 
-  console.log("Im the body")
-  
+    }) :
+  console.log("IM A BODY ")
+}
 })
   console.log("This is a test for adding make", filledInput)
   
