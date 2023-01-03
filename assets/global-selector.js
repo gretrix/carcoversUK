@@ -496,12 +496,5 @@ var selected =  vehicleInfo.vehtype;
        	/*initializePopupOptions();*/
      });
  }
-$.ajax({
-  url: `https://api.carcovers.com/getCars.php?type=${selected}`,
-  type:"GET",
-  dataType:"json",
-  success: function(data){
-    carTypeChange(data);
-    
-  }
-})
+
+
