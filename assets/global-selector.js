@@ -547,7 +547,12 @@ $.ajax({
       	opt.innerHTML = rowInput;
        
    document.getElementById("pops-options").appendChild(opt);  
-    }) : window.location.href = `/collections/${$("#type").val()}-covers/${$("#year").val()}&${$("#make").val()}&${$("#model").val()}&${selectedInput}`
+    }) : 
+    type = $("#type").val().replace(" ", "-")
+    year = $("#type").val().replace(" ", "_")
+    make = $("#type").val().replace(" ","_")
+    model = $("#type").val().replace(" ","_")
+    window.location.href = `/collections/${$("#type").val()}-covers/${$("#year").val()}&${$("#make").val()}&${$("#model").val()}&${selectedInput}`
   
 }
 })
