@@ -534,8 +534,8 @@ $.ajax({
   success: function(data){
     console.log("Check 2 things", url, data)
     data == "none" ? 
-    window.location.href = `/collections/${$("#type").val().replace(" ","-")}-covers/${$("#year").val()}&${$("#make").val().val().replace(" ","_")}&${$("#model").val().val().replace(" ","_")}` : 
-    data.forEach(function(rowInput){
+    window.location.href = `/collections/${$("#type").val().replace(" ","-")}-covers/${$("#year").val().replace(" ","_")}&${$("#make").val().replace(" ","_")}&${$("#model").val().replace(" ","_")}` : 
+  data.forEach(function(rowInput){
        
          var opt = document.createElement("option");
          opt.value = rowInput;
