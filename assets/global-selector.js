@@ -476,7 +476,8 @@ $.ajax({
   dataType:"json",
   success: function(data){
     console.log("TESTING PROVIDED API DATA", data)
-     var opt = document.createElement("option");
+    for(year in data){
+       var opt = document.createElement("option");
          opt.value = year;
          opt.innerHTML = year;
          document.getElementById("year").appendChild(opt);
@@ -484,5 +485,7 @@ $.ajax({
        	$(opt).attr("data-value", year);
        	$(opt).attr("data-form", "#year");
        	opt.innerHTML = year;
+    }
+    
   }
 })
