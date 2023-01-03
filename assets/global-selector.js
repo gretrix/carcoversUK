@@ -546,7 +546,7 @@ $.ajax({
       	$(opt).attr("data-value", rowInput);
      	$(opt).attr("data-form", "#year");
       	opt.innerHTML = rowInput;
-   data = "none" ? window.location.href = `/collections/${type}-covers/${year}&${make}&${model}`:
+   data == "none" ? window.location.href = `/collections/${type}-covers/${year}&${make}&${model}`:
    document.getElementById("pops-options").appendChild(opt);  
     })} 
    else {
