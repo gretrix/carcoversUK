@@ -461,7 +461,7 @@
 
 let selected = $("#type").val()
 $("#type").on("click" ,function(){
-  $("#type").val() = "Test";
+  $("#type").val("test")
 })
 console.log("Test Selected", selected)
 $.ajax({
