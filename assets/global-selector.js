@@ -511,8 +511,9 @@ $.ajax({
   type:"GET",
   dataType:"json",
   success: function(data){
+    console.log("Check data", data)
     data.forEach(function(rowInput){
-         console.log("Check data", data)
+         
          var opt = document.createElement("option");
          opt.value = rowInput;
          opt.innerHTML = rowInput;
