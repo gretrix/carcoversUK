@@ -463,7 +463,9 @@ var selected ;
 $("#type").change(function(){
  selected = $(this).val()
 })
-console.log("Test Selected", selected)
+$("#carform").change(){
+  console.log("TEST THEORY Change Made" )
+}
 $.ajax({
   url: "https://api.carcovers.com/getCars.php?type=selected",
   type:"GET",
