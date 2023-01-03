@@ -467,15 +467,14 @@ var selected = vehicleInfo.vehtype ;
      localStorage.setItem('vehicle_type', selected); //saves vehicle type to localstorage for dynamic content on collection page (ex: car, van, truck...)
       years.forEach(function (year) {
       
-      var opt = document.createElement("option");
-      opt.value = year;
-       opt.innerHTML = year;
-        document.getElementById("year").appendChild(opt);
-      
-      	var opt = document.createElement("div");
-      	$(opt).attr("data-value", year);
-      	$(opt).attr("data-form", "#year");
-      	opt.innerHTML = year;
+         var opt = document.createElement("option");
+         opt.value = year;
+         opt.innerHTML = year;
+         document.getElementById("year").appendChild(opt);
+         	var opt = document.createElement("div");
+       	$(opt).attr("data-value", year);
+       	$(opt).attr("data-form", "#year");
+       	opt.innerHTML = year;
    	$("#year").prop("disabled", false);
    	$("#year").attr("style", "display:block;");
   }	)
