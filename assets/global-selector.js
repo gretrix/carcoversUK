@@ -554,7 +554,7 @@ $.ajax({
     year = $("#year").val().replace(" ", "_");
     make = $("#make").val().replace(" ","_");
     model = $("#model").val().replace(" ","_");
-    window.location.href = `/collections/${type}-covers/${year}&${make}&${$(model)}&${selectedInput}`;
+    window.location.href = `/collections/${type}-covers/${year}&${make}&${model}&${selectedInput}`;
   }
 }
 })
