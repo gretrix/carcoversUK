@@ -470,6 +470,9 @@ var selected =  vehicleInfo.vehtype;
    	$("#year").attr("style", "display:block;");
       apiCall("type", selected)
   });
+
+
+
 function apiCall(inputType,selectedInput){
   switch(inputType){
     case inputType = "type":
@@ -500,29 +503,4 @@ $.ajax({
 }
 
 
- function carTypeChange(years) {    
-  
-   if(document.getElementById('vehicle_start')){
-   document.getElementById("pops-options").innerHTML = "" 
-   }  
-    
- 
-     
-     years.forEach(function (year) {
-      
-         var opt = document.createElement("option");
-         opt.value = year;
-         opt.innerHTML = year;
-         document.getElementById("year").appendChild(opt);
-      
-       	var opt = document.createElement("div");
-      	$(opt).attr("data-value", year);
-     	$(opt).attr("data-form", "#year");
-      	opt.innerHTML = year;
-       
-   document.getElementById("pops-options").appendChild(opt);
-  
-      	
-       	/*initializePopupOptions();*/
-     });
- }
+
