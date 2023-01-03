@@ -458,3 +458,8 @@
 //   }
   
 // })
+
+console.log('New Global Selector Test', vehicleInfo)
+$.ajax({
+  url: "https://api.carcovers.com/getCars.php?type="
+})
