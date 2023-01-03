@@ -470,8 +470,8 @@ var selected =  vehicleInfo.vehtype;
    	$("#year").attr("style", "display:block;");
 
   })
-function apiCall(){
-  console.log("I AM THE API CALL ", vehicleInfo.vehtype,selected)
+function apiCall(inputType){
+  console.log("I AM THE API CALL ", `#${inputType}`)
 $.ajax({
   url: `https://api.carcovers.com/getCars.php?type=${selected}`,
   type:"GET",
