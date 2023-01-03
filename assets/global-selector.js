@@ -483,9 +483,9 @@ $.ajax({
   type:"GET",
   dataType:"json",
   success: function(data){
-    console.log("IM the data returned",data)
-    
-  }
+    data.forEach(function(rowInput){
+       console.log("I am an item in the array", rowInput)
+    })}
 })
 }
 
