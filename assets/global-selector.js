@@ -482,7 +482,7 @@ function apiCall(inputType,selectedInput){
      url = url += `type=${selectedInput}`
     break;
     case inputType = "year":
-      url = url += `&year=${selectedInput}`
+      url = url += `type=${$("#type").val()}&year=${selectedInput}`
   }
 $.ajax({
   url: url,
