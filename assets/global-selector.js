@@ -459,7 +459,7 @@
   
 // })
 
-var selected =  ;
+var selected =  vehicleInfo.vehtype;
 
   $("#type").change(function() {
      var selected = $(this).val();
