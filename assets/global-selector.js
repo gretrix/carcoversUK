@@ -503,6 +503,7 @@ $.ajax({
   dataType:"json",
   success: function(data){
     data.forEach(function(rowInput){
+         filledInput = "";
          var opt = document.createElement("option");
          opt.value = rowInput;
          opt.innerHTML = rowInput;
