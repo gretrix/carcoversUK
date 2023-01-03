@@ -516,7 +516,7 @@ $.ajax({
     })}
 })
   console.log("This is a test for adding make", url)
-  console.log(tester)
+  
 }
 
 
