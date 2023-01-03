@@ -475,7 +475,7 @@ function apiCall(inputType){
     case inputType = "type":
       url = `https://api.carcovers.com/getCars.php?type=car`
     break;
-      
+    return url;   
   }
 $.ajax({
   url: url,
@@ -498,7 +498,7 @@ $.ajax({
    }  
     
  
-     console.log("Test Change function")
+     
      years.forEach(function (year) {
       
          var opt = document.createElement("option");
