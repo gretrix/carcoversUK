@@ -475,7 +475,7 @@ function apiCall(inputType){
     case inputType = "type":
       url = `https://api.carcovers.com/getCars.php?type=car`
     break;
-    return url;   
+     
   }
 $.ajax({
   url: url,
@@ -487,7 +487,7 @@ $.ajax({
   }
 })
   
-  return "Hello World I work"
+  return url;
 }
 
 
