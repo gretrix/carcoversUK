@@ -518,6 +518,7 @@ $.ajax({
   type:"GET",
   dataType:"json",
   success: function(data){
+    console.log("Check 2 things", url, data)
     data.forEach(function(rowInput){
          
          var opt = document.createElement("option");
