@@ -488,14 +488,7 @@ var selected =  vehicleInfo.vehtype;
      
       apiCall("make", selected)
   });
-    $("#model").change(function() {
-     var selected = $(this).val();
-      
-   	$("#body").prop("disabled", false);
-	$("#body").attr("style", "display:block;");
-     
-      apiCall("model", selected)
-  });
+
 
 function apiCall(inputType,selectedInput){
   let  url = `https://api.carcovers.com/getCars.php?`
