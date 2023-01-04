@@ -507,7 +507,7 @@ var selected =  vehicleInfo.vehtype;
 
 function apiCall(inputType,selectedInput,formInput){
   let  url = `https://api.carcovers.com/getCars.php?`
- 
+ document.getElementById("pops-options").innerHTML = ""
   switch(inputType){
     case inputType = "type":
      url = url += `type=${selectedInput}`
@@ -549,7 +549,7 @@ $.ajax({
       	$(opt).attr("data-value", rowInput);
      	$(opt).attr("data-form", `#${formInput}`);
       	opt.innerHTML = rowInput;
-       document.getElementById("pops-options").innerHTML = ""
+       
        document.getElementById("pops-options").appendChild(opt);  
     })
   
