@@ -1,3 +1,146 @@
+
+var selected =  vehicleInfo.vehtype;
+
+  $("#type").change(function() {
+    
+     var selected = $(this).val();
+    removeOptions("year");
+    removeOptions("make");
+    removeOptions("model");
+   	$("#year").prop("disabled", false);
+   	$("#year").attr("style", "display:block;");
+    
+      apiCall("type", selected,"year")
+  });
+    $("#year").change(function() {
+     var selected = $(this).val();
+    removeOptions("make");
+    removeOptions("model");
+   	$("#make").prop("disabled", false);
+	$("#make").attr("style", "display:block;");
+      
+      apiCall("year", selected, "make")
+  });
+    $("#make").change(function() {
+     var selected = $(this).val();
+      removeOptions("model");
+   	$("#model").prop("disabled", false);
+	$("#model").attr("style", "display:block;");
+     
+      apiCall("make", selected, "model")
+  });
+    $("#model").change(function() {
+     var selected = $(this).val();
+      
+   	$("#body").prop("disabled", false);
+	$("#body").attr("style", "display:block;");
+     
+      apiCall("model", selected, "passed")
+  });
+    $("#body").change(function() {
+     var selected = $(this).val();
+      
+   	  apiCall("body", selected)
+     
+      
+  });
+
+function apiCall(inputType,selectedInput,formInput){
+  let  url = `https://api.carcovers.com/getCars.php?`
+ document.getElementById("pops-options").innerHTML = ""
+  switch(inputType){
+    case inputType = "type":
+     url = url += `type=${selectedInput}`
+      console.log("TAG ME TAG ME MOBILE",selectedInput)
+      filledInput = document.getElementById("year");
+    break;
+    case inputType = "year":
+      url = url += `type=${$("#type").val()}&year=${selectedInput}`
+      filledInput = document.getElementById("make");
+      break;
+    case inputType = "make":
+      url = url += `type=${$("#type").val()}&year=${$("#year").val()}&make=${selectedInput}`
+      filledInput = document.getElementById("model");
+      break;
+    case inputType = "model":
+      url = url += `type=${$("#type").val()}&year=${$("#year").val()}&make=${$("#make").val()}&model=${selectedInput}`
+      filledInput = document.getElementById("body");
+      break;
+    case inputType = "body" : 
+      url = `https://api.carcovers.com/getTypes.php?year=${$("#year").val()}&make=${$("#make").val()}&model=${selectedInput}`
+  }
+$.ajax({
+  url: url,
+  type:"GET",
+  dataType:"json",
+  success: function(data){
+    console.log("Check 2 things", url, data)
+    data == "none" ? 
+    window.location.href = `/collections/${$("#type").val().replace(" ","-")}-covers/${$("#make").val().replace(/ /g, "_")}&${$("#model").val().replace(/ /g, "_")}&${$("#year").val().replace(/ /g, "_")}` : 
+  data.forEach(function(rowInput){
+       
+         var opt = document.createElement("option");
+         opt.value = rowInput;
+         opt.innerHTML = rowInput;
+        
+         filledInput.appendChild(opt);
+        
+       	var opt = document.createElement("div");
+      	$(opt).attr("data-value", rowInput);
+     	$(opt).attr("data-form", `#${formInput}`);
+      	opt.innerHTML = rowInput;
+       
+       document.getElementById("pops-options").appendChild(opt);  
+    })
+  
+   
+  
+}
+})
+  console.log("This is a test for adding make", filledInput)
+  
+}
+function removeOptions(element) {
+    var select = document.getElementById(element);
+
+    for (i = select.length - 1; i >= 1; i--) {
+      select.remove(i);
+    }
+}
+
+  $(document).ready(function(){
+   
+  if($(window).width() <= 480 ){
+     
+  	  $('#carform > div').click(function(evt){
+         
+       
+        $('.pops').click(evt => {
+        	console.log("test dataset",evt.target.dataset)
+           if(evt.target.dataset.form == "#passed"){
+             window.location.href = `/collections/${$("#type").val().replace(" ","-")}-covers/${$("#make").val().replace(/ /g, "_")}&${$("#model").val().replace(/ /g, "_")}&${$("#year").val().replace(/ /g, "_")}`
+           }
+            // console.log("TEST 1!!",  $(`${evt.target.dataset.form}`).val(evt.target.dataset.value))
+            $(`${evt.target.dataset.form}`).val(evt.target.dataset.value)
+          $(`${evt.target.dataset.form}`).change();
+        
+        })
+        
+
+    });
+ 
+    
+    // $('.cls-pop').click(function(){
+    //     $('.pops').fadeOut();
+    //   $('body').css('overflow', 'auto');
+    // });
+  }
+  
+})
+
+
+
+
 // Car type change
 
 // if(window.location.pathname.includes("subpage")){
@@ -459,141 +602,3 @@
   
 // })
 
-var selected =  vehicleInfo.vehtype;
-
-  $("#type").change(function() {
-    
-     var selected = $(this).val();
-    removeOptions("year");
-    removeOptions("make");
-    removeOptions("model");
-   	$("#year").prop("disabled", false);
-   	$("#year").attr("style", "display:block;");
-    
-      apiCall("type", selected,"year")
-  });
-    $("#year").change(function() {
-     var selected = $(this).val();
-    removeOptions("make");
-    removeOptions("model");
-   	$("#make").prop("disabled", false);
-	$("#make").attr("style", "display:block;");
-      
-      apiCall("year", selected, "make")
-  });
-    $("#make").change(function() {
-     var selected = $(this).val();
-      removeOptions("model");
-   	$("#model").prop("disabled", false);
-	$("#model").attr("style", "display:block;");
-     
-      apiCall("make", selected, "model")
-  });
-    $("#model").change(function() {
-     var selected = $(this).val();
-      
-   	$("#body").prop("disabled", false);
-	$("#body").attr("style", "display:block;");
-     
-      apiCall("model", selected, "passed")
-  });
-    $("#body").change(function() {
-     var selected = $(this).val();
-      
-   	  apiCall("body", selected)
-     
-      
-  });
-
-function apiCall(inputType,selectedInput,formInput){
-  let  url = `https://api.carcovers.com/getCars.php?`
- document.getElementById("pops-options").innerHTML = ""
-  switch(inputType){
-    case inputType = "type":
-     url = url += `type=${selectedInput}`
-      console.log("TAG ME TAG ME MOBILE",selectedInput)
-      filledInput = document.getElementById("year");
-    break;
-    case inputType = "year":
-      url = url += `type=${$("#type").val()}&year=${selectedInput}`
-      filledInput = document.getElementById("make");
-      break;
-    case inputType = "make":
-      url = url += `type=${$("#type").val()}&year=${$("#year").val()}&make=${selectedInput}`
-      filledInput = document.getElementById("model");
-      break;
-    case inputType = "model":
-      url = url += `type=${$("#type").val()}&year=${$("#year").val()}&make=${$("#make").val()}&model=${selectedInput}`
-      filledInput = document.getElementById("body");
-      break;
-    case inputType = "body" : 
-      url = `https://api.carcovers.com/getTypes.php?year=${$("#year").val()}&make=${$("#make").val()}&model=${selectedInput}`
-  }
-$.ajax({
-  url: url,
-  type:"GET",
-  dataType:"json",
-  success: function(data){
-    console.log("Check 2 things", url, data)
-    data == "none" ? 
-    window.location.href = `/collections/${$("#type").val().replace(" ","-")}-covers/${$("#make").val().replace(/ /g, "_")}&${$("#model").val().replace(/ /g, "_")}&${$("#year").val().replace(/ /g, "_")}` : 
-  data.forEach(function(rowInput){
-       
-         var opt = document.createElement("option");
-         opt.value = rowInput;
-         opt.innerHTML = rowInput;
-        
-         filledInput.appendChild(opt);
-        
-       	var opt = document.createElement("div");
-      	$(opt).attr("data-value", rowInput);
-     	$(opt).attr("data-form", `#${formInput}`);
-      	opt.innerHTML = rowInput;
-       
-       document.getElementById("pops-options").appendChild(opt);  
-    })
-  
-   
-  
-}
-})
-  console.log("This is a test for adding make", filledInput)
-  
-}
-function removeOptions(element) {
-    var select = document.getElementById(element);
-
-    for (i = select.length - 1; i >= 1; i--) {
-      select.remove(i);
-    }
-}
-
-  $(document).ready(function(){
-   
-  if($(window).width() <= 480 ){
-     
-  	  $('#carform > div').click(function(evt){
-         
-       
-        $('.pops').click(evt => {
-        	console.log("test dataset",evt.target.dataset)
-           if(evt.target.dataset.form == "#passed"){
-             window.location.href = `/collections/${$("#type").val().replace(" ","-")}-covers/${$("#make").val().replace(/ /g, "_")}&${$("#model").val().replace(/ /g, "_")}&${$("#year").val().replace(/ /g, "_")}`
-           }
-            // console.log("TEST 1!!",  $(`${evt.target.dataset.form}`).val(evt.target.dataset.value))
-            $(`${evt.target.dataset.form}`).val(evt.target.dataset.value)
-          $(`${evt.target.dataset.form}`).change();
-        
-        })
-        
-
-    });
- 
-    
-    // $('.cls-pop').click(function(){
-    //     $('.pops').fadeOut();
-    //   $('body').css('overflow', 'auto');
-    // });
-  }
-  
-})
