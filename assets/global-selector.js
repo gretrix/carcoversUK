@@ -460,8 +460,11 @@
 // })
 if($(window).width() <= 480 ){
    $("#type").on("click", function(evt){
-     console.log("I clicked Type")
-     $(".pops").show()
+     $(".pops").show();
+
+     $(".pops div").on("click", function(evt){
+       console.log("I clicked A Mobile Option")
+     })
    })
 }
 var selected =  vehicleInfo.vehtype;
