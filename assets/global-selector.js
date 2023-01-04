@@ -572,12 +572,12 @@ function removeOptions(element) {
   if($(window).width() <= 480 ){
      
   	  $('#carform > div').click(function(evt){
-         console.log("evt target", evt.target)
+         
         $('.pops').fadeIn();
         $('body').css('overflow', 'hidden');
         $('.pops').click(evt => {
-        	console.log("evt target2", evt.target.innerText)
-            console.log($("#type").val())
+        	
+            
           	  if(evt.target.dataset.form === "#type"){
          document.getElementById("pops-options").innerHTML = ""
         }
