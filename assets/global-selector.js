@@ -511,6 +511,7 @@ function apiCall(inputType,selectedInput,formInput){
   switch(inputType){
     case inputType = "type":
      url = url += `type=${selectedInput}`
+      console.log("TAG ME TAG ME MOBILE",selectedInput)
       filledInput = document.getElementById("year");
     break;
     case inputType = "year":
