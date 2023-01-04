@@ -578,7 +578,7 @@ function removeOptions(element) {
         $('body').css('overflow', 'hidden');
         $('.pops').click(evt => {
         	
-           console.log("test",$(`${evt.target.dataset}`));
+           console.log("check here",evt.target)
             $(`${evt.target.dataset.form}`).val(evt.target.dataset.value)
           $(`${evt.target.dataset.form}`).change();
         
