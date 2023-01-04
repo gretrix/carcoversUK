@@ -464,7 +464,7 @@ if($(window).width() <= 480 ){
 
   
    })
-     $(".pops div").on("click", function(evt){
+     $("#pops-options div").on("click", function(evt){
        console.log("I clicked A Mobile Option")
      })
 }
