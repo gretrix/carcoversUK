@@ -406,7 +406,7 @@
 // }
   
  
-  $(document).ready(function(){
+  $(document).ready(function(evt){
    
   if($(window).width() <= 480 ){
      
