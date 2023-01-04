@@ -545,8 +545,8 @@ $.ajax({
          filledInput.appendChild(opt);
         
        	var opt = document.createElement("div");
-      	 $(opt).attr("data-value", rowInput);
-     	$("#type").val().length != 27? $(opt).attr("data-form", `#${inputType}`) : (opt).attr("data-form", `#year`);
+      	$(opt).attr("data-value", rowInput);
+     	$(opt).attr("data-form", `#year`);
       	opt.innerHTML = rowInput;
        
        document.getElementById("pops-options").appendChild(opt);  
@@ -588,6 +588,17 @@ function removeOptions(element) {
      
      
          document.getElementById("pops-options").innerHTML = ""
+      $.ajax({
+    url: "https://api.carcovers.com/getCars.php?type=" + selected.replace(/-/g, " "),
+    type: "GET",
+    dataType: "json",
+    success: function (data) {
+      console.log("API getCars Data Result:",data);
+      
+      console.log(" selector change test4")
+      carTypeChange(data);
+    }
+  });
     
     }
     });
