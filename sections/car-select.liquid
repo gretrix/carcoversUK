@@ -101,34 +101,31 @@
     <div class="grid-four grid-extra">
       <!-- <img src="{{ 'stars.png' | asset_url }}"> -->
       <img class="stamped-logo1" src="{{ 'stamped.png' | asset_url }}" />
-      <img src="{{ 'lifetime-warranty.png' | asset_url }}" />
+      <img src="{{ '10-year-warranty.png' | asset_url }}" />
       <!-- <img src="{{ 'protection.png' | asset_url }}"> -->
     </div>
   </div>
 </div>
 <div class="pops">
   <div class="pops-header text-center primary">
-    
     <a href="#" class="cls-pop">Back</a>Make Your Selection:
   </div>
 
   <div id="pops-options">
-            <select id="type" name="type">
-              <option selected>Select your vehicle type...</option>
-              <option value="Car">Car Covers</option>
-              <option value="Truck">Truck Covers</option>
-              <option value="Van">Van Covers</option>
-              <option value="SUV">SUV Covers</option>
-              <option value="Motorcycle">Motorcycle Covers</option>
-              <option value="Scooter">Scooter Covers</option>
-              <option value="ATV">ATV Covers</option>
-              <option value="UTV">UTV Covers</option>
-              <option value="Snowmobile">Snowmobile Covers</option>
-              <option value="Golf-Cart">Golf Cart Covers</option>
-              <option value="Jet Ski">Jet Ski Covers</option>
-              <option value="RV">RV Covers</option>
-              <option value="Limo">Limo Covers</option>
-            </select>
+      
+      <div value="Car">Car Covers</option>
+              <div value="Truck">Truck Covers</div>
+              <div value="Van">Van Covers</div>
+              <div value="SUV">SUV Covers</div>
+              <div value="Motorcycle">Motorcycle Covers</div>
+              <div value="Scooter">Scooter Covers</div>
+              <div value="ATV">ATV Covers</div>
+              <div value="UTV">UTV Covers</div>
+              <div value="Snowmobile">Snowmobile Covers</div>
+              <div value="Golf-Cart">Golf Cart Covers</div>
+              <div value="Jet Ski">Jet Ski Covers</div>
+              <div value="RV">RV Covers</div>
+              <div value="Limo">Limo Covers</div>
   </div>
 </div>
 <!-- End HTML for product selection section -->
@@ -214,6 +211,9 @@
   }
 </style>
 
+<script>
+  var vehicle_type = "Snowmobile";
+</script>
 
 {{ "global-selector.js" | asset_url | script_tag }}
 
