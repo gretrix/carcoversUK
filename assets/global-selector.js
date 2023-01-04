@@ -461,7 +461,7 @@
 if($(window).width() <= 480 ){
    $("#type").on("click", function(evt){
      console.log("I clicked Type")
-     $(".pops-options").show()
+     $(".pops").show()
    })
 }
 var selected =  vehicleInfo.vehtype;
