@@ -110,7 +110,7 @@ function removeOptions(element) {
 
   $(document).ready(function(){
   if($("#type")[0].style.display == ""){
-    console.log("TYPE IS HERE BUT IS IT HIDDEN?")
+    console.log("TYPE IS HERE BUT IS IT HIDDEN?", vehicle_type)
   }
   if($(window).width() <= 480 ){
      
