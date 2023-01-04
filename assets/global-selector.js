@@ -503,7 +503,7 @@ $.ajax({
       
        	var opt = document.createElement("div");
       	$(opt).attr("data-value", rowInput);
-     	$(opt).attr("data-form", "#year");
+     	$(opt).attr("data-form", rowInput);
       	opt.innerHTML = rowInput;
        
    document.getElementById("pops-options").appendChild(opt);  
