@@ -410,7 +410,7 @@
    
   if($(window).width() <= 480 ){
      
-          $("#carform > div").on('mousedown',evt => {
+          $("#carform > div").on('mousedown',(evt) => {
       
       evt.preventDefault()
       document.body.addEventListener('touchstart', function(e){ e.preventDefault(); });
