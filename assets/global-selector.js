@@ -580,7 +580,7 @@ function removeOptions(element) {
            if(evt.target.dataset.form == "#passed"){
              window.location.href = `/collections/${$("#type").val().replace(" ","-")}-covers/${$("#make").val().replace(/ /g, "_")}&${$("#model").val().replace(/ /g, "_")}&${$("#year").val().replace(/ /g, "_")}`
            }
-            console.log("TEST 1!!",  $(`${evt.target.dataset.form}`).val(evt.target.dataset.value))
+            // console.log("TEST 1!!",  $(`${evt.target.dataset.form}`).val(evt.target.dataset.value))
             $(`${evt.target.dataset.form}`).val(evt.target.dataset.value)
           $(`${evt.target.dataset.form}`).change();
         
