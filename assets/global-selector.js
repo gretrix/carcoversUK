@@ -109,8 +109,8 @@ function removeOptions(element) {
 }
 
   $(document).ready(function(){
-  if($("#type")[0].style.display = ""){
-    console.log("TYPE SELECT SHOULD BE HIDDENT")
+  if($("#type")){
+    console.log("TYPE IS HERE BUT IS IT HIDDEN?")
   }
   if($(window).width() <= 480 ){
      
