@@ -578,33 +578,13 @@ function removeOptions(element) {
         $('body').css('overflow', 'hidden');
         $('.pops').click(evt => {
         	
-            
-          	  if(evt.target.dataset.form === "#type"){
-         document.getElementById("pops-options").innerHTML = ""
-        }
+           console.log("test",$(`${evt.target.dataset}`));
             $(`${evt.target.dataset.form}`).val(evt.target.dataset.value)
           $(`${evt.target.dataset.form}`).change();
         
         })
         
-  //          if(evt.target.id === "year"){
-  
-     
-     
-  //        document.getElementById("pops-options").innerHTML = ""
-  //     $.ajax({
-  //   url: "https://api.carcovers.com/getCars.php?type=" + selected.replace(/-/g, " "),
-  //   type: "GET",
-  //   dataType: "json",
-  //   success: function (data) {
-  //     console.log("API getCars Data Result:",data);
-      
-  //     console.log(" selector change test4")
-  //     carTypeChange(data);
-  //   }
-  // });
-    
-  //   }
+
     });
  
     
