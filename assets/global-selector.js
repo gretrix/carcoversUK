@@ -462,6 +462,7 @@
 var selected =  vehicleInfo.vehtype;
 
   $("#type").change(function() {
+     window.width < 480px ? console.log("CHECKED MOBILE")
      var selected = $(this).val();
     removeOptions("year");
     removeOptions("make");
