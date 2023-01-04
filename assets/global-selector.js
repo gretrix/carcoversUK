@@ -460,7 +460,7 @@
 // })
 if($(window).width() <= 480 ){
    $("#type").on("click", function(evt){
-     evt.preventDefault();
+     console.log("I clicked Type")
      $(".pops-options").show()
    })
 }
