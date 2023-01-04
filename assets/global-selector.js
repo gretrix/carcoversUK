@@ -470,7 +470,7 @@ var selected =  vehicleInfo.vehtype;
    	$("#year").prop("disabled", false);
    	$("#year").attr("style", "display:block;");
     
-      apiCall("type", selected)
+      apiCall("type", selected,"year")
   });
     $("#year").change(function() {
      var selected = $(this).val();
@@ -505,7 +505,7 @@ var selected =  vehicleInfo.vehtype;
       
   });
 
-function apiCall(inputType,selectedInput){
+function apiCall(inputType,selectedInput,formInput){
   let  url = `https://api.carcovers.com/getCars.php?`
  
   switch(inputType){
