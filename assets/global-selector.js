@@ -576,7 +576,7 @@ function removeOptions(element) {
         $('.pops').fadeIn();
         $('body').css('overflow', 'hidden');
         $('.pops').click(evt => {
-        	console.log("evt target2", evt.target.value)
+        	console.log("evt target2", evt.target.innerText)
             
           	  if(evt.target.dataset.form === "#type"){
          document.getElementById("pops-options").innerHTML = ""
