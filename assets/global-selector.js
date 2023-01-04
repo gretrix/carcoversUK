@@ -533,7 +533,7 @@ $.ajax({
   type:"GET",
   dataType:"json",
   success: function(data){
-    console.log("Check 2 things", url, data)
+    console.log("Check 2 things", url, data,inputType)
     data == "none" ? 
     window.location.href = `/collections/${$("#type").val().replace(" ","-")}-covers/${$("#make").val().replace(/ /g, "_")}&${$("#model").val().replace(/ /g, " ")}&${$("#year").val().replace(" ","_")}` : 
   data.forEach(function(rowInput){
