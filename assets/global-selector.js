@@ -495,7 +495,7 @@ var selected =  vehicleInfo.vehtype;
    	$("#body").prop("disabled", false);
 	$("#body").attr("style", "display:block;");
      
-      apiCall("model", selected)
+      apiCall("model", selected, "passed")
   });
     $("#body").change(function() {
      var selected = $(this).val();
