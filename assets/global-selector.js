@@ -458,7 +458,9 @@
 //   }
   
 // })
-
+if($(window).width() <= 480 ){
+  console.log("CHECK Mobile")
+}
 var selected =  vehicleInfo.vehtype;
 
   $("#type").change(function() {
