@@ -462,7 +462,7 @@
 var selected =  vehicleInfo.vehtype;
 
   $("#type").change(function() {
-  
+     window.width < 480 ? console.log("CHECKED MOBILE") : console.log("NOT MOBILE")
      var selected = $(this).val();
     removeOptions("year");
     removeOptions("make");
@@ -546,7 +546,7 @@ $.ajax({
         
        	var opt = document.createElement("div");
       	$(opt).attr("data-value", rowInput);
-     	$(opt).attr("data-form", `#year`);
+     	$(opt).attr("data-form", `#${inputType}`);
       	opt.innerHTML = rowInput;
        
        document.getElementById("pops-options").appendChild(opt);  
@@ -556,7 +556,7 @@ $.ajax({
   
 }
 })
-
+  console.log("This is a test for adding make", filledInput)
   
 }
 function removeOptions(element) {
@@ -578,6 +578,9 @@ function removeOptions(element) {
         $('.pops').click(evt => {
         	
             
+          	  if(evt.target.dataset.form === "#type"){
+         document.getElementById("pops-options").innerHTML = ""
+        }
             $(`${evt.target.dataset.form}`).val(evt.target.dataset.value)
           $(`${evt.target.dataset.form}`).change();
         
