@@ -533,7 +533,7 @@ $.ajax({
   type:"GET",
   dataType:"json",
   success: function(data){
-    console.log("Check 2 things", url, data,inputType)
+    console.log("Check 2 things", url, data)
     data == "none" ? 
     window.location.href = `/collections/${$("#type").val().replace(" ","-")}-covers/${$("#make").val().replace(/ /g, "_")}&${$("#model").val().replace(/ /g, " ")}&${$("#year").val().replace(" ","_")}` : 
   data.forEach(function(rowInput){
@@ -546,7 +546,7 @@ $.ajax({
         
        	var opt = document.createElement("div");
       	$(opt).attr("data-value", rowInput);
-       	$(opt).attr("data-form", `#${inputType}`);
+     	$(opt).attr("data-form", `#year`);
       	opt.innerHTML = rowInput;
        
        document.getElementById("pops-options").appendChild(opt);  
@@ -556,7 +556,7 @@ $.ajax({
   
 }
 })
-  console.log("This is a test for adding make", filledInput)
+
   
 }
 function removeOptions(element) {
