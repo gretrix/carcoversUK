@@ -153,7 +153,7 @@ body {
   background-color: gray;
   position: absolute;
   z-index: 1;
-  top: 0;
+  top: 50%;
   left: 0;
 }
 .pops-header {
@@ -172,7 +172,8 @@ body {
 }
 #pops-options {
 
-
+  height: 100vh;
+  margin-top: 10vh;
 }
 #pops-options div {
   border-bottom: 1px solid #999999;
