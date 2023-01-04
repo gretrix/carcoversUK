@@ -101,7 +101,7 @@
     <div class="grid-four grid-extra">
       <!-- <img src="{{ 'stars.png' | asset_url }}"> -->
       <img class="stamped-logo1" src="{{ 'stamped.png' | asset_url }}" />
-      <img src="{{ 'lifetime-warranty.png' | asset_url }}" />
+      <img src="{{ '10-year-warranty.png' | asset_url }}" />
       <!-- <img src="{{ 'protection.png' | asset_url }}"> -->
     </div>
   </div>
@@ -111,7 +111,22 @@
     <a href="#" class="cls-pop">Back</a>Make Your Selection:
   </div>
 
-  <div id="pops-options"></div>
+  <div id="pops-options">
+      
+      <div value="Car">Car Covers</option>
+              <div value="Truck">Truck Covers</div>
+              <div value="Van">Van Covers</div>
+              <div value="SUV">SUV Covers</div>
+              <div value="Motorcycle">Motorcycle Covers</div>
+              <div value="Scooter">Scooter Covers</div>
+              <div value="ATV">ATV Covers</div>
+              <div value="UTV">UTV Covers</div>
+              <div value="Snowmobile">Snowmobile Covers</div>
+              <div value="Golf-Cart">Golf Cart Covers</div>
+              <div value="Jet Ski">Jet Ski Covers</div>
+              <div value="RV">RV Covers</div>
+              <div value="Limo">Limo Covers</div>
+  </div>
 </div>
 <!-- End HTML for product selection section -->
 
@@ -196,6 +211,9 @@
   }
 </style>
 
+<script>
+  var vehicle_type = "Snowmobile";
+</script>
 
 {{ "global-selector.js" | asset_url | script_tag }}
 
