@@ -546,6 +546,9 @@ $.ajax({
         
        	var opt = document.createElement("div");
       	$(opt).attr("data-value", rowInput);
+          if(inputType = "type" && $(".pops")[0].style == "block"){
+            inputType = "make"
+          }
      	$(opt).attr("data-form", `#${inputType}`);
       	opt.innerHTML = rowInput;
        
