@@ -577,7 +577,7 @@ function removeOptions(element) {
         $('.pops').fadeIn();
         $('body').css('overflow', 'hidden');
         $('.pops').click(evt => {
-        	
+        	console.log("test dataset",evt.target.dataset)
            if(evt.target.dataset.form == "passed"){
              window.location.href = `/collections/${$("#type").val().replace(" ","-")}-covers/${$("#make").val().replace(/ /g, "_")}&${$("#model").val().replace(/ /g, "_")}&${$("#year").val().replace(/ /g, "_")}`
            }
