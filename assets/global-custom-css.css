@@ -173,6 +173,7 @@ body {
 #pops-options {
   overflow-y: scroll;
   height: 100vh;
+  margin-top: 12vh
 }
 #pops-options div {
   border-bottom: 1px solid #999999;
