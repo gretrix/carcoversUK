@@ -109,7 +109,9 @@ function removeOptions(element) {
 }
 
   $(document).ready(function(){
-   
+  if($("#type")[0].style.display = ""){
+    
+  }
   if($(window).width() <= 480 ){
      
   	  $('#carform > div').click(function(evt){
