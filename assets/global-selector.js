@@ -465,7 +465,7 @@ if($(window).width() <= 480 ){
   
    })
      $("#pops-options div").on("click", function(evt){
-       console.log("I clicked A Mobile Option",evt.target.value)
+       console.log("I clicked A Mobile Option",evt.target[0])
      })
 }
 var selected =  vehicleInfo.vehtype;
