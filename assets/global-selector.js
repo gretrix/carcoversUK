@@ -591,10 +591,10 @@ function removeOptions(element) {
     });
  
     
-    $('.cls-pop').click(function(){
-        $('.pops').fadeOut();
-      $('body').css('overflow', 'auto');
-    });
+    // $('.cls-pop').click(function(){
+    //     $('.pops').fadeOut();
+    //   $('body').css('overflow', 'auto');
+    // });
   }
   
 })
