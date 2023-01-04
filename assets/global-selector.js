@@ -578,9 +578,6 @@ function removeOptions(element) {
         $('.pops').click(evt => {
         	
             
-          	  if(evt.target.dataset.form === "#type"){
-         document.getElementById("pops-options").innerHTML = ""
-        }
             $(`${evt.target.dataset.form}`).val(evt.target.dataset.value)
           $(`${evt.target.dataset.form}`).change();
         
