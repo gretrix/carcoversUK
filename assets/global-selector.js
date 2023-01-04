@@ -542,7 +542,7 @@ $.ajax({
          opt.innerHTML = rowInput;
         
          filledInput.appendChild(opt);
-      
+        
        	var opt = document.createElement("div");
       	$(opt).attr("data-value", rowInput);
      	$(opt).attr("data-form", "#year");
