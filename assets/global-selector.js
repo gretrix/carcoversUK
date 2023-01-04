@@ -546,7 +546,7 @@ $.ajax({
         
        	var opt = document.createElement("div");
       	$(opt).attr("data-value", rowInput);
-     	$(opt).attr("data-form", `#year`);
+     	$("#type").val().length != 27? $(opt).attr("data-form", `#${inputType}`) : (opt).attr("data-form", `#type`);
       	opt.innerHTML = rowInput;
        
        document.getElementById("pops-options").appendChild(opt);  
