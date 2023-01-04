@@ -578,10 +578,12 @@ function removeOptions(element) {
         $('body').css('overflow', 'hidden');
         $('.pops').click(evt => {
         	
-           console.log("check here",evt.target.dataset)
+           if(evt.target.dataset.value != "passed"){ 
             $(`${evt.target.dataset.form}`).val(evt.target.dataset.value)
           $(`${evt.target.dataset.form}`).change();
-        
+           } else {
+             evt.target.dataset.value == "passed" ? window.location.href = `/collections/${$("#type").val().replace(" ","-")}-covers/${$("#make").val().replace(/ /g, "_")}&${$("#model").val().replace(/ /g, "_")}&${$("#year").val().replace(/ /g, "_")}`
+           }
         })
         
 
