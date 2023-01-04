@@ -413,7 +413,7 @@
           $("#carform > div").on('mousedown',evt => {
       
       evt.preventDefault()
-      document.body.addEventListener('touchstart', function(e){ e.preventDefault(); });
+    
     })
   	  $('#carform > div').click(function(evt){
         
