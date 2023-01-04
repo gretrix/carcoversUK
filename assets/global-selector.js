@@ -571,17 +571,12 @@ function removeOptions(element) {
    
   if($(window).width() <= 480 ){
      
-          $("#carform > div").on('mousedown',evt => {
-      
-      evt.preventDefault()
-      document.body.addEventListener('touchstart', function(e){ e.preventDefault(); });
-    })
   	  $('#carform > div').click(function(evt){
-        
+         console.log("evt target", evt.target)
         $('.pops').fadeIn();
         $('body').css('overflow', 'hidden');
         $('.pops').click(evt => {
-        	
+        	console.log("evt target2", evt.target)
             
           	  if(evt.target.dataset.form === "#type"){
          document.getElementById("pops-options").innerHTML = ""
