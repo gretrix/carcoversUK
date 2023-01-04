@@ -586,24 +586,24 @@ function removeOptions(element) {
         
         })
         
-           if(evt.target.id === "year"){
+  //          if(evt.target.id === "year"){
   
      
      
-         document.getElementById("pops-options").innerHTML = ""
-      $.ajax({
-    url: "https://api.carcovers.com/getCars.php?type=" + selected.replace(/-/g, " "),
-    type: "GET",
-    dataType: "json",
-    success: function (data) {
-      console.log("API getCars Data Result:",data);
+  //        document.getElementById("pops-options").innerHTML = ""
+  //     $.ajax({
+  //   url: "https://api.carcovers.com/getCars.php?type=" + selected.replace(/-/g, " "),
+  //   type: "GET",
+  //   dataType: "json",
+  //   success: function (data) {
+  //     console.log("API getCars Data Result:",data);
       
-      console.log(" selector change test4")
-      carTypeChange(data);
-    }
-  });
+  //     console.log(" selector change test4")
+  //     carTypeChange(data);
+  //   }
+  // });
     
-    }
+  //   }
     });
  
     
