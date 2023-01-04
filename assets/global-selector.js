@@ -406,14 +406,14 @@
 // }
   
  
-  $(document).ready(function(evt){
+  $(document).ready(function(){
    
   if($(window).width() <= 480 ){
      
-          $("#carform > div").on('mousedown',(evt) => {
+          $("#carform > div").on('mousedown',evt => {
       
       evt.preventDefault()
-      document.body.addEventListener('click', function(e){ e.preventDefault(); });
+      document.body.addEventListener('touchstart', function(e){ e.preventDefault(); });
     })
   	  $('#carform > div').click(function(evt){
         
@@ -458,7 +458,16 @@
   }
   
 })
+// if($(window).width() <= 480 ){
+//    $("#type").on("click", function(evt){
+//      $(".pops").show();
 
+  
+//    })
+//      $("#pops-options div").on("click", function(evt){
+//        console.log("I clicked A Mobile Option",evt.target)
+//      })
+// }
 var selected =  vehicleInfo.vehtype;
 
   $("#type").change(function() {
