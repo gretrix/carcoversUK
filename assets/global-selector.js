@@ -406,58 +406,7 @@
 // }
   
  
-  $(document).ready(function(){
-   
-  if($(window).width() <= 480 ){
-     
-          $("#carform > div").on('mousedown',evt => {
-      
-      evt.preventDefault()
-    
-    })
-  	  $('#carform > div').click(function(evt){
-        
-        $('.pops').fadeIn();
-        $('body').css('overflow', 'hidden');
-        $('.pops').click(evt => {
-        	
-            
-          	  if(evt.target.dataset.form === "#type"){
-         document.getElementById("pops-options").innerHTML = ""
-        }
-            $(`${evt.target.dataset.form}`).val(evt.target.dataset.value)
-          $(`${evt.target.dataset.form}`).change();
-        
-        })
-        
-           if(evt.target.id === "year"){
-  
-     
-     
-         document.getElementById("pops-options").innerHTML = ""
-      $.ajax({
-    url: "https://api.carcovers.com/getCars.php?type=" + selected.replace(/-/g, " "),
-    type: "GET",
-    dataType: "json",
-    success: function (data) {
-      console.log("API getCars Data Result:",data);
-      
-      console.log(" selector change test4")
-      carTypeChange(data);
-    }
-  });
-    
-    }
-    });
- 
-    
-    $('.cls-pop').click(function(){
-        $('.pops').fadeOut();
-      $('body').css('overflow', 'auto');
-    });
-  }
-  
-})
+
 // if($(window).width() <= 480 ){
 //    $("#type").on("click", function(evt){
 //      $(".pops").show();
@@ -575,4 +524,56 @@ function removeOptions(element) {
     }
 }
 
+  $(document).ready(function(){
+   
+  if($(window).width() <= 480 ){
+     
+          $("#carform > div").on('mousedown',evt => {
+      
+      evt.preventDefault()
+    
+    })
+  	  $('#carform > div').click(function(evt){
+        
+        $('.pops').fadeIn();
+        $('body').css('overflow', 'hidden');
+        $('.pops').click(evt => {
+        	
+            
+          	  if(evt.target.dataset.form === "#type"){
+         document.getElementById("pops-options").innerHTML = ""
+        }
+            $(`${evt.target.dataset.form}`).val(evt.target.dataset.value)
+          $(`${evt.target.dataset.form}`).change();
+        
+        })
+        
+           if(evt.target.id === "year"){
+  
+     
+     
+         document.getElementById("pops-options").innerHTML = ""
+      $.ajax({
+    url: "https://api.carcovers.com/getCars.php?type=" + selected.replace(/-/g, " "),
+    type: "GET",
+    dataType: "json",
+    success: function (data) {
+      console.log("API getCars Data Result:",data);
+      
+      console.log(" selector change test4")
+      carTypeChange(data);
+    }
+  });
+    
+    }
+    });
+ 
+    
+    $('.cls-pop').click(function(){
+        $('.pops').fadeOut();
+      $('body').css('overflow', 'auto');
+    });
+  }
+  
+})
 
