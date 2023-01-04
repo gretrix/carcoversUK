@@ -574,8 +574,7 @@ function removeOptions(element) {
      
   	  $('#carform > div').click(function(evt){
          
-        $('.pops').fadeIn();
-        $('body').css('overflow', 'hidden');
+       
         $('.pops').click(evt => {
         	console.log("test dataset",evt.target.dataset)
            if(evt.target.dataset.form == "#passed"){
