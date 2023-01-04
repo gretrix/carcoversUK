@@ -109,7 +109,7 @@ function removeOptions(element) {
 }
 
   $(document).ready(function(){
-  if($("#type")){
+  if($("#type")[0].style.display == ""){
     console.log("TYPE IS HERE BUT IS IT HIDDEN?")
   }
   if($(window).width() <= 480 ){
